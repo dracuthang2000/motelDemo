@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8dd4d3e8b786492d87cae7b3f2fc19ed" Name="Diagram1">
+        <EntityTypeShape EntityType="motel_manager_demoModel.BILL" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="motel_manager_demoModel.CUSTOMER" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="motel_manager_demoModel.MOTELROOM" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="motel_manager_demoModel.PARTICURSERVICE" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="motel_manager_demoModel.RENTINFO" Width="1.5" PointX="8.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="motel_manager_demoModel.ROLE" Width="1.5" PointX="1.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="motel_manager_demoModel.ROMERANK" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="motel_manager_demoModel.SERVIECE" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="motel_manager_demoModel.STAFF" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="motel_manager_demoModel.sysdiagram" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="motel_manager_demoModel.USER" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <AssociationConnector Association="motel_manager_demoModel.FK_BILL_MOTELROOM" ManuallyRouted="false" />
+        <AssociationConnector Association="motel_manager_demoModel.FK_BILL_STAFF" ManuallyRouted="false" />
+        <AssociationConnector Association="motel_manager_demoModel.FK_PARTICURSERVICE_BILL" ManuallyRouted="false" />
+        <AssociationConnector Association="motel_manager_demoModel.FK_RENTINFO_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="motel_manager_demoModel.FK_MOTELROOM_ROMERANK" ManuallyRouted="false" />
+        <AssociationConnector Association="motel_manager_demoModel.FK_RENTINFO_MOTELROOM" ManuallyRouted="false" />
+        <AssociationConnector Association="motel_manager_demoModel.FK_PARTICURSERVICE_SERVIECE" ManuallyRouted="false" />
+        <AssociationConnector Association="motel_manager_demoModel.FK_USER_ROLE" ManuallyRouted="false" />
+        <AssociationConnector Association="motel_manager_demoModel.FK_STAFF_USER" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

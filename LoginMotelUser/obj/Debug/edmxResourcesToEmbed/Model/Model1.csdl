@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="motel_manager_demoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BILL">
+    <Key>
+      <PropertyRef Name="idBill" />
+    </Key>
+    <Property Name="idBill" Type="Int32" Nullable="false" />
+    <Property Name="idRoom" Type="Int32" />
+    <Property Name="idStaff" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Paid" Type="Boolean" />
+    <NavigationProperty Name="MOTELROOM" Relationship="Self.FK_BILL_MOTELROOM" FromRole="BILL" ToRole="MOTELROOM" />
+    <NavigationProperty Name="STAFF" Relationship="Self.FK_BILL_STAFF" FromRole="BILL" ToRole="STAFF" />
+    <NavigationProperty Name="PARTICURSERVICEs" Relationship="Self.FK_PARTICURSERVICE_BILL" FromRole="BILL" ToRole="PARTICURSERVICE" />
+  </EntityType>
+  <EntityType Name="CUSTOMER">
+    <Key>
+      <PropertyRef Name="idCard" />
+    </Key>
+    <Property Name="idCard" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Sexual" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="RENTINFOes" Relationship="Self.FK_RENTINFO_CUSTOMER" FromRole="CUSTOMER" ToRole="RENTINFO" />
+  </EntityType>
+  <EntityType Name="MOTELROOM">
+    <Key>
+      <PropertyRef Name="idRoom" />
+    </Key>
+    <Property Name="idRoom" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="roomName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="State" Type="Boolean" />
+    <Property Name="idRoomRank" Type="Int32" />
+    <Property Name="Range" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="BILLs" Relationship="Self.FK_BILL_MOTELROOM" FromRole="MOTELROOM" ToRole="BILL" />
+    <NavigationProperty Name="ROMERANK" Relationship="Self.FK_MOTELROOM_ROMERANK" FromRole="MOTELROOM" ToRole="ROMERANK" />
+    <NavigationProperty Name="RENTINFOes" Relationship="Self.FK_RENTINFO_MOTELROOM" FromRole="MOTELROOM" ToRole="RENTINFO" />
+  </EntityType>
+  <EntityType Name="PARTICURSERVICE">
+    <Key>
+      <PropertyRef Name="idBill" />
+      <PropertyRef Name="idService" />
+    </Key>
+    <Property Name="idBill" Type="Int32" Nullable="false" />
+    <Property Name="oldIndex" Type="Int32" />
+    <Property Name="newIndex" Type="Int32" />
+    <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="idService" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BILL" Relationship="Self.FK_PARTICURSERVICE_BILL" FromRole="PARTICURSERVICE" ToRole="BILL" />
+    <NavigationProperty Name="SERVIECE" Relationship="Self.FK_PARTICURSERVICE_SERVIECE" FromRole="PARTICURSERVICE" ToRole="SERVIECE" />
+  </EntityType>
+  <EntityType Name="RENTINFO">
+    <Key>
+      <PropertyRef Name="idCarCus" />
+      <PropertyRef Name="idRoom" />
+    </Key>
+    <Property Name="idCarCus" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="idRoom" Type="Int32" Nullable="false" />
+    <Property Name="checkInDate" Type="DateTime" Precision="3" />
+    <Property Name="checkOutDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_RENTINFO_CUSTOMER" FromRole="RENTINFO" ToRole="CUSTOMER" />
+    <NavigationProperty Name="MOTELROOM" Relationship="Self.FK_RENTINFO_MOTELROOM" FromRole="RENTINFO" ToRole="MOTELROOM" />
+  </EntityType>
+  <EntityType Name="ROLE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="USERs" Relationship="Self.FK_USER_ROLE" FromRole="ROLE" ToRole="USER" />
+  </EntityType>
+  <EntityType Name="ROMERANK">
+    <Key>
+      <PropertyRef Name="idRomRank" />
+    </Key>
+    <Property Name="idRomRank" Type="Int32" Nullable="false" />
+    <Property Name="Rank" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="About" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Deposits" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="MOTELROOMs" Relationship="Self.FK_MOTELROOM_ROMERANK" FromRole="ROMERANK" ToRole="MOTELROOM" />
+  </EntityType>
+  <EntityType Name="SERVIECE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nameService" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="PARTICURSERVICEs" Relationship="Self.FK_PARTICURSERVICE_SERVIECE" FromRole="SERVIECE" ToRole="PARTICURSERVICE" />
+  </EntityType>
+  <EntityType Name="STAFF">
+    <Key>
+      <PropertyRef Name="idStaff" />
+    </Key>
+    <Property Name="idStaff" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BILLs" Relationship="Self.FK_BILL_STAFF" FromRole="STAFF" ToRole="BILL" />
+    <NavigationProperty Name="USER" Relationship="Self.FK_STAFF_USER" FromRole="STAFF" ToRole="USER" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="userName" />
+    </Key>
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idRole" Type="Int32" />
+    <NavigationProperty Name="ROLE" Relationship="Self.FK_USER_ROLE" FromRole="USER" ToRole="ROLE" />
+    <NavigationProperty Name="STAFFs" Relationship="Self.FK_STAFF_USER" FromRole="USER" ToRole="STAFF" />
+  </EntityType>
+  <Association Name="FK_BILL_MOTELROOM">
+    <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="0..1" />
+    <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOTELROOM">
+        <PropertyRef Name="idRoom" />
+      </Principal>
+      <Dependent Role="BILL">
+        <PropertyRef Name="idRoom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BILL_STAFF">
+    <End Role="STAFF" Type="Self.STAFF" Multiplicity="0..1" />
+    <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STAFF">
+        <PropertyRef Name="idStaff" />
+      </Principal>
+      <Dependent Role="BILL">
+        <PropertyRef Name="idStaff" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PARTICURSERVICE_BILL">
+    <End Role="BILL" Type="Self.BILL" Multiplicity="1" />
+    <End Role="PARTICURSERVICE" Type="Self.PARTICURSERVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BILL">
+        <PropertyRef Name="idBill" />
+      </Principal>
+      <Dependent Role="PARTICURSERVICE">
+        <PropertyRef Name="idBill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RENTINFO_CUSTOMER">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+    <End Role="RENTINFO" Type="Self.RENTINFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="idCard" />
+      </Principal>
+      <Dependent Role="RENTINFO">
+        <PropertyRef Name="idCarCus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MOTELROOM_ROMERANK">
+    <End Role="ROMERANK" Type="Self.ROMERANK" Multiplicity="0..1" />
+    <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROMERANK">
+        <PropertyRef Name="idRomRank" />
+      </Principal>
+      <Dependent Role="MOTELROOM">
+        <PropertyRef Name="idRoomRank" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RENTINFO_MOTELROOM">
+    <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="1" />
+    <End Role="RENTINFO" Type="Self.RENTINFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOTELROOM">
+        <PropertyRef Name="idRoom" />
+      </Principal>
+      <Dependent Role="RENTINFO">
+        <PropertyRef Name="idRoom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PARTICURSERVICE_SERVIECE">
+    <End Role="SERVIECE" Type="Self.SERVIECE" Multiplicity="1" />
+    <End Role="PARTICURSERVICE" Type="Self.PARTICURSERVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SERVIECE">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PARTICURSERVICE">
+        <PropertyRef Name="idService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_ROLE">
+    <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="USER" Type="Self.USER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROLE">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="USER">
+        <PropertyRef Name="idRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STAFF_USER">
+    <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+    <End Role="STAFF" Type="Self.STAFF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="userName" />
+      </Principal>
+      <Dependent Role="STAFF">
+        <PropertyRef Name="userName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="motel_manager_demoEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BILLs" EntityType="Self.BILL" />
+    <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+    <EntitySet Name="MOTELROOMs" EntityType="Self.MOTELROOM" />
+    <EntitySet Name="PARTICURSERVICEs" EntityType="Self.PARTICURSERVICE" />
+    <EntitySet Name="RENTINFOes" EntityType="Self.RENTINFO" />
+    <EntitySet Name="ROLEs" EntityType="Self.ROLE" />
+    <EntitySet Name="ROMERANKs" EntityType="Self.ROMERANK" />
+    <EntitySet Name="SERVIECEs" EntityType="Self.SERVIECE" />
+    <EntitySet Name="STAFFs" EntityType="Self.STAFF" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="USERs" EntityType="Self.USER" />
+    <AssociationSet Name="FK_BILL_MOTELROOM" Association="Self.FK_BILL_MOTELROOM">
+      <End Role="MOTELROOM" EntitySet="MOTELROOMs" />
+      <End Role="BILL" EntitySet="BILLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BILL_STAFF" Association="Self.FK_BILL_STAFF">
+      <End Role="STAFF" EntitySet="STAFFs" />
+      <End Role="BILL" EntitySet="BILLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PARTICURSERVICE_BILL" Association="Self.FK_PARTICURSERVICE_BILL">
+      <End Role="BILL" EntitySet="BILLs" />
+      <End Role="PARTICURSERVICE" EntitySet="PARTICURSERVICEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RENTINFO_CUSTOMER" Association="Self.FK_RENTINFO_CUSTOMER">
+      <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+      <End Role="RENTINFO" EntitySet="RENTINFOes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MOTELROOM_ROMERANK" Association="Self.FK_MOTELROOM_ROMERANK">
+      <End Role="ROMERANK" EntitySet="ROMERANKs" />
+      <End Role="MOTELROOM" EntitySet="MOTELROOMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RENTINFO_MOTELROOM" Association="Self.FK_RENTINFO_MOTELROOM">
+      <End Role="MOTELROOM" EntitySet="MOTELROOMs" />
+      <End Role="RENTINFO" EntitySet="RENTINFOes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PARTICURSERVICE_SERVIECE" Association="Self.FK_PARTICURSERVICE_SERVIECE">
+      <End Role="SERVIECE" EntitySet="SERVIECEs" />
+      <End Role="PARTICURSERVICE" EntitySet="PARTICURSERVICEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_ROLE" Association="Self.FK_USER_ROLE">
+      <End Role="ROLE" EntitySet="ROLEs" />
+      <End Role="USER" EntitySet="USERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STAFF_USER" Association="Self.FK_STAFF_USER">
+      <End Role="USER" EntitySet="USERs" />
+      <End Role="STAFF" EntitySet="STAFFs" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(motel_manager_demoModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(motel_manager_demoModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
