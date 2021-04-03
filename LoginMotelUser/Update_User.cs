@@ -22,8 +22,6 @@ namespace LoginMotelUser
         {
             // TODO: This line of code loads data into the 'motel_manager_demoDataSet1.ROLE' table. You can move, or remove it, as needed.
             this.rOLETableAdapter.Fill(this.motel_manager_demoDataSet1.ROLE);
-            // TODO: This line of code loads data into the 'motel_manager_demoDataSet1.USER' table. You can move, or remove it, as needed.
-            //this.uSERTableAdapter.Fill(this.motel_manager_demoDataSet1.USER);
             var a = us.USERs.Join(us.ROLEs, u => u.idRole, r => r.id, (u, r) => new { u, r }).Where(ur => ur.r.id == ur.u.idRole)
     .Select(ur => new { ur.u.userName, ur.u.password, ur.r.Name }).ToList();
             this.uSERBindingSource.DataSource = a;
