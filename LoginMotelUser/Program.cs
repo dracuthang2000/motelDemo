@@ -14,8 +14,8 @@ namespace LoginMotelUser
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            Application.EnableVisualStyles();//566asd
+            Application.SetCompatibleTextRenderingDefault(false);//xxxxxxxxxxxxxxx
         begin:
             Form1 f1 = new Form1();
             Admin_Formcs ad = new Admin_Formcs();
