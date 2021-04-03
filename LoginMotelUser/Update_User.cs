@@ -67,6 +67,10 @@ namespace LoginMotelUser
                 if (d == DialogResult.Yes)
                 {
                     us.SaveChanges();
+                    textPassword.Text = "";
+                    textUsername.Text = "";
+                    comboBoxRole.SelectedIndex = 0;
+                    this.Update_User_Load(sender, e);
                 }
             }
         }
@@ -99,6 +103,9 @@ namespace LoginMotelUser
                     if (user.userName.Equals(checkUsername.ToLower()))
                     {
                         MessageBox.Show("This user name is active!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textPassword.Text = "";
+                        textUsername.Text = "";
+                        comboBoxRole.SelectedIndex = 0;
                     }
                     else
                     {
@@ -108,6 +115,10 @@ namespace LoginMotelUser
                         if (d == DialogResult.Yes)
                         {
                             us.SaveChanges();
+                            textPassword.Text = "";
+                            textUsername.Text = "";
+                            comboBoxRole.SelectedIndex = 0;
+                            this.Update_User_Load(sender, e);
                         }
                     }
                 }
