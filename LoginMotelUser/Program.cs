@@ -30,6 +30,7 @@ namespace LoginMotelUser
                 {
                     ad.checkRole = false;
                 }
+                ad.checkUsername = f1.checkUsername;
                 Application.Run(ad);                
             }
             if(ad.isClose==true)

@@ -17,7 +17,7 @@ namespace LoginMotelUser
             InitializeComponent();
         }
         LoginMotelUser.Model.motel_manager_demoEntities1 us = new Model.motel_manager_demoEntities1();
-
+        public String checkUsername { get; set; }
         private void Update_User_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'motel_manager_demoDataSet1.ROLE' table. You can move, or remove it, as needed.
@@ -67,7 +67,6 @@ namespace LoginMotelUser
                 if (d == DialogResult.Yes)
                 {
                     us.SaveChanges();
-                    this.Close();
                 }
             }
         }
@@ -97,15 +96,22 @@ namespace LoginMotelUser
             {
                 foreach (var user in users)
                 {
-                    us.USERs.Remove(user);
+                    if (user.userName.Equals(checkUsername.ToLower()))
+                    {
+                        MessageBox.Show("This user name is active!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        us.USERs.Remove(user);
+                        DialogResult d;
+                        d = MessageBox.Show("Are you sure ?", "DELETE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (d == DialogResult.Yes)
+                        {
+                            us.SaveChanges();
+                        }
+                    }
                 }
-                DialogResult d;
-                d = MessageBox.Show("Are you sure ?", "DELETE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (d == DialogResult.Yes)
-                {
-                    us.SaveChanges();
-                    this.Close();
-                }
+
             }
         }
     }

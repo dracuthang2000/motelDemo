@@ -23,6 +23,7 @@ namespace LoginMotelUser
         }
         public bool isClose { get; set; }
         public bool checkRole { get; set; }
+        public String checkUsername { get; set; }
 
         //public 
         private void Admin_Formcs_Close(object sender, FormClosedEventArgs e)
@@ -159,6 +160,7 @@ namespace LoginMotelUser
         private void updateUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Update_User udU = new Update_User();
+            udU.checkUsername = this.checkUsername;
             udU.ShowDialog();
             this.Admin_Formcs_Load(sender,e);
         }

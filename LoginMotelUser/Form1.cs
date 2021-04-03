@@ -18,6 +18,7 @@ namespace LoginMotelUser
         LoginMotelUser.Model.motel_manager_demoEntities1 us = new Model.motel_manager_demoEntities1();
         public bool isLoggedIn { get; set; }
         public bool checkRole { get; set; }
+        public String checkUsername { get; set; }
 
         public static Image resizeImage(Image image, int new_height, int new_width)
         {
@@ -61,6 +62,7 @@ namespace LoginMotelUser
                 }
                 else
                 {
+                    checkUsername = userName.Text;
                     if (u.ROLE.Name.Equals("admin"))
                     {
                         checkRole = true;
