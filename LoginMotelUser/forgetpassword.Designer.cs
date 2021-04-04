@@ -180,7 +180,7 @@
             this.panelPassword.Controls.Add(this.textVerifyPassword);
             this.panelPassword.Controls.Add(this.textPassword);
             this.panelPassword.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panelPassword.Location = new System.Drawing.Point(36, 72);
+            this.panelPassword.Location = new System.Drawing.Point(492, 95);
             this.panelPassword.Name = "panelPassword";
             this.panelPassword.Size = new System.Drawing.Size(445, 276);
             this.panelPassword.TabIndex = 6;
@@ -276,6 +276,7 @@
             this.textPassword.PasswordChar = '*';
             this.textPassword.Size = new System.Drawing.Size(146, 22);
             this.textPassword.TabIndex = 1;
+            this.textPassword.TextChanged += new System.EventHandler(this.textPassword_TextChanged);
             // 
             // incorrectPass
             // 
