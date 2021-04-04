@@ -54,18 +54,19 @@ namespace LoginMotelUser
 
             if (userName.Count == 0)
             {
-                MessageBox.Show("This account does not exist!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("This account does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                var uN = textUsername.Text;
-                var user = us.USERs.Single(u => u.userName.Equals(uN));
-                user.userName = textUsername.Text.Trim();
-                user.password = textPassword.Text.Trim();
-                user.idRole = Int32.Parse(comboBoxRole.GetItemText(comboBoxRole.SelectedValue));
+               
                 DialogResult d = MessageBox.Show("Are you sure ?", "UPDATE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (d == DialogResult.Yes)
                 {
+                    var uN = textUsername.Text;
+                    var user = us.USERs.Single(u => u.userName.Equals(uN));
+                    user.userName = textUsername.Text.Trim();
+                    user.password = textPassword.Text.Trim();
+                    user.idRole = Int32.Parse(comboBoxRole.GetItemText(comboBoxRole.SelectedValue));
                     us.SaveChanges();
                     textPassword.Text = "";
                     textUsername.Text = "";
@@ -109,11 +110,11 @@ namespace LoginMotelUser
                     }
                     else
                     {
-                        us.USERs.Remove(user);
                         DialogResult d;
                         d = MessageBox.Show("Are you sure ?", "DELETE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (d == DialogResult.Yes)
                         {
+                            us.USERs.Remove(user);
                             us.SaveChanges();
                             textPassword.Text = "";
                             textUsername.Text = "";

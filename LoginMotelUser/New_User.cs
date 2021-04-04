@@ -19,6 +19,12 @@ namespace LoginMotelUser
         LoginMotelUser.Model.motel_manager_demoEntities1 us = new Model.motel_manager_demoEntities1();
         private void New_User_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'motel_manager_demoDataSet1.USER' table. You can move, or remove it, as needed.
+            // this.uSERTableAdapter.Fill(this.motel_manager_demoDataSet1.USER);
+            var query = (from u in us.USERs
+                     select new { u.userName, u.password, u.ROLE.Name }).ToList();
+            this.uSERBindingSource.DataSource = query;
+
             // TODO: This line of code loads data into the 'motel_manager_demoDataSet1.ROLE' table. You can move, or remove it, as needed.
             this.rOLETableAdapter.Fill(this.motel_manager_demoDataSet1.ROLE);
         }
@@ -30,21 +36,31 @@ namespace LoginMotelUser
                          select u).ToList();
             if (users.Count != 0)
             {
-                MessageBox.Show("This account is exist!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("This account is exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (textUsername.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("UserName is not null", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else if (textPassword.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Password is not null", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                us.USERs.Add(new Model.USER
-                {
-                    userName = textUsername.Text.Trim().ToLower(),
-                    password = textPassword.Text.Trim(),
-                    idRole = Int32.Parse(roleComboBox.GetItemText(roleComboBox.SelectedValue).Trim())
-                });
                 DialogResult d = MessageBox.Show("Are you sure ?", "INSERT MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (d == DialogResult.Yes)
                 {
+                    us.USERs.Add(new Model.USER
+                    {
+                        userName = textUsername.Text.Trim().ToLower(),
+                        password = textPassword.Text.Trim(),
+                        idRole = Int32.Parse(roleComboBox.GetItemText(roleComboBox.SelectedValue).Trim())
+                    });
                     us.SaveChanges();
-                    this.Close();
+                    this.New_User_Load(sender, e);
+                    textPassword.Text = "";
+                    textUsername.Text = "";
+                    roleComboBox.SelectedIndex = 0;
                 }
             }
         }
