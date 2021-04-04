@@ -9,7 +9,6 @@ C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUs
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.exe
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.pdb
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.Admin_Formcs.resources
-C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.createpassword.resources
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\EntityFramework.dll
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\EntityFramework.xml
@@ -17,3 +16,4 @@ C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\EntityFramew
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.csproj.CopyComplete
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.New_User.resources
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.Update_User.resources
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.forgetpassword.resources

@@ -79,8 +79,8 @@ namespace LoginMotelUser
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //createpassword f2 = new createpassword(this);
-            //f2.show();
+            forgetpassword fg = new forgetpassword();
+            fg.ShowDialog();
         }
         private void F2_FormClosed(object sender, FormClosedEventArgs e)
         {
