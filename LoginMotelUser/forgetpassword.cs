@@ -141,7 +141,15 @@ namespace LoginMotelUser
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult d = MessageBox.Show("Are you sure ?", "UPDATE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (d == DialogResult.Yes)
+            {
+                Model.motel_manager_demoEntities us = new Model.motel_manager_demoEntities();
+                var user = us.USERs.Single(u => u.userName.Equals(textUsername.Text));
+                user.password = textPassword.Text.Trim();
+                us.SaveChanges();
+                this.Close();
+            }
         }
     }
 }
