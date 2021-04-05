@@ -15,7 +15,7 @@ namespace LoginMotelUser
     /// </summary>
     public partial class Admin_Formcs : Form
     {
-        LoginMotelUser.Model.motel_manager_demoEntities1 us = new Model.motel_manager_demoEntities1();
+        LoginMotelUser.Model.motel_manager_demoEntities us = new Model.motel_manager_demoEntities();
         public Admin_Formcs()
         {
             InitializeComponent();

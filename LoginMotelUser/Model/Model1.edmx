@@ -89,7 +89,7 @@
           </Key>
           <Property Name="idStaff" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="dateOfBirth" Type="datetime" />
+          <Property Name="dateOfBirth" Type="date" />
           <Property Name="Address" Type="nvarchar" MaxLength="150" />
           <Property Name="phone" Type="nchar" MaxLength="11" />
           <Property Name="userName" Type="varchar" MaxLength="50" />
@@ -109,7 +109,7 @@
             <PropertyRef Name="userName" />
           </Key>
           <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="idRole" Type="int" />
         </EntityType>
         <Association Name="FK_BILL_MOTELROOM">
@@ -405,7 +405,7 @@
           </Key>
           <Property Name="idStaff" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="dateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="dateOfBirth" Type="DateTime" Precision="0" />
           <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
           <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -427,7 +427,7 @@
             <PropertyRef Name="userName" />
           </Key>
           <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="idRole" Type="Int32" />
           <NavigationProperty Name="ROLE" Relationship="Self.FK_USER_ROLE" FromRole="USER" ToRole="ROLE" />
           <NavigationProperty Name="STAFFs" Relationship="Self.FK_STAFF_USER" FromRole="USER" ToRole="STAFF" />
@@ -542,7 +542,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="motel_manager_demoEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="motel_manager_demoEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BILLs" EntityType="Self.BILL" />
           <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
           <EntitySet Name="MOTELROOMs" EntityType="Self.MOTELROOM" />
@@ -637,7 +637,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="motel_manager_demoModelStoreContainer" CdmEntityContainer="motel_manager_demoEntities1">
+        <EntityContainerMapping StorageEntityContainer="motel_manager_demoModelStoreContainer" CdmEntityContainer="motel_manager_demoEntities">
           <EntitySetMapping Name="BILLs">
             <EntityTypeMapping TypeName="motel_manager_demoModel.BILL">
               <MappingFragment StoreEntitySet="BILL">

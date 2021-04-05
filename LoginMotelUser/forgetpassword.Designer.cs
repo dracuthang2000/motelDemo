@@ -41,17 +41,17 @@
             this.checkIdanddate = new System.Windows.Forms.Label();
             this.buttonNext = new System.Windows.Forms.Button();
             this.panelPassword = new System.Windows.Forms.Panel();
+            this.correctPass = new System.Windows.Forms.Panel();
+            this.incorrectPass = new System.Windows.Forms.Panel();
+            this.noteyesnewpass = new System.Windows.Forms.Panel();
             this.eyesVerifypass = new System.Windows.Forms.Panel();
             this.eyeNewpassword = new System.Windows.Forms.Panel();
-            this.noteyesnewpass = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.buttonOk = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textVerifyPassword = new System.Windows.Forms.TextBox();
             this.textPassword = new System.Windows.Forms.TextBox();
-            this.incorrectPass = new System.Windows.Forms.Panel();
-            this.correctPass = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panelPassword.SuspendLayout();
             this.SuspendLayout();
@@ -180,11 +180,40 @@
             this.panelPassword.Controls.Add(this.textVerifyPassword);
             this.panelPassword.Controls.Add(this.textPassword);
             this.panelPassword.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panelPassword.Location = new System.Drawing.Point(492, 95);
+            this.panelPassword.Location = new System.Drawing.Point(36, 72);
             this.panelPassword.Name = "panelPassword";
             this.panelPassword.Size = new System.Drawing.Size(445, 276);
             this.panelPassword.TabIndex = 6;
             this.panelPassword.Visible = false;
+            // 
+            // correctPass
+            // 
+            this.correctPass.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("correctPass.BackgroundImage")));
+            this.correctPass.Location = new System.Drawing.Point(370, 113);
+            this.correctPass.Name = "correctPass";
+            this.correctPass.Size = new System.Drawing.Size(25, 22);
+            this.correctPass.TabIndex = 12;
+            this.correctPass.Visible = false;
+            // 
+            // incorrectPass
+            // 
+            this.incorrectPass.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("incorrectPass.BackgroundImage")));
+            this.incorrectPass.Location = new System.Drawing.Point(370, 113);
+            this.incorrectPass.Name = "incorrectPass";
+            this.incorrectPass.Size = new System.Drawing.Size(25, 22);
+            this.incorrectPass.TabIndex = 12;
+            this.incorrectPass.Visible = false;
+            // 
+            // noteyesnewpass
+            // 
+            this.noteyesnewpass.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.noteyesnewpass.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("noteyesnewpass.BackgroundImage")));
+            this.noteyesnewpass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.noteyesnewpass.Location = new System.Drawing.Point(339, 55);
+            this.noteyesnewpass.Name = "noteyesnewpass";
+            this.noteyesnewpass.Size = new System.Drawing.Size(25, 20);
+            this.noteyesnewpass.TabIndex = 10;
+            this.noteyesnewpass.Click += new System.EventHandler(this.noteyesnewpass_Click);
             // 
             // eyesVerifypass
             // 
@@ -210,17 +239,6 @@
             this.eyeNewpassword.Visible = false;
             this.eyeNewpassword.Click += new System.EventHandler(this.eyeNewpassword_Click);
             // 
-            // noteyesnewpass
-            // 
-            this.noteyesnewpass.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.noteyesnewpass.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("noteyesnewpass.BackgroundImage")));
-            this.noteyesnewpass.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.noteyesnewpass.Location = new System.Drawing.Point(339, 55);
-            this.noteyesnewpass.Name = "noteyesnewpass";
-            this.noteyesnewpass.Size = new System.Drawing.Size(25, 20);
-            this.noteyesnewpass.TabIndex = 10;
-            this.noteyesnewpass.Click += new System.EventHandler(this.noteyesnewpass_Click);
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonShadow;
@@ -241,6 +259,7 @@
             this.buttonOk.TabIndex = 7;
             this.buttonOk.Text = "OK";
             this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // label7
             // 
@@ -277,24 +296,6 @@
             this.textPassword.Size = new System.Drawing.Size(146, 22);
             this.textPassword.TabIndex = 1;
             this.textPassword.TextChanged += new System.EventHandler(this.textPassword_TextChanged);
-            // 
-            // incorrectPass
-            // 
-            this.incorrectPass.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("incorrectPass.BackgroundImage")));
-            this.incorrectPass.Location = new System.Drawing.Point(370, 113);
-            this.incorrectPass.Name = "incorrectPass";
-            this.incorrectPass.Size = new System.Drawing.Size(25, 22);
-            this.incorrectPass.TabIndex = 12;
-            this.incorrectPass.Visible = false;
-            // 
-            // correctPass
-            // 
-            this.correctPass.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("correctPass.BackgroundImage")));
-            this.correctPass.Location = new System.Drawing.Point(370, 113);
-            this.correctPass.Name = "correctPass";
-            this.correctPass.Size = new System.Drawing.Size(25, 22);
-            this.correctPass.TabIndex = 12;
-            this.correctPass.Visible = false;
             // 
             // forgetpassword
             // 

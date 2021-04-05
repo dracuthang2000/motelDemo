@@ -16,7 +16,7 @@ namespace LoginMotelUser
         {
             InitializeComponent();
         }
-        LoginMotelUser.Model.motel_manager_demoEntities1 us = new Model.motel_manager_demoEntities1();
+        LoginMotelUser.Model.motel_manager_demoEntities us = new Model.motel_manager_demoEntities();
         public String checkUsername { get; set; }
         private void Update_User_Load(object sender, EventArgs e)
         {

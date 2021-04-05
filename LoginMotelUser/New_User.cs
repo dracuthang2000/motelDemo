@@ -16,7 +16,7 @@ namespace LoginMotelUser
         {
             InitializeComponent();
         }
-        LoginMotelUser.Model.motel_manager_demoEntities1 us = new Model.motel_manager_demoEntities1();
+        LoginMotelUser.Model.motel_manager_demoEntities us = new Model.motel_manager_demoEntities();
         private void New_User_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'motel_manager_demoDataSet1.USER' table. You can move, or remove it, as needed.

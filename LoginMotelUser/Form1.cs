@@ -15,7 +15,7 @@ namespace LoginMotelUser
             this.MaximizeBox =false;
         }
 
-        LoginMotelUser.Model.motel_manager_demoEntities1 us = new Model.motel_manager_demoEntities1();
+        LoginMotelUser.Model.motel_manager_demoEntities us = new Model.motel_manager_demoEntities();
         public bool isLoggedIn { get; set; }
         public bool checkRole { get; set; }
         public String checkUsername { get; set; }

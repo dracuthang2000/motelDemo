@@ -98,7 +98,7 @@
     </Key>
     <Property Name="idStaff" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="dateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="dateOfBirth" Type="DateTime" Precision="0" />
     <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
     <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -120,7 +120,7 @@
       <PropertyRef Name="userName" />
     </Key>
     <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="idRole" Type="Int32" />
     <NavigationProperty Name="ROLE" Relationship="Self.FK_USER_ROLE" FromRole="USER" ToRole="ROLE" />
     <NavigationProperty Name="STAFFs" Relationship="Self.FK_STAFF_USER" FromRole="USER" ToRole="STAFF" />
@@ -235,7 +235,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="motel_manager_demoEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="motel_manager_demoEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="BILLs" EntityType="Self.BILL" />
     <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
     <EntitySet Name="MOTELROOMs" EntityType="Self.MOTELROOM" />

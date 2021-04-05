@@ -18,7 +18,7 @@ namespace LoginMotelUser
             InitializeComponent();
             opener = ParentForm;
         }
-        LoginMotelUser.Model.motel_manager_demoEntities1 stf = new Model.motel_manager_demoEntities1();
+        LoginMotelUser.Model.motel_manager_demoEntities stf = new Model.motel_manager_demoEntities();
         private void createpassword_Load(object sender, EventArgs e)
         {
 
@@ -38,9 +38,18 @@ namespace LoginMotelUser
                 checkUsername.Visible = false;
                 foreach(var st in uN)
                 {
-                    if (!(st.idStaff.Equals(text_idCard)))
+                    //String date = st.dateOfBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                    String date = st.dateOfBirth.Value.ToString("dd/MM/yyyy");
+                 
+                    if (!(st.idStaff.Trim().Equals(text_idCard.Text))||!(st.dateOfBirth.Value.ToString("dd/MM/yyyy").Equals(textdate.Text)))
                     {
-
+                        checkIdanddate.Visible = true;
+                    }
+                    else
+                    {
+                        checkIdanddate.Visible = false;
+                        panelPassword.Visible = true;
+                        panel1.Visible = false;
                     }
                 }
             }
@@ -128,6 +137,11 @@ namespace LoginMotelUser
                     buttonOk.Enabled = true;
                 }
             }
+        }
+
+        private void buttonOk_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

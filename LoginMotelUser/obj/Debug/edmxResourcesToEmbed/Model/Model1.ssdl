@@ -84,7 +84,7 @@
     </Key>
     <Property Name="idStaff" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
-    <Property Name="dateOfBirth" Type="datetime" />
+    <Property Name="dateOfBirth" Type="date" />
     <Property Name="Address" Type="nvarchar" MaxLength="150" />
     <Property Name="phone" Type="nchar" MaxLength="11" />
     <Property Name="userName" Type="varchar" MaxLength="50" />
@@ -104,7 +104,7 @@
       <PropertyRef Name="userName" />
     </Key>
     <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="idRole" Type="int" />
   </EntityType>
   <Association Name="FK_BILL_MOTELROOM">
