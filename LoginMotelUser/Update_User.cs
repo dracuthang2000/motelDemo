@@ -16,15 +16,17 @@ namespace LoginMotelUser
         {
             InitializeComponent();
         }
-        LoginMotelUser.Model.motel_manager_demoEntities us = new Model.motel_manager_demoEntities();
+        LoginMotelUser.Model.MotelManagerEntities us = new Model.MotelManagerEntities();
         public String checkUsername { get; set; }
         private void Update_User_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'motelManagerDataSet.ROLE' table. You can move, or remove it, as needed.
+            this.rOLETableAdapter1.Fill(this.motelManagerDataSet.ROLE);
+            // TODO: This line of code loads data into the 'motelManagerDataSet.USER' table. You can move, or remove it, as needed.
             // TODO: This line of code loads data into the 'motel_manager_demoDataSet1.ROLE' table. You can move, or remove it, as needed.
-            this.rOLETableAdapter.Fill(this.motel_manager_demoDataSet1.ROLE);
-            var a = us.USERs.Join(us.ROLEs, u => u.idRole, r => r.id, (u, r) => new { u, r }).Where(ur => ur.r.id == ur.u.idRole)
-    .Select(ur => new { ur.u.userName, ur.u.password, ur.r.Name }).ToList();
-            this.uSERBindingSource.DataSource = a;
+            var a = us.USERs.Join(us.ROLEs, u => u.IDRole, r => r.ID, (u, r) => new { u, r }).Where(ur => ur.r.ID == ur.u.IDRole)
+    .Select(ur => new { ur.u.UserName, ur.u.Password, ur.r.RoleName }).ToList();
+            this.uSERBindingSource1.DataSource = a;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -49,7 +51,7 @@ namespace LoginMotelUser
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             var userName = (from u in us.USERs
-                            where u.userName.Equals(textUsername.Text)
+                            where u.UserName.Equals(textUsername.Text)
                             select u).ToList();
 
             if (userName.Count == 0)
@@ -63,10 +65,10 @@ namespace LoginMotelUser
                 if (d == DialogResult.Yes)
                 {
                     var uN = textUsername.Text;
-                    var user = us.USERs.Single(u => u.userName.Equals(uN));
-                    user.userName = textUsername.Text.Trim();
-                    user.password = textPassword.Text.Trim();
-                    user.idRole = Int32.Parse(comboBoxRole.GetItemText(comboBoxRole.SelectedValue));
+                    var user = us.USERs.Single(u => u.UserName.Equals(uN));
+                    user.UserName = textUsername.Text.Trim();
+                    user.Password = textPassword.Text.Trim();
+                    user.IDRole = Int32.Parse(comboBoxRole.GetItemText(comboBoxRole.SelectedValue));
                     us.SaveChanges();
                     textPassword.Text = "";
                     textUsername.Text = "";
@@ -82,16 +84,16 @@ namespace LoginMotelUser
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            var a = us.USERs.Join(us.ROLEs, u => u.idRole, r => r.id, (u, r) => new { u, r })
-         .Where(ur => ur.r.id == ur.u.idRole && ur.u.userName.Contains(textBox1.Text) || ur.r.Name.Contains(textBox1.Text))
-         .Select(ur => new { ur.u.userName, ur.u.password, ur.r.Name }).ToList();
-            this.uSERBindingSource.DataSource = a;
+            var a = us.USERs.Join(us.ROLEs, u => u.IDRole, r => r.ID, (u, r) => new { u, r })
+         .Where(ur => ur.r.ID == ur.u.IDRole && ur.u.UserName.Contains(textBox1.Text) || ur.r.RoleName.Contains(textBox1.Text))
+         .Select(ur => new { ur.u.UserName, ur.u.Password, ur.r.RoleName }).ToList();
+            this.uSERBindingSource1.DataSource = a;
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             var users = (from u in us.USERs
-                         where u.userName.Equals(textUsername.Text)
+                         where u.UserName.Equals(textUsername.Text)
                          select u).ToList();
             if (users.Count == 0)
             {
@@ -101,7 +103,7 @@ namespace LoginMotelUser
             {
                 foreach (var user in users)
                 {
-                    if (user.userName.Equals(checkUsername.ToLower()))
+                    if (user.UserName.Equals(checkUsername.ToLower()))
                     {
                         MessageBox.Show("This user name is active!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         textPassword.Text = "";

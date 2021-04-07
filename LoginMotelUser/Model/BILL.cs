@@ -17,19 +17,19 @@ namespace LoginMotelUser.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BILL()
         {
-            this.PARTICURSERVICEs = new HashSet<PARTICURSERVICE>();
+            this.PARTICULARSERVICEs = new HashSet<PARTICULARSERVICE>();
         }
     
-        public int idBill { get; set; }
-        public Nullable<int> idRoom { get; set; }
-        public string idStaff { get; set; }
-        public Nullable<decimal> Total { get; set; }
-        public System.DateTime Date { get; set; }
+        public int ID { get; set; }
+        public Nullable<int> IDRoom { get; set; }
+        public string IDStaff { get; set; }
+        public Nullable<decimal> TotalMoney { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
         public Nullable<bool> Paid { get; set; }
     
         public virtual MOTELROOM MOTELROOM { get; set; }
         public virtual STAFF STAFF { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PARTICURSERVICE> PARTICURSERVICEs { get; set; }
+        public virtual ICollection<PARTICULARSERVICE> PARTICULARSERVICEs { get; set; }
     }
 }

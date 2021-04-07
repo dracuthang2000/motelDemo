@@ -12,18 +12,18 @@ namespace LoginMotelUser.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class ROLE
+    public partial class ROOMRANGE
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ROLE()
+        public ROOMRANGE()
         {
-            this.USERs = new HashSet<USER>();
+            this.MOTELROOMs = new HashSet<MOTELROOM>();
         }
     
         public int ID { get; set; }
-        public string RoleName { get; set; }
+        public string RangeName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<USER> USERs { get; set; }
+        public virtual ICollection<MOTELROOM> MOTELROOMs { get; set; }
     }
 }

@@ -117,17 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="idRole.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <metadata name="uSERBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>236, 22</value>
   </metadata>
-  <metadata name="uSERBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>287, 17</value>
+  <metadata name="motelManagerDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>14, 23</value>
   </metadata>
-  <metadata name="motel_manager_demoDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="rOLEBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>658, 17</value>
+  <metadata name="rOLEBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>207, 60</value>
   </metadata>
   <metadata name="label4.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -138,25 +135,31 @@
   <metadata name="buttonCancle.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="uSERTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>476, 17</value>
-  </metadata>
-  <metadata name="rOLETableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>845, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="panel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAFESURBVDhPzZS/S8NAGIYTdbCIYMFRcHNx0EXn/BMB85NwiwgubgWHZnVw0U3BRYpKxYKrugm6
-        iP5H+hx9B2NNPGgpPvDx9f3uuze53uW8qRDH8WqSJB3ygPyQpukVsVsUxZJa3AiCYA6DI+IZs50oipbJ
-        bfQKhvvkd8KovZmyLGeYfMuEQ6Q/rFYJw7DF+DXRUakezPaIY8la7Croe8J0S6VR7NvR8JZl2YJKjfBX
-        rGM6kByFwW0MzySdoP+FTZqXrMIgnvGBpBPM6eV5viZZZeKGdsnEuaQTGL7aXZesok35MMYsqtQID9+k
-        /07yd2gwNDodG3ofOegbKtXi03hD/HWw+5jd83tW5Xp+fnpE29bR3z+9HvFJXDqZWjBquhzsSk5k2rcv
-        MZw1Hj4PO/3/prqhLqwpuavyeMi0a+9OlSaJ530BrMWYqS9y1/oAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAURJREFUOE/N
+        lL9Lw0AYhhN1sIhgwVFwc3HQRef8EwHzk3CLCC5uBYdmdXDRTcFFikrFgqu6CbqI/kf6HH0HY008aCk+
+        8PH1/e67N7ne5bypEMfxapIkHfKA/JCm6RWxWxTFklrcCIJgDoMj4hmznSiKlslt9AqG++R3wqi9mbIs
+        Z5h8y4RDpD+sVgnDsMX4NdFRqR7M9ohjyVrsKuh7wnRLpVHs29HwlmXZgkqN8FesYzqQHIXBbQzPJJ2g
+        /4VNmpeswiCe8YGkE8zp5Xm+Jlll4oZ2ycS5pBMYvtpdl6yiTfkwxiyq1AgP36T/TvJ3aDA0Oh0beh85
+        6Bsq1eLTeEP8dbD7mN3ze1blen5+ekTb1tHfP70e8UlcOplaMGq6HOxKTmTaty8xnDUePg87/f+muqEu
+        rCm5q/J4yLRr706VJonnfQGsxZipL3LX+gAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="buttonDelete.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="motelManagerDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>14, 23</value>
+  </metadata>
+  <metadata name="uSERTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 60</value>
+  </metadata>
+  <metadata name="rOLEBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>207, 60</value>
+  </metadata>
+  <metadata name="rOLETableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>403, 60</value>
   </metadata>
 </root>

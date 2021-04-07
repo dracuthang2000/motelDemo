@@ -33,5 +33,16 @@ namespace LoginMotelUser.Properties {
                 return ((string)(this["motel_manager_demoConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-JF8UERR;Initial Catalog=MotelManager;User ID=sa;Password=1234" +
+            "56")]
+        public string MotelManagerConnectionString {
+            get {
+                return ((string)(this["MotelManagerConnectionString"]));
+            }
+        }
     }
 }

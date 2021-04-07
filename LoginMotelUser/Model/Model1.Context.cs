@@ -15,10 +15,10 @@ namespace LoginMotelUser.Model
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class motel_manager_demoEntities : DbContext
+    public partial class MotelManagerEntities : DbContext
     {
-        public motel_manager_demoEntities()
-            : base("name=motel_manager_demoEntities")
+        public MotelManagerEntities()
+            : base("name=MotelManagerEntities")
         {
         }
     
@@ -30,11 +30,12 @@ namespace LoginMotelUser.Model
         public virtual DbSet<BILL> BILLs { get; set; }
         public virtual DbSet<CUSTOMER> CUSTOMERs { get; set; }
         public virtual DbSet<MOTELROOM> MOTELROOMs { get; set; }
-        public virtual DbSet<PARTICURSERVICE> PARTICURSERVICEs { get; set; }
-        public virtual DbSet<RENTINFO> RENTINFOes { get; set; }
+        public virtual DbSet<PARTICULARSERVICE> PARTICULARSERVICEs { get; set; }
+        public virtual DbSet<REINTINFOR> REINTINFORs { get; set; }
         public virtual DbSet<ROLE> ROLEs { get; set; }
-        public virtual DbSet<ROMERANK> ROMERANKs { get; set; }
-        public virtual DbSet<SERVIECE> SERVIECEs { get; set; }
+        public virtual DbSet<ROOMRANGE> ROOMRANGEs { get; set; }
+        public virtual DbSet<ROOMRANK> ROOMRANKs { get; set; }
+        public virtual DbSet<SERVICE> SERVICEs { get; set; }
         public virtual DbSet<STAFF> STAFFs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<USER> USERs { get; set; }

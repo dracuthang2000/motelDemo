@@ -4,95 +4,103 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="motel_manager_demoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MotelManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BILL">
           <Key>
-            <PropertyRef Name="idBill" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="idBill" Type="int" Nullable="false" />
-          <Property Name="idRoom" Type="int" />
-          <Property Name="idStaff" Type="nchar" MaxLength="10" />
-          <Property Name="Total" Type="money" />
-          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDRoom" Type="int" />
+          <Property Name="IDStaff" Type="varchar" MaxLength="20" />
+          <Property Name="TotalMoney" Type="money" />
+          <Property Name="Date" Type="datetime" />
           <Property Name="Paid" Type="bit" />
         </EntityType>
         <EntityType Name="CUSTOMER">
           <Key>
-            <PropertyRef Name="idCard" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="idCard" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="dateOfBirth" Type="datetime" />
-          <Property Name="Address" Type="nvarchar" MaxLength="150" />
-          <Property Name="Phone" Type="nchar" MaxLength="10" />
-          <Property Name="Sexual" Type="nchar" MaxLength="10" />
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="NumberPhone" Type="varchar" MaxLength="20" />
+          <Property Name="Sexual" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="MOTELROOM">
           <Key>
-            <PropertyRef Name="idRoom" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="idRoom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="roomName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="State" Type="bit" />
-          <Property Name="idRoomRank" Type="int" />
-          <Property Name="Range" Type="nchar" MaxLength="10" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoomName" Type="nvarchar" MaxLength="50" />
+          <Property Name="StateRoom" Type="bit" />
+          <Property Name="IDRoomRank" Type="int" />
+          <Property Name="IDRoomRange" Type="int" />
         </EntityType>
-        <EntityType Name="PARTICURSERVICE">
+        <EntityType Name="PARTICULARSERVICE">
           <Key>
-            <PropertyRef Name="idBill" />
-            <PropertyRef Name="idService" />
+            <PropertyRef Name="IDBill" />
+            <PropertyRef Name="IDService" />
           </Key>
-          <Property Name="idBill" Type="int" Nullable="false" />
-          <Property Name="oldIndex" Type="int" />
-          <Property Name="newIndex" Type="int" />
+          <Property Name="IDBill" Type="int" Nullable="false" />
+          <Property Name="IDService" Type="int" Nullable="false" />
+          <Property Name="OldIndex" Type="int" />
+          <Property Name="NewIndex" Type="int" />
           <Property Name="Total" Type="money" />
-          <Property Name="idService" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="RENTINFO">
+        <EntityType Name="REINTINFOR">
           <Key>
-            <PropertyRef Name="idCarCus" />
-            <PropertyRef Name="idRoom" />
+            <PropertyRef Name="IDCustomer" />
+            <PropertyRef Name="IDRoom" />
           </Key>
-          <Property Name="idCarCus" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="idRoom" Type="int" Nullable="false" />
-          <Property Name="checkInDate" Type="datetime" />
-          <Property Name="checkOutDate" Type="datetime" />
+          <Property Name="IDCustomer" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IDRoom" Type="int" Nullable="false" />
+          <Property Name="CheckInDate" Type="datetime" />
+          <Property Name="CheckOutDate" Type="datetime" />
         </EntityType>
         <EntityType Name="ROLE">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="ROMERANK">
+        <EntityType Name="ROOMRANGE">
           <Key>
-            <PropertyRef Name="idRomRank" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="idRomRank" Type="int" Nullable="false" />
-          <Property Name="Rank" Type="nchar" MaxLength="10" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RangeName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ROOMRANK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RankName" Type="nvarchar" MaxLength="50" />
           <Property Name="Price" Type="money" />
-          <Property Name="About" Type="nvarchar" MaxLength="150" />
           <Property Name="Deposits" Type="money" />
+          <Property Name="About" Type="nvarchar" MaxLength="20" />
         </EntityType>
-        <EntityType Name="SERVIECE">
+        <EntityType Name="SERVICE">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nameService" Type="varchar" MaxLength="50" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServiceName" Type="nvarchar" MaxLength="50" />
           <Property Name="Price" Type="money" />
         </EntityType>
         <EntityType Name="STAFF">
           <Key>
-            <PropertyRef Name="idStaff" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="idStaff" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="dateOfBirth" Type="date" />
-          <Property Name="Address" Type="nvarchar" MaxLength="150" />
-          <Property Name="phone" Type="nchar" MaxLength="11" />
-          <Property Name="userName" Type="varchar" MaxLength="50" />
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="StaffName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="NumberPhone" Type="varchar" MaxLength="20" />
+          <Property Name="UserName" Type="varchar" MaxLength="40" />
+          <Property Name="Sexual" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -106,21 +114,21 @@
         </EntityType>
         <EntityType Name="USER">
           <Key>
-            <PropertyRef Name="userName" />
+            <PropertyRef Name="UserName" />
           </Key>
-          <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="idRole" Type="int" />
+          <Property Name="UserName" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDRole" Type="int" />
         </EntityType>
         <Association Name="FK_BILL_MOTELROOM">
           <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="0..1" />
           <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MOTELROOM">
-              <PropertyRef Name="idRoom" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="BILL">
-              <PropertyRef Name="idRoom" />
+              <PropertyRef Name="IDRoom" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -129,99 +137,100 @@
           <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="STAFF">
-              <PropertyRef Name="idStaff" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="BILL">
-              <PropertyRef Name="idStaff" />
+              <PropertyRef Name="IDStaff" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MOTELROOM_ROMERANK">
-          <End Role="ROMERANK" Type="Self.ROMERANK" Multiplicity="0..1" />
+        <Association Name="FK_MOTELROOM_ROOMRANGE">
+          <End Role="ROOMRANGE" Type="Self.ROOMRANGE" Multiplicity="0..1" />
           <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ROMERANK">
-              <PropertyRef Name="idRomRank" />
+            <Principal Role="ROOMRANGE">
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="MOTELROOM">
-              <PropertyRef Name="idRoomRank" />
+              <PropertyRef Name="IDRoomRange" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PARTICURSERVICE_BILL">
+        <Association Name="FK_MOTELROOM_ROOMRANK">
+          <End Role="ROOMRANK" Type="Self.ROOMRANK" Multiplicity="0..1" />
+          <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROOMRANK">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MOTELROOM">
+              <PropertyRef Name="IDRoomRank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PARTICULARSERVICE_BILL">
           <End Role="BILL" Type="Self.BILL" Multiplicity="1" />
-          <End Role="PARTICURSERVICE" Type="Self.PARTICURSERVICE" Multiplicity="*" />
+          <End Role="PARTICULARSERVICE" Type="Self.PARTICULARSERVICE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BILL">
-              <PropertyRef Name="idBill" />
+              <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="PARTICURSERVICE">
-              <PropertyRef Name="idBill" />
+            <Dependent Role="PARTICULARSERVICE">
+              <PropertyRef Name="IDBill" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PARTICURSERVICE_SERVIECE">
-          <End Role="SERVIECE" Type="Self.SERVIECE" Multiplicity="1" />
-          <End Role="PARTICURSERVICE" Type="Self.PARTICURSERVICE" Multiplicity="*" />
+        <Association Name="FK_PARTICULARSERVICE_SERVICE">
+          <End Role="SERVICE" Type="Self.SERVICE" Multiplicity="1" />
+          <End Role="PARTICULARSERVICE" Type="Self.PARTICULARSERVICE" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="SERVIECE">
-              <PropertyRef Name="id" />
+            <Principal Role="SERVICE">
+              <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="PARTICURSERVICE">
-              <PropertyRef Name="idService" />
+            <Dependent Role="PARTICULARSERVICE">
+              <PropertyRef Name="IDService" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RENTINFO_CUSTOMER">
+        <Association Name="FK_REINTINFOR_CUSTOMER">
           <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
-          <End Role="RENTINFO" Type="Self.RENTINFO" Multiplicity="*" />
+          <End Role="REINTINFOR" Type="Self.REINTINFOR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CUSTOMER">
-              <PropertyRef Name="idCard" />
+              <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="RENTINFO">
-              <PropertyRef Name="idCarCus" />
+            <Dependent Role="REINTINFOR">
+              <PropertyRef Name="IDCustomer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RENTINFO_MOTELROOM">
+        <Association Name="FK_REINTINFOR_MOTELROOM">
           <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="1" />
-          <End Role="RENTINFO" Type="Self.RENTINFO" Multiplicity="*" />
+          <End Role="REINTINFOR" Type="Self.REINTINFOR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MOTELROOM">
-              <PropertyRef Name="idRoom" />
+              <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="RENTINFO">
-              <PropertyRef Name="idRoom" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_STAFF_USER">
-          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
-          <End Role="STAFF" Type="Self.STAFF" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USER">
-              <PropertyRef Name="userName" />
-            </Principal>
-            <Dependent Role="STAFF">
-              <PropertyRef Name="userName" />
+            <Dependent Role="REINTINFOR">
+              <PropertyRef Name="IDRoom" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_USER_ROLE">
-          <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1" />
           <End Role="USER" Type="Self.USER" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ROLE">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="USER">
-              <PropertyRef Name="idRole" />
+              <PropertyRef Name="IDRole" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_USER_STAFF' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_USER_STAFF" />-->
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -253,15 +262,16 @@
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="motel_manager_demoModelStoreContainer">
+        <EntityContainer Name="MotelManagerModelStoreContainer">
           <EntitySet Name="BILL" EntityType="Self.BILL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MOTELROOM" EntityType="Self.MOTELROOM" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PARTICURSERVICE" EntityType="Self.PARTICURSERVICE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RENTINFO" EntityType="Self.RENTINFO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PARTICULARSERVICE" EntityType="Self.PARTICULARSERVICE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REINTINFOR" EntityType="Self.REINTINFOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ROLE" EntityType="Self.ROLE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ROMERANK" EntityType="Self.ROMERANK" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SERVIECE" EntityType="Self.SERVIECE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROOMRANGE" EntityType="Self.ROOMRANGE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROOMRANK" EntityType="Self.ROOMRANK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SERVICE" EntityType="Self.SERVICE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STAFF" EntityType="Self.STAFF" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
@@ -273,29 +283,29 @@
             <End Role="STAFF" EntitySet="STAFF" />
             <End Role="BILL" EntitySet="BILL" />
           </AssociationSet>
-          <AssociationSet Name="FK_MOTELROOM_ROMERANK" Association="Self.FK_MOTELROOM_ROMERANK">
-            <End Role="ROMERANK" EntitySet="ROMERANK" />
+          <AssociationSet Name="FK_MOTELROOM_ROOMRANGE" Association="Self.FK_MOTELROOM_ROOMRANGE">
+            <End Role="ROOMRANGE" EntitySet="ROOMRANGE" />
             <End Role="MOTELROOM" EntitySet="MOTELROOM" />
           </AssociationSet>
-          <AssociationSet Name="FK_PARTICURSERVICE_BILL" Association="Self.FK_PARTICURSERVICE_BILL">
+          <AssociationSet Name="FK_MOTELROOM_ROOMRANK" Association="Self.FK_MOTELROOM_ROOMRANK">
+            <End Role="ROOMRANK" EntitySet="ROOMRANK" />
+            <End Role="MOTELROOM" EntitySet="MOTELROOM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PARTICULARSERVICE_BILL" Association="Self.FK_PARTICULARSERVICE_BILL">
             <End Role="BILL" EntitySet="BILL" />
-            <End Role="PARTICURSERVICE" EntitySet="PARTICURSERVICE" />
+            <End Role="PARTICULARSERVICE" EntitySet="PARTICULARSERVICE" />
           </AssociationSet>
-          <AssociationSet Name="FK_PARTICURSERVICE_SERVIECE" Association="Self.FK_PARTICURSERVICE_SERVIECE">
-            <End Role="SERVIECE" EntitySet="SERVIECE" />
-            <End Role="PARTICURSERVICE" EntitySet="PARTICURSERVICE" />
+          <AssociationSet Name="FK_PARTICULARSERVICE_SERVICE" Association="Self.FK_PARTICULARSERVICE_SERVICE">
+            <End Role="SERVICE" EntitySet="SERVICE" />
+            <End Role="PARTICULARSERVICE" EntitySet="PARTICULARSERVICE" />
           </AssociationSet>
-          <AssociationSet Name="FK_RENTINFO_CUSTOMER" Association="Self.FK_RENTINFO_CUSTOMER">
+          <AssociationSet Name="FK_REINTINFOR_CUSTOMER" Association="Self.FK_REINTINFOR_CUSTOMER">
             <End Role="CUSTOMER" EntitySet="CUSTOMER" />
-            <End Role="RENTINFO" EntitySet="RENTINFO" />
+            <End Role="REINTINFOR" EntitySet="REINTINFOR" />
           </AssociationSet>
-          <AssociationSet Name="FK_RENTINFO_MOTELROOM" Association="Self.FK_RENTINFO_MOTELROOM">
+          <AssociationSet Name="FK_REINTINFOR_MOTELROOM" Association="Self.FK_REINTINFOR_MOTELROOM">
             <End Role="MOTELROOM" EntitySet="MOTELROOM" />
-            <End Role="RENTINFO" EntitySet="RENTINFO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_STAFF_USER" Association="Self.FK_STAFF_USER">
-            <End Role="USER" EntitySet="USER" />
-            <End Role="STAFF" EntitySet="STAFF" />
+            <End Role="REINTINFOR" EntitySet="REINTINFOR" />
           </AssociationSet>
           <AssociationSet Name="FK_USER_ROLE" Association="Self.FK_USER_ROLE">
             <End Role="ROLE" EntitySet="ROLE" />
@@ -306,111 +316,120 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="motel_manager_demoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="MotelManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="BILL">
           <Key>
-            <PropertyRef Name="idBill" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="idBill" Type="Int32" Nullable="false" />
-          <Property Name="idRoom" Type="Int32" />
-          <Property Name="idStaff" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDRoom" Type="Int32" />
+          <Property Name="IDStaff" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TotalMoney" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
           <Property Name="Paid" Type="Boolean" />
           <NavigationProperty Name="MOTELROOM" Relationship="Self.FK_BILL_MOTELROOM" FromRole="BILL" ToRole="MOTELROOM" />
           <NavigationProperty Name="STAFF" Relationship="Self.FK_BILL_STAFF" FromRole="BILL" ToRole="STAFF" />
-          <NavigationProperty Name="PARTICURSERVICEs" Relationship="Self.FK_PARTICURSERVICE_BILL" FromRole="BILL" ToRole="PARTICURSERVICE" />
+          <NavigationProperty Name="PARTICULARSERVICEs" Relationship="Self.FK_PARTICULARSERVICE_BILL" FromRole="BILL" ToRole="PARTICULARSERVICE" />
         </EntityType>
         <EntityType Name="CUSTOMER">
           <Key>
-            <PropertyRef Name="idCard" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="idCard" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="dateOfBirth" Type="DateTime" Precision="3" />
-          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Sexual" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="RENTINFOes" Relationship="Self.FK_RENTINFO_CUSTOMER" FromRole="CUSTOMER" ToRole="RENTINFO" />
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NumberPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Sexual" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="REINTINFORs" Relationship="Self.FK_REINTINFOR_CUSTOMER" FromRole="CUSTOMER" ToRole="REINTINFOR" />
         </EntityType>
         <EntityType Name="MOTELROOM">
           <Key>
-            <PropertyRef Name="idRoom" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="idRoom" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="roomName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="State" Type="Boolean" />
-          <Property Name="idRoomRank" Type="Int32" />
-          <Property Name="Range" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoomName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StateRoom" Type="Boolean" />
+          <Property Name="IDRoomRank" Type="Int32" />
+          <Property Name="IDRoomRange" Type="Int32" />
           <NavigationProperty Name="BILLs" Relationship="Self.FK_BILL_MOTELROOM" FromRole="MOTELROOM" ToRole="BILL" />
-          <NavigationProperty Name="ROMERANK" Relationship="Self.FK_MOTELROOM_ROMERANK" FromRole="MOTELROOM" ToRole="ROMERANK" />
-          <NavigationProperty Name="RENTINFOes" Relationship="Self.FK_RENTINFO_MOTELROOM" FromRole="MOTELROOM" ToRole="RENTINFO" />
+          <NavigationProperty Name="ROOMRANGE" Relationship="Self.FK_MOTELROOM_ROOMRANGE" FromRole="MOTELROOM" ToRole="ROOMRANGE" />
+          <NavigationProperty Name="ROOMRANK" Relationship="Self.FK_MOTELROOM_ROOMRANK" FromRole="MOTELROOM" ToRole="ROOMRANK" />
+          <NavigationProperty Name="REINTINFORs" Relationship="Self.FK_REINTINFOR_MOTELROOM" FromRole="MOTELROOM" ToRole="REINTINFOR" />
         </EntityType>
-        <EntityType Name="PARTICURSERVICE">
+        <EntityType Name="PARTICULARSERVICE">
           <Key>
-            <PropertyRef Name="idBill" />
-            <PropertyRef Name="idService" />
+            <PropertyRef Name="IDBill" />
+            <PropertyRef Name="IDService" />
           </Key>
-          <Property Name="idBill" Type="Int32" Nullable="false" />
-          <Property Name="oldIndex" Type="Int32" />
-          <Property Name="newIndex" Type="Int32" />
+          <Property Name="IDBill" Type="Int32" Nullable="false" />
+          <Property Name="IDService" Type="Int32" Nullable="false" />
+          <Property Name="OldIndex" Type="Int32" />
+          <Property Name="NewIndex" Type="Int32" />
           <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="idService" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BILL" Relationship="Self.FK_PARTICURSERVICE_BILL" FromRole="PARTICURSERVICE" ToRole="BILL" />
-          <NavigationProperty Name="SERVIECE" Relationship="Self.FK_PARTICURSERVICE_SERVIECE" FromRole="PARTICURSERVICE" ToRole="SERVIECE" />
+          <NavigationProperty Name="BILL" Relationship="Self.FK_PARTICULARSERVICE_BILL" FromRole="PARTICULARSERVICE" ToRole="BILL" />
+          <NavigationProperty Name="SERVICE" Relationship="Self.FK_PARTICULARSERVICE_SERVICE" FromRole="PARTICULARSERVICE" ToRole="SERVICE" />
         </EntityType>
-        <EntityType Name="RENTINFO">
+        <EntityType Name="REINTINFOR">
           <Key>
-            <PropertyRef Name="idCarCus" />
-            <PropertyRef Name="idRoom" />
+            <PropertyRef Name="IDCustomer" />
+            <PropertyRef Name="IDRoom" />
           </Key>
-          <Property Name="idCarCus" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="idRoom" Type="Int32" Nullable="false" />
-          <Property Name="checkInDate" Type="DateTime" Precision="3" />
-          <Property Name="checkOutDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_RENTINFO_CUSTOMER" FromRole="RENTINFO" ToRole="CUSTOMER" />
-          <NavigationProperty Name="MOTELROOM" Relationship="Self.FK_RENTINFO_MOTELROOM" FromRole="RENTINFO" ToRole="MOTELROOM" />
+          <Property Name="IDCustomer" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDRoom" Type="Int32" Nullable="false" />
+          <Property Name="CheckInDate" Type="DateTime" Precision="3" />
+          <Property Name="CheckOutDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_REINTINFOR_CUSTOMER" FromRole="REINTINFOR" ToRole="CUSTOMER" />
+          <NavigationProperty Name="MOTELROOM" Relationship="Self.FK_REINTINFOR_MOTELROOM" FromRole="REINTINFOR" ToRole="MOTELROOM" />
         </EntityType>
         <EntityType Name="ROLE">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="USERs" Relationship="Self.FK_USER_ROLE" FromRole="ROLE" ToRole="USER" />
         </EntityType>
-        <EntityType Name="ROMERANK">
+        <EntityType Name="ROOMRANGE">
           <Key>
-            <PropertyRef Name="idRomRank" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="idRomRank" Type="Int32" Nullable="false" />
-          <Property Name="Rank" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="About" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Deposits" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="MOTELROOMs" Relationship="Self.FK_MOTELROOM_ROMERANK" FromRole="ROMERANK" ToRole="MOTELROOM" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RangeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MOTELROOMs" Relationship="Self.FK_MOTELROOM_ROOMRANGE" FromRole="ROOMRANGE" ToRole="MOTELROOM" />
         </EntityType>
-        <EntityType Name="SERVIECE">
+        <EntityType Name="ROOMRANK">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nameService" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="PARTICURSERVICEs" Relationship="Self.FK_PARTICURSERVICE_SERVIECE" FromRole="SERVIECE" ToRole="PARTICURSERVICE" />
+          <Property Name="Deposits" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="About" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MOTELROOMs" Relationship="Self.FK_MOTELROOM_ROOMRANK" FromRole="ROOMRANK" ToRole="MOTELROOM" />
+        </EntityType>
+        <EntityType Name="SERVICE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="PARTICULARSERVICEs" Relationship="Self.FK_PARTICULARSERVICE_SERVICE" FromRole="SERVICE" ToRole="PARTICULARSERVICE" />
         </EntityType>
         <EntityType Name="STAFF">
           <Key>
-            <PropertyRef Name="idStaff" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="idStaff" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="dateOfBirth" Type="DateTime" Precision="0" />
-          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
-          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StaffName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NumberPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Sexual" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BILLs" Relationship="Self.FK_BILL_STAFF" FromRole="STAFF" ToRole="BILL" />
-          <NavigationProperty Name="USER" Relationship="Self.FK_STAFF_USER" FromRole="STAFF" ToRole="USER" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -424,23 +443,22 @@
         </EntityType>
         <EntityType Name="USER">
           <Key>
-            <PropertyRef Name="userName" />
+            <PropertyRef Name="UserName" />
           </Key>
-          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="idRole" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDRole" Type="Int32" />
           <NavigationProperty Name="ROLE" Relationship="Self.FK_USER_ROLE" FromRole="USER" ToRole="ROLE" />
-          <NavigationProperty Name="STAFFs" Relationship="Self.FK_STAFF_USER" FromRole="USER" ToRole="STAFF" />
         </EntityType>
         <Association Name="FK_BILL_MOTELROOM">
           <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="0..1" />
           <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MOTELROOM">
-              <PropertyRef Name="idRoom" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="BILL">
-              <PropertyRef Name="idRoom" />
+              <PropertyRef Name="IDRoom" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -449,108 +467,107 @@
           <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="STAFF">
-              <PropertyRef Name="idStaff" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="BILL">
-              <PropertyRef Name="idStaff" />
+              <PropertyRef Name="IDStaff" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PARTICURSERVICE_BILL">
+        <Association Name="FK_PARTICULARSERVICE_BILL">
           <End Role="BILL" Type="Self.BILL" Multiplicity="1" />
-          <End Role="PARTICURSERVICE" Type="Self.PARTICURSERVICE" Multiplicity="*" />
+          <End Role="PARTICULARSERVICE" Type="Self.PARTICULARSERVICE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BILL">
-              <PropertyRef Name="idBill" />
+              <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="PARTICURSERVICE">
-              <PropertyRef Name="idBill" />
+            <Dependent Role="PARTICULARSERVICE">
+              <PropertyRef Name="IDBill" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RENTINFO_CUSTOMER">
+        <Association Name="FK_REINTINFOR_CUSTOMER">
           <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
-          <End Role="RENTINFO" Type="Self.RENTINFO" Multiplicity="*" />
+          <End Role="REINTINFOR" Type="Self.REINTINFOR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CUSTOMER">
-              <PropertyRef Name="idCard" />
+              <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="RENTINFO">
-              <PropertyRef Name="idCarCus" />
+            <Dependent Role="REINTINFOR">
+              <PropertyRef Name="IDCustomer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MOTELROOM_ROMERANK">
-          <End Role="ROMERANK" Type="Self.ROMERANK" Multiplicity="0..1" />
+        <Association Name="FK_MOTELROOM_ROOMRANGE">
+          <End Role="ROOMRANGE" Type="Self.ROOMRANGE" Multiplicity="0..1" />
           <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ROMERANK">
-              <PropertyRef Name="idRomRank" />
+            <Principal Role="ROOMRANGE">
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="MOTELROOM">
-              <PropertyRef Name="idRoomRank" />
+              <PropertyRef Name="IDRoomRange" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RENTINFO_MOTELROOM">
+        <Association Name="FK_MOTELROOM_ROOMRANK">
+          <End Role="ROOMRANK" Type="Self.ROOMRANK" Multiplicity="0..1" />
+          <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROOMRANK">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MOTELROOM">
+              <PropertyRef Name="IDRoomRank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REINTINFOR_MOTELROOM">
           <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="1" />
-          <End Role="RENTINFO" Type="Self.RENTINFO" Multiplicity="*" />
+          <End Role="REINTINFOR" Type="Self.REINTINFOR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MOTELROOM">
-              <PropertyRef Name="idRoom" />
+              <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="RENTINFO">
-              <PropertyRef Name="idRoom" />
+            <Dependent Role="REINTINFOR">
+              <PropertyRef Name="IDRoom" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PARTICURSERVICE_SERVIECE">
-          <End Role="SERVIECE" Type="Self.SERVIECE" Multiplicity="1" />
-          <End Role="PARTICURSERVICE" Type="Self.PARTICURSERVICE" Multiplicity="*" />
+        <Association Name="FK_PARTICULARSERVICE_SERVICE">
+          <End Role="SERVICE" Type="Self.SERVICE" Multiplicity="1" />
+          <End Role="PARTICULARSERVICE" Type="Self.PARTICULARSERVICE" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="SERVIECE">
-              <PropertyRef Name="id" />
+            <Principal Role="SERVICE">
+              <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="PARTICURSERVICE">
-              <PropertyRef Name="idService" />
+            <Dependent Role="PARTICULARSERVICE">
+              <PropertyRef Name="IDService" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_USER_ROLE">
-          <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1" />
           <End Role="USER" Type="Self.USER" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ROLE">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="USER">
-              <PropertyRef Name="idRole" />
+              <PropertyRef Name="IDRole" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_STAFF_USER">
-          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
-          <End Role="STAFF" Type="Self.STAFF" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USER">
-              <PropertyRef Name="userName" />
-            </Principal>
-            <Dependent Role="STAFF">
-              <PropertyRef Name="userName" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="motel_manager_demoEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MotelManagerEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BILLs" EntityType="Self.BILL" />
           <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
           <EntitySet Name="MOTELROOMs" EntityType="Self.MOTELROOM" />
-          <EntitySet Name="PARTICURSERVICEs" EntityType="Self.PARTICURSERVICE" />
-          <EntitySet Name="RENTINFOes" EntityType="Self.RENTINFO" />
+          <EntitySet Name="PARTICULARSERVICEs" EntityType="Self.PARTICULARSERVICE" />
+          <EntitySet Name="REINTINFORs" EntityType="Self.REINTINFOR" />
           <EntitySet Name="ROLEs" EntityType="Self.ROLE" />
-          <EntitySet Name="ROMERANKs" EntityType="Self.ROMERANK" />
-          <EntitySet Name="SERVIECEs" EntityType="Self.SERVIECE" />
+          <EntitySet Name="ROOMRANGEs" EntityType="Self.ROOMRANGE" />
+          <EntitySet Name="ROOMRANKs" EntityType="Self.ROOMRANK" />
+          <EntitySet Name="SERVICEs" EntityType="Self.SERVICE" />
           <EntitySet Name="STAFFs" EntityType="Self.STAFF" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="USERs" EntityType="Self.USER" />
@@ -562,33 +579,33 @@
             <End Role="STAFF" EntitySet="STAFFs" />
             <End Role="BILL" EntitySet="BILLs" />
           </AssociationSet>
-          <AssociationSet Name="FK_PARTICURSERVICE_BILL" Association="Self.FK_PARTICURSERVICE_BILL">
+          <AssociationSet Name="FK_PARTICULARSERVICE_BILL" Association="Self.FK_PARTICULARSERVICE_BILL">
             <End Role="BILL" EntitySet="BILLs" />
-            <End Role="PARTICURSERVICE" EntitySet="PARTICURSERVICEs" />
+            <End Role="PARTICULARSERVICE" EntitySet="PARTICULARSERVICEs" />
           </AssociationSet>
-          <AssociationSet Name="FK_RENTINFO_CUSTOMER" Association="Self.FK_RENTINFO_CUSTOMER">
+          <AssociationSet Name="FK_REINTINFOR_CUSTOMER" Association="Self.FK_REINTINFOR_CUSTOMER">
             <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
-            <End Role="RENTINFO" EntitySet="RENTINFOes" />
+            <End Role="REINTINFOR" EntitySet="REINTINFORs" />
           </AssociationSet>
-          <AssociationSet Name="FK_MOTELROOM_ROMERANK" Association="Self.FK_MOTELROOM_ROMERANK">
-            <End Role="ROMERANK" EntitySet="ROMERANKs" />
+          <AssociationSet Name="FK_MOTELROOM_ROOMRANGE" Association="Self.FK_MOTELROOM_ROOMRANGE">
+            <End Role="ROOMRANGE" EntitySet="ROOMRANGEs" />
             <End Role="MOTELROOM" EntitySet="MOTELROOMs" />
           </AssociationSet>
-          <AssociationSet Name="FK_RENTINFO_MOTELROOM" Association="Self.FK_RENTINFO_MOTELROOM">
+          <AssociationSet Name="FK_MOTELROOM_ROOMRANK" Association="Self.FK_MOTELROOM_ROOMRANK">
+            <End Role="ROOMRANK" EntitySet="ROOMRANKs" />
             <End Role="MOTELROOM" EntitySet="MOTELROOMs" />
-            <End Role="RENTINFO" EntitySet="RENTINFOes" />
           </AssociationSet>
-          <AssociationSet Name="FK_PARTICURSERVICE_SERVIECE" Association="Self.FK_PARTICURSERVICE_SERVIECE">
-            <End Role="SERVIECE" EntitySet="SERVIECEs" />
-            <End Role="PARTICURSERVICE" EntitySet="PARTICURSERVICEs" />
+          <AssociationSet Name="FK_REINTINFOR_MOTELROOM" Association="Self.FK_REINTINFOR_MOTELROOM">
+            <End Role="MOTELROOM" EntitySet="MOTELROOMs" />
+            <End Role="REINTINFOR" EntitySet="REINTINFORs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PARTICULARSERVICE_SERVICE" Association="Self.FK_PARTICULARSERVICE_SERVICE">
+            <End Role="SERVICE" EntitySet="SERVICEs" />
+            <End Role="PARTICULARSERVICE" EntitySet="PARTICULARSERVICEs" />
           </AssociationSet>
           <AssociationSet Name="FK_USER_ROLE" Association="Self.FK_USER_ROLE">
             <End Role="ROLE" EntitySet="ROLEs" />
             <End Role="USER" EntitySet="USERs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_STAFF_USER" Association="Self.FK_STAFF_USER">
-            <End Role="USER" EntitySet="USERs" />
-            <End Role="STAFF" EntitySet="STAFFs" />
           </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -606,11 +623,11 @@
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(motel_manager_demoModel.sp_helpdiagramdefinition_Result)">
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(MotelManagerModel.sp_helpdiagramdefinition_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(motel_manager_demoModel.sp_helpdiagrams_Result)">
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(MotelManagerModel.sp_helpdiagrams_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -637,105 +654,114 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="motel_manager_demoModelStoreContainer" CdmEntityContainer="motel_manager_demoEntities">
+        <EntityContainerMapping StorageEntityContainer="MotelManagerModelStoreContainer" CdmEntityContainer="MotelManagerEntities">
           <EntitySetMapping Name="BILLs">
-            <EntityTypeMapping TypeName="motel_manager_demoModel.BILL">
+            <EntityTypeMapping TypeName="MotelManagerModel.BILL">
               <MappingFragment StoreEntitySet="BILL">
-                <ScalarProperty Name="idBill" ColumnName="idBill" />
-                <ScalarProperty Name="idRoom" ColumnName="idRoom" />
-                <ScalarProperty Name="idStaff" ColumnName="idStaff" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDRoom" ColumnName="IDRoom" />
+                <ScalarProperty Name="IDStaff" ColumnName="IDStaff" />
+                <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Paid" ColumnName="Paid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CUSTOMERs">
-            <EntityTypeMapping TypeName="motel_manager_demoModel.CUSTOMER">
+            <EntityTypeMapping TypeName="MotelManagerModel.CUSTOMER">
               <MappingFragment StoreEntitySet="CUSTOMER">
-                <ScalarProperty Name="idCard" ColumnName="idCard" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
                 <ScalarProperty Name="Sexual" ColumnName="Sexual" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MOTELROOMs">
-            <EntityTypeMapping TypeName="motel_manager_demoModel.MOTELROOM">
+            <EntityTypeMapping TypeName="MotelManagerModel.MOTELROOM">
               <MappingFragment StoreEntitySet="MOTELROOM">
-                <ScalarProperty Name="idRoom" ColumnName="idRoom" />
-                <ScalarProperty Name="roomName" ColumnName="roomName" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="idRoomRank" ColumnName="idRoomRank" />
-                <ScalarProperty Name="Range" ColumnName="Range" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+                <ScalarProperty Name="StateRoom" ColumnName="StateRoom" />
+                <ScalarProperty Name="IDRoomRank" ColumnName="IDRoomRank" />
+                <ScalarProperty Name="IDRoomRange" ColumnName="IDRoomRange" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PARTICURSERVICEs">
-            <EntityTypeMapping TypeName="motel_manager_demoModel.PARTICURSERVICE">
-              <MappingFragment StoreEntitySet="PARTICURSERVICE">
-                <ScalarProperty Name="idBill" ColumnName="idBill" />
-                <ScalarProperty Name="oldIndex" ColumnName="oldIndex" />
-                <ScalarProperty Name="newIndex" ColumnName="newIndex" />
+          <EntitySetMapping Name="PARTICULARSERVICEs">
+            <EntityTypeMapping TypeName="MotelManagerModel.PARTICULARSERVICE">
+              <MappingFragment StoreEntitySet="PARTICULARSERVICE">
+                <ScalarProperty Name="IDBill" ColumnName="IDBill" />
+                <ScalarProperty Name="IDService" ColumnName="IDService" />
+                <ScalarProperty Name="OldIndex" ColumnName="OldIndex" />
+                <ScalarProperty Name="NewIndex" ColumnName="NewIndex" />
                 <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="idService" ColumnName="idService" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RENTINFOes">
-            <EntityTypeMapping TypeName="motel_manager_demoModel.RENTINFO">
-              <MappingFragment StoreEntitySet="RENTINFO">
-                <ScalarProperty Name="idCarCus" ColumnName="idCarCus" />
-                <ScalarProperty Name="idRoom" ColumnName="idRoom" />
-                <ScalarProperty Name="checkInDate" ColumnName="checkInDate" />
-                <ScalarProperty Name="checkOutDate" ColumnName="checkOutDate" />
+          <EntitySetMapping Name="REINTINFORs">
+            <EntityTypeMapping TypeName="MotelManagerModel.REINTINFOR">
+              <MappingFragment StoreEntitySet="REINTINFOR">
+                <ScalarProperty Name="IDCustomer" ColumnName="IDCustomer" />
+                <ScalarProperty Name="IDRoom" ColumnName="IDRoom" />
+                <ScalarProperty Name="CheckInDate" ColumnName="CheckInDate" />
+                <ScalarProperty Name="CheckOutDate" ColumnName="CheckOutDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ROLEs">
-            <EntityTypeMapping TypeName="motel_manager_demoModel.ROLE">
+            <EntityTypeMapping TypeName="MotelManagerModel.ROLE">
               <MappingFragment StoreEntitySet="ROLE">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ROMERANKs">
-            <EntityTypeMapping TypeName="motel_manager_demoModel.ROMERANK">
-              <MappingFragment StoreEntitySet="ROMERANK">
-                <ScalarProperty Name="idRomRank" ColumnName="idRomRank" />
-                <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <EntitySetMapping Name="ROOMRANGEs">
+            <EntityTypeMapping TypeName="MotelManagerModel.ROOMRANGE">
+              <MappingFragment StoreEntitySet="ROOMRANGE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RangeName" ColumnName="RangeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROOMRANKs">
+            <EntityTypeMapping TypeName="MotelManagerModel.ROOMRANK">
+              <MappingFragment StoreEntitySet="ROOMRANK">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RankName" ColumnName="RankName" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="About" ColumnName="About" />
                 <ScalarProperty Name="Deposits" ColumnName="Deposits" />
+                <ScalarProperty Name="About" ColumnName="About" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SERVIECEs">
-            <EntityTypeMapping TypeName="motel_manager_demoModel.SERVIECE">
-              <MappingFragment StoreEntitySet="SERVIECE">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="nameService" ColumnName="nameService" />
+          <EntitySetMapping Name="SERVICEs">
+            <EntityTypeMapping TypeName="MotelManagerModel.SERVICE">
+              <MappingFragment StoreEntitySet="SERVICE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="STAFFs">
-            <EntityTypeMapping TypeName="motel_manager_demoModel.STAFF">
+            <EntityTypeMapping TypeName="MotelManagerModel.STAFF">
               <MappingFragment StoreEntitySet="STAFF">
-                <ScalarProperty Name="idStaff" ColumnName="idStaff" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="phone" ColumnName="phone" />
-                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Sexual" ColumnName="Sexual" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="motel_manager_demoModel.sysdiagram">
+            <EntityTypeMapping TypeName="MotelManagerModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -746,28 +772,28 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USERs">
-            <EntityTypeMapping TypeName="motel_manager_demoModel.USER">
+            <EntityTypeMapping TypeName="MotelManagerModel.USER">
               <MappingFragment StoreEntitySet="USER">
-                <ScalarProperty Name="userName" ColumnName="userName" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="idRole" ColumnName="idRole" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IDRole" ColumnName="IDRole" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="motel_manager_demoModel.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="motel_manager_demoModel.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="motel_manager_demoModel.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="motel_manager_demoModel.Store.sp_helpdiagramdefinition">
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="MotelManagerModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="MotelManagerModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="MotelManagerModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="MotelManagerModel.Store.sp_helpdiagramdefinition">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="motel_manager_demoModel.sp_helpdiagramdefinition_Result">
+              <ComplexTypeMapping TypeName="MotelManagerModel.sp_helpdiagramdefinition_Result">
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="motel_manager_demoModel.Store.sp_helpdiagrams">
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="MotelManagerModel.Store.sp_helpdiagrams">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="motel_manager_demoModel.sp_helpdiagrams_Result">
+              <ComplexTypeMapping TypeName="MotelManagerModel.sp_helpdiagrams_Result">
                 <ScalarProperty Name="Database" ColumnName="Database" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -776,8 +802,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="motel_manager_demoModel.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="motel_manager_demoModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="MotelManagerModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="MotelManagerModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

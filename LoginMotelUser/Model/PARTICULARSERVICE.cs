@@ -12,14 +12,15 @@ namespace LoginMotelUser.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class RENTINFO
+    public partial class PARTICULARSERVICE
     {
-        public string idCarCus { get; set; }
-        public int idRoom { get; set; }
-        public Nullable<System.DateTime> checkInDate { get; set; }
-        public Nullable<System.DateTime> checkOutDate { get; set; }
+        public int IDBill { get; set; }
+        public int IDService { get; set; }
+        public Nullable<int> OldIndex { get; set; }
+        public Nullable<int> NewIndex { get; set; }
+        public Nullable<decimal> Total { get; set; }
     
-        public virtual CUSTOMER CUSTOMER { get; set; }
-        public virtual MOTELROOM MOTELROOM { get; set; }
+        public virtual BILL BILL { get; set; }
+        public virtual SERVICE SERVICE { get; set; }
     }
 }

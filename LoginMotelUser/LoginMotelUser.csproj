@@ -79,6 +79,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="formAddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAddCustomer.Designer.cs">
+      <DependentUpon>formAddCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\BILL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -103,19 +109,22 @@
     <Compile Include="Model\MOTELROOM.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\PARTICURSERVICE.cs">
+    <Compile Include="Model\PARTICULARSERVICE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\RENTINFO.cs">
+    <Compile Include="Model\REINTINFOR.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ROLE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ROMERANK.cs">
+    <Compile Include="Model\ROOMRANGE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\SERVIECE.cs">
+    <Compile Include="Model\ROOMRANK.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SERVICE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\sp_helpdiagramdefinition_Result.cs">
@@ -132,6 +141,11 @@
     </Compile>
     <Compile Include="Model\USER.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MotelManagerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MotelManagerDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="motel_manager_demoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -187,6 +201,17 @@
     </EntityDeploy>
     <None Include="Model\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="MotelManagerDataSet.xsc">
+      <DependentUpon>MotelManagerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MotelManagerDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MotelManagerDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MotelManagerDataSet.xss">
+      <DependentUpon>MotelManagerDataSet.xsd</DependentUpon>
     </None>
     <None Include="motel_manager_demoDataSet.xsc">
       <DependentUpon>motel_manager_demoDataSet.xsd</DependentUpon>

@@ -43,35 +43,38 @@
             this.userName_text = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newtUserMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertCustomerMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateuserMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Search_admin = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.exitUpdateUser = new System.Windows.Forms.Button();
             this.dataUserName = new System.Windows.Forms.DataGridView();
-            this.uSERBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.motelmanagerdemoDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uSERTableAdapter = new LoginMotelUser.motel_manager_demoDataSet1TableAdapters.USERTableAdapter();
             this.rOLETableAdapter = new LoginMotelUser.motel_manager_demoDataSet1TableAdapters.ROLETableAdapter();
+            this.motelManagerDataSet = new LoginMotelUser.MotelManagerDataSet();
+            this.uSERTableAdapter1 = new LoginMotelUser.MotelManagerDataSetTableAdapters.USERTableAdapter();
+            this.uSERBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PassWord = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewChartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RoleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.newCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.motel_manager_demoDataSet1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataUserName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uSERBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motelmanagerdemoDataSet1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motelManagerDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uSERBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // roleCombobox
@@ -86,11 +89,6 @@
             this.roleCombobox.Size = new System.Drawing.Size(140, 24);
             this.roleCombobox.TabIndex = 7;
             this.roleCombobox.ValueMember = "id";
-            // 
-            // rOLEBindingSource2
-            // 
-            this.rOLEBindingSource2.DataMember = "ROLE";
-            this.rOLEBindingSource2.DataSource = this.motel_manager_demoDataSet1;
             // 
             // motel_manager_demoDataSet1
             // 
@@ -214,8 +212,8 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuFile,
-            this.viewToolStripMenuItem});
+            this.fileMenuItem,
+            this.editMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -223,63 +221,73 @@
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // fileMenuItem
+            // 
+            this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newMenuItem,
+            this.exitMenuItem});
+            this.fileMenuItem.Name = "fileMenuItem";
+            this.fileMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileMenuItem.Text = "File";
+            // 
+            // newMenuItem
+            // 
+            this.newMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newtUserMenuItem,
+            this.insertCustomerMenuItem});
+            this.newMenuItem.Name = "newMenuItem";
+            this.newMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newMenuItem.Text = "New";
+            // 
+            // newtUserMenuItem
+            // 
+            this.newtUserMenuItem.Name = "newtUserMenuItem";
+            this.newtUserMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newtUserMenuItem.Text = "Users";
+            this.newtUserMenuItem.Click += new System.EventHandler(this.insertUserToolStripMenuItem_Click);
+            // 
+            // insertCustomerMenuItem
+            // 
+            this.insertCustomerMenuItem.Name = "insertCustomerMenuItem";
+            this.insertCustomerMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.insertCustomerMenuItem.Text = "Customer";
+            this.insertCustomerMenuItem.Click += new System.EventHandler(this.inserCustomerToolStripMenuItem_Click);
+            // 
+            // exitMenuItem
+            // 
+            this.exitMenuItem.Name = "exitMenuItem";
+            this.exitMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitMenuItem.Text = "Exit";
+            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
+            // 
+            // editMenuItem
+            // 
+            this.editMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateMenuItem});
+            this.editMenuItem.Name = "editMenuItem";
+            this.editMenuItem.Size = new System.Drawing.Size(49, 24);
+            this.editMenuItem.Text = "Edit";
+            // 
+            // updateMenuItem
+            // 
+            this.updateMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateuserMenuItem});
+            this.updateMenuItem.Name = "updateMenuItem";
+            this.updateMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.updateMenuItem.Text = "Update";
+            // 
+            // updateuserMenuItem
+            // 
+            this.updateuserMenuItem.Name = "updateuserMenuItem";
+            this.updateuserMenuItem.Size = new System.Drawing.Size(121, 26);
+            this.updateuserMenuItem.Text = "User";
+            this.updateuserMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
+            // 
             // menuFile
             // 
-            this.menuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.updateToolStripMenuItem,
-            this.exitToolStripMenuItem});
             this.menuFile.Name = "menuFile";
             this.menuFile.Size = new System.Drawing.Size(46, 24);
             this.menuFile.Text = "File";
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newUserToolStripMenuItem});
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.ShortcutKeyDisplayString = "Crt+N";
-            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.newToolStripMenuItem.Tag = "";
-            this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            // 
-            // newUserToolStripMenuItem
-            // 
-            this.newUserToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.newUserToolStripMenuItem.Name = "newUserToolStripMenuItem";
-            this.newUserToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+N";
-            this.newUserToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.N)));
-            this.newUserToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
-            this.newUserToolStripMenuItem.Text = "New User";
-            this.newUserToolStripMenuItem.Click += new System.EventHandler(this.newUserToolStripMenuItem_Click);
-            // 
-            // updateToolStripMenuItem
-            // 
-            this.updateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updateUserToolStripMenuItem});
-            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.updateToolStripMenuItem.Text = "Update";
-            // 
-            // updateUserToolStripMenuItem
-            // 
-            this.updateUserToolStripMenuItem.Name = "updateUserToolStripMenuItem";
-            this.updateUserToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.U)));
-            this.updateUserToolStripMenuItem.Size = new System.Drawing.Size(341, 26);
-            this.updateUserToolStripMenuItem.Text = "Update and Delete user";
-            this.updateUserToolStripMenuItem.Click += new System.EventHandler(this.updateUserToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // Search_admin
             // 
@@ -346,36 +354,12 @@
             // 
             // dataUserName
             // 
-            this.dataUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataUserName.AutoGenerateColumns = false;
-            this.dataUserName.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataUserName.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataUserName.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.UserName,
-            this.PassWord,
-            this.idRole});
-            this.dataUserName.DataSource = this.uSERBindingSource;
-            this.dataUserName.Location = new System.Drawing.Point(3, 162);
-            this.dataUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataUserName.ColumnHeadersHeight = 29;
+            this.dataUserName.Location = new System.Drawing.Point(36, 205);
             this.dataUserName.Name = "dataUserName";
-            this.dataUserName.ReadOnly = true;
             this.dataUserName.RowHeadersWidth = 51;
-            this.dataUserName.RowTemplate.Height = 24;
-            this.dataUserName.Size = new System.Drawing.Size(1223, 294);
-            this.dataUserName.TabIndex = 1;
-            this.dataUserName.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // uSERBindingSource
-            // 
-            this.uSERBindingSource.DataMember = "USER";
-            this.uSERBindingSource.DataSource = this.motelmanagerdemoDataSet1BindingSource;
-            // 
-            // motelmanagerdemoDataSet1BindingSource
-            // 
-            this.motelmanagerdemoDataSet1BindingSource.DataSource = this.motel_manager_demoDataSet1;
-            this.motelmanagerdemoDataSet1BindingSource.Position = 0;
+            this.dataUserName.Size = new System.Drawing.Size(240, 150);
+            this.dataUserName.TabIndex = 15;
             // 
             // uSERTableAdapter
             // 
@@ -385,43 +369,47 @@
             // 
             this.rOLETableAdapter.ClearBeforeFill = true;
             // 
+            // motelManagerDataSet
+            // 
+            this.motelManagerDataSet.DataSetName = "MotelManagerDataSet";
+            this.motelManagerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // uSERTableAdapter1
+            // 
+            this.uSERTableAdapter1.ClearBeforeFill = true;
+            // 
             // UserName
             // 
-            this.UserName.DataPropertyName = "userName";
+            this.UserName.DataPropertyName = "UserName";
             this.UserName.HeaderText = "User Name";
             this.UserName.MinimumWidth = 6;
             this.UserName.Name = "UserName";
             this.UserName.ReadOnly = true;
+            this.UserName.Width = 125;
             // 
             // PassWord
             // 
-            this.PassWord.DataPropertyName = "password";
+            this.PassWord.DataPropertyName = "Password";
             this.PassWord.HeaderText = "Pass Word";
             this.PassWord.MinimumWidth = 6;
             this.PassWord.Name = "PassWord";
             this.PassWord.ReadOnly = true;
+            this.PassWord.Width = 125;
             // 
-            // idRole
+            // RoleName
             // 
-            this.idRole.DataPropertyName = "Name";
-            this.idRole.HeaderText = "Role";
-            this.idRole.MinimumWidth = 6;
-            this.idRole.Name = "idRole";
-            this.idRole.ReadOnly = true;
+            this.RoleName.DataPropertyName = "RoleName";
+            this.RoleName.HeaderText = "Role";
+            this.RoleName.MinimumWidth = 6;
+            this.RoleName.Name = "RoleName";
+            this.RoleName.ReadOnly = true;
+            this.RoleName.Width = 125;
             // 
-            // viewToolStripMenuItem
+            // newCustomerToolStripMenuItem
             // 
-            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewChartToolStripMenuItem});
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
-            this.viewToolStripMenuItem.Text = "View";
-            // 
-            // viewChartToolStripMenuItem
-            // 
-            this.viewChartToolStripMenuItem.Name = "viewChartToolStripMenuItem";
-            this.viewChartToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.viewChartToolStripMenuItem.Text = "View Chart";
+            this.newCustomerToolStripMenuItem.Name = "newCustomerToolStripMenuItem";
+            this.newCustomerToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
+            this.newCustomerToolStripMenuItem.Text = "New Customer";
             // 
             // Admin_Formcs
             // 
@@ -444,8 +432,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataUserName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uSERBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motelmanagerdemoDataSet1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motelManagerDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uSERBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -471,9 +459,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataUserName;
-        private System.Windows.Forms.BindingSource motelmanagerdemoDataSet1BindingSource;
         private motel_manager_demoDataSet1 motel_manager_demoDataSet1;
-        private System.Windows.Forms.BindingSource uSERBindingSource;
         private motel_manager_demoDataSet1TableAdapters.USERTableAdapter uSERTableAdapter;
         private motel_manager_demoDataSet1TableAdapters.ROLETableAdapter rOLETableAdapter;
         private System.Windows.Forms.BindingSource rOLEBindingSource2;
@@ -481,10 +467,20 @@
         private System.Windows.Forms.Button exitUpdateUser;
         private System.Windows.Forms.ToolStripMenuItem newUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateUserToolStripMenuItem;
+        private MotelManagerDataSet motelManagerDataSet;
+        private MotelManagerDataSetTableAdapters.USERTableAdapter uSERTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn PassWord;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idRole;
-        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewChartToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoleName;
+        private System.Windows.Forms.BindingSource uSERBindingSource2;
+        private System.Windows.Forms.ToolStripMenuItem newCustomerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fileMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newtUserMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem insertCustomerMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateuserMenuItem;
     }
 }

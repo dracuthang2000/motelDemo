@@ -12,19 +12,19 @@ namespace LoginMotelUser.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class ROMERANK
+    public partial class ROOMRANK
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ROMERANK()
+        public ROOMRANK()
         {
             this.MOTELROOMs = new HashSet<MOTELROOM>();
         }
     
-        public int idRomRank { get; set; }
-        public string Rank { get; set; }
+        public int ID { get; set; }
+        public string RankName { get; set; }
         public Nullable<decimal> Price { get; set; }
-        public string About { get; set; }
         public Nullable<decimal> Deposits { get; set; }
+        public string About { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MOTELROOM> MOTELROOMs { get; set; }

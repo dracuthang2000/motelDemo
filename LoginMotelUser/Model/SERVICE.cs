@@ -12,19 +12,19 @@ namespace LoginMotelUser.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class SERVIECE
+    public partial class SERVICE
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SERVIECE()
+        public SERVICE()
         {
-            this.PARTICURSERVICEs = new HashSet<PARTICURSERVICE>();
+            this.PARTICULARSERVICEs = new HashSet<PARTICULARSERVICE>();
         }
     
-        public int id { get; set; }
-        public string nameService { get; set; }
+        public int ID { get; set; }
+        public string ServiceName { get; set; }
         public Nullable<decimal> Price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PARTICURSERVICE> PARTICURSERVICEs { get; set; }
+        public virtual ICollection<PARTICULARSERVICE> PARTICULARSERVICEs { get; set; }
     }
 }

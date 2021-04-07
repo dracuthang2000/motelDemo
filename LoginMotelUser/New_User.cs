@@ -16,14 +16,18 @@ namespace LoginMotelUser
         {
             InitializeComponent();
         }
-        LoginMotelUser.Model.motel_manager_demoEntities us = new Model.motel_manager_demoEntities();
+        LoginMotelUser.Model.MotelManagerEntities us = new Model.MotelManagerEntities();
         private void New_User_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'motelManagerDataSet.ROLE' table. You can move, or remove it, as needed.
+            this.rOLETableAdapter1.Fill(this.motelManagerDataSet.ROLE);
+            // TODO: This line of code loads data into the 'motelManagerDataSet.USER' table. You can move, or remove it, as needed.
+            this.uSERTableAdapter1.Fill(this.motelManagerDataSet.USER);
             // TODO: This line of code loads data into the 'motel_manager_demoDataSet1.USER' table. You can move, or remove it, as needed.
             // this.uSERTableAdapter.Fill(this.motel_manager_demoDataSet1.USER);
             var query = (from u in us.USERs
-                     select new { u.userName, u.password, u.ROLE.Name }).ToList();
-            this.uSERBindingSource.DataSource = query;
+                     select new { u.UserName, u.Password, u.ROLE.RoleName }).ToList();
+            this.uSERBindingSource1.DataSource = query;
 
             // TODO: This line of code loads data into the 'motel_manager_demoDataSet1.ROLE' table. You can move, or remove it, as needed.
             this.rOLETableAdapter.Fill(this.motel_manager_demoDataSet1.ROLE);
@@ -32,7 +36,7 @@ namespace LoginMotelUser
         private void buttonInsert_Click(object sender, EventArgs e)
         {
             var users = (from u in us.USERs
-                         where u.userName == textUsername.Text
+                         where u.UserName == textUsername.Text
                          select u).ToList();
             if (users.Count != 0)
             {
@@ -52,9 +56,9 @@ namespace LoginMotelUser
                 {
                     us.USERs.Add(new Model.USER
                     {
-                        userName = textUsername.Text.Trim().ToLower(),
-                        password = textPassword.Text.Trim(),
-                        idRole = Int32.Parse(roleComboBox.GetItemText(roleComboBox.SelectedValue).Trim())
+                        UserName = textUsername.Text.Trim().ToLower(),
+                        Password = textPassword.Text.Trim(),
+                        IDRole = Int32.Parse(roleComboBox.GetItemText(roleComboBox.SelectedValue).Trim())
                     });
                     us.SaveChanges();
                     this.New_User_Load(sender, e);

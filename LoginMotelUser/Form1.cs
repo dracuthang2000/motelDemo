@@ -15,7 +15,7 @@ namespace LoginMotelUser
             this.MaximizeBox =false;
         }
 
-        LoginMotelUser.Model.motel_manager_demoEntities us = new Model.motel_manager_demoEntities();
+        LoginMotelUser.Model.MotelManagerEntities us = new Model.MotelManagerEntities();
         public bool isLoggedIn { get; set; }
         public bool checkRole { get; set; }
         public String checkUsername { get; set; }
@@ -51,19 +51,18 @@ namespace LoginMotelUser
         {
 
             var users = (from u in us.USERs
-                        where u.userName==userName.Text
+                        where u.UserName==userName.Text
                         select u).ToList();
-;
             foreach(var u in users)
             {
-                if (userName.Text.Equals("") || passWord.Text.Equals("") || !(u.password.Equals(passWord.Text)))
+                if (userName.Text.Equals("") || passWord.Text.Equals("") || !(u.Password.Equals(passWord.Text)))
                 {
-                    MessageBox.Show("Pass word or User Name is incorrect");
+                    MessageBox.Show("Pass word or User Name is incorrect", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     checkUsername = userName.Text;
-                    if (u.ROLE.Name.Equals("admin"))
+                    if (u.ROLE.RoleName.Equals("admin"))
                     {
                         checkRole = true;
                     } else
@@ -74,6 +73,8 @@ namespace LoginMotelUser
                     this.Close();
                 }
             }
+            if(users.Count==0)
+                MessageBox.Show("Pass word or User Name is incorrect","NOTIFICATION",MessageBoxButtons.OK,MessageBoxIcon.Error);
 
         }
 
@@ -87,5 +88,9 @@ namespace LoginMotelUser
             this.Enabled = true;
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace LoginMotelUser
     /// </summary>
     public partial class Admin_Formcs : Form
     {
-        LoginMotelUser.Model.motel_manager_demoEntities us = new Model.motel_manager_demoEntities();
+        LoginMotelUser.Model.MotelManagerEntities us = new Model.MotelManagerEntities();
         public Admin_Formcs()
         {
             InitializeComponent();
@@ -35,37 +35,33 @@ namespace LoginMotelUser
             }
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            isClose = true;
-        }
 
         private void Admin_Formcs_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'motelManagerDataSet.USER' table. You can move, or remove it, as needed.
             // TODO: This line of code loads data into the 'motel_manager_demoDataSet1.ROLE' table. You can move, or remove it, as needed.
             this.rOLETableAdapter.Fill(this.motel_manager_demoDataSet1.ROLE);
-            var a = us.USERs.Join(us.ROLEs, u => u.idRole, r => r.id, (u, r) => new { u, r }).Where(ur => ur.r.id == ur.u.idRole)
-                .Select(ur => new { ur.u.userName,ur.u.password,ur.r.Name}).ToList();
-            this.motelmanagerdemoDataSet1BindingSource.DataSource = a;
+            var query = (from u in us.USERs
+                         select new { u.UserName, u.Password, u.ROLE.RoleName }).ToList();
+            this.uSERBindingSource2.DataSource = query;
             if (this.checkRole == false)
             {
-                newUserToolStripMenuItem.Enabled = false;
-                updateUserToolStripMenuItem.Enabled = false;
+                newtUserMenuItem.Enabled = false;
+                updateuserMenuItem.Enabled = false;
             }
             else
             {
-                newUserToolStripMenuItem.Enabled = true;
-                updateToolStripMenuItem.Enabled = true;
+                newtUserMenuItem.Enabled = true;
+                updateMenuItem.Enabled = true;
             }
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            var a = us.USERs.Join(us.ROLEs, u => u.idRole, r => r.id, (u, r) => new { u, r })
-                .Where(ur => ur.r.id == ur.u.idRole && ur.u.userName.Contains(Search_admin.Text)|| ur.r.Name.Contains(Search_admin.Text))
-             .Select(ur => new { ur.u.userName, ur.u.password, ur.r.Name }).ToList();
-            this.motelmanagerdemoDataSet1BindingSource.DataSource = a;
+            var a = us.USERs.Join(us.ROLEs, u => u.IDRole, r => r.ID, (u, r) => new { u, r })
+                .Where(ur => ur.r.ID == ur.u.IDRole && ur.u.UserName.Contains(Search_admin.Text)|| ur.r.RoleName.Contains(Search_admin.Text))
+             .Select(ur => new { ur.u.UserName, ur.u.Password, ur.r.RoleName }).ToList();
+            this.uSERBindingSource2.DataSource = a;
         }
 
         private void addUser_Click(object sender, EventArgs e)
@@ -75,9 +71,9 @@ namespace LoginMotelUser
 
             us.USERs.Add(new Model.USER
             {
-                userName = userName_text.Text.Trim(),
-                password = passWordText.Text.Trim(),
-                idRole = Int32.Parse(roleCombobox.GetItemText(roleCombobox.SelectedValue).Trim())
+                UserName = userName_text.Text.Trim(),
+                Password = passWordText.Text.Trim(),
+                IDRole = Int32.Parse(roleCombobox.GetItemText(roleCombobox.SelectedValue).Trim())
             });
             DialogResult d = MessageBox.Show("Are you sure ?", "INSERT MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(d== DialogResult.Yes)
@@ -108,7 +104,7 @@ namespace LoginMotelUser
         private void deleteUser_Click(object sender, EventArgs e)
         {
             var users = from u in us.USERs
-                       where u.userName.Equals(userName_text.Text)
+                       where u.UserName.Equals(userName_text.Text)
                        select u;
             foreach( var user in users)
             {
@@ -129,10 +125,10 @@ namespace LoginMotelUser
         private void updateUser_Click(object sender, EventArgs e)
         {
             var uN = userName_text.Text;
-            var user = us.USERs.Single(u => u.userName.Equals(uN));
-            user.userName = userName_text.Text.Trim();
-            user.password = passWordText.Text.Trim();
-            user.idRole = Int32.Parse(roleCombobox.GetItemText(roleCombobox.SelectedValue));
+            var user = us.USERs.Single(u => u.UserName.Equals(uN));
+            user.UserName = userName_text.Text.Trim();
+            user.Password = passWordText.Text.Trim();
+            user.IDRole = Int32.Parse(roleCombobox.GetItemText(roleCombobox.SelectedValue));
             DialogResult d = MessageBox.Show("Are you sure ?", "UPDATE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (d == DialogResult.Yes)
             {
@@ -150,19 +146,29 @@ namespace LoginMotelUser
             addUser.Visible = true;
         }
 
-        private void newUserToolStripMenuItem_Click(object sender, EventArgs e)
+        private void insertUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             New_User nU = new New_User();
             nU.ShowDialog();
-            this.Admin_Formcs_Load(sender, e);
         }
 
-        private void updateUserToolStripMenuItem_Click(object sender, EventArgs e)
+        private void inserCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formAddCustomer AC = new formAddCustomer();
+            AC.ShowDialog();
+        }
+
+        private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Update_User udU = new Update_User();
             udU.checkUsername = this.checkUsername;
             udU.ShowDialog();
-            this.Admin_Formcs_Load(sender,e);
+        }
+
+        private void exitMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            isClose = true;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace LoginMotelUser
             InitializeComponent();
             opener = ParentForm;
         }
-        LoginMotelUser.Model.motel_manager_demoEntities stf = new Model.motel_manager_demoEntities();
+        LoginMotelUser.Model.MotelManagerEntities stf = new Model.MotelManagerEntities();
         private void createpassword_Load(object sender, EventArgs e)
         {
 
@@ -27,7 +27,7 @@ namespace LoginMotelUser
         private void button1_Click(object sender, EventArgs e)
         {
             var uN = (from s in stf.STAFFs
-                      where s.userName.Equals(textUsername.Text)
+                      where s.UserName.Equals(textUsername.Text)
                       select s).ToList();
             if (uN.Count == 0)
             {
@@ -39,9 +39,9 @@ namespace LoginMotelUser
                 foreach(var st in uN)
                 {
                     //String date = st.dateOfBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
-                    String date = st.dateOfBirth.Value.ToString("dd/MM/yyyy");
+                    String date = st.DateOfBirth.Value.ToString("dd/MM/yyyy");
                  
-                    if (!(st.idStaff.Trim().Equals(text_idCard.Text))||!(st.dateOfBirth.Value.ToString("dd/MM/yyyy").Equals(textdate.Text)))
+                    if (!(st.ID.Trim().Equals(text_idCard.Text))||!(st.DateOfBirth.Value.ToString("dd/MM/yyyy").Equals(textdate.Text)))
                     {
                         checkIdanddate.Visible = true;
                     }
@@ -144,9 +144,9 @@ namespace LoginMotelUser
             DialogResult d = MessageBox.Show("Are you sure ?", "UPDATE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (d == DialogResult.Yes)
             {
-                Model.motel_manager_demoEntities us = new Model.motel_manager_demoEntities();
-                var user = us.USERs.Single(u => u.userName.Equals(textUsername.Text));
-                user.password = textPassword.Text.Trim();
+                Model.MotelManagerEntities us = new Model.MotelManagerEntities();
+                var user = us.USERs.Single(u => u.UserName.Equals(textUsername.Text));
+                user.Password = textPassword.Text.Trim();
                 us.SaveChanges();
                 this.Close();
             }

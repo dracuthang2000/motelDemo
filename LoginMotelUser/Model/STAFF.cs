@@ -20,15 +20,15 @@ namespace LoginMotelUser.Model
             this.BILLs = new HashSet<BILL>();
         }
     
-        public string idStaff { get; set; }
-        public string Name { get; set; }
-        public Nullable<System.DateTime> dateOfBirth { get; set; }
+        public string ID { get; set; }
+        public string StaffName { get; set; }
+        public Nullable<System.DateTime> DateOfBirth { get; set; }
         public string Address { get; set; }
-        public string phone { get; set; }
-        public string userName { get; set; }
+        public string NumberPhone { get; set; }
+        public string UserName { get; set; }
+        public string Sexual { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BILL> BILLs { get; set; }
-        public virtual USER USER { get; set; }
     }
 }

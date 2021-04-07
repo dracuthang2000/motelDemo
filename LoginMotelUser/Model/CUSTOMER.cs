@@ -17,17 +17,17 @@ namespace LoginMotelUser.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CUSTOMER()
         {
-            this.RENTINFOes = new HashSet<RENTINFO>();
+            this.REINTINFORs = new HashSet<REINTINFOR>();
         }
     
-        public string idCard { get; set; }
-        public string Name { get; set; }
-        public Nullable<System.DateTime> dateOfBirth { get; set; }
+        public string ID { get; set; }
+        public string CustomerName { get; set; }
+        public Nullable<System.DateTime> DateOfBirth { get; set; }
         public string Address { get; set; }
-        public string Phone { get; set; }
+        public string NumberPhone { get; set; }
         public string Sexual { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RENTINFO> RENTINFOes { get; set; }
+        public virtual ICollection<REINTINFOR> REINTINFORs { get; set; }
     }
 }
