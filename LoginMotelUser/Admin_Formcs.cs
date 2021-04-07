@@ -235,5 +235,10 @@ namespace LoginMotelUser
             }
         }
 
+        private void collectionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCollection Fc = new FormCollection();
+            Fc.ShowDialog();
+        }
     }
 }

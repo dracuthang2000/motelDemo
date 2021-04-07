@@ -73,6 +73,8 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
+            this.billsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.collectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -183,11 +185,12 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenuItem,
-            this.editMenuItem});
+            this.editMenuItem,
+            this.billsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1068, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1068, 28);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -526,6 +529,21 @@
             this.label36.TabIndex = 0;
             this.label36.Text = "Danh sách phòng";
             // 
+            // billsToolStripMenuItem
+            // 
+            this.billsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.collectionsToolStripMenuItem});
+            this.billsToolStripMenuItem.Name = "billsToolStripMenuItem";
+            this.billsToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
+            this.billsToolStripMenuItem.Text = "Bills";
+            // 
+            // collectionsToolStripMenuItem
+            // 
+            this.collectionsToolStripMenuItem.Name = "collectionsToolStripMenuItem";
+            this.collectionsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.collectionsToolStripMenuItem.Text = "Collections";
+            this.collectionsToolStripMenuItem.Click += new System.EventHandler(this.collectionsToolStripMenuItem_Click);
+            // 
             // Admin_Formcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -601,5 +619,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ToolStripMenuItem billsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem collectionsToolStripMenuItem;
     }
 }

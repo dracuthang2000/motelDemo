@@ -18,3 +18,4 @@ C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUs
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.Update_User.resources
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.forgetpassword.resources
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.formAddCustomer.resources
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.FormCollection.resources
