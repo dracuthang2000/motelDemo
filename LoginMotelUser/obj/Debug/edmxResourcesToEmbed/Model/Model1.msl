@@ -150,5 +150,86 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="MotelManagerModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="MotelManagerModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="USP_CountCustomer" FunctionName="MotelManagerModel.Store.USP_CountCustomer" />
+    <FunctionImportMapping FunctionImportName="USP_CountRange" FunctionName="MotelManagerModel.Store.USP_CountRange" />
+    <FunctionImportMapping FunctionImportName="USP_CountRank" FunctionName="MotelManagerModel.Store.USP_CountRank" />
+    <FunctionImportMapping FunctionImportName="USP_CountRentInfo" FunctionName="MotelManagerModel.Store.USP_CountRentInfo" />
+    <FunctionImportMapping FunctionImportName="USP_CountRoom" FunctionName="MotelManagerModel.Store.USP_CountRoom" />
+    <FunctionImportMapping FunctionImportName="USP_CountService" FunctionName="MotelManagerModel.Store.USP_CountService" />
+    <FunctionImportMapping FunctionImportName="USP_CountStaff" FunctionName="MotelManagerModel.Store.USP_CountStaff" />
+    <FunctionImportMapping FunctionImportName="USP_PageCustomer" FunctionName="MotelManagerModel.Store.USP_PageCustomer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageCustomer_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
+          <ScalarProperty Name="Sexual" ColumnName="Sexual" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PageRange" FunctionName="MotelManagerModel.Store.USP_PageRange">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageRange_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RangeName" ColumnName="RangeName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PageRank" FunctionName="MotelManagerModel.Store.USP_PageRank">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageRank_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RankName" ColumnName="RankName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Deposits" ColumnName="Deposits" />
+          <ScalarProperty Name="About" ColumnName="About" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PageRentInfo" FunctionName="MotelManagerModel.Store.USP_PageRentInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageRentInfo_Result">
+          <ScalarProperty Name="IDCustomer" ColumnName="IDCustomer" />
+          <ScalarProperty Name="IDRoom" ColumnName="IDRoom" />
+          <ScalarProperty Name="CheckInDate" ColumnName="CheckInDate" />
+          <ScalarProperty Name="CheckOutDate" ColumnName="CheckOutDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PageRoom" FunctionName="MotelManagerModel.Store.USP_PageRoom">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageRoom_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+          <ScalarProperty Name="StateRoom" ColumnName="StateRoom" />
+          <ScalarProperty Name="IDRoomRank" ColumnName="IDRoomRank" />
+          <ScalarProperty Name="IDRoomRange" ColumnName="IDRoomRange" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PageService" FunctionName="MotelManagerModel.Store.USP_PageService">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageService_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PageStaff" FunctionName="MotelManagerModel.Store.USP_PageStaff">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageStaff_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Sexual" ColumnName="Sexual" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

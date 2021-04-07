@@ -14,10 +14,18 @@ namespace LoginMotelUser.Model
     
     public partial class USER
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public USER()
+        {
+            this.STAFFs = new HashSet<STAFF>();
+        }
+    
         public string UserName { get; set; }
         public string Password { get; set; }
         public Nullable<int> IDRole { get; set; }
     
         public virtual ROLE ROLE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<STAFF> STAFFs { get; set; }
     }
 }

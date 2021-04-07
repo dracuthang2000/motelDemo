@@ -32,7 +32,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RoomName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="StateRoom" Type="Boolean" />
+    <Property Name="StateRoom" Type="Byte" />
     <Property Name="IDRoomRank" Type="Int32" />
     <Property Name="IDRoomRange" Type="Int32" />
     <NavigationProperty Name="BILLs" Relationship="Self.FK_BILL_MOTELROOM" FromRole="MOTELROOM" ToRole="BILL" />
@@ -113,6 +113,7 @@
     <Property Name="UserName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Name="Sexual" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="BILLs" Relationship="Self.FK_BILL_STAFF" FromRole="STAFF" ToRole="BILL" />
+    <NavigationProperty Name="USER" Relationship="MotelManagerModel.FK_STAFF_USER" FromRole="STAFF" ToRole="USER" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -132,6 +133,7 @@
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IDRole" Type="Int32" />
     <NavigationProperty Name="ROLE" Relationship="Self.FK_USER_ROLE" FromRole="USER" ToRole="ROLE" />
+    <NavigationProperty Name="STAFFs" Relationship="MotelManagerModel.FK_STAFF_USER" FromRole="USER" ToRole="STAFF" />
   </EntityType>
   <Association Name="FK_BILL_MOTELROOM">
     <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="0..1" />
@@ -320,6 +322,45 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <AssociationSet Name="FK_STAFF_USER" Association="MotelManagerModel.FK_STAFF_USER">
+      <End Role="USER" EntitySet="USERs" />
+      <End Role="STAFF" EntitySet="STAFFs" />
+    </AssociationSet>
+    <FunctionImport Name="USP_CountCustomer" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="USP_CountRange" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="USP_CountRank" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="USP_CountRentInfo" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="USP_CountRoom" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="USP_CountService" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="USP_CountStaff" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="USP_PageCustomer" ReturnType="Collection(MotelManagerModel.USP_PageCustomer_Result)">
+      <Parameter Name="bd" Mode="In" Type="Int32" />
+      <Parameter Name="kt" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_PageRange" ReturnType="Collection(MotelManagerModel.USP_PageRange_Result)">
+      <Parameter Name="bd" Mode="In" Type="Int32" />
+      <Parameter Name="kt" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_PageRank" ReturnType="Collection(MotelManagerModel.USP_PageRank_Result)">
+      <Parameter Name="bd" Mode="In" Type="Int32" />
+      <Parameter Name="kt" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_PageRentInfo" ReturnType="Collection(MotelManagerModel.USP_PageRentInfo_Result)">
+      <Parameter Name="bd" Mode="In" Type="Int32" />
+      <Parameter Name="kt" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_PageRoom" ReturnType="Collection(MotelManagerModel.USP_PageRoom_Result)">
+      <Parameter Name="bd" Mode="In" Type="Int32" />
+      <Parameter Name="kt" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_PageService" ReturnType="Collection(MotelManagerModel.USP_PageService_Result)">
+      <Parameter Name="bd" Mode="In" Type="Int32" />
+      <Parameter Name="kt" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_PageStaff" ReturnType="Collection(MotelManagerModel.USP_PageStaff_Result)">
+      <Parameter Name="bd" Mode="In" Type="Int32" />
+      <Parameter Name="kt" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -331,5 +372,63 @@
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <Association Name="FK_STAFF_USER">
+    <End Type="MotelManagerModel.USER" Role="USER" Multiplicity="0..1" />
+    <End Type="MotelManagerModel.STAFF" Role="STAFF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="STAFF">
+        <PropertyRef Name="UserName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="USP_PageCustomer_Result">
+    <Property Type="String" Name="ID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="DateOfBirth" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="NumberPhone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Sexual" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="USP_PageRange_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="RangeName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="USP_PageRank_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="RankName" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="Deposits" Nullable="true" Precision="19" />
+    <Property Type="String" Name="About" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="USP_PageRentInfo_Result">
+    <Property Type="String" Name="IDCustomer" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="IDRoom" Nullable="false" />
+    <Property Type="DateTime" Name="CheckInDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="CheckOutDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="USP_PageRoom_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="RoomName" Nullable="true" MaxLength="50" />
+    <Property Type="Int16" Name="StateRoom" Nullable="true" />
+    <Property Type="Int32" Name="IDRoomRank" Nullable="true" />
+    <Property Type="Int32" Name="IDRoomRange" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_PageService_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="ServiceName" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="USP_PageStaff_Result">
+    <Property Type="String" Name="ID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="StaffName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="DateOfBirth" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="NumberPhone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="Sexual" Nullable="true" MaxLength="10" />
   </ComplexType>
 </Schema>

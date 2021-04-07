@@ -26,6 +26,8 @@
         <AssociationConnector Association="MotelManagerModel.FK_REINTINFOR_MOTELROOM" ManuallyRouted="false" />
         <AssociationConnector Association="MotelManagerModel.FK_PARTICULARSERVICE_SERVICE" ManuallyRouted="false" />
         <AssociationConnector Association="MotelManagerModel.FK_USER_ROLE" ManuallyRouted="false" />
+        <AssociationConnector Association="MotelManagerModel.FK_STAFF_USER" />
+        <AssociationConnector Association="MotelManagerModel.FK_STAFF_USER" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

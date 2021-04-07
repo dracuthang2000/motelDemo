@@ -142,5 +142,131 @@ namespace LoginMotelUser.Model
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual ObjectResult<Nullable<int>> USP_CountCustomer()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("USP_CountCustomer");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> USP_CountRange()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("USP_CountRange");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> USP_CountRank()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("USP_CountRank");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> USP_CountRentInfo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("USP_CountRentInfo");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> USP_CountRoom()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("USP_CountRoom");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> USP_CountService()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("USP_CountService");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> USP_CountStaff()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("USP_CountStaff");
+        }
+    
+        public virtual ObjectResult<USP_PageCustomer_Result> USP_PageCustomer(Nullable<int> bd, Nullable<int> kt)
+        {
+            var bdParameter = bd.HasValue ?
+                new ObjectParameter("bd", bd) :
+                new ObjectParameter("bd", typeof(int));
+    
+            var ktParameter = kt.HasValue ?
+                new ObjectParameter("kt", kt) :
+                new ObjectParameter("kt", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_PageCustomer_Result>("USP_PageCustomer", bdParameter, ktParameter);
+        }
+    
+        public virtual ObjectResult<USP_PageRange_Result> USP_PageRange(Nullable<int> bd, Nullable<int> kt)
+        {
+            var bdParameter = bd.HasValue ?
+                new ObjectParameter("bd", bd) :
+                new ObjectParameter("bd", typeof(int));
+    
+            var ktParameter = kt.HasValue ?
+                new ObjectParameter("kt", kt) :
+                new ObjectParameter("kt", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_PageRange_Result>("USP_PageRange", bdParameter, ktParameter);
+        }
+    
+        public virtual ObjectResult<USP_PageRank_Result> USP_PageRank(Nullable<int> bd, Nullable<int> kt)
+        {
+            var bdParameter = bd.HasValue ?
+                new ObjectParameter("bd", bd) :
+                new ObjectParameter("bd", typeof(int));
+    
+            var ktParameter = kt.HasValue ?
+                new ObjectParameter("kt", kt) :
+                new ObjectParameter("kt", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_PageRank_Result>("USP_PageRank", bdParameter, ktParameter);
+        }
+    
+        public virtual ObjectResult<USP_PageRentInfo_Result> USP_PageRentInfo(Nullable<int> bd, Nullable<int> kt)
+        {
+            var bdParameter = bd.HasValue ?
+                new ObjectParameter("bd", bd) :
+                new ObjectParameter("bd", typeof(int));
+    
+            var ktParameter = kt.HasValue ?
+                new ObjectParameter("kt", kt) :
+                new ObjectParameter("kt", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_PageRentInfo_Result>("USP_PageRentInfo", bdParameter, ktParameter);
+        }
+    
+        public virtual ObjectResult<USP_PageRoom_Result> USP_PageRoom(Nullable<int> bd, Nullable<int> kt)
+        {
+            var bdParameter = bd.HasValue ?
+                new ObjectParameter("bd", bd) :
+                new ObjectParameter("bd", typeof(int));
+    
+            var ktParameter = kt.HasValue ?
+                new ObjectParameter("kt", kt) :
+                new ObjectParameter("kt", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_PageRoom_Result>("USP_PageRoom", bdParameter, ktParameter);
+        }
+    
+        public virtual ObjectResult<USP_PageService_Result> USP_PageService(Nullable<int> bd, Nullable<int> kt)
+        {
+            var bdParameter = bd.HasValue ?
+                new ObjectParameter("bd", bd) :
+                new ObjectParameter("bd", typeof(int));
+    
+            var ktParameter = kt.HasValue ?
+                new ObjectParameter("kt", kt) :
+                new ObjectParameter("kt", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_PageService_Result>("USP_PageService", bdParameter, ktParameter);
+        }
+    
+        public virtual ObjectResult<USP_PageStaff_Result> USP_PageStaff(Nullable<int> bd, Nullable<int> kt)
+        {
+            var bdParameter = bd.HasValue ?
+                new ObjectParameter("bd", bd) :
+                new ObjectParameter("bd", typeof(int));
+    
+            var ktParameter = kt.HasValue ?
+                new ObjectParameter("kt", kt) :
+                new ObjectParameter("kt", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_PageStaff_Result>("USP_PageStaff", bdParameter, ktParameter);
+        }
     }
 }

@@ -53,9 +53,22 @@ namespace LoginMotelUser
                               }).ToList();
                 foreach (var nroom in nRooms)
                 {
+                    String check;
+                    if (nroom.StateRoom == 1)
+                    {
+                        check = "Trống";
+                    }
+                    else if (nroom.StateRoom == 2)
+                    {
+                        check = "Còn chỗ";
+                    }
+                    else
+                    {
+                        check = "Hết chỗ";
+                    }
                     ListViewItem lvi = new ListViewItem(nroom.ID.ToString());
                     lvi.SubItems.Add(nroom.RoomName);
-                    lvi.SubItems.Add(nroom.StateRoom == true ? "Đã cho thuê" : "Trống");
+                    lvi.SubItems.Add(check);
                     lvi.SubItems.Add(nroom.RangeName);
                     lvi.SubItems.Add(nroom.RankName);
 
@@ -79,9 +92,22 @@ namespace LoginMotelUser
                               }).ToList();
                 foreach (var nroom in nRooms)
                 {
+                    String check;
+                    if (nroom.StateRoom == 1)
+                    {
+                        check = "Trống";
+                    }
+                    else if (nroom.StateRoom == 2)
+                    {
+                        check = "Còn chỗ";
+                    }
+                    else
+                    {
+                        check = "Hết chỗ";
+                    }
                     ListViewItem lvi = new ListViewItem(nroom.ID.ToString());
                     lvi.SubItems.Add(nroom.RoomName);
-                    lvi.SubItems.Add(nroom.StateRoom == true ? "Đã cho thuê" : "Trống");
+                    lvi.SubItems.Add(check);
                     lvi.SubItems.Add(nroom.RangeName);
                     lvi.SubItems.Add(nroom.RankName);
 
@@ -105,9 +131,22 @@ namespace LoginMotelUser
                               }).ToList();
                 foreach (var nroom in nRooms)
                 {
+                    String check;
+                    if(nroom.StateRoom == 1)
+                    {
+                        check = "Trống";
+                    }
+                    else if(nroom.StateRoom == 2)
+                    {
+                        check = "Còn chỗ";
+                    }
+                    else
+                    {
+                        check = "Hết chỗ";
+                    }
                     ListViewItem lvi = new ListViewItem(nroom.ID.ToString());
                     lvi.SubItems.Add(nroom.RoomName);
-                    lvi.SubItems.Add(nroom.StateRoom == true ? "Đã cho thuê" : "Trống");
+                    lvi.SubItems.Add(check);
                     lvi.SubItems.Add(nroom.RangeName);
                     lvi.SubItems.Add(nroom.RankName);
 
@@ -130,9 +169,22 @@ namespace LoginMotelUser
                               }).ToList();
                 foreach (var nroom in nRooms)
                 {
+                    String check;
+                    if (nroom.StateRoom == 1)
+                    {
+                        check = "Trống";
+                    }
+                    else if (nroom.StateRoom == 2)
+                    {
+                        check = "Còn chỗ";
+                    }
+                    else
+                    {
+                        check = "Hết chỗ";
+                    }
                     ListViewItem lvi = new ListViewItem(nroom.ID.ToString());
                     lvi.SubItems.Add(nroom.RoomName);
-                    lvi.SubItems.Add(nroom.StateRoom == true ? "Đã cho thuê" : "Trống");
+                    lvi.SubItems.Add(check);
                     lvi.SubItems.Add(nroom.RangeName);
                     lvi.SubItems.Add(nroom.RankName);
 
@@ -266,8 +318,6 @@ namespace LoginMotelUser
 
             if (isOk)
             {
-                if (txtHoTenSC3.ReadOnly == true) // sửa
-                {
                     // Nếu IDRoom khác thì thêm bảng rent
                     // Nếu IDRoom giống thì kiểm tra
                     // Nếu như đã chưa ngày checkout thì báo: Khách hàng đã thuê phòng này
@@ -302,32 +352,44 @@ namespace LoginMotelUser
                             newRent.IDCustomer = txtCMNDSC3.Text;
                             newRent.IDRoom = int.Parse(lbPhongSC3.Text);
                             newRent.CheckInDate = DateTime.Now;
-
                             db.REINTINFORs.Add(newRent);
                             db.SaveChanges();
                         }
                     }
-                }
                 else // thêm
                 {
                     // Thêm customer
-                    var newCustumer = new Model.CUSTOMER();
-                    newCustumer.ID = txtCMNDSC3.Text;
-                    newCustumer.CustomerName = txtHoTenSC3.Text;
-                    newCustumer.NumberPhone = txtSDTSC3.Text;
-                    newCustumer.Sexual = cbbGioiTinhSC3.Text;
-                    newCustumer.Address = txtDiaChiSC3.Text;
-                    newCustumer.DateOfBirth = dtDateSC3.Value;
-
-                    db.CUSTOMERs.Add(newCustumer);
-                    db.SaveChanges();
-
+                    db = new Model.MotelManagerEntities();
+                    var check = db.CUSTOMERs.Where(u => u.ID.Equals(txtCMNDSC3.Text)).ToList();
+                    if (check.Count == 0)
+                    {
+                        db.CUSTOMERs.Add(new Model.CUSTOMER
+                        {
+                           ID = txtCMNDSC3.Text,
+                          CustomerName = txtHoTenSC3.Text,
+                          NumberPhone = txtSDTSC3.Text,
+                          Sexual = cbbGioiTinhSC3.Text,
+                          Address = txtDiaChiSC3.Text,
+                          DateOfBirth = dtDateSC3.Value,
+                    });
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        var query = db.CUSTOMERs.Single(u => u.ID.Equals(txtCMNDSC3.Text));
+                        // newCustumer.ID = txtCMNDSC3.Text;
+                        query.CustomerName = txtHoTenSC3.Text;
+                        query.NumberPhone = txtSDTSC3.Text;
+                        query.Sexual = cbbGioiTinhSC3.Text;
+                        query.Address = txtDiaChiSC3.Text;
+                        query.DateOfBirth = dtDateSC3.Value;
+                        db.SaveChanges();
+                    }
                     // Thêm rent_info
                     var newRent = new Model.REINTINFOR();
                     newRent.IDCustomer = txtCMNDSC3.Text;
                     newRent.IDRoom = int.Parse(lbPhongSC3.Text);
                     newRent.CheckInDate = DateTime.Now;
-
                     db.REINTINFORs.Add(newRent);
                     db.SaveChanges();
 

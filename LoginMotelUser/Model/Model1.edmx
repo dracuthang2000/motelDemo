@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MotelManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MotelManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BILL">
           <Key>
             <PropertyRef Name="ID" />
@@ -33,7 +33,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RoomName" Type="nvarchar" MaxLength="50" />
-          <Property Name="StateRoom" Type="bit" />
+          <Property Name="StateRoom" Type="smallint" />
           <Property Name="IDRoomRank" Type="int" />
           <Property Name="IDRoomRange" Type="int" />
         </EntityType>
@@ -133,7 +133,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BILL_STAFF">
-          <End Role="STAFF" Type="Self.STAFF" Multiplicity="0..1" />
+          <End Role="STAFF" Type="Self.STAFF" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="STAFF">
@@ -216,8 +218,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_STAFF_USER">
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="STAFF" Type="Self.STAFF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="STAFF">
+              <PropertyRef Name="UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_USER_ROLE">
-          <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1" />
+          <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="USER" Type="Self.USER" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ROLE">
@@ -228,9 +244,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-warning 6035: The relationship 'FK_USER_STAFF' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK_USER_STAFF" />-->
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -262,6 +275,41 @@ warning 6035: The relationship 'FK_USER_STAFF' has columns that are not part of 
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_CountCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_CountRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_CountRank" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_CountRentInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_CountRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_CountService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_CountStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_PageCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bd" Type="int" Mode="In" />
+          <Parameter Name="kt" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_PageRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bd" Type="int" Mode="In" />
+          <Parameter Name="kt" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_PageRank" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bd" Type="int" Mode="In" />
+          <Parameter Name="kt" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_PageRentInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bd" Type="int" Mode="In" />
+          <Parameter Name="kt" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_PageRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bd" Type="int" Mode="In" />
+          <Parameter Name="kt" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_PageService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bd" Type="int" Mode="In" />
+          <Parameter Name="kt" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_PageStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bd" Type="int" Mode="In" />
+          <Parameter Name="kt" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="MotelManagerModelStoreContainer">
           <EntitySet Name="BILL" EntityType="Self.BILL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
@@ -307,13 +355,16 @@ warning 6035: The relationship 'FK_USER_STAFF' has columns that are not part of 
             <End Role="MOTELROOM" EntitySet="MOTELROOM" />
             <End Role="REINTINFOR" EntitySet="REINTINFOR" />
           </AssociationSet>
+          <AssociationSet Name="FK_STAFF_USER" Association="Self.FK_STAFF_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="STAFF" EntitySet="STAFF" />
+          </AssociationSet>
           <AssociationSet Name="FK_USER_ROLE" Association="Self.FK_USER_ROLE">
             <End Role="ROLE" EntitySet="ROLE" />
             <End Role="USER" EntitySet="USER" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MotelManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -349,7 +400,7 @@ warning 6035: The relationship 'FK_USER_STAFF' has columns that are not part of 
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RoomName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StateRoom" Type="Boolean" />
+          <Property Name="StateRoom" Type="Byte" />
           <Property Name="IDRoomRank" Type="Int32" />
           <Property Name="IDRoomRange" Type="Int32" />
           <NavigationProperty Name="BILLs" Relationship="Self.FK_BILL_MOTELROOM" FromRole="MOTELROOM" ToRole="BILL" />
@@ -430,6 +481,7 @@ warning 6035: The relationship 'FK_USER_STAFF' has columns that are not part of 
           <Property Name="UserName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="Sexual" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BILLs" Relationship="Self.FK_BILL_STAFF" FromRole="STAFF" ToRole="BILL" />
+          <NavigationProperty Name="USER" Relationship="MotelManagerModel.FK_STAFF_USER" FromRole="STAFF" ToRole="USER" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -449,6 +501,7 @@ warning 6035: The relationship 'FK_USER_STAFF' has columns that are not part of 
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IDRole" Type="Int32" />
           <NavigationProperty Name="ROLE" Relationship="Self.FK_USER_ROLE" FromRole="USER" ToRole="ROLE" />
+          <NavigationProperty Name="STAFFs" Relationship="MotelManagerModel.FK_STAFF_USER" FromRole="USER" ToRole="STAFF" />
         </EntityType>
         <Association Name="FK_BILL_MOTELROOM">
           <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="0..1" />
@@ -637,6 +690,45 @@ warning 6035: The relationship 'FK_USER_STAFF' has columns that are not part of 
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <AssociationSet Name="FK_STAFF_USER" Association="MotelManagerModel.FK_STAFF_USER">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="STAFF" EntitySet="STAFFs" />
+          </AssociationSet>
+          <FunctionImport Name="USP_CountCustomer" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="USP_CountRange" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="USP_CountRank" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="USP_CountRentInfo" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="USP_CountRoom" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="USP_CountService" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="USP_CountStaff" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="USP_PageCustomer" ReturnType="Collection(MotelManagerModel.USP_PageCustomer_Result)">
+            <Parameter Name="bd" Mode="In" Type="Int32" />
+            <Parameter Name="kt" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_PageRange" ReturnType="Collection(MotelManagerModel.USP_PageRange_Result)">
+            <Parameter Name="bd" Mode="In" Type="Int32" />
+            <Parameter Name="kt" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_PageRank" ReturnType="Collection(MotelManagerModel.USP_PageRank_Result)">
+            <Parameter Name="bd" Mode="In" Type="Int32" />
+            <Parameter Name="kt" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_PageRentInfo" ReturnType="Collection(MotelManagerModel.USP_PageRentInfo_Result)">
+            <Parameter Name="bd" Mode="In" Type="Int32" />
+            <Parameter Name="kt" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_PageRoom" ReturnType="Collection(MotelManagerModel.USP_PageRoom_Result)">
+            <Parameter Name="bd" Mode="In" Type="Int32" />
+            <Parameter Name="kt" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_PageService" ReturnType="Collection(MotelManagerModel.USP_PageService_Result)">
+            <Parameter Name="bd" Mode="In" Type="Int32" />
+            <Parameter Name="kt" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_PageStaff" ReturnType="Collection(MotelManagerModel.USP_PageStaff_Result)">
+            <Parameter Name="bd" Mode="In" Type="Int32" />
+            <Parameter Name="kt" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -648,6 +740,64 @@ warning 6035: The relationship 'FK_USER_STAFF' has columns that are not part of 
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <Association Name="FK_STAFF_USER">
+          <End Type="MotelManagerModel.USER" Role="USER" Multiplicity="0..1" />
+          <End Type="MotelManagerModel.STAFF" Role="STAFF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="STAFF">
+              <PropertyRef Name="UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="USP_PageCustomer_Result">
+          <Property Type="String" Name="ID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="NumberPhone" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sexual" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="USP_PageRange_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="RangeName" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_PageRank_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="RankName" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="Deposits" Nullable="true" Precision="19" />
+          <Property Type="String" Name="About" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="USP_PageRentInfo_Result">
+          <Property Type="String" Name="IDCustomer" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="IDRoom" Nullable="false" />
+          <Property Type="DateTime" Name="CheckInDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="CheckOutDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="USP_PageRoom_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="RoomName" Nullable="true" MaxLength="50" />
+          <Property Type="Int16" Name="StateRoom" Nullable="true" />
+          <Property Type="Int32" Name="IDRoomRank" Nullable="true" />
+          <Property Type="Int32" Name="IDRoomRange" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USP_PageService_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="ServiceName" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="USP_PageStaff_Result">
+          <Property Type="String" Name="ID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="StaffName" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="NumberPhone" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="Sexual" Nullable="true" MaxLength="10" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -804,6 +954,87 @@ warning 6035: The relationship 'FK_USER_STAFF' has columns that are not part of 
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="MotelManagerModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="MotelManagerModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="USP_CountCustomer" FunctionName="MotelManagerModel.Store.USP_CountCustomer" />
+          <FunctionImportMapping FunctionImportName="USP_CountRange" FunctionName="MotelManagerModel.Store.USP_CountRange" />
+          <FunctionImportMapping FunctionImportName="USP_CountRank" FunctionName="MotelManagerModel.Store.USP_CountRank" />
+          <FunctionImportMapping FunctionImportName="USP_CountRentInfo" FunctionName="MotelManagerModel.Store.USP_CountRentInfo" />
+          <FunctionImportMapping FunctionImportName="USP_CountRoom" FunctionName="MotelManagerModel.Store.USP_CountRoom" />
+          <FunctionImportMapping FunctionImportName="USP_CountService" FunctionName="MotelManagerModel.Store.USP_CountService" />
+          <FunctionImportMapping FunctionImportName="USP_CountStaff" FunctionName="MotelManagerModel.Store.USP_CountStaff" />
+          <FunctionImportMapping FunctionImportName="USP_PageCustomer" FunctionName="MotelManagerModel.Store.USP_PageCustomer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageCustomer_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
+                <ScalarProperty Name="Sexual" ColumnName="Sexual" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_PageRange" FunctionName="MotelManagerModel.Store.USP_PageRange">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageRange_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RangeName" ColumnName="RangeName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_PageRank" FunctionName="MotelManagerModel.Store.USP_PageRank">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageRank_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RankName" ColumnName="RankName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Deposits" ColumnName="Deposits" />
+                <ScalarProperty Name="About" ColumnName="About" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_PageRentInfo" FunctionName="MotelManagerModel.Store.USP_PageRentInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageRentInfo_Result">
+                <ScalarProperty Name="IDCustomer" ColumnName="IDCustomer" />
+                <ScalarProperty Name="IDRoom" ColumnName="IDRoom" />
+                <ScalarProperty Name="CheckInDate" ColumnName="CheckInDate" />
+                <ScalarProperty Name="CheckOutDate" ColumnName="CheckOutDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_PageRoom" FunctionName="MotelManagerModel.Store.USP_PageRoom">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageRoom_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+                <ScalarProperty Name="StateRoom" ColumnName="StateRoom" />
+                <ScalarProperty Name="IDRoomRank" ColumnName="IDRoomRank" />
+                <ScalarProperty Name="IDRoomRange" ColumnName="IDRoomRange" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_PageService" FunctionName="MotelManagerModel.Store.USP_PageService">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageService_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_PageStaff" FunctionName="MotelManagerModel.Store.USP_PageStaff">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageStaff_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Sexual" ColumnName="Sexual" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

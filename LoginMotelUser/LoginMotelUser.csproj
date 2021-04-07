@@ -61,6 +61,12 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddRoomcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRoomcs.Designer.cs">
+      <DependentUpon>AddRoomcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Formcs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,12 @@
     </Compile>
     <Compile Include="FormPrices.Designer.cs">
       <DependentUpon>FormPrices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="guestFormcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="guestFormcs.Designer.cs">
+      <DependentUpon>guestFormcs.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\BILL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -152,6 +164,27 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\USER.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_PageCustomer_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_PageRange_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_PageRank_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_PageRentInfo_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_PageRoom_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_PageService_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_PageStaff_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="MotelManagerDataSet.Designer.cs">

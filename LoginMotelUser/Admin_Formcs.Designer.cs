@@ -42,6 +42,9 @@
             this.updateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateuserMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.billsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.collectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pricesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtLoaiPhongSC1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -73,9 +76,6 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.billsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.collectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pricesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -125,7 +125,7 @@
             this.newMenuItem,
             this.exitMenuItem});
             this.fileMenuItem.Name = "fileMenuItem";
-            this.fileMenuItem.Size = new System.Drawing.Size(46, 26);
+            this.fileMenuItem.Size = new System.Drawing.Size(46, 24);
             this.fileMenuItem.Text = "File";
             // 
             // newMenuItem
@@ -163,7 +163,7 @@
             this.editMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.updateMenuItem});
             this.editMenuItem.Name = "editMenuItem";
-            this.editMenuItem.Size = new System.Drawing.Size(49, 26);
+            this.editMenuItem.Size = new System.Drawing.Size(49, 24);
             this.editMenuItem.Text = "Edit";
             // 
             // updateMenuItem
@@ -194,6 +194,29 @@
             this.menuStrip1.Size = new System.Drawing.Size(1068, 28);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // billsToolStripMenuItem
+            // 
+            this.billsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.collectionsToolStripMenuItem,
+            this.pricesToolStripMenuItem});
+            this.billsToolStripMenuItem.Name = "billsToolStripMenuItem";
+            this.billsToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
+            this.billsToolStripMenuItem.Text = "Bills";
+            // 
+            // collectionsToolStripMenuItem
+            // 
+            this.collectionsToolStripMenuItem.Name = "collectionsToolStripMenuItem";
+            this.collectionsToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.collectionsToolStripMenuItem.Text = "Collections";
+            this.collectionsToolStripMenuItem.Click += new System.EventHandler(this.collectionsToolStripMenuItem_Click);
+            // 
+            // pricesToolStripMenuItem
+            // 
+            this.pricesToolStripMenuItem.Name = "pricesToolStripMenuItem";
+            this.pricesToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.pricesToolStripMenuItem.Text = "Prices";
+            this.pricesToolStripMenuItem.Click += new System.EventHandler(this.pricesToolStripMenuItem_Click);
             // 
             // panel2
             // 
@@ -229,6 +252,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1068, 560);
             this.panel2.TabIndex = 2;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // txtLoaiPhongSC1
             // 
@@ -529,29 +553,6 @@
             this.label36.Size = new System.Drawing.Size(181, 25);
             this.label36.TabIndex = 0;
             this.label36.Text = "Danh sách phòng";
-            // 
-            // billsToolStripMenuItem
-            // 
-            this.billsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.collectionsToolStripMenuItem,
-            this.pricesToolStripMenuItem});
-            this.billsToolStripMenuItem.Name = "billsToolStripMenuItem";
-            this.billsToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
-            this.billsToolStripMenuItem.Text = "Bills";
-            // 
-            // collectionsToolStripMenuItem
-            // 
-            this.collectionsToolStripMenuItem.Name = "collectionsToolStripMenuItem";
-            this.collectionsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.collectionsToolStripMenuItem.Text = "Collections";
-            this.collectionsToolStripMenuItem.Click += new System.EventHandler(this.collectionsToolStripMenuItem_Click);
-            // 
-            // pricesToolStripMenuItem
-            // 
-            this.pricesToolStripMenuItem.Name = "pricesToolStripMenuItem";
-            this.pricesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.pricesToolStripMenuItem.Text = "Prices";
-            this.pricesToolStripMenuItem.Click += new System.EventHandler(this.pricesToolStripMenuItem_Click);
             // 
             // Admin_Formcs
             // 

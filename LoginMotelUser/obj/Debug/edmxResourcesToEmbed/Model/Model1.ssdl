@@ -28,7 +28,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RoomName" Type="nvarchar" MaxLength="50" />
-    <Property Name="StateRoom" Type="bit" />
+    <Property Name="StateRoom" Type="smallint" />
     <Property Name="IDRoomRank" Type="int" />
     <Property Name="IDRoomRange" Type="int" />
   </EntityType>
@@ -128,7 +128,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_BILL_STAFF">
-    <End Role="STAFF" Type="Self.STAFF" Multiplicity="0..1" />
+    <End Role="STAFF" Type="Self.STAFF" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="STAFF">
@@ -211,8 +213,22 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_STAFF_USER">
+    <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+    <End Role="STAFF" Type="Self.STAFF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="STAFF">
+        <PropertyRef Name="UserName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_USER_ROLE">
-    <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1" />
+    <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="USER" Type="Self.USER" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ROLE">
@@ -223,9 +239,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <!--Errors Found During Generation:
-warning 6035: The relationship 'FK_USER_STAFF' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK_USER_STAFF" />-->
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -257,6 +270,41 @@ warning 6035: The relationship 'FK_USER_STAFF' has columns that are not part of 
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_CountCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_CountRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_CountRank" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_CountRentInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_CountRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_CountService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_CountStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_PageCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="bd" Type="int" Mode="In" />
+    <Parameter Name="kt" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_PageRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="bd" Type="int" Mode="In" />
+    <Parameter Name="kt" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_PageRank" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="bd" Type="int" Mode="In" />
+    <Parameter Name="kt" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_PageRentInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="bd" Type="int" Mode="In" />
+    <Parameter Name="kt" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_PageRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="bd" Type="int" Mode="In" />
+    <Parameter Name="kt" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_PageService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="bd" Type="int" Mode="In" />
+    <Parameter Name="kt" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_PageStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="bd" Type="int" Mode="In" />
+    <Parameter Name="kt" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="MotelManagerModelStoreContainer">
     <EntitySet Name="BILL" EntityType="Self.BILL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
@@ -301,6 +349,10 @@ warning 6035: The relationship 'FK_USER_STAFF' has columns that are not part of 
     <AssociationSet Name="FK_REINTINFOR_MOTELROOM" Association="Self.FK_REINTINFOR_MOTELROOM">
       <End Role="MOTELROOM" EntitySet="MOTELROOM" />
       <End Role="REINTINFOR" EntitySet="REINTINFOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STAFF_USER" Association="Self.FK_STAFF_USER">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="STAFF" EntitySet="STAFF" />
     </AssociationSet>
     <AssociationSet Name="FK_USER_ROLE" Association="Self.FK_USER_ROLE">
       <End Role="ROLE" EntitySet="ROLE" />

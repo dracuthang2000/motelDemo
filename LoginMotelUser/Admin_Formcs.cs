@@ -167,7 +167,20 @@ namespace LoginMotelUser
                 txtLoaiPhongSC1.Text = room[0].RankName;
                 txtGiaPhongSC1.Text = String.Format("{0,0:0,0}", room[0].Price);
                 txtTienCocSC1.Text = String.Format("{0,0:0,0}", room[0].Deposits);
-                txtTrangThaiSC1.Text = room[0].StateRoom == true ? "Đã cho thuê" : "Trống";
+                String check;
+                if (room[0].StateRoom == 1)
+                {
+                    check = "Trống";
+                }
+                else if (room[0].StateRoom == 2)
+                {
+                    check = "Còn Chỗ";
+                }
+                else
+                {
+                    check = "Hết chỗ";
+                }
+                txtTrangThaiSC1.Text = check;
 
                 // Khi có ID phòng thì
                 // thực hiện join 2 bảng ReintInfor và Customer 
@@ -217,7 +230,7 @@ namespace LoginMotelUser
                     int daThue = 0;
                     foreach (var room in rooms)
                     {
-                        if (room.StateRoom == true) daThue++;
+                        if (room.StateRoom == 1) daThue++;
                         else trong++;
                     }
                     lbPhongTrongSC1.Text = trong.ToString() + "     phòng";
@@ -245,6 +258,11 @@ namespace LoginMotelUser
         {
             FormPrices FP = new FormPrices();
             FP.ShowDialog();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
