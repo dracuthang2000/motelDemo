@@ -27,6 +27,7 @@
         private void InitializeComponent()
         {
             this.panel11 = new System.Windows.Forms.Panel();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.btnXoaSC3 = new System.Windows.Forms.Button();
             this.btnThemSC3 = new System.Windows.Forms.Button();
@@ -61,7 +62,6 @@
             this.label110 = new System.Windows.Forms.Label();
             this.label111 = new System.Windows.Forms.Label();
             this.label113 = new System.Windows.Forms.Label();
-            this.buttonCancel = new System.Windows.Forms.Button();
             this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,6 +100,16 @@
             this.panel11.Size = new System.Drawing.Size(1126, 592);
             this.panel11.TabIndex = 48;
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Location = new System.Drawing.Point(996, 414);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(84, 30);
+            this.buttonCancel.TabIndex = 55;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -112,7 +122,7 @@
             // btnXoaSC3
             // 
             this.btnXoaSC3.AutoSize = true;
-            this.btnXoaSC3.Location = new System.Drawing.Point(890, 414);
+            this.btnXoaSC3.Location = new System.Drawing.Point(896, 414);
             this.btnXoaSC3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoaSC3.Name = "btnXoaSC3";
             this.btnXoaSC3.Size = new System.Drawing.Size(84, 30);
@@ -124,7 +134,7 @@
             // btnThemSC3
             // 
             this.btnThemSC3.AutoSize = true;
-            this.btnThemSC3.Location = new System.Drawing.Point(753, 414);
+            this.btnThemSC3.Location = new System.Drawing.Point(779, 414);
             this.btnThemSC3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemSC3.Name = "btnThemSC3";
             this.btnThemSC3.Size = new System.Drawing.Size(84, 30);
@@ -402,17 +412,6 @@
             this.label113.TabIndex = 0;
             this.label113.Text = "Chọn dãy";
             // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Location = new System.Drawing.Point(1018, 414);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(84, 30);
-            this.buttonCancel.TabIndex = 55;
-            this.buttonCancel.TabStop = false;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
             // formAddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -420,6 +419,7 @@
             this.ClientSize = new System.Drawing.Size(1126, 592);
             this.Controls.Add(this.panel11);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "formAddCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddCustomer";
