@@ -338,5 +338,10 @@ namespace LoginMotelUser
                 MessageBox.Show("Vui lòng nhập đầy đủ và chính xác thông tin");
             }
         }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
