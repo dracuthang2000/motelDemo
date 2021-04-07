@@ -75,6 +75,7 @@
             this.label36 = new System.Windows.Forms.Label();
             this.billsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.collectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pricesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -532,7 +533,8 @@
             // billsToolStripMenuItem
             // 
             this.billsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.collectionsToolStripMenuItem});
+            this.collectionsToolStripMenuItem,
+            this.pricesToolStripMenuItem});
             this.billsToolStripMenuItem.Name = "billsToolStripMenuItem";
             this.billsToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
             this.billsToolStripMenuItem.Text = "Bills";
@@ -543,6 +545,13 @@
             this.collectionsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.collectionsToolStripMenuItem.Text = "Collections";
             this.collectionsToolStripMenuItem.Click += new System.EventHandler(this.collectionsToolStripMenuItem_Click);
+            // 
+            // pricesToolStripMenuItem
+            // 
+            this.pricesToolStripMenuItem.Name = "pricesToolStripMenuItem";
+            this.pricesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pricesToolStripMenuItem.Text = "Prices";
+            this.pricesToolStripMenuItem.Click += new System.EventHandler(this.pricesToolStripMenuItem_Click);
             // 
             // Admin_Formcs
             // 
@@ -621,5 +630,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ToolStripMenuItem billsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem collectionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pricesToolStripMenuItem;
     }
 }

@@ -240,5 +240,11 @@ namespace LoginMotelUser
             FormCollection Fc = new FormCollection();
             Fc.ShowDialog();
         }
+
+        private void pricesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPrices FP = new FormPrices();
+            FP.ShowDialog();
+        }
     }
 }

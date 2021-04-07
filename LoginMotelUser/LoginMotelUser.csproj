@@ -91,6 +91,12 @@
     <Compile Include="FormCollection.Designer.cs">
       <DependentUpon>FormCollection.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPrices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrices.Designer.cs">
+      <DependentUpon>FormPrices.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\BILL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -191,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCollection.resx">
       <DependentUpon>FormCollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrices.resx">
+      <DependentUpon>FormPrices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="New_User.resx">
       <DependentUpon>New_User.cs</DependentUpon>
