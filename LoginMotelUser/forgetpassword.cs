@@ -19,7 +19,7 @@ namespace LoginMotelUser
             InitializeComponent();
             opener = ParentForm;
         }
-        LoginMotelUser.Model.MotelManagerEntities1 stf = new Model.MotelManagerEntities1();
+        LoginMotelUser.Model.MotelManagerEntities2 stf = new Model.MotelManagerEntities2();
         private void createpassword_Load(object sender, EventArgs e)
         {
 
@@ -49,7 +49,7 @@ namespace LoginMotelUser
                     }
                     else
                     {
-                        if (!(st.ID.Trim().Equals(text_idCard.Text)) || !(st.DateOfBirth.Value.ToString("dd/MM/yyyy").Equals(dateTimePicker.Value)))
+                        if (!(st.IDCard.Trim().Equals(text_idCard.Text)) || !(st.DateOfBirth.Value.ToString("dd/MM/yyyy").Equals(dateTimePicker.Value)))
                         {
                             checkIdanddate.Visible = true;
                         }
@@ -153,7 +153,7 @@ namespace LoginMotelUser
             DialogResult d = MessageBox.Show("Are you sure ?", "UPDATE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (d == DialogResult.Yes)
             {
-                Model.MotelManagerEntities1 us = new Model.MotelManagerEntities1();
+                Model.MotelManagerEntities2 us = new Model.MotelManagerEntities2();
                 var user = us.USERs.Single(u => u.UserName.Equals(textUsername.Text));
                 user.Password = textPassword.Text.Trim();
                 us.SaveChanges();

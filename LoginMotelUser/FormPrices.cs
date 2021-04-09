@@ -17,11 +17,11 @@ namespace LoginMotelUser
             InitializeComponent();
         }
 
-        Model.MotelManagerEntities1 db;
+        Model.MotelManagerEntities2 db;
         string taikhoan = "admin";
         private void frmPrice_Load(object sender, EventArgs e)
         {
-            db = new Model.MotelManagerEntities1();
+            db = new Model.MotelManagerEntities2();
 
             cbbDaySC4.DataSource = db.ROOMRANGEs.ToList();
             cbbDaySC4.DisplayMember = "RangeName";
@@ -214,11 +214,11 @@ namespace LoginMotelUser
                                  where rent.IDRoom == IDRoom
                                  select new
                                  {
-                                     cus.ID,
+                                     cus.IDCard,
                                  }).ToList();
 
                 cbbCMNDSC4.DataSource = customers;
-                cbbCMNDSC4.DisplayMember = "ID";
+                cbbCMNDSC4.DisplayMember = "IDCard";
 
                 var rankRooms = (from m in db.MOTELROOMs
                                  join r in db.ROOMRANKs on m.IDRoomRank equals r.ID

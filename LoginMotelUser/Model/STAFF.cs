@@ -20,7 +20,8 @@ namespace LoginMotelUser.Model
             this.BILLs = new HashSet<BILL>();
         }
     
-        public string ID { get; set; }
+        public int ID { get; set; }
+        public string IDCard { get; set; }
         public string StaffName { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public string Address { get; set; }

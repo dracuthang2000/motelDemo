@@ -6,7 +6,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IDRoom" Type="int" />
-    <Property Name="IDStaff" Type="varchar" MaxLength="20" />
+    <Property Name="IDStaff" Type="int" />
     <Property Name="TotalMoney" Type="money" />
     <Property Name="Date" Type="datetime" />
     <Property Name="Paid" Type="bit" />
@@ -15,7 +15,8 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDCard" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
     <Property Name="DateOfBirth" Type="datetime" />
     <Property Name="Address" Type="nvarchar" MaxLength="100" />
@@ -48,7 +49,7 @@
       <PropertyRef Name="IDCustomer" />
       <PropertyRef Name="IDRoom" />
     </Key>
-    <Property Name="IDCustomer" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="IDCustomer" Type="int" Nullable="false" />
     <Property Name="IDRoom" Type="int" Nullable="false" />
     <Property Name="CheckInDate" Type="datetime" />
     <Property Name="CheckOutDate" Type="datetime" />
@@ -73,6 +74,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RankName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Quantity" Type="int" />
     <Property Name="Price" Type="money" />
     <Property Name="Deposits" Type="money" />
     <Property Name="About" Type="nvarchar" MaxLength="20" />
@@ -89,7 +91,8 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDCard" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="StaffName" Type="nvarchar" MaxLength="50" />
     <Property Name="DateOfBirth" Type="datetime" />
     <Property Name="Address" Type="nvarchar" MaxLength="100" />
@@ -116,7 +119,9 @@
     <Property Name="IDRole" Type="int" />
   </EntityType>
   <Association Name="FK_BILL_MOTELROOM">
-    <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="0..1" />
+    <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="MOTELROOM">
@@ -142,7 +147,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_MOTELROOM_ROOMRANGE">
-    <End Role="ROOMRANGE" Type="Self.ROOMRANGE" Multiplicity="0..1" />
+    <End Role="ROOMRANGE" Type="Self.ROOMRANGE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ROOMRANGE">
@@ -154,7 +161,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_MOTELROOM_ROOMRANK">
-    <End Role="ROOMRANK" Type="Self.ROOMRANK" Multiplicity="0..1" />
+    <End Role="ROOMRANK" Type="Self.ROOMRANK" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ROOMRANK">
@@ -189,8 +198,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_REINTINFOR_CUSTOMER">
-    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+  <Association Name="FK_REINTINFOR_CUSTOMER1">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="REINTINFOR" Type="Self.REINTINFOR" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CUSTOMER">
@@ -202,7 +213,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_REINTINFOR_MOTELROOM">
-    <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="1" />
+    <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="REINTINFOR" Type="Self.REINTINFOR" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="MOTELROOM">
@@ -214,7 +227,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_STAFF_USER">
-    <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+    <End Role="USER" Type="Self.USER" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="STAFF" Type="Self.STAFF" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="USER">
@@ -342,7 +357,7 @@
       <End Role="SERVICE" EntitySet="SERVICE" />
       <End Role="PARTICULARSERVICE" EntitySet="PARTICULARSERVICE" />
     </AssociationSet>
-    <AssociationSet Name="FK_REINTINFOR_CUSTOMER" Association="Self.FK_REINTINFOR_CUSTOMER">
+    <AssociationSet Name="FK_REINTINFOR_CUSTOMER1" Association="Self.FK_REINTINFOR_CUSTOMER1">
       <End Role="CUSTOMER" EntitySet="CUSTOMER" />
       <End Role="REINTINFOR" EntitySet="REINTINFOR" />
     </AssociationSet>

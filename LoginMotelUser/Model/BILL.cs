@@ -22,7 +22,7 @@ namespace LoginMotelUser.Model
     
         public int ID { get; set; }
         public Nullable<int> IDRoom { get; set; }
-        public string IDStaff { get; set; }
+        public Nullable<int> IDStaff { get; set; }
         public Nullable<decimal> TotalMoney { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<bool> Paid { get; set; }

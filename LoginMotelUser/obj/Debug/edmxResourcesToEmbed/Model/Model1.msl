@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="MotelManagerModelStoreContainer" CdmEntityContainer="MotelManagerEntities1">
+  <EntityContainerMapping StorageEntityContainer="MotelManagerModelStoreContainer" CdmEntityContainer="MotelManagerEntities2">
     <EntitySetMapping Name="BILLs">
       <EntityTypeMapping TypeName="MotelManagerModel.BILL">
         <MappingFragment StoreEntitySet="BILL">
@@ -17,6 +17,7 @@
       <EntityTypeMapping TypeName="MotelManagerModel.CUSTOMER">
         <MappingFragment StoreEntitySet="CUSTOMER">
           <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
           <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
           <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
           <ScalarProperty Name="Address" ColumnName="Address" />
@@ -76,6 +77,7 @@
     <EntitySetMapping Name="ROOMRANKs">
       <EntityTypeMapping TypeName="MotelManagerModel.ROOMRANK">
         <MappingFragment StoreEntitySet="ROOMRANK">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="RankName" ColumnName="RankName" />
           <ScalarProperty Name="Price" ColumnName="Price" />
@@ -97,6 +99,7 @@
       <EntityTypeMapping TypeName="MotelManagerModel.STAFF">
         <MappingFragment StoreEntitySet="STAFF">
           <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
           <ScalarProperty Name="StaffName" ColumnName="StaffName" />
           <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
           <ScalarProperty Name="Address" ColumnName="Address" />
@@ -161,6 +164,7 @@
       <ResultMapping>
         <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageCustomer_Result">
           <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
           <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
           <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
           <ScalarProperty Name="Address" ColumnName="Address" />
@@ -222,6 +226,7 @@
       <ResultMapping>
         <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageStaff_Result">
           <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
           <ScalarProperty Name="StaffName" ColumnName="StaffName" />
           <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
           <ScalarProperty Name="Address" ColumnName="Address" />

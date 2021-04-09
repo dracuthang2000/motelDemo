@@ -13,7 +13,8 @@ namespace LoginMotelUser.Model
     
     public partial class USP_PageCustomer_Result
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
+        public string IDCard { get; set; }
         public string CustomerName { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public string Address { get; set; }

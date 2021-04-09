@@ -15,7 +15,7 @@ namespace LoginMotelUser
     /// </summary>
     public partial class Admin_Formcs : Form
     {
-        LoginMotelUser.Model.MotelManagerEntities1 db;
+        LoginMotelUser.Model.MotelManagerEntities2 db;
         public Admin_Formcs()
         {
             InitializeComponent();
@@ -48,6 +48,7 @@ namespace LoginMotelUser
         {
             formAddCustomer AC = new formAddCustomer();
             AC.ShowDialog();
+            this.frmHome_Load(sender,e);
         }
 
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,29 +66,49 @@ namespace LoginMotelUser
 
         private void frmHome_Load(object sender, EventArgs e)
         {
-            db = new Model.MotelManagerEntities1();
+            tvDanhSachPhongSC1.Nodes.Clear();
+            db = new Model.MotelManagerEntities2();
             loadListRoom();
-
+            var IDroom = from m in db.MOTELROOMs
+                        select m;
+            foreach(var id in IDroom)
+            {
+                var count = db.REINTINFORs.Count(r => r.IDRoom == id.ID);
+                if(count == id.ROOMRANK.Quantity)
+                {
+                    var up = db.MOTELROOMs.Single(r => r.ID == id.ID);
+                    up.StateRoom = 3;
+                }else if (count > 0)
+                {
+                    var up = db.MOTELROOMs.Single(r => r.ID == id.ID);
+                    up.StateRoom = 2;
+                }else
+                {
+                    var up = db.MOTELROOMs.Single(r => r.ID == id.ID);
+                    up.StateRoom = 1;
+                }
+            }
+            db.SaveChanges();
             cbbDaySC1.DataSource = db.ROOMRANGEs.ToList();
             cbbDaySC1.DisplayMember = "RangeName";
             cbbDaySC1.SelectedIndex = -1;
             if (checkRole==true)
             {
-                newtUserMenuItem.Enabled = true;
-                updateuserMenuItem.Enabled = true;
+                newtUserMenuItem.Visible = true;
+                updateuserMenuItem.Visible = true;
             }
             else
             {
-                newtUserMenuItem.Enabled = false;
-                updateuserMenuItem.Enabled = false;
+                newtUserMenuItem.Visible = false;
+                updateuserMenuItem.Visible = false;
             }
         }
         private void loadListRoom()
         {
             var dsRanges = db.ROOMRANGEs.ToList();
-
             // Thêm Root cây
             List<TreeNode> treeNodes = new List<TreeNode>();
+            treeNodes.Clear();
             foreach (var range in dsRanges)
             {
                 // Position của ID tương ứng với position của Node 
@@ -149,6 +170,7 @@ namespace LoginMotelUser
 
             // Đoạn này sau khi có được ID room ta muốn duyệt danh sách phòng  
             // Để tìm ra phòng rồi sau đó gán thông tin
+            //tvDanhSachPhongSC1.Nodes.Clear();
             if (!tvDanhSachPhongSC1.SelectedNode.Name.Equals(""))
             {
                 // Đoạn này ta chỉ mới field các textView Bên trái
@@ -202,7 +224,7 @@ namespace LoginMotelUser
                 lvDanhSachKhachSC1.Items.Clear();
                 foreach (var customer in customers)
                 {
-                    ListViewItem lvi = new ListViewItem(customer.ID);
+                    ListViewItem lvi = new ListViewItem(customer.IDCard);
                     lvi.SubItems.Add(customer.CustomerName);
                     string date = String.Format("{0:d}", customer.DateOfBirth);
                     lvi.SubItems.Add(date);

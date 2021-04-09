@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b544675622b44a30b05e9a87dae8eec1" Name="Diagram1">
+      <Diagram DiagramId="4487f8b9a80f4970ad4943e183ae40c1" Name="Diagram1">
         <EntityTypeShape EntityType="MotelManagerModel.BILL" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MotelManagerModel.CUSTOMER" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MotelManagerModel.CUSTOMER" Width="1.5" PointX="6" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="MotelManagerModel.MOTELROOM" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MotelManagerModel.PARTICULARSERVICE" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MotelManagerModel.REINTINFOR" Width="1.5" PointX="8.25" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MotelManagerModel.ROLE" Width="1.5" PointX="1.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MotelManagerModel.ROLE" Width="1.5" PointX="1.5" PointY="13.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MotelManagerModel.ROOMRANGE" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MotelManagerModel.ROOMRANK" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="MotelManagerModel.SERVICE" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
@@ -20,7 +20,7 @@
         <AssociationConnector Association="MotelManagerModel.FK_BILL_MOTELROOM" ManuallyRouted="false" />
         <AssociationConnector Association="MotelManagerModel.FK_BILL_STAFF" ManuallyRouted="false" />
         <AssociationConnector Association="MotelManagerModel.FK_PARTICULARSERVICE_BILL" ManuallyRouted="false" />
-        <AssociationConnector Association="MotelManagerModel.FK_REINTINFOR_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="MotelManagerModel.FK_REINTINFOR_CUSTOMER1" ManuallyRouted="false" />
         <AssociationConnector Association="MotelManagerModel.FK_MOTELROOM_ROOMRANGE" ManuallyRouted="false" />
         <AssociationConnector Association="MotelManagerModel.FK_MOTELROOM_ROOMRANK" ManuallyRouted="false" />
         <AssociationConnector Association="MotelManagerModel.FK_REINTINFOR_MOTELROOM" ManuallyRouted="false" />
