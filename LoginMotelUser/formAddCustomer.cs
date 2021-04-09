@@ -341,7 +341,7 @@ namespace LoginMotelUser
                 && (txtSDTSC3.Text.Length == 10 && firstNumber[0].Equals('0')
                 && cbbGioiTinhSC3.SelectedIndex != -1
                 );
-
+            DialogResult d = MessageBox.Show("DO YOU WANT ADD "+ txtCMNDSC3.Text+ " ?", "UPDATE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (isOk)
             {
                 // Nếu IDRoom khác thì thêm bảng rent
@@ -349,85 +349,111 @@ namespace LoginMotelUser
                 // Nếu như đã chưa ngày checkout thì báo: Khách hàng đã thuê phòng này
                 // Nếu như đã có ngày checkout ?? Chỉnh sửa lại ngày hả?
 
-                var check = (from c in db.CUSTOMERs
-                             where c.IDCard.Equals(txtCMNDSC3.Text)
-                             select c).ToList();
-                int ch = 0;
-                if (check.Count != 0)
+                if (d == DialogResult.Yes)
                 {
-                    ch = check[0].ID;
-                }
-                var rentInfor = db.REINTINFORs.FirstOrDefault(x => x.IDCustomer == ch);
-                if (rentInfor != null)
-                {
-                    if (lbPhongSC3.Text.Equals(rentInfor.IDRoom.ToString()))
+                    var check = (from c in db.CUSTOMERs
+                                 where c.IDCard.Equals(txtCMNDSC3.Text)
+                                 select c).ToList();
+                    int ch = 0;
+                    if (check.Count != 0)
                     {
-                        if (rentInfor.CheckOutDate != null) // có nghĩa đã trả phòng thì ta vẫn tạo hợp đồng mới
-                                                            // chứ sao có thể Edit hợp đồng đó được
+                        ch = check[0].ID;
+                    }
+                    var rentInfor = (from ren in db.REINTINFORs
+                                     where ren.IDCustomer == ch
+                                     select ren).ToList();
+                    bool checkRen = false;
+                    if (rentInfor.Count != 0)
+                    {
+                        foreach (var ren in rentInfor)
                         {
-                            // Database phải thêm CheckInDate cũng là khóa chính
+                            if (lbPhongSC3.Text.Equals(ren.IDRoom.ToString()))
+                            {
+                                if (ren.CheckOutDate != null) // có nghĩa đã trả phòng thì ta vẫn tạo hợp đồng mới                                                               // chứ sao có thể Edit hợp đồng đó được
+                                {
+                                    // Database phải thêm CheckInDate cũng là khóa chính
+                                    var newRent = new Model.REINTINFOR();
+                                    newRent.IDCustomer = check[0].ID;
+                                    newRent.IDRoom = int.Parse(lbPhongSC3.Text);
+                                    newRent.CheckInDate = DateTime.Now;
+
+                                    db.REINTINFORs.Add(newRent);
+                                    db.SaveChanges();
+                                }
+                                else // chưa trả phòng mà thuê nữa thì không cho
+                                {
+                                    MessageBox.Show("Khách hiện đang ở phòng này, không thể đăng kí thêm!");
+                                    checkRen = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (checkRen == false)
+                        {
                             var newRent = new Model.REINTINFOR();
                             newRent.IDCustomer = check[0].ID;
                             newRent.IDRoom = int.Parse(lbPhongSC3.Text);
                             newRent.CheckInDate = DateTime.Now;
-
                             db.REINTINFORs.Add(newRent);
                             db.SaveChanges();
                         }
-                        else // chưa trả phòng mà thuê nữa thì không cho
-                        {
-                            MessageBox.Show("Khách hiện đang ở phòng này, không thể đăng kí thêm!");
-                        }
                     }
-                    else
+                    else // thêm
                     {
+                        // Thêm customer
+                        db = new Model.MotelManagerEntities2();
+                        var check1 = db.CUSTOMERs.Where(u => u.ID.Equals(ch)).ToList();
+                        if (check1.Count == 0)
+                        {
+                            db.CUSTOMERs.Add(new Model.CUSTOMER
+                            {
+                                IDCard = txtCMNDSC3.Text,
+                                CustomerName = txtHoTenSC3.Text,
+                                NumberPhone = txtSDTSC3.Text,
+                                Sexual = cbbGioiTinhSC3.Text,
+                                Address = txtDiaChiSC3.Text,
+                                DateOfBirth = dtDateSC3.Value,
+                            });
+                            db.SaveChanges();
+                        }
+                        else
+                        {
+                            var query = db.CUSTOMERs.Single(u => u.ID.Equals(ch));
+                            query.IDCard = txtCMNDSC3.Text;
+                            query.CustomerName = txtHoTenSC3.Text;
+                            query.NumberPhone = txtSDTSC3.Text;
+                            query.Sexual = cbbGioiTinhSC3.Text;
+                            query.Address = txtDiaChiSC3.Text;
+                            query.DateOfBirth = dtDateSC3.Value;
+                            db.SaveChanges();
+                            // this.frmAddCustomer_Load(sender, e);
+                        }
+                        // Thêm rent_info
+                        var getID = db.CUSTOMERs.Where(u => u.IDCard.Equals(txtCMNDSC3.Text)).ToList();
                         var newRent = new Model.REINTINFOR();
-                        newRent.IDCustomer = check[0].ID;
+                        newRent.IDCustomer = getID[0].ID;
                         newRent.IDRoom = int.Parse(lbPhongSC3.Text);
                         newRent.CheckInDate = DateTime.Now;
                         db.REINTINFORs.Add(newRent);
                         db.SaveChanges();
-                    }
-                }
-                else // thêm
-                {
-                    // Thêm customer
-                    db = new Model.MotelManagerEntities2();
-                    var check1 = db.CUSTOMERs.Where(u => u.ID.Equals(ch)).ToList();
-                    if (check1.Count == 0)
-                    {
-                        db.CUSTOMERs.Add(new Model.CUSTOMER
-                        {
-                            IDCard = txtCMNDSC3.Text,
-                            CustomerName = txtHoTenSC3.Text,
-                            NumberPhone = txtSDTSC3.Text,
-                            Sexual = cbbGioiTinhSC3.Text,
-                            Address = txtDiaChiSC3.Text,
-                            DateOfBirth = dtDateSC3.Value,
-                        });
-                        db.SaveChanges();
-                    }
-                    else
-                    {
-                        var query = db.CUSTOMERs.Single(u => u.ID.Equals(ch));
-                        query.IDCard = txtCMNDSC3.Text;
-                        query.CustomerName = txtHoTenSC3.Text;
-                        query.NumberPhone = txtSDTSC3.Text;
-                        query.Sexual = cbbGioiTinhSC3.Text;
-                        query.Address = txtDiaChiSC3.Text;
-                        query.DateOfBirth = dtDateSC3.Value;
-                        db.SaveChanges();
-                    }
-                    // Thêm rent_info
-                    var getID = db.CUSTOMERs.Where(u => u.IDCard.Equals(txtCMNDSC3.Text)).ToList();
-                    var newRent = new Model.REINTINFOR();
-                    newRent.IDCustomer = getID[0].ID;
-                    newRent.IDRoom = int.Parse(lbPhongSC3.Text);
-                    newRent.CheckInDate = DateTime.Now;
-                    db.REINTINFORs.Add(newRent);
-                    db.SaveChanges();
-                    frmAddCustomer_Load(sender, e);
+                        //frmAddCustomer_Load(sender, e);
 
+                    }
+                    lvDanhSachKhachSC3.Items.Clear();
+                    int IDRoom = int.Parse(lbPhongSC3.Text);
+                    var customer = from Room in db.MOTELROOMs
+                                   join Ren in db.REINTINFORs on Room.ID equals Ren.IDRoom
+                                   join Cus in db.CUSTOMERs on Ren.IDCustomer equals Cus.ID
+                                   where Room.ID == IDRoom
+                                   select Cus;
+                    foreach (var c in customer)
+                    {
+                        ListViewItem lv = new ListViewItem(c.IDCard);
+                        lv.SubItems.Add(c.CustomerName);
+                        lv.SubItems.Add(c.Sexual);
+                        lv.SubItems.Add(c.Address);
+                        lvDanhSachKhachSC3.Items.Add(lv);
+                    }
                 }
             }
             else
@@ -439,7 +465,7 @@ namespace LoginMotelUser
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
+
     }
 }
