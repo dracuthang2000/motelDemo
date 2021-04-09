@@ -306,6 +306,7 @@
             this.lvDanhSachKhachSC3.TabIndex = 34;
             this.lvDanhSachKhachSC3.UseCompatibleStateImageBehavior = false;
             this.lvDanhSachKhachSC3.View = System.Windows.Forms.View.Details;
+            this.lvDanhSachKhachSC3.SelectedIndexChanged += new System.EventHandler(this.lvDanhSachKhachSC3_SelectedIndexChanged);
             // 
             // columnHeader5
             // 

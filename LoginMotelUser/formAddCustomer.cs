@@ -22,11 +22,11 @@ namespace LoginMotelUser
             db = new Model.MotelManagerEntities2();
             cbbDaySC3.DataSource = db.ROOMRANGEs.ToList();
             cbbDaySC3.DisplayMember = "RangeName";
-            cbbDaySC3.SelectedIndex = -1;
+            cbbDaySC3.SelectedIndex = 0;
 
             cbbLoaiPhongSC3.DataSource = db.ROOMRANKs.ToList();
             cbbLoaiPhongSC3.DisplayMember = "RankName";
-            cbbLoaiPhongSC3.SelectedIndex = -1;
+            cbbLoaiPhongSC3.SelectedIndex = 0;
 
             dtDateSC3.Format = DateTimePickerFormat.Custom;
             dtDateSC3.CustomFormat = "dd-MM-yyyy";
@@ -454,6 +454,12 @@ namespace LoginMotelUser
                         lv.SubItems.Add(c.Address);
                         lvDanhSachKhachSC3.Items.Add(lv);
                     }
+                    txtCMNDSC3.Text = "";
+                    txtDiaChiSC3.Text = "";
+                    txtSDTSC3.Text = "";
+                    txtHoTenSC3.Text = "";
+                    dtDateSC3.Value = DateTime.Now;
+                    cbbGioiTinhSC3.SelectedIndex = 0;
                 }
             }
             else
@@ -467,5 +473,24 @@ namespace LoginMotelUser
             this.Close();
         }
 
+        private void lvDanhSachKhachSC3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvDanhSachKhachSC3.SelectedItems.Count > 0)
+            {
+                String IDcard = lvDanhSachKhachSC3.SelectedItems[0].Text;
+                var customer = (from c in db.CUSTOMERs
+                               where c.IDCard.Equals(IDcard)
+                               select c).ToList();
+                foreach(var cus in customer)
+                {
+                    txtCMNDSC3.Text = cus.IDCard;
+                    txtHoTenSC3.Text = cus.CustomerName;
+                    txtDiaChiSC3.Text = cus.Address;
+                    txtSDTSC3.Text = cus.NumberPhone;
+                    dtDateSC3.Value = (DateTime)cus.DateOfBirth;
+                    cbbGioiTinhSC3.Text = cus.Sexual;
+                }
+           }
+        }
     }
 }

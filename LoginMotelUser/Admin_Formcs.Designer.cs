@@ -76,6 +76,8 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelHetCho = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -228,6 +230,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtTienCocSC1);
             this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.labelHetCho);
             this.panel2.Controls.Add(this.lbPhongDaThueSC1);
             this.panel2.Controls.Add(this.lbPhongTrongSC1);
             this.panel2.Controls.Add(this.cbbDaySC1);
@@ -236,6 +239,7 @@
             this.panel2.Controls.Add(this.txtDaySC1);
             this.panel2.Controls.Add(this.txtMaPhongSC1);
             this.panel2.Controls.Add(this.label47);
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label46);
             this.panel2.Controls.Add(this.label45);
             this.panel2.Controls.Add(this.label44);
@@ -554,6 +558,30 @@
             this.label36.TabIndex = 0;
             this.label36.Text = "Danh sách phòng";
             // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(767, 519);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(139, 20);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Số phòng hết chỗ";
+            // 
+            // labelHetCho
+            // 
+            this.labelHetCho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelHetCho.AutoSize = true;
+            this.labelHetCho.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHetCho.Location = new System.Drawing.Point(932, 519);
+            this.labelHetCho.Name = "labelHetCho";
+            this.labelHetCho.Size = new System.Drawing.Size(27, 20);
+            this.labelHetCho.TabIndex = 20;
+            this.labelHetCho.Text = "so";
+            // 
             // Admin_Formcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -632,5 +660,7 @@
         private System.Windows.Forms.ToolStripMenuItem billsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem collectionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pricesToolStripMenuItem;
+        private System.Windows.Forms.Label labelHetCho;
+        private System.Windows.Forms.Label label3;
     }
 }

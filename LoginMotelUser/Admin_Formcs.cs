@@ -256,13 +256,16 @@ namespace LoginMotelUser
                     if (rooms == null) return;
                     int trong = 0;
                     int daThue = 0;
+                    int hetcho = 0;
                     foreach (var room in rooms)
                     {
-                        if (room.StateRoom == 1) daThue++;
+                        if (room.StateRoom == 2) daThue++;
+                        else if (room.StateRoom == 3) hetcho++;
                         else trong++;
                     }
                     lbPhongTrongSC1.Text = trong.ToString() + "     phòng";
                     lbPhongDaThueSC1.Text = daThue.ToString() + "     phòng";
+                    labelHetCho.Text = hetcho.ToString() + "     phòng";
                 }
                 catch (Exception)
                 {
@@ -273,6 +276,7 @@ namespace LoginMotelUser
             {
                 lbPhongTrongSC1.Text = "...     phòng";
                 lbPhongDaThueSC1.Text = "...    phòng";
+                labelHetCho.Text = "...    phòng";
             }
         }
 
