@@ -63,9 +63,34 @@ namespace LoginMotelUser
             this.Close();
             isClose = true;
         }
+        public void setColor()
+        {
+            this.label38.BackColor = System.Drawing.Color.Transparent;
+            this.label40.BackColor = System.Drawing.Color.Transparent;
+            this.label41.BackColor = System.Drawing.Color.Transparent;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label47.BackColor = System.Drawing.Color.Transparent;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label42.BackColor = System.Drawing.Color.Transparent;
+            this.label38.BackColor = System.Drawing.Color.Transparent;
+            this.label38.BackColor = System.Drawing.Color.Transparent;
+            //this.lvDanhSachKhachSC1.ForeColor = System.Drawing.Color.Transparent;
+            this.label39.BackColor = System.Drawing.Color.Transparent;
+            this.label44.BackColor = System.Drawing.Color.Transparent;
+            this.label45.BackColor = System.Drawing.Color.Transparent;
+            this.label46.BackColor = System.Drawing.Color.Transparent;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.lbPhongDaThueSC1.BackColor = System.Drawing.Color.Transparent;
+            this.lbPhongTrongSC1.BackColor = System.Drawing.Color.Transparent;
+            this.labelHetCho.BackColor = System.Drawing.Color.Transparent;
+            this.label37.BackColor = System.Drawing.Color.Transparent;
+            this.label36.BackColor = System.Drawing.Color.Transparent;
+        }
 
         private void frmHome_Load(object sender, EventArgs e)
         {
+            SetStyle(System.Windows.Forms.ControlStyles.SupportsTransparentBackColor, true);
+            this.setColor();
             tvDanhSachPhongSC1.Nodes.Clear();
             db = new Model.MotelManagerEntities2();
             loadListRoom();
@@ -290,11 +315,6 @@ namespace LoginMotelUser
         {
             FormPrices FP = new FormPrices();
             FP.ShowDialog();
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

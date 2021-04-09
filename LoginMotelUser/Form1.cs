@@ -90,7 +90,14 @@ namespace LoginMotelUser
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            this.setColor();
+        }
+        public void setColor()
+        {
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel2.BackColor = System.Drawing.Color.Transparent;
         }
     }
 }

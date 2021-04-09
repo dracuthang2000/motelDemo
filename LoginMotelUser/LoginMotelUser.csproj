@@ -109,6 +109,7 @@
     <Compile Include="guestFormcs.Designer.cs">
       <DependentUpon>guestFormcs.cs</DependentUpon>
     </Compile>
+    <Compile Include="ItemComparer.cs" />
     <Compile Include="Model\BILL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

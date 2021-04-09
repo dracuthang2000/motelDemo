@@ -45,6 +45,7 @@
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.linkLabel2);
@@ -67,7 +68,6 @@
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
             this.label3.Location = new System.Drawing.Point(167, 40);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(162, 53);

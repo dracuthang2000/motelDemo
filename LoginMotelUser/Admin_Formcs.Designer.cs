@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Formcs));
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PassWord = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +52,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtTienCocSC1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelHetCho = new System.Windows.Forms.Label();
             this.lbPhongDaThueSC1 = new System.Windows.Forms.Label();
             this.lbPhongTrongSC1 = new System.Windows.Forms.Label();
             this.cbbDaySC1 = new System.Windows.Forms.ComboBox();
@@ -58,6 +61,7 @@
             this.txtDaySC1 = new System.Windows.Forms.TextBox();
             this.txtMaPhongSC1 = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
@@ -72,12 +76,11 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tvDanhSachPhongSC1 = new System.Windows.Forms.TreeView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label39 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelHetCho = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -226,6 +229,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.SeaShell;
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Controls.Add(this.txtLoaiPhongSC1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtTienCocSC1);
@@ -252,11 +257,12 @@
             this.panel2.Controls.Add(this.label38);
             this.panel2.Controls.Add(this.label37);
             this.panel2.Controls.Add(this.label36);
+            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.ForeColor = System.Drawing.Color.AliceBlue;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1068, 560);
             this.panel2.TabIndex = 2;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // txtLoaiPhongSC1
             // 
@@ -264,14 +270,16 @@
             this.txtLoaiPhongSC1.Location = new System.Drawing.Point(889, 140);
             this.txtLoaiPhongSC1.Name = "txtLoaiPhongSC1";
             this.txtLoaiPhongSC1.ReadOnly = true;
-            this.txtLoaiPhongSC1.Size = new System.Drawing.Size(145, 22);
+            this.txtLoaiPhongSC1.Size = new System.Drawing.Size(145, 30);
             this.txtLoaiPhongSC1.TabIndex = 24;
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.SeaShell;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.AliceBlue;
             this.label2.Location = new System.Drawing.Point(767, 137);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 20);
@@ -284,26 +292,44 @@
             this.txtTienCocSC1.Location = new System.Drawing.Point(889, 196);
             this.txtTienCocSC1.Name = "txtTienCocSC1";
             this.txtTienCocSC1.ReadOnly = true;
-            this.txtTienCocSC1.Size = new System.Drawing.Size(145, 22);
+            this.txtTienCocSC1.Size = new System.Drawing.Size(145, 30);
             this.txtTienCocSC1.TabIndex = 22;
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.SeaShell;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.AliceBlue;
             this.label1.Location = new System.Drawing.Point(767, 196);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 20);
             this.label1.TabIndex = 21;
             this.label1.Text = "Tiền cọc";
             // 
+            // labelHetCho
+            // 
+            this.labelHetCho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelHetCho.AutoSize = true;
+            this.labelHetCho.BackColor = System.Drawing.Color.SeaShell;
+            this.labelHetCho.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHetCho.ForeColor = System.Drawing.Color.AliceBlue;
+            this.labelHetCho.Location = new System.Drawing.Point(932, 519);
+            this.labelHetCho.Name = "labelHetCho";
+            this.labelHetCho.Size = new System.Drawing.Size(27, 20);
+            this.labelHetCho.TabIndex = 20;
+            this.labelHetCho.Text = "so";
+            // 
             // lbPhongDaThueSC1
             // 
             this.lbPhongDaThueSC1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbPhongDaThueSC1.AutoSize = true;
+            this.lbPhongDaThueSC1.BackColor = System.Drawing.Color.SeaShell;
             this.lbPhongDaThueSC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPhongDaThueSC1.ForeColor = System.Drawing.Color.AliceBlue;
             this.lbPhongDaThueSC1.Location = new System.Drawing.Point(932, 471);
             this.lbPhongDaThueSC1.Name = "lbPhongDaThueSC1";
             this.lbPhongDaThueSC1.Size = new System.Drawing.Size(27, 20);
@@ -316,6 +342,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbPhongTrongSC1.AutoSize = true;
             this.lbPhongTrongSC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPhongTrongSC1.ForeColor = System.Drawing.Color.AliceBlue;
             this.lbPhongTrongSC1.Location = new System.Drawing.Point(932, 418);
             this.lbPhongTrongSC1.Name = "lbPhongTrongSC1";
             this.lbPhongTrongSC1.Size = new System.Drawing.Size(27, 20);
@@ -329,7 +356,7 @@
             this.cbbDaySC1.FormattingEnabled = true;
             this.cbbDaySC1.Location = new System.Drawing.Point(889, 361);
             this.cbbDaySC1.Name = "cbbDaySC1";
-            this.cbbDaySC1.Size = new System.Drawing.Size(159, 24);
+            this.cbbDaySC1.Size = new System.Drawing.Size(159, 33);
             this.cbbDaySC1.TabIndex = 18;
             this.cbbDaySC1.SelectedIndexChanged += new System.EventHandler(this.cbbDaySC1_SelectedIndexChanged);
             // 
@@ -339,7 +366,7 @@
             this.txtTrangThaiSC1.Location = new System.Drawing.Point(889, 224);
             this.txtTrangThaiSC1.Name = "txtTrangThaiSC1";
             this.txtTrangThaiSC1.ReadOnly = true;
-            this.txtTrangThaiSC1.Size = new System.Drawing.Size(145, 22);
+            this.txtTrangThaiSC1.Size = new System.Drawing.Size(145, 30);
             this.txtTrangThaiSC1.TabIndex = 17;
             // 
             // txtGiaPhongSC1
@@ -348,7 +375,7 @@
             this.txtGiaPhongSC1.Location = new System.Drawing.Point(889, 168);
             this.txtGiaPhongSC1.Name = "txtGiaPhongSC1";
             this.txtGiaPhongSC1.ReadOnly = true;
-            this.txtGiaPhongSC1.Size = new System.Drawing.Size(145, 22);
+            this.txtGiaPhongSC1.Size = new System.Drawing.Size(145, 30);
             this.txtGiaPhongSC1.TabIndex = 16;
             // 
             // txtDaySC1
@@ -357,7 +384,7 @@
             this.txtDaySC1.Location = new System.Drawing.Point(889, 108);
             this.txtDaySC1.Name = "txtDaySC1";
             this.txtDaySC1.ReadOnly = true;
-            this.txtDaySC1.Size = new System.Drawing.Size(145, 22);
+            this.txtDaySC1.Size = new System.Drawing.Size(145, 30);
             this.txtDaySC1.TabIndex = 15;
             // 
             // txtMaPhongSC1
@@ -366,26 +393,44 @@
             this.txtMaPhongSC1.Location = new System.Drawing.Point(889, 80);
             this.txtMaPhongSC1.Name = "txtMaPhongSC1";
             this.txtMaPhongSC1.ReadOnly = true;
-            this.txtMaPhongSC1.Size = new System.Drawing.Size(145, 22);
+            this.txtMaPhongSC1.Size = new System.Drawing.Size(145, 30);
             this.txtMaPhongSC1.TabIndex = 14;
             // 
             // label47
             // 
             this.label47.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label47.AutoSize = true;
+            this.label47.BackColor = System.Drawing.Color.SeaShell;
             this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.ForeColor = System.Drawing.Color.AliceBlue;
             this.label47.Location = new System.Drawing.Point(767, 170);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(85, 20);
             this.label47.TabIndex = 13;
             this.label47.Text = "Giá phòng";
             // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.SeaShell;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label3.Location = new System.Drawing.Point(767, 519);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(139, 20);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Số phòng hết chỗ";
+            // 
             // label46
             // 
             this.label46.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label46.AutoSize = true;
+            this.label46.BackColor = System.Drawing.Color.SeaShell;
             this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.ForeColor = System.Drawing.Color.AliceBlue;
             this.label46.Location = new System.Drawing.Point(766, 471);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(139, 20);
@@ -397,7 +442,9 @@
             this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label45.AutoSize = true;
+            this.label45.BackColor = System.Drawing.Color.SeaShell;
             this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.ForeColor = System.Drawing.Color.AliceBlue;
             this.label45.Location = new System.Drawing.Point(766, 418);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(122, 20);
@@ -409,7 +456,9 @@
             this.label44.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label44.AutoSize = true;
+            this.label44.BackColor = System.Drawing.Color.SeaShell;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.ForeColor = System.Drawing.Color.AliceBlue;
             this.label44.Location = new System.Drawing.Point(766, 361);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(39, 20);
@@ -420,7 +469,9 @@
             // 
             this.label42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label42.AutoSize = true;
+            this.label42.BackColor = System.Drawing.Color.SeaShell;
             this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.AliceBlue;
             this.label42.Location = new System.Drawing.Point(767, 226);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(84, 20);
@@ -431,7 +482,9 @@
             // 
             this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label41.AutoSize = true;
+            this.label41.BackColor = System.Drawing.Color.SeaShell;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.AliceBlue;
             this.label41.Location = new System.Drawing.Point(767, 108);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(39, 20);
@@ -442,7 +495,9 @@
             // 
             this.label40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label40.AutoSize = true;
+            this.label40.BackColor = System.Drawing.Color.SeaShell;
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.AliceBlue;
             this.label40.Location = new System.Drawing.Point(766, 82);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(82, 20);
@@ -451,9 +506,9 @@
             // 
             // lvDanhSachKhachSC1
             // 
-            this.lvDanhSachKhachSC1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvDanhSachKhachSC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lvDanhSachKhachSC1.BackColor = System.Drawing.Color.Gray;
+            this.lvDanhSachKhachSC1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lvDanhSachKhachSC1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -506,19 +561,31 @@
             // 
             // tvDanhSachPhongSC1
             // 
-            this.tvDanhSachPhongSC1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tvDanhSachPhongSC1.BackColor = System.Drawing.Color.Gray;
+            this.tvDanhSachPhongSC1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tvDanhSachPhongSC1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tvDanhSachPhongSC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tvDanhSachPhongSC1.ImageIndex = 0;
+            this.tvDanhSachPhongSC1.ImageList = this.imageList1;
             this.tvDanhSachPhongSC1.Location = new System.Drawing.Point(16, 82);
             this.tvDanhSachPhongSC1.Name = "tvDanhSachPhongSC1";
+            this.tvDanhSachPhongSC1.SelectedImageIndex = 0;
             this.tvDanhSachPhongSC1.Size = new System.Drawing.Size(444, 178);
             this.tvDanhSachPhongSC1.TabIndex = 4;
             this.tvDanhSachPhongSC1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvDanhSachPhongSC1_AfterSelect_1);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "home_100px.png");
             // 
             // label39
             // 
             this.label39.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.Color.AliceBlue;
             this.label39.Location = new System.Drawing.Point(797, 307);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(95, 25);
@@ -529,7 +596,9 @@
             // 
             this.label38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label38.AutoSize = true;
+            this.label38.BackColor = System.Drawing.Color.SeaShell;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.AliceBlue;
             this.label38.Location = new System.Drawing.Point(797, 50);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(174, 25);
@@ -540,7 +609,9 @@
             // 
             this.label37.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label37.AutoSize = true;
+            this.label37.BackColor = System.Drawing.Color.SeaShell;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.Color.AliceBlue;
             this.label37.Location = new System.Drawing.Point(136, 297);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(176, 25);
@@ -551,36 +622,14 @@
             // 
             this.label36.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label36.AutoSize = true;
+            this.label36.BackColor = System.Drawing.Color.SeaShell;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.Color.AliceBlue;
             this.label36.Location = new System.Drawing.Point(109, 50);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(181, 25);
             this.label36.TabIndex = 0;
             this.label36.Text = "Danh sách phòng";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(767, 519);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(139, 20);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Số phòng hết chỗ";
-            // 
-            // labelHetCho
-            // 
-            this.labelHetCho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelHetCho.AutoSize = true;
-            this.labelHetCho.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHetCho.Location = new System.Drawing.Point(932, 519);
-            this.labelHetCho.Name = "labelHetCho";
-            this.labelHetCho.Size = new System.Drawing.Size(27, 20);
-            this.labelHetCho.TabIndex = 20;
-            this.labelHetCho.Text = "so";
             // 
             // Admin_Formcs
             // 
@@ -592,6 +641,7 @@
             this.Controls.Add(this.panel2);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "Admin_Formcs";
             this.Text = "frmHome";
             this.Load += new System.EventHandler(this.frmHome_Load);
@@ -662,5 +712,6 @@
         private System.Windows.Forms.ToolStripMenuItem pricesToolStripMenuItem;
         private System.Windows.Forms.Label labelHetCho;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

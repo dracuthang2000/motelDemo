@@ -16,6 +16,7 @@ namespace LoginMotelUser
         {
             InitializeComponent();
         }
+        private bool checkClick = false;
         LoginMotelUser.Model.MotelManagerEntities2 us = new Model.MotelManagerEntities2();
         public String checkUsername { get; set; }
         private void Update_User_Load(object sender, EventArgs e)
@@ -23,9 +24,9 @@ namespace LoginMotelUser
             // TODO: This line of code loads data into the 'motelManagerDataSet.ROLE' table. You can move, or remove it, as needed.
             this.rOLETableAdapter1.Fill(this.motelManagerDataSet.ROLE);
             // TODO: This line of code loads data into the 'motelManagerDataSet.USER' table. You can move, or remove it, as needed.
-            var a = us.USERs.Join(us.ROLEs, u => u.IDRole, r => r.ID, (u, r) => new { u, r }).Where(ur => ur.r.ID == ur.u.IDRole)
-    .Select(ur => new { ur.u.UserName, ur.u.Password, ur.r.RoleName }).ToList();
-            this.uSERBindingSource1.DataSource = a;
+            var users = (from u in us.USERs
+                         select new { u.UserName, u.Password, u.ROLE.RoleName }).ToList();
+            this.uSERBindingSource1.DataSource = users;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -59,7 +60,7 @@ namespace LoginMotelUser
             }
             else
             {
-               
+
                 DialogResult d = MessageBox.Show("Are you sure ?", "UPDATE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (d == DialogResult.Yes)
                 {
@@ -83,13 +84,80 @@ namespace LoginMotelUser
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            var a = us.USERs.Join(us.ROLEs, u => u.IDRole, r => r.ID, (u, r) => new { u, r })
-         .Where(ur => ur.r.ID == ur.u.IDRole && ur.u.UserName.Contains(textBox1.Text) || ur.r.RoleName.Contains(textBox1.Text))
-         .Select(ur => new { ur.u.UserName, ur.u.Password, ur.r.RoleName }).ToList();
-            this.uSERBindingSource1.DataSource = a;
+            var users = (from u in us.USERs
+                         where u.UserName.Contains(textBox1.Text)
+                         select new { u.UserName, u.Password, u.ROLE.RoleName }).ToList();
+            this.uSERBindingSource1.DataSource = users;
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            var users = (from u in us.USERs
+                         where u.UserName.Equals(textUsername.Text)
+                         select u).ToList();
+            if (users.Count == 0)
+            {
+                MessageBox.Show("This account does not exist!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                foreach (var user in users)
+                {
+                    if (user.UserName.Equals(checkUsername.ToLower()))
+                    {
+                        MessageBox.Show("This user name is running!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textPassword.Text = "";
+                        textUsername.Text = "";
+                        comboBoxRole.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                        DialogResult d;
+                        d = MessageBox.Show("Are you sure ?", "DELETE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (d == DialogResult.Yes)
+                        {
+                            us.USERs.Remove(user);
+                            us.SaveChanges();
+                            textPassword.Text = "";
+                            textUsername.Text = "";
+                            comboBoxRole.SelectedIndex = 0;
+                            this.Update_User_Load(sender, e);
+                        }
+                    }
+                }
+
+            }
+        }
+
+        private void dataUser_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                dataUser.ContextMenuStrip = contextMenuStrip;
+            }
+        }
+
+        private void sortToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkClick == false)
+            {
+                var users = (from u in us.USERs
+                             orderby u.UserName descending
+                             select new { u.UserName, u.Password, u.ROLE.RoleName }).ToList();
+                this.uSERBindingSource1.DataSource = users;
+                checkClick = true;
+            }
+            else
+            {
+                var users = (from u in us.USERs
+                             orderby u.UserName ascending
+                             select new { u.UserName, u.Password, u.ROLE.RoleName }).ToList();
+                this.uSERBindingSource1.DataSource = users;
+                checkClick = false;
+            }
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var users = (from u in us.USERs
                          where u.UserName.Equals(textUsername.Text)

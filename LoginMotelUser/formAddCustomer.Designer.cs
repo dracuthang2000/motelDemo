@@ -26,6 +26,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel11 = new System.Windows.Forms.Panel();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -62,7 +63,14 @@
             this.label110 = new System.Windows.Forms.Label();
             this.label111 = new System.Windows.Forms.Label();
             this.label113 = new System.Windows.Forms.Label();
+            this.contextMenuListcus = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iDCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel11.SuspendLayout();
+            this.contextMenuListcus.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel11
@@ -306,7 +314,9 @@
             this.lvDanhSachKhachSC3.TabIndex = 34;
             this.lvDanhSachKhachSC3.UseCompatibleStateImageBehavior = false;
             this.lvDanhSachKhachSC3.View = System.Windows.Forms.View.Details;
+            this.lvDanhSachKhachSC3.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvDanhSachKhachSC3_ColumnClick);
             this.lvDanhSachKhachSC3.SelectedIndexChanged += new System.EventHandler(this.lvDanhSachKhachSC3_SelectedIndexChanged);
+            this.lvDanhSachKhachSC3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvDanhSachKhachSC3_MouseClick);
             // 
             // columnHeader5
             // 
@@ -414,6 +424,51 @@
             this.label113.TabIndex = 0;
             this.label113.Text = "Chọn dãy";
             // 
+            // contextMenuListcus
+            // 
+            this.contextMenuListcus.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuListcus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToolStripMenuItem,
+            this.pasteToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.contextMenuListcus.Name = "contextMenuListcus";
+            this.contextMenuListcus.Size = new System.Drawing.Size(123, 76);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nameToolStripMenuItem,
+            this.iDCardToolStripMenuItem});
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.copyToolStripMenuItem.Text = "Sort";
+            // 
+            // nameToolStripMenuItem
+            // 
+            this.nameToolStripMenuItem.Name = "nameToolStripMenuItem";
+            this.nameToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.nameToolStripMenuItem.Text = "Name";
+            this.nameToolStripMenuItem.Click += new System.EventHandler(this.nameToolStripMenuItem_Click);
+            // 
+            // iDCardToolStripMenuItem
+            // 
+            this.iDCardToolStripMenuItem.Name = "iDCardToolStripMenuItem";
+            this.iDCardToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.iDCardToolStripMenuItem.Text = "IDCard";
+            this.iDCardToolStripMenuItem.Click += new System.EventHandler(this.iDCardToolStripMenuItem_Click);
+            // 
+            // pasteToolStripMenuItem
+            // 
+            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.pasteToolStripMenuItem.Text = "Paste";
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            // 
             // formAddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -428,6 +483,7 @@
             this.Load += new System.EventHandler(this.frmAddCustomer_Load);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            this.contextMenuListcus.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -470,6 +526,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.ContextMenuStrip contextMenuListcus;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iDCardToolStripMenuItem;
     }
         #region Windows Form Designer generated code
 

@@ -16,20 +16,17 @@ namespace LoginMotelUser
         {
             InitializeComponent();
         }
+        private bool checkClick = false;
         LoginMotelUser.Model.MotelManagerEntities2 us = new Model.MotelManagerEntities2();
         private void New_User_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'motelManagerDataSet.ROLE' table. You can move, or remove it, as needed.
             this.rOLETableAdapter1.Fill(this.motelManagerDataSet.ROLE);
-            // TODO: This line of code loads data into the 'motelManagerDataSet.USER' table. You can move, or remove it, as needed.
             this.uSERTableAdapter1.Fill(this.motelManagerDataSet.USER);
-            // TODO: This line of code loads data into the 'motel_manager_demoDataSet1.USER' table. You can move, or remove it, as needed.
-            // this.uSERTableAdapter.Fill(this.motel_manager_demoDataSet1.USER);
             var query = (from u in us.USERs
+                         orderby u.UserName
                      select new { u.UserName, u.Password, u.ROLE.RoleName }).ToList();
             this.uSERBindingSource1.DataSource = query;
-
-            // TODO: This line of code loads data into the 'motel_manager_demoDataSet1.ROLE' table. You can move, or remove it, as needed.
         }
 
         private void buttonInsert_Click(object sender, EventArgs e)
@@ -71,6 +68,34 @@ namespace LoginMotelUser
         private void buttonCancle_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void sortToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkClick == false)
+            {
+                var users = (from u in us.USERs
+                             orderby u.UserName descending
+                             select new { u.UserName, u.Password, u.ROLE.RoleName }).ToList();
+                this.uSERBindingSource1.DataSource = users;
+                checkClick = true;
+            }
+            else
+            {
+                var users = (from u in us.USERs
+                             orderby u.UserName ascending
+                             select new { u.UserName, u.Password, u.ROLE.RoleName }).ToList();
+                this.uSERBindingSource1.DataSource = users;
+                checkClick = false;
+            }
+        }
+
+        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                dataGridView1.ContextMenuStrip = contextMenuStrip;
+            }
         }
     }
 }

@@ -31,9 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Update_User));
             this.dataUser = new System.Windows.Forms.DataGridView();
+            this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uSERBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.motelManagerDataSet = new LoginMotelUser.MotelManagerDataSet();
             this.textUsername = new System.Windows.Forms.TextBox();
             this.textPassword = new System.Windows.Forms.TextBox();
             this.comboBoxRole = new System.Windows.Forms.ComboBox();
+            this.rOLEBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,18 +50,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.motelManagerDataSet = new LoginMotelUser.MotelManagerDataSet();
-            this.uSERBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.uSERTableAdapter1 = new LoginMotelUser.MotelManagerDataSetTableAdapters.USERTableAdapter();
-            this.rOLEBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.rOLETableAdapter1 = new LoginMotelUser.MotelManagerDataSetTableAdapters.ROLETableAdapter();
-            this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.sortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataUser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motelManagerDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uSERBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motelManagerDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource1)).BeginInit();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataUser
@@ -66,7 +70,7 @@
             this.dataUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.userNameDataGridViewTextBoxColumn,
             this.passwordDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn1});
+            this.IDRole});
             this.dataUser.DataSource = this.uSERBindingSource1;
             this.dataUser.Location = new System.Drawing.Point(361, 94);
             this.dataUser.Name = "dataUser";
@@ -76,6 +80,38 @@
             this.dataUser.StandardTab = true;
             this.dataUser.TabIndex = 0;
             this.dataUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataUser.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataUser_MouseClick);
+            // 
+            // userNameDataGridViewTextBoxColumn
+            // 
+            this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
+            this.userNameDataGridViewTextBoxColumn.HeaderText = "UserName";
+            this.userNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            // 
+            // IDRole
+            // 
+            this.IDRole.DataPropertyName = "RoleName";
+            this.IDRole.HeaderText = "Role";
+            this.IDRole.MinimumWidth = 6;
+            this.IDRole.Name = "IDRole";
+            // 
+            // uSERBindingSource1
+            // 
+            this.uSERBindingSource1.DataMember = "USER";
+            this.uSERBindingSource1.DataSource = this.motelManagerDataSet;
+            // 
+            // motelManagerDataSet
+            // 
+            this.motelManagerDataSet.DataSetName = "MotelManagerDataSet";
+            this.motelManagerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // textUsername
             // 
@@ -101,6 +137,11 @@
             this.comboBoxRole.Size = new System.Drawing.Size(121, 24);
             this.comboBoxRole.TabIndex = 3;
             this.comboBoxRole.ValueMember = "id";
+            // 
+            // rOLEBindingSource1
+            // 
+            this.rOLEBindingSource1.DataMember = "ROLE";
+            this.rOLEBindingSource1.DataSource = this.motelManagerDataSet;
             // 
             // label1
             // 
@@ -202,49 +243,37 @@
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // motelManagerDataSet
-            // 
-            this.motelManagerDataSet.DataSetName = "MotelManagerDataSet";
-            this.motelManagerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // uSERBindingSource1
-            // 
-            this.uSERBindingSource1.DataMember = "USER";
-            this.uSERBindingSource1.DataSource = this.motelManagerDataSet;
-            // 
             // uSERTableAdapter1
             // 
             this.uSERTableAdapter1.ClearBeforeFill = true;
-            // 
-            // rOLEBindingSource1
-            // 
-            this.rOLEBindingSource1.DataMember = "ROLE";
-            this.rOLEBindingSource1.DataSource = this.motelManagerDataSet;
             // 
             // rOLETableAdapter1
             // 
             this.rOLETableAdapter1.ClearBeforeFill = true;
             // 
-            // userNameDataGridViewTextBoxColumn
+            // contextMenuStrip
             // 
-            this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
-            this.userNameDataGridViewTextBoxColumn.HeaderText = "UserName";
-            this.userNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
+            this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sortToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(215, 84);
             // 
-            // passwordDataGridViewTextBoxColumn
+            // sortToolStripMenuItem
             // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.sortToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sortToolStripMenuItem.Image")));
+            this.sortToolStripMenuItem.Name = "sortToolStripMenuItem";
+            this.sortToolStripMenuItem.Size = new System.Drawing.Size(109, 26);
+            this.sortToolStripMenuItem.Text = "Sort";
+            this.sortToolStripMenuItem.Click += new System.EventHandler(this.sortToolStripMenuItem_Click);
             // 
-            // dataGridViewTextBoxColumn1
+            // deleteToolStripMenuItem
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "RoleName";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Role";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // Update_User
             // 
@@ -271,9 +300,10 @@
             this.Text = "Update_User";
             this.Load += new System.EventHandler(this.Update_User_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataUser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motelManagerDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uSERBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motelManagerDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource1)).EndInit();
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,8 +331,12 @@
         private MotelManagerDataSetTableAdapters.USERTableAdapter uSERTableAdapter1;
         private System.Windows.Forms.BindingSource rOLEBindingSource1;
         private MotelManagerDataSetTableAdapters.ROLETableAdapter rOLETableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDRole;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem sortToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
