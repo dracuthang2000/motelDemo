@@ -15,7 +15,7 @@ namespace LoginMotelUser
     /// </summary>
     public partial class Admin_Formcs : Form
     {
-        LoginMotelUser.Model.MotelManagerEntities db;
+        LoginMotelUser.Model.MotelManagerEntities1 db;
         public Admin_Formcs()
         {
             InitializeComponent();
@@ -36,11 +36,7 @@ namespace LoginMotelUser
         }
 
 
-        private void Admin_Formcs_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'motelManagerDataSet.USER' table. You can move, or remove it, as needed.
-            // TODO: This line of code loads data into the 'motel_manager_demoDataSet1.ROLE' table. You can move, or remove it, as needed.
-        }
+
      
         private void insertUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -69,12 +65,22 @@ namespace LoginMotelUser
 
         private void frmHome_Load(object sender, EventArgs e)
         {
-            db = new Model.MotelManagerEntities();
+            db = new Model.MotelManagerEntities1();
             loadListRoom();
 
             cbbDaySC1.DataSource = db.ROOMRANGEs.ToList();
             cbbDaySC1.DisplayMember = "RangeName";
             cbbDaySC1.SelectedIndex = -1;
+            if (checkRole==true)
+            {
+                newtUserMenuItem.Enabled = true;
+                updateuserMenuItem.Enabled = true;
+            }
+            else
+            {
+                newtUserMenuItem.Enabled = false;
+                updateuserMenuItem.Enabled = false;
+            }
         }
         private void loadListRoom()
         {

@@ -16,14 +16,13 @@ namespace LoginMotelUser
         {
             InitializeComponent();
         }
-        LoginMotelUser.Model.MotelManagerEntities us = new Model.MotelManagerEntities();
+        LoginMotelUser.Model.MotelManagerEntities1 us = new Model.MotelManagerEntities1();
         public String checkUsername { get; set; }
         private void Update_User_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'motelManagerDataSet.ROLE' table. You can move, or remove it, as needed.
             this.rOLETableAdapter1.Fill(this.motelManagerDataSet.ROLE);
             // TODO: This line of code loads data into the 'motelManagerDataSet.USER' table. You can move, or remove it, as needed.
-            // TODO: This line of code loads data into the 'motel_manager_demoDataSet1.ROLE' table. You can move, or remove it, as needed.
             var a = us.USERs.Join(us.ROLEs, u => u.IDRole, r => r.ID, (u, r) => new { u, r }).Where(ur => ur.r.ID == ur.u.IDRole)
     .Select(ur => new { ur.u.UserName, ur.u.Password, ur.r.RoleName }).ToList();
             this.uSERBindingSource1.DataSource = a;
@@ -105,7 +104,7 @@ namespace LoginMotelUser
                 {
                     if (user.UserName.Equals(checkUsername.ToLower()))
                     {
-                        MessageBox.Show("This user name is active!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("This user name is running!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         textPassword.Text = "";
                         textUsername.Text = "";
                         comboBoxRole.SelectedIndex = 0;

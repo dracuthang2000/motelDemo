@@ -372,6 +372,7 @@
             // columnHeader12
             // 
             this.columnHeader12.Text = "Dãy";
+            this.columnHeader12.Width = 127;
             // 
             // cbbDaySC3
             // 

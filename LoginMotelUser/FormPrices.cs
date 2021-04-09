@@ -17,11 +17,11 @@ namespace LoginMotelUser
             InitializeComponent();
         }
 
-        Model.MotelManagerEntities db;
+        Model.MotelManagerEntities1 db;
         string taikhoan = "admin";
         private void frmPrice_Load(object sender, EventArgs e)
         {
-            db = new Model.MotelManagerEntities();
+            db = new Model.MotelManagerEntities1();
 
             cbbDaySC4.DataSource = db.ROOMRANGEs.ToList();
             cbbDaySC4.DisplayMember = "RangeName";

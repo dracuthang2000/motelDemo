@@ -16,7 +16,7 @@ namespace LoginMotelUser
         {
             InitializeComponent();
         }
-        LoginMotelUser.Model.MotelManagerEntities us = new Model.MotelManagerEntities();
+        LoginMotelUser.Model.MotelManagerEntities1 us = new Model.MotelManagerEntities1();
         private void New_User_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'motelManagerDataSet.ROLE' table. You can move, or remove it, as needed.
@@ -30,7 +30,6 @@ namespace LoginMotelUser
             this.uSERBindingSource1.DataSource = query;
 
             // TODO: This line of code loads data into the 'motel_manager_demoDataSet1.ROLE' table. You can move, or remove it, as needed.
-            this.rOLETableAdapter.Fill(this.motel_manager_demoDataSet1.ROLE);
         }
 
         private void buttonInsert_Click(object sender, EventArgs e)

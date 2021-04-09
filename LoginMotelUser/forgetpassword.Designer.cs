@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(forgetpassword));
             this.text_idCard = new System.Windows.Forms.TextBox();
-            this.textdate = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.checkUsername = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textUsername = new System.Windows.Forms.TextBox();
@@ -60,15 +60,8 @@
             // 
             this.text_idCard.Location = new System.Drawing.Point(134, 56);
             this.text_idCard.Name = "text_idCard";
-            this.text_idCard.Size = new System.Drawing.Size(207, 22);
+            this.text_idCard.Size = new System.Drawing.Size(229, 22);
             this.text_idCard.TabIndex = 0;
-            // 
-            // textdate
-            // 
-            this.textdate.Location = new System.Drawing.Point(134, 101);
-            this.textdate.Name = "textdate";
-            this.textdate.Size = new System.Drawing.Size(207, 22);
-            this.textdate.TabIndex = 1;
             // 
             // label1
             // 
@@ -103,19 +96,27 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.dateTimePicker);
             this.panel1.Controls.Add(this.checkUsername);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.textUsername);
             this.panel1.Controls.Add(this.checkIdanddate);
             this.panel1.Controls.Add(this.buttonNext);
-            this.panel1.Controls.Add(this.textdate);
             this.panel1.Controls.Add(this.text_idCard);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(36, 72);
+            this.panel1.Location = new System.Drawing.Point(39, 72);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(432, 276);
             this.panel1.TabIndex = 5;
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker.Location = new System.Drawing.Point(134, 101);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(119, 22);
+            this.dateTimePicker.TabIndex = 7;
             // 
             // checkUsername
             // 
@@ -141,7 +142,7 @@
             // 
             this.textUsername.Location = new System.Drawing.Point(134, 20);
             this.textUsername.Name = "textUsername";
-            this.textUsername.Size = new System.Drawing.Size(207, 22);
+            this.textUsername.Size = new System.Drawing.Size(229, 22);
             this.textUsername.TabIndex = 6;
             // 
             // checkIdanddate
@@ -302,10 +303,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(520, 383);
-            this.Controls.Add(this.panelPassword);
+            this.ClientSize = new System.Drawing.Size(530, 383);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.panelPassword);
             this.MaximizeBox = false;
             this.Name = "forgetpassword";
             this.Text = "createpassword";
@@ -322,7 +323,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox text_idCard;
-        private System.Windows.Forms.TextBox textdate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -344,5 +344,6 @@
         private System.Windows.Forms.TextBox textPassword;
         private System.Windows.Forms.Panel correctPass;
         private System.Windows.Forms.Panel incorrectPass;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
     }
 }

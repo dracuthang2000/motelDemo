@@ -23,7 +23,7 @@ namespace LoginMotelUser.Model
     
         public int ID { get; set; }
         public string RoomName { get; set; }
-        public Nullable<byte> StateRoom { get; set; }
+        public Nullable<short> StateRoom { get; set; }
         public Nullable<int> IDRoomRank { get; set; }
         public Nullable<int> IDRoomRange { get; set; }
     

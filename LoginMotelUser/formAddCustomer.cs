@@ -16,10 +16,10 @@ namespace LoginMotelUser
         {
             InitializeComponent();
         }
-        Model.MotelManagerEntities db;
+        Model.MotelManagerEntities1 db;
         private void frmAddCustomer_Load(object sender, EventArgs e)
         {
-            db = new Model.MotelManagerEntities();
+            db = new Model.MotelManagerEntities1();
             cbbDaySC3.DataSource = db.ROOMRANGEs.ToList();
             cbbDaySC3.DisplayMember = "RangeName";
             cbbDaySC3.SelectedIndex = -1;
@@ -359,7 +359,7 @@ namespace LoginMotelUser
                 else // thêm
                 {
                     // Thêm customer
-                    db = new Model.MotelManagerEntities();
+                    db = new Model.MotelManagerEntities1();
                     var check = db.CUSTOMERs.Where(u => u.ID.Equals(txtCMNDSC3.Text)).ToList();
                     if (check.Count == 0)
                     {

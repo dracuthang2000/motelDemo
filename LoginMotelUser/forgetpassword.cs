@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,7 +19,7 @@ namespace LoginMotelUser
             InitializeComponent();
             opener = ParentForm;
         }
-        LoginMotelUser.Model.MotelManagerEntities stf = new Model.MotelManagerEntities();
+        LoginMotelUser.Model.MotelManagerEntities1 stf = new Model.MotelManagerEntities1();
         private void createpassword_Load(object sender, EventArgs e)
         {
 
@@ -39,17 +40,25 @@ namespace LoginMotelUser
                 foreach(var st in uN)
                 {
                     //String date = st.dateOfBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
-                    String date = st.DateOfBirth.Value.ToString("dd/MM/yyyy");
-                 
-                    if (!(st.ID.Trim().Equals(text_idCard.Text))||!(st.DateOfBirth.Value.ToString("dd/MM/yyyy").Equals(textdate.Text)))
+                    String date = st.DateOfBirth.Value.ToString("MM/dd/yyyy");
+                    Regex reg = new Regex(@"[0-9]{9}");
+                    Match result = reg.Match(text_idCard.Text);
+                    if (result.Length == 0||text_idCard.Text.Length>9)
                     {
-                        checkIdanddate.Visible = true;
+                        MessageBox.Show("IDcard is incorrect", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        checkIdanddate.Visible = false;
-                        panelPassword.Visible = true;
-                        panel1.Visible = false;
+                        if (!(st.ID.Trim().Equals(text_idCard.Text)) || !(st.DateOfBirth.Value.ToString("dd/MM/yyyy").Equals(dateTimePicker.Value)))
+                        {
+                            checkIdanddate.Visible = true;
+                        }
+                        else
+                        {
+                            checkIdanddate.Visible = false;
+                            panelPassword.Visible = true;
+                            panel1.Visible = false;
+                        }
                     }
                 }
             }
@@ -144,7 +153,7 @@ namespace LoginMotelUser
             DialogResult d = MessageBox.Show("Are you sure ?", "UPDATE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (d == DialogResult.Yes)
             {
-                Model.MotelManagerEntities us = new Model.MotelManagerEntities();
+                Model.MotelManagerEntities1 us = new Model.MotelManagerEntities1();
                 var user = us.USERs.Single(u => u.UserName.Equals(textUsername.Text));
                 user.Password = textPassword.Text.Trim();
                 us.SaveChanges();

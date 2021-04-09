@@ -15,10 +15,10 @@ namespace LoginMotelUser.Model
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class MotelManagerEntities : DbContext
+    public partial class MotelManagerEntities1 : DbContext
     {
-        public MotelManagerEntities()
-            : base("name=MotelManagerEntities")
+        public MotelManagerEntities1()
+            : base("name=MotelManagerEntities1")
         {
         }
     

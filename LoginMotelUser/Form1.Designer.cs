@@ -68,11 +68,11 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkOrange;
             this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
-            this.label3.Location = new System.Drawing.Point(56, 38);
+            this.label3.Location = new System.Drawing.Point(167, 40);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(400, 53);
+            this.label3.Size = new System.Drawing.Size(162, 53);
             this.label3.TabIndex = 9;
-            this.label3.Text = "LOGIN TO MOTEL";
+            this.label3.Text = "LOGIN";
             // 
             // linkLabel2
             // 

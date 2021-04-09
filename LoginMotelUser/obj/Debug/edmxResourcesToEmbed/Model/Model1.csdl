@@ -32,7 +32,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RoomName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="StateRoom" Type="Byte" />
+    <Property Name="StateRoom" Type="Int16" />
     <Property Name="IDRoomRank" Type="Int32" />
     <Property Name="IDRoomRange" Type="Int32" />
     <NavigationProperty Name="BILLs" Relationship="Self.FK_BILL_MOTELROOM" FromRole="MOTELROOM" ToRole="BILL" />
@@ -113,7 +113,7 @@
     <Property Name="UserName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Name="Sexual" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="BILLs" Relationship="Self.FK_BILL_STAFF" FromRole="STAFF" ToRole="BILL" />
-    <NavigationProperty Name="USER" Relationship="MotelManagerModel.FK_STAFF_USER" FromRole="STAFF" ToRole="USER" />
+    <NavigationProperty Name="USER" Relationship="Self.FK_STAFF_USER" FromRole="STAFF" ToRole="USER" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -133,7 +133,7 @@
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IDRole" Type="Int32" />
     <NavigationProperty Name="ROLE" Relationship="Self.FK_USER_ROLE" FromRole="USER" ToRole="ROLE" />
-    <NavigationProperty Name="STAFFs" Relationship="MotelManagerModel.FK_STAFF_USER" FromRole="USER" ToRole="STAFF" />
+    <NavigationProperty Name="STAFFs" Relationship="Self.FK_STAFF_USER" FromRole="USER" ToRole="STAFF" />
   </EntityType>
   <Association Name="FK_BILL_MOTELROOM">
     <End Role="MOTELROOM" Type="Self.MOTELROOM" Multiplicity="0..1" />
@@ -148,7 +148,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_BILL_STAFF">
-    <End Role="STAFF" Type="Self.STAFF" Multiplicity="0..1" />
+    <End Role="STAFF" Type="Self.STAFF" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="STAFF">
@@ -232,7 +234,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_USER_ROLE">
-    <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1" />
+    <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="USER" Type="Self.USER" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ROLE">
@@ -243,7 +247,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="MotelManagerEntities" annotation:LazyLoadingEnabled="true">
+  <Association Name="FK_STAFF_USER">
+    <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+    <End Role="STAFF" Type="Self.STAFF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="STAFF">
+        <PropertyRef Name="UserName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MotelManagerEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="BILLs" EntityType="Self.BILL" />
     <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
     <EntitySet Name="MOTELROOMs" EntityType="Self.MOTELROOM" />
@@ -292,6 +308,10 @@
       <End Role="ROLE" EntitySet="ROLEs" />
       <End Role="USER" EntitySet="USERs" />
     </AssociationSet>
+    <AssociationSet Name="FK_STAFF_USER" Association="Self.FK_STAFF_USER">
+      <End Role="USER" EntitySet="USERs" />
+      <End Role="STAFF" EntitySet="STAFFs" />
+    </AssociationSet>
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -322,10 +342,6 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
-    <AssociationSet Name="FK_STAFF_USER" Association="MotelManagerModel.FK_STAFF_USER">
-      <End Role="USER" EntitySet="USERs" />
-      <End Role="STAFF" EntitySet="STAFFs" />
-    </AssociationSet>
     <FunctionImport Name="USP_CountCustomer" ReturnType="Collection(Int32)" />
     <FunctionImport Name="USP_CountRange" ReturnType="Collection(Int32)" />
     <FunctionImport Name="USP_CountRank" ReturnType="Collection(Int32)" />
@@ -373,18 +389,6 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
-  <Association Name="FK_STAFF_USER">
-    <End Type="MotelManagerModel.USER" Role="USER" Multiplicity="0..1" />
-    <End Type="MotelManagerModel.STAFF" Role="STAFF" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="USER">
-        <PropertyRef Name="UserName" />
-      </Principal>
-      <Dependent Role="STAFF">
-        <PropertyRef Name="UserName" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <ComplexType Name="USP_PageCustomer_Result">
     <Property Type="String" Name="ID" Nullable="false" MaxLength="20" />
     <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="50" />
