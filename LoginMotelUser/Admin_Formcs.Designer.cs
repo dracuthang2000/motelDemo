@@ -81,6 +81,8 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
+            this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -137,29 +139,30 @@
             // 
             this.newMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newtUserMenuItem,
-            this.insertCustomerMenuItem});
+            this.insertCustomerMenuItem,
+            this.customerToolStripMenuItem});
             this.newMenuItem.Name = "newMenuItem";
-            this.newMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.newMenuItem.Size = new System.Drawing.Size(224, 26);
             this.newMenuItem.Text = "New";
             // 
             // newtUserMenuItem
             // 
             this.newtUserMenuItem.Name = "newtUserMenuItem";
-            this.newtUserMenuItem.Size = new System.Drawing.Size(155, 26);
+            this.newtUserMenuItem.Size = new System.Drawing.Size(224, 26);
             this.newtUserMenuItem.Text = "Users";
             this.newtUserMenuItem.Click += new System.EventHandler(this.insertUserToolStripMenuItem_Click);
             // 
             // insertCustomerMenuItem
             // 
             this.insertCustomerMenuItem.Name = "insertCustomerMenuItem";
-            this.insertCustomerMenuItem.Size = new System.Drawing.Size(155, 26);
-            this.insertCustomerMenuItem.Text = "Customer";
+            this.insertCustomerMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.insertCustomerMenuItem.Text = "RenInFormation";
             this.insertCustomerMenuItem.Click += new System.EventHandler(this.inserCustomerToolStripMenuItem_Click);
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.exitMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
@@ -174,9 +177,10 @@
             // updateMenuItem
             // 
             this.updateMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updateuserMenuItem});
+            this.updateuserMenuItem,
+            this.customerToolStripMenuItem1});
             this.updateMenuItem.Name = "updateMenuItem";
-            this.updateMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.updateMenuItem.Size = new System.Drawing.Size(224, 26);
             this.updateMenuItem.Text = "Update";
             // 
             // updateuserMenuItem
@@ -631,6 +635,20 @@
             this.label36.TabIndex = 0;
             this.label36.Text = "Danh sách phòng";
             // 
+            // customerToolStripMenuItem
+            // 
+            this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.customerToolStripMenuItem.Text = "Customer";
+            this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
+            // 
+            // customerToolStripMenuItem1
+            // 
+            this.customerToolStripMenuItem1.Name = "customerToolStripMenuItem1";
+            this.customerToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.customerToolStripMenuItem1.Text = "Customer";
+            this.customerToolStripMenuItem1.Click += new System.EventHandler(this.customerToolStripMenuItem1_Click);
+            // 
             // Admin_Formcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -713,5 +731,7 @@
         private System.Windows.Forms.Label labelHetCho;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem1;
     }
 }

@@ -22,7 +22,7 @@ namespace LoginMotelUser
             Application.Run(f1);
             if (f1.isLoggedIn == true)
             {
-                if(f1.checkRole == true)
+                if (f1.checkRole == true)
                 {
                     ad.checkRole = true;
                 }
@@ -31,13 +31,13 @@ namespace LoginMotelUser
                     ad.checkRole = false;
                 }
                 ad.checkUsername = f1.checkUsername;
-                Application.Run(ad);                
+                Application.Run(ad);
             }
-            if(ad.isClose==true)
+            if (ad.isClose == true)
             {
                 goto begin;
             }
-            
+
         }
     }
 }

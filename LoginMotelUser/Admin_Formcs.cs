@@ -316,5 +316,19 @@ namespace LoginMotelUser
             FormPrices FP = new FormPrices();
             FP.ShowDialog();
         }
+
+        private void customerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddCustomerForm gf = new AddCustomerForm();
+            gf.ShowDialog();
+            this.frmHome_Load(sender,e);
+        }
+
+        private void customerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            UpdateCusForm uC = new UpdateCusForm();
+            uC.ShowDialog();
+            this.frmHome_Load(sender, e);
+        }
     }
 }
