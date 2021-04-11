@@ -180,7 +180,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PARTICULARSERVICE_BILL">
-          <End Role="BILL" Type="Self.BILL" Multiplicity="1" />
+          <End Role="BILL" Type="Self.BILL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PARTICULARSERVICE" Type="Self.PARTICULARSERVICE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BILL">
@@ -192,7 +194,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PARTICULARSERVICE_SERVICE">
-          <End Role="SERVICE" Type="Self.SERVICE" Multiplicity="1" />
+          <End Role="SERVICE" Type="Self.SERVICE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PARTICULARSERVICE" Type="Self.PARTICULARSERVICE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SERVICE">

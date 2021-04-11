@@ -122,7 +122,7 @@ namespace LoginMotelUser
                                     p.NewIndex,
                                     p.Total,
                                 }).ToList();
-                MessageBox.Show(services.Count().ToString());
+               // MessageBox.Show(services.Count().ToString());
                 if (services.Count() > 0)
                 {
                     foreach (var s in services)

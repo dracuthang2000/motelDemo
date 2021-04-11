@@ -205,7 +205,7 @@ namespace LoginMotelUser
                 // sau Khi click vào 1 List View Item thì ta cần truy vấn 
                 // được customer, sau đó đổ thông tin vào các textBox
                 ListViewItem lvi = lvDanhSachPhongSC4.SelectedItems[0];
-
+                lbIDPhongSC4.Text = lvi.Text;
                 // IDRoom chính là lvi.Text
                 int IDRoom = int.Parse(lvi.Text);
 
@@ -236,10 +236,10 @@ namespace LoginMotelUser
             if (!cbbCMNDSC4.Text.Equals(""))
             {
                 var customers = (from cus in db.CUSTOMERs
-                                 where cus.ID.Equals(cbbCMNDSC4.Text)
+                                 where cus.IDCard.Equals(cbbCMNDSC4.Text)
                                  select new
                                  {
-                                     cus.ID,
+                                     cus.IDCard,
                                      cus.CustomerName,
                                      cus.NumberPhone,
                                      cus.Address,
