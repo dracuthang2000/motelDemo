@@ -319,15 +319,62 @@ namespace LoginMotelUser
 
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddCustomerForm gf = new AddCustomerForm();
+            ShowCustomerForm gf = new ShowCustomerForm(true);
             gf.ShowDialog();
             this.frmHome_Load(sender,e);
         }
 
         private void customerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            UpdateCusForm uC = new UpdateCusForm();
+            ShowCustomerForm uC = new ShowCustomerForm(false);
             uC.ShowDialog();
+            this.frmHome_Load(sender, e);
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void roomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showRoomForm sFR = new showRoomForm(true);
+            sFR.ShowDialog();
+            this.frmHome_Load(sender, e);
+        }
+
+        private void roomToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            showRoomForm sFR = new showRoomForm(false);
+            sFR.ShowDialog();
+            this.frmHome_Load(sender, e);
+        }
+
+        private void rankToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showRankForm rF = new showRankForm(true);
+            rF.ShowDialog();
+            this.frmHome_Load(sender, e);
+        }
+
+        private void rankToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            showRankForm rF = new showRankForm(false);
+            rF.ShowDialog();
+            this.frmHome_Load(sender, e);
+        }
+
+        private void rangeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showRangeForm rF = new showRangeForm(true);
+            rF.ShowDialog();
+            this.frmHome_Load(sender, e);
+        }
+
+        private void rageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showRangeForm rF = new showRangeForm(false);
+            rF.ShowDialog();
             this.frmHome_Load(sender, e);
         }
     }

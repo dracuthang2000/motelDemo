@@ -22,6 +22,7 @@ namespace LoginMotelUser
                 goiHam();
         }
         Boolean check;
+        private int IDcus;
         public FormCustomer(Boolean check)
         {
             InitializeComponent();
@@ -125,7 +126,14 @@ namespace LoginMotelUser
         }
         public void loadData(String a)
         {
-
+            if(check == false)
+            {
+                butUpdate.Text = "Update";
+            }
+            else
+            {
+                butUpdate.Text = "ADD";
+            }
             var query = (from Cus in data.CUSTOMERs
                          where Cus.IDCard.Equals(a)
                          select Cus).ToList();
@@ -134,6 +142,7 @@ namespace LoginMotelUser
             {
                 ID = id.ID;
             }
+            this.IDcus = ID;
             Model.CUSTOMER c = data.CUSTOMERs.Find(ID);
             textHoTen.Text = c.CustomerName.ToString();
             textAddress.Text = c.Address.ToString();
@@ -181,24 +190,7 @@ namespace LoginMotelUser
         }
         private void butUpdate_Click(object sender, EventArgs e)
         {
-            if (catchData() == false) return;
-            List<Model.CUSTOMER> list = (from b in data.CUSTOMERs where b.IDCard == textIDCus.Text select b).ToList();
-            if (list.Count > 0)
-            {
-                DialogResult result = MessageBox.Show("Ban co chac chinh sua khach co ID = " + textIDCus.Text + " khong ? (tat ca cac du lieu lien quan deu se thay doi!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                switch (result)
-                {
-                    case DialogResult.Cancel: return;
-                    case DialogResult.Yes: { updateData(); this.Close(); break; }
-                    case DialogResult.No: return;
-
-                    default:
-                        break;
-
-                }
-
-            }
-            else
+            if (check == true)
             {
                 DialogResult result = MessageBox.Show("Ban co chac them khach co ID =" + textIDCus.Text + " khong?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 switch (result)
@@ -211,7 +203,36 @@ namespace LoginMotelUser
                         break;
 
                 }
+            }
+            else
+            {
+                if (catchData() == false) return;
+                //int ID = int.Parse(la)
+                var cus = (from Cus in data.CUSTOMERs
+                           where Cus.IDCard.Equals(textIDCus.Text) && Cus.ID != this.IDcus
+                           select Cus).ToList();
+               // List<Model.CUSTOMER> list = (from b in data.CUSTOMERs where b.IDCard == textIDCus.Text select b).ToList();
+                if (cus.Count == 0)
+                {
+                    DialogResult result = MessageBox.Show("Ban co chac chinh sua khach co ID = " + textIDCus.Text + " khong ? (tat ca cac du lieu lien quan deu se thay doi!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    switch (result)
+                    {
+                        case DialogResult.Cancel: return;
+                        case DialogResult.Yes: { updateData(); this.Close(); break; }
+                        case DialogResult.No: return;
 
+                        default:
+                            break;
+
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("ID Customer is exist", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+                }
             }
 
 

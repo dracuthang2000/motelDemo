@@ -10,16 +10,22 @@ using System.Windows.Forms;
 
 namespace LoginMotelUser
 {
-    public partial class UpdateCusForm : Form
+    public partial class ShowCustomerForm : Form
     {
         int soLuong = 16;
         int dem;
         int tong;
         int tinh;
-        public UpdateCusForm()
+        private Boolean check;
+        public ShowCustomerForm(Boolean check)
         {
             InitializeComponent();
+            this.check = check;
             loadCustomer(0, soLuong);
+            if (check == true)
+                butThem.Text = "ADD";
+            else
+                butThem.Text = "Update";
             dem = 0;
         }
 
@@ -69,31 +75,47 @@ namespace LoginMotelUser
             loadCustomer(0, soLuong);
             dem = 0;
         }
-        private void butSua_Click(object sender, EventArgs e)
+        private void butThem_Click(object sender, EventArgs e)
         {
-            if (listKhach.SelectedItems.Count > 0)
+            if (this.check == true)
             {
-                String temp = listKhach.FocusedItem.Text;
-
-
-                FormCustomer gOF = new FormCustomer(temp,false);
+                FormCustomer gOF = new FormCustomer(true);
                 gOF.goiHam = loadList;
                 gOF.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Hay chon khach can sua tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (listKhach.SelectedItems.Count > 0)
+                {
+                    String temp = listKhach.FocusedItem.Text;
+                    FormCustomer gOF = new FormCustomer(temp,false);
+                    gOF.goiHam = loadList;
+                    gOF.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Let's Choice one customer", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
+
         }
 
         private void listKhach_DoubleClick(object sender, EventArgs e)
         {
-            String temp = listKhach.FocusedItem.Text;
-
-
-            FormCustomer gOF = new FormCustomer(temp,false);
-            gOF.goiHam = loadList;
-            gOF.ShowDialog();
+            if (check == true)
+            {
+                String temp = listKhach.FocusedItem.Text;
+                FormCustomer gOF = new FormCustomer(temp, true);
+                gOF.goiHam = loadList;
+                gOF.ShowDialog();
+            }
+            else
+            {
+                String temp = listKhach.FocusedItem.Text;
+                FormCustomer gOF = new FormCustomer(temp, false);
+                gOF.goiHam = loadList;
+                gOF.ShowDialog();
+            }
         }
 
         private void butXoa_Click(object sender, EventArgs e)
@@ -273,14 +295,6 @@ namespace LoginMotelUser
             listKhach.Sort();
         }
 
-        private void listKhach_MouseClick(object sender, MouseEventArgs e)
-        {
-            if(e.Button == MouseButtons.Right)
-            {
-                listKhach.ContextMenuStrip = contextMenuStrip1;
-            }
-        }
-
         private void iDToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ItemComparer sorter = listKhach.ListViewItemSorter as ItemComparer;
@@ -308,6 +322,14 @@ namespace LoginMotelUser
             listKhach.Sort();
             nameToolStripMenuItem.Checked = false;
             dateToolStripMenuItem.Checked = false;
+        }
+
+        private void listKhach_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                listKhach.ContextMenuStrip = contextMenuStrip1;
+            }
         }
 
         private void nameToolStripMenuItem_Click(object sender, EventArgs e)

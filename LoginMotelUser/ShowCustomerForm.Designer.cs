@@ -1,9 +1,10 @@
 ﻿namespace LoginMotelUser
 {
-    partial class UpdateCusForm
+    partial class ShowCustomerForm
     {
         /// <summary>
         /// Required designer variable.
+        /// </summary>
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -35,7 +36,7 @@
             this.butRight = new System.Windows.Forms.Button();
             this.textSearch = new System.Windows.Forms.TextBox();
             this.labSearch = new System.Windows.Forms.Label();
-            this.butSua = new System.Windows.Forms.Button();
+            this.butThem = new System.Windows.Forms.Button();
             this.butXoa = new System.Windows.Forms.Button();
             this.listKhach = new System.Windows.Forms.ListView();
             this.labTieuDe = new System.Windows.Forms.Label();
@@ -58,7 +59,7 @@
             this.panKhach.Controls.Add(this.butRight);
             this.panKhach.Controls.Add(this.textSearch);
             this.panKhach.Controls.Add(this.labSearch);
-            this.panKhach.Controls.Add(this.butSua);
+            this.panKhach.Controls.Add(this.butThem);
             this.panKhach.Controls.Add(this.butXoa);
             this.panKhach.Controls.Add(this.listKhach);
             this.panKhach.Controls.Add(this.labTieuDe);
@@ -71,7 +72,7 @@
             // 
             this.labPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labPage.AutoSize = true;
-            this.labPage.Location = new System.Drawing.Point(452, 537);
+            this.labPage.Location = new System.Drawing.Point(438, 541);
             this.labPage.Name = "labPage";
             this.labPage.Size = new System.Drawing.Size(70, 17);
             this.labPage.TabIndex = 9;
@@ -119,23 +120,23 @@
             this.labSearch.TabIndex = 6;
             this.labSearch.Text = "Tìm Kiếm :";
             // 
-            // butSua
+            // butThem
             // 
-            this.butSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.butSua.AutoSize = true;
-            this.butSua.Location = new System.Drawing.Point(250, 575);
-            this.butSua.Name = "butSua";
-            this.butSua.Size = new System.Drawing.Size(75, 53);
-            this.butSua.TabIndex = 6;
-            this.butSua.Text = "Sửa";
-            this.butSua.UseVisualStyleBackColor = true;
-            this.butSua.Click += new System.EventHandler(this.butSua_Click);
+            this.butThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.butThem.AutoSize = true;
+            this.butThem.Location = new System.Drawing.Point(302, 575);
+            this.butThem.Name = "butThem";
+            this.butThem.Size = new System.Drawing.Size(75, 53);
+            this.butThem.TabIndex = 4;
+            this.butThem.Text = "Thêm";
+            this.butThem.UseVisualStyleBackColor = true;
+            this.butThem.Click += new System.EventHandler(this.butThem_Click);
             // 
             // butXoa
             // 
             this.butXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.butXoa.AutoSize = true;
-            this.butXoa.Location = new System.Drawing.Point(608, 575);
+            this.butXoa.Location = new System.Drawing.Point(570, 575);
             this.butXoa.Name = "butXoa";
             this.butXoa.Size = new System.Drawing.Size(75, 53);
             this.butXoa.TabIndex = 5;
@@ -214,13 +215,13 @@
             this.dateToolStripMenuItem.Text = "Date";
             this.dateToolStripMenuItem.Click += new System.EventHandler(this.dateToolStripMenuItem_Click);
             // 
-            // UpdateCusForm
+            // AddCustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(973, 659);
             this.Controls.Add(this.panKhach);
-            this.Name = "UpdateCusForm";
+            this.Name = "AddCustomerForm";
             this.Text = "Form1";
             this.panKhach.ResumeLayout(false);
             this.panKhach.PerformLayout();
@@ -234,7 +235,7 @@
         private System.Windows.Forms.Panel panKhach;
         private System.Windows.Forms.ListView listKhach;
         private System.Windows.Forms.Label labTieuDe;
-        private System.Windows.Forms.Button butSua;
+        private System.Windows.Forms.Button butThem;
         private System.Windows.Forms.Button butXoa;
         private System.Windows.Forms.TextBox textSearch;
         private System.Windows.Forms.Label labSearch;
