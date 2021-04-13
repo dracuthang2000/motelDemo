@@ -54,7 +54,7 @@ namespace LoginMotelUser
             {
                 lvDanhSachHoaDonSC5.Items.Clear();
                 var bill = (from b in db.BILLs
-                            where b.IDRoom.ToString().Equals(txtIDPhongSC5.Text)
+                            where b.IDRoom.ToString().Equals(txtIDPhongSC5.Text) && b.Paid == false
                             select b).ToList();
 
                 if (bill.Count > 0)
@@ -82,6 +82,7 @@ namespace LoginMotelUser
                             select r;
                 var bills = (from b in db.BILLs
                              join r in Rooms on b.IDRoom equals r.ID
+                             where b.Paid == false
                              select b).ToList();
                 if (bills.Count > 0)
                 {
@@ -95,7 +96,6 @@ namespace LoginMotelUser
                         // lvi.SubItems.Add(bill.IDStaff);
                         lvi.SubItems.Add("Admin");
                         lvi.SubItems.Add(String.Format("{0:0,0}", bill.TotalMoney));
-
                         lvDanhSachHoaDonSC5.Items.Add(lvi);
                     }
                 }
@@ -122,7 +122,7 @@ namespace LoginMotelUser
                                     p.NewIndex,
                                     p.Total,
                                 }).ToList();
-               // MessageBox.Show(services.Count().ToString());
+                MessageBox.Show(services.Count().ToString());
                 if (services.Count() > 0)
                 {
                     foreach (var s in services)
@@ -131,7 +131,6 @@ namespace LoginMotelUser
                         lvi1.SubItems.Add(s.OldIndex.ToString());
                         lvi1.SubItems.Add(s.NewIndex.ToString());
                         lvi1.SubItems.Add(String.Format("{0:0,0}", s.Total));
-
                         lvChiTietHoaDonSC5.Items.Add(lvi1);
                     }
                 }
@@ -152,11 +151,6 @@ namespace LoginMotelUser
                 loadListViewDanhSachHoaDon();
                 MessageBox.Show("Cập nhật thành công!");
             }
-        }
-
-        private void buttonCancle_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

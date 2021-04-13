@@ -40,6 +40,7 @@
     <NavigationProperty Name="ROOMRANGE" Relationship="Self.FK_MOTELROOM_ROOMRANGE" FromRole="MOTELROOM" ToRole="ROOMRANGE" />
     <NavigationProperty Name="ROOMRANK" Relationship="Self.FK_MOTELROOM_ROOMRANK" FromRole="MOTELROOM" ToRole="ROOMRANK" />
     <NavigationProperty Name="REINTINFORs" Relationship="Self.FK_REINTINFOR_MOTELROOM" FromRole="MOTELROOM" ToRole="REINTINFOR" />
+    <Property Name="Paid" Type="Boolean" />
   </EntityType>
   <EntityType Name="PARTICULARSERVICE">
     <Key>
@@ -387,6 +388,9 @@
     <FunctionImport Name="USP_PageStaff" ReturnType="Collection(MotelManagerModel.USP_PageStaff_Result)">
       <Parameter Name="bd" Mode="In" Type="Int32" />
       <Parameter Name="kt" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="updatePaidMotelRoom">
+      <Parameter Name="idRoom" Mode="In" Type="Int32" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">

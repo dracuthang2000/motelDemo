@@ -41,12 +41,6 @@
             this.txtHoTenSC4 = new System.Windows.Forms.TextBox();
             this.txtSDTSC4 = new System.Windows.Forms.TextBox();
             this.cbbCMNDSC4 = new System.Windows.Forms.ComboBox();
-            this.lvDanhSachPhongSC4 = new System.Windows.Forms.ListView();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label13 = new System.Windows.Forms.Label();
             this.cbbLoaiPhongSC4 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -74,6 +68,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtGioiTinhSC4 = new System.Windows.Forms.TextBox();
             this.pnlPrice = new System.Windows.Forms.Panel();
+            this.buttonCancle = new System.Windows.Forms.Button();
             this.nmrGuiXe = new System.Windows.Forms.NumericUpDown();
             this.nmrWifi = new System.Windows.Forms.NumericUpDown();
             this.nmrRac = new System.Windows.Forms.NumericUpDown();
@@ -83,7 +78,12 @@
             this.ckGuiXe = new System.Windows.Forms.CheckBox();
             this.ckWifi = new System.Windows.Forms.CheckBox();
             this.ckRac = new System.Windows.Forms.CheckBox();
-            this.buttonCancle = new System.Windows.Forms.Button();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvDanhSachPhongSC4 = new System.Windows.Forms.ListView();
             this.pnlPrice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmrGuiXe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrWifi)).BeginInit();
@@ -174,49 +174,6 @@
             this.cbbCMNDSC4.TabIndex = 25;
             this.cbbCMNDSC4.SelectedValueChanged += new System.EventHandler(this.cbbCMNDSC4_SelectedValueChanged);
             // 
-            // lvDanhSachPhongSC4
-            // 
-            this.lvDanhSachPhongSC4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.lvDanhSachPhongSC4.FullRowSelect = true;
-            this.lvDanhSachPhongSC4.GridLines = true;
-            this.lvDanhSachPhongSC4.HideSelection = false;
-            this.lvDanhSachPhongSC4.Location = new System.Drawing.Point(17, 119);
-            this.lvDanhSachPhongSC4.Name = "lvDanhSachPhongSC4";
-            this.lvDanhSachPhongSC4.Size = new System.Drawing.Size(538, 189);
-            this.lvDanhSachPhongSC4.TabIndex = 33;
-            this.lvDanhSachPhongSC4.UseCompatibleStateImageBehavior = false;
-            this.lvDanhSachPhongSC4.View = System.Windows.Forms.View.Details;
-            this.lvDanhSachPhongSC4.SelectedIndexChanged += new System.EventHandler(this.lvDanhSachPhongSC4_SelectedIndexChanged);
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Mã phòng";
-            this.columnHeader4.Width = 100;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Phòng";
-            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Dãy";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Loại phòng";
-            this.columnHeader2.Width = 100;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Số người ở";
-            this.columnHeader3.Width = 100;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -267,7 +224,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(696, 174);
+            this.label9.Location = new System.Drawing.Point(684, 176);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(82, 20);
             this.label9.TabIndex = 41;
@@ -512,6 +469,15 @@
             this.pnlPrice.Size = new System.Drawing.Size(996, 562);
             this.pnlPrice.TabIndex = 52;
             // 
+            // buttonCancle
+            // 
+            this.buttonCancle.Location = new System.Drawing.Point(874, 503);
+            this.buttonCancle.Name = "buttonCancle";
+            this.buttonCancle.Size = new System.Drawing.Size(110, 47);
+            this.buttonCancle.TabIndex = 78;
+            this.buttonCancle.Text = "Cancle";
+            this.buttonCancle.UseVisualStyleBackColor = true;
+            // 
             // nmrGuiXe
             // 
             this.nmrGuiXe.Location = new System.Drawing.Point(729, 338);
@@ -554,9 +520,9 @@
             this.lbIDPhongSC4.AutoSize = true;
             this.lbIDPhongSC4.Location = new System.Drawing.Point(906, 33);
             this.lbIDPhongSC4.Name = "lbIDPhongSC4";
-            this.lbIDPhongSC4.Size = new System.Drawing.Size(18, 20);
+            this.lbIDPhongSC4.Size = new System.Drawing.Size(21, 20);
             this.lbIDPhongSC4.TabIndex = 74;
-            this.lbIDPhongSC4.Text = "1";
+            this.lbIDPhongSC4.Text = "...";
             // 
             // label1
             // 
@@ -614,15 +580,48 @@
             this.ckRac.UseVisualStyleBackColor = true;
             this.ckRac.CheckedChanged += new System.EventHandler(this.ckRac_CheckedChanged);
             // 
-            // buttonCancle
+            // columnHeader4
             // 
-            this.buttonCancle.Location = new System.Drawing.Point(874, 503);
-            this.buttonCancle.Name = "buttonCancle";
-            this.buttonCancle.Size = new System.Drawing.Size(110, 47);
-            this.buttonCancle.TabIndex = 78;
-            this.buttonCancle.Text = "Cancle";
-            this.buttonCancle.UseVisualStyleBackColor = true;
-            this.buttonCancle.Click += new System.EventHandler(this.buttonCancle_Click);
+            this.columnHeader4.Text = "Mã phòng";
+            this.columnHeader4.Width = 100;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Phòng";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Dãy";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Loại phòng";
+            this.columnHeader2.Width = 100;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Số người ở";
+            this.columnHeader3.Width = 100;
+            // 
+            // lvDanhSachPhongSC4
+            // 
+            this.lvDanhSachPhongSC4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.lvDanhSachPhongSC4.FullRowSelect = true;
+            this.lvDanhSachPhongSC4.GridLines = true;
+            this.lvDanhSachPhongSC4.HideSelection = false;
+            this.lvDanhSachPhongSC4.Location = new System.Drawing.Point(17, 119);
+            this.lvDanhSachPhongSC4.Name = "lvDanhSachPhongSC4";
+            this.lvDanhSachPhongSC4.Size = new System.Drawing.Size(538, 189);
+            this.lvDanhSachPhongSC4.TabIndex = 33;
+            this.lvDanhSachPhongSC4.UseCompatibleStateImageBehavior = false;
+            this.lvDanhSachPhongSC4.View = System.Windows.Forms.View.Details;
+            this.lvDanhSachPhongSC4.SelectedIndexChanged += new System.EventHandler(this.lvDanhSachPhongSC4_SelectedIndexChanged);
             // 
             // FormPrices
             // 
@@ -654,9 +653,6 @@
         private System.Windows.Forms.TextBox txtHoTenSC4;
         private System.Windows.Forms.TextBox txtSDTSC4;
         private System.Windows.Forms.ComboBox cbbCMNDSC4;
-        private System.Windows.Forms.ListView lvDanhSachPhongSC4;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cbbLoaiPhongSC4;
         private System.Windows.Forms.Label label12;
@@ -684,9 +680,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtGioiTinhSC4;
         private System.Windows.Forms.Panel pnlPrice;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button btnTinhTongTien;
         private System.Windows.Forms.CheckBox ckGuiXe;
         private System.Windows.Forms.CheckBox ckWifi;
@@ -697,5 +690,11 @@
         private System.Windows.Forms.NumericUpDown nmrWifi;
         private System.Windows.Forms.NumericUpDown nmrRac;
         private System.Windows.Forms.Button buttonCancle;
+        private System.Windows.Forms.ListView lvDanhSachPhongSC4;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }

@@ -252,7 +252,6 @@
             this.buttonCancle.TabIndex = 54;
             this.buttonCancle.Text = "Cancle";
             this.buttonCancle.UseVisualStyleBackColor = true;
-            this.buttonCancle.Click += new System.EventHandler(this.buttonCancle_Click);
             // 
             // FormCollection
             // 

@@ -26,6 +26,7 @@ namespace LoginMotelUser.Model
         public Nullable<short> StateRoom { get; set; }
         public Nullable<int> IDRoomRank { get; set; }
         public Nullable<int> IDRoomRange { get; set; }
+        public Nullable<bool> Paid { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BILL> BILLs { get; set; }

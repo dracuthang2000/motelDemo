@@ -94,8 +94,10 @@ namespace LoginMotelUser
             tvDanhSachPhongSC1.Nodes.Clear();
             db = new Model.MotelManagerEntities2();
             loadListRoom();
-            var IDroom = from m in db.MOTELROOMs
-                        select m;
+            var IDroom = (from m in db.MOTELROOMs
+                        select m).ToList();
+            List<int> idroom = new List<int>();
+            int i = 0;
             foreach(var id in IDroom)
             {
                 var count = db.REINTINFORs.Count(r => r.IDRoom == id.ID);
@@ -126,6 +128,18 @@ namespace LoginMotelUser
             {
                 newtUserMenuItem.Visible = false;
                 updateuserMenuItem.Visible = false;
+            }
+
+            var query = (from m in db.MOTELROOMs
+                          where m.StateRoom != 1
+                          select m).ToList();
+
+            foreach(var id in query)
+                idroom.Add(id.ID);
+
+            foreach (int id in idroom)
+            {
+                db.updatePaidMotelRoom(id);
             }
         }
         private void loadListRoom()
@@ -315,6 +329,7 @@ namespace LoginMotelUser
         {
             FormPrices FP = new FormPrices();
             FP.ShowDialog();
+            this.frmHome_Load(sender, e);
         }
 
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)

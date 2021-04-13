@@ -22,7 +22,7 @@ namespace LoginMotelUser
         private void frmPrice_Load(object sender, EventArgs e)
         {
             db = new Model.MotelManagerEntities2();
-
+            lvDanhSachPhongSC4.Items.Clear();
             cbbDaySC4.DataSource = db.ROOMRANGEs.ToList();
             cbbDaySC4.DisplayMember = "RangeName";
             cbbDaySC4.SelectedIndex = -1;
@@ -30,8 +30,6 @@ namespace LoginMotelUser
             cbbLoaiPhongSC4.DataSource = db.ROOMRANKs.ToList();
             cbbLoaiPhongSC4.DisplayMember = "RankName";
             cbbLoaiPhongSC4.SelectedIndex = -1;
-
-
         }
         private void showListRoomTheoDayVaLoaiPhong(string rangeName, string rankName)
         {
@@ -47,6 +45,7 @@ namespace LoginMotelUser
             {
                 var nRooms = (from r in rooms
                               join room in db.MOTELROOMs on r.ID equals room.ID
+                              where room.Paid == false
                               select new
                               {
                                   r.ID,
@@ -82,6 +81,7 @@ namespace LoginMotelUser
             {
                 var nRooms = (from r in rooms
                               join room in db.MOTELROOMs on r.ID equals room.ID
+                              where room.Paid == false
                               select new
                               {
                                   r.ID,
@@ -116,6 +116,7 @@ namespace LoginMotelUser
             {
                 var nRooms = (from r in rooms
                               join room in db.MOTELROOMs on r.ID equals room.ID
+                              where room.Paid == false
                               select new
                               {
                                   r.ID,
@@ -150,6 +151,7 @@ namespace LoginMotelUser
             {
                 var nRooms = (from r in rooms
                               join room in db.MOTELROOMs on r.ID equals room.ID
+                              where room.Paid == false
                               select new
                               {
                                   r.ID,
@@ -194,7 +196,6 @@ namespace LoginMotelUser
             if (cbbCMNDSC4.Text.Equals(""))
             {
                 showListRoomTheoDayVaLoaiPhong(cbbDaySC4.Text, cbbLoaiPhongSC4.Text);
-
             }
         }
 
@@ -348,7 +349,7 @@ namespace LoginMotelUser
             if (ckGuiXe.Checked)
             {
                 var service = (from s in db.SERVICEs
-                               where s.ServiceName.Equals("Gửi xe máy")
+                               where s.ServiceName.Equals("Gửi xe")
                                select new
                                {
                                    s.Price,
@@ -385,163 +386,153 @@ namespace LoginMotelUser
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Đầu tiên ta cần có ID Bill cũ
-            // và DS service cũ
-            var bills = (
-                    from b in db.BILLs
-                    join p in db.PARTICULARSERVICEs on b.ID equals p.IDBill
-                    where b.IDRoom.ToString().Equals(lbIDPhongSC4.Text)
-                    select b
-                ).ToList();
-            int oldIDBill;
-            // Thêm Bill mới
-            var nBill = new Model.BILL();
-            db.BILLs.Add(nBill);
-            db.SaveChanges();
-            // Thêm thành công
-            if (bills.Count > 0) // CÓ bill trước đó => oldIndex là newIndex cũ
+
+            DialogResult d = MessageBox.Show("Are you saving this?", "QUESTION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (d == DialogResult.Yes)
             {
-                oldIDBill = bills.Max(x => x.ID);
-                // Chắc gì những service cũ, khách hàng cũng muốn tiếp tục sử dụng
-                // Vd: Gửi xe tháng này 4 chiếc, tháng sau không ai gửi
-
-
-                // Hướng giải quyết là ta phải đi kiểm tra từng service
-                // Nếu có thì tiếp tục kiểm tra bill cũ
-                // Chỉ kiểm tra bill cũ nếu đó là service điện hoặc nước
-
-                // Tiếp tục gặp vấn đề là đâu phải phòng lúc nào cũng có người thuê
-                // Chỉ có điện và nước mới sử dụng chỉ số cũ và chỉ số mới
-                // xe - thì ta chỉ sử dụng chỉ số mới để lưu trữ
-
-
-                // Thử cách này
-                // Chắc chắn là các service mặc định là phòng nào cũng có
-                // Chỉ khác ở chổ phòng đó có đăng kí gửi xe hay không
-                // và số lượng xe thay đổi theo từng tháng là bao nhiêu
-
-                // Mặc định pars này luôn luôn có
-                // Chỉ khác nhau giữa các index , nếu không có thi 0
-
-                // Vấn đề làm sao để Lấy ID Của nó đây 
-
-                foreach (var s in db.SERVICEs)
+                var bills = (
+                        from b in db.BILLs
+                        join p in db.PARTICULARSERVICEs on b.ID equals p.IDBill
+                        where b.IDRoom.ToString().Equals(lbIDPhongSC4.Text)
+                        select b
+                    ).ToList();
+                int oldIDBill;
+                // Thêm Bill mới
+                var nBill = new Model.BILL();
+                db.BILLs.Add(nBill);
+                db.SaveChanges();
+                // Thêm thành công
+                if (bills.Count > 0) // CÓ bill trước đó => oldIndex là newIndex cũ
                 {
-                    var ps = new Model.PARTICULARSERVICE();
-                    ps.IDBill = nBill.ID;
-                    ps.IDService = s.ID;
-                    var oldPar = (
-                        from a in db.PARTICULARSERVICEs
-                        join b in db.BILLs on a.IDBill equals b.ID
-                        where b.ID == oldIDBill
-                        where s.ID == a.IDService
-                        select new
+                    oldIDBill = bills.Max(x => x.ID);
+                    foreach (var s in db.SERVICEs)
+                    {
+                        var ps = new Model.PARTICULARSERVICE();
+                        ps.IDBill = nBill.ID;
+                        ps.IDService = s.ID;
+                        var oldPar = (
+                            from a in db.PARTICULARSERVICEs
+                            join b in db.BILLs on a.IDBill equals b.ID
+                            where b.ID == oldIDBill
+                            where s.ID == a.IDService
+                            select new
+                            {
+                                a.NewIndex
+                            }
+                                      ).ToList();
+                        ps.OldIndex = oldPar[0].NewIndex;
+                        // Đoạn này cải tiến thành 1 Grid View Data ta có thể chỉnh sửa được
+                        if (s.ServiceName.Equals("Điện"))
                         {
-                            a.NewIndex
+                            ps.NewIndex = ps.OldIndex + int.Parse(txtKiDien.Text);
+                            ps.Total = (Decimal)int.Parse(lbTienDien.Text);
                         }
-                                  ).ToList();
-                    ps.OldIndex = oldPar[0].NewIndex;
-                    // Đoạn này cải tiến thành 1 Grid View Data ta có thể chỉnh sửa được
-                    if (s.ServiceName.Equals("Điện"))
-                    {
-                        ps.NewIndex = ps.OldIndex + int.Parse(txtKiDien.Text);
+                        else if (s.ServiceName.Equals("Nước"))
+                        {
+                            ps.NewIndex = ps.OldIndex + int.Parse(txtKhoiNuoc.Text);
+                            ps.Total = (Decimal)int.Parse(lbTienNuoc.Text);
+                        }
+                        else if (s.ID == 3)
+                        {
+                            ps.NewIndex = Convert.ToInt32(nmrGuiXe.Value);
+                            ps.Total = (Decimal)int.Parse(txtTienGuiXe.Text);
+                        }
+                        else if (s.ServiceName.Equals("Wifi"))
+                        {
+                            ps.NewIndex = 1;
+                            ps.Total = (Decimal)int.Parse(txtTienWifi.Text);
+                        }
+                        else if (s.ServiceName.Equals("Rác"))
+                        {
+                            ps.NewIndex = 1;
+                            ps.Total = (Decimal)int.Parse(txtTienRac.Text);
+                        }
+                        db.PARTICULARSERVICEs.Add(ps);
                     }
-                    else if (s.ServiceName.Equals("Nước"))
-                    {
-                        ps.NewIndex = ps.OldIndex + int.Parse(txtKhoiNuoc.Text);
-                    }
-                    else if (s.ServiceName.Equals("Gửi xe máy"))
-                    {
-                        ps.NewIndex = Convert.ToInt32(nmrGuiXe.Value);
-                    }
-                    else if (s.ServiceName.Equals("Wifi"))
-                    {
-                        ps.NewIndex = 1;
-                    }
-                    else if (s.ServiceName.Equals("Rác"))
-                    {
-                        ps.NewIndex = 1;
-                    }
-                    // Không cần total của từng Phần
-                    //string tongtien = txtTongTien.Text.Replace(",", "");
-                    //ps.Total = Decimal.Parse(tongtien);
+                    nBill.Date = DateTime.Now;
+                    nBill.IDRoom = int.Parse(lbIDPhongSC4.Text);
+                    nBill.Paid = false;
+                    string tongtien = txtTongTien.Text.Replace(",", "");
+                    nBill.TotalMoney = Decimal.Parse(tongtien);
 
+                    // Kết thúc bước này đồng nghĩa với việc ta đã thêm thành công 
+                    // các particular service
 
-                    // Add Particular Service
-                    db.PARTICULARSERVICEs.Add(ps);
+                    // Tiếp theo ta chỉnh sữa các thuộc tính còn lại của Bill
+                    // IDRoom - IDStaff - Date - TotalMoney - Paid
+
+                    nBill.IDRoom = int.Parse(lbIDPhongSC4.Text);
+                    nBill.Date = DateTime.Now;
+                    string tongTien = txtTongTien.Text.Replace(",", "");
+                    nBill.TotalMoney = (Decimal)int.Parse(tongTien);
+                    var price = db.MOTELROOMs.Single(p => p.ID.ToString().Equals(lbIDPhongSC4.Text));
+                    price.Paid = false;
+                    nBill.Paid = false;
+                    db.SaveChanges();
                 }
-                nBill.Date = DateTime.Now;
-                nBill.IDRoom = int.Parse(lbIDPhongSC4.Text);
-                nBill.Paid = false;
-                string tongtien = txtTongTien.Text.Replace(",", "");
-                nBill.TotalMoney = Decimal.Parse(tongtien);
-
-                // Kết thúc bước này đồng nghĩa với việc ta đã thêm thành công 
-                // các particular service
-
-                // Tiếp theo ta chỉnh sữa các thuộc tính còn lại của Bill
-                // IDRoom - IDStaff - Date - TotalMoney - Paid
-
-                nBill.IDRoom = int.Parse(lbIDPhongSC4.Text);
-                nBill.Date = DateTime.Now;
-                string tongTien = txtTongTien.Text.Replace(",", "");
-                nBill.TotalMoney = (Decimal)int.Parse(tongTien);
-                nBill.Paid = false;
-                db.SaveChanges();
-            }
-            else // không có bill trước đó => oldIndex = 0
-            {
-                // Chỉ cần thiết lập toàn bộ particular service của phòng này
-                // với oldIndex = 0;
-                foreach (var s in db.SERVICEs)
+                else // không có bill trước đó => oldIndex = 0
                 {
-                    var par = new Model.PARTICULARSERVICE();
-                    par.IDBill = nBill.ID;
-                    par.IDService = s.ID;
-                    par.OldIndex = 0;
-                    if (s.ServiceName.Equals("Điện"))
+                    // Chỉ cần thiết lập toàn bộ particular service của phòng này
+                    // với oldIndex = 0;
+                    foreach (var s in db.SERVICEs)
                     {
-                        par.NewIndex = par.OldIndex + int.Parse(txtKiDien.Text);
-                    }
-                    else if (s.ServiceName.Equals("Nước"))
-                    {
-                        par.NewIndex = par.OldIndex + int.Parse(txtKhoiNuoc.Text);
-                    }
-                    else if (s.ServiceName.Equals("Gửi xe máy"))
-                    {
-                        par.NewIndex = Convert.ToInt32(nmrGuiXe.Value);
-                    }
-                    else if (s.ServiceName.Equals("Wifi"))
-                    {
-                        par.NewIndex = 1;
-                    }
-                    else if (s.ServiceName.Equals("Rác"))
-                    {
-                        par.NewIndex = 1;
-                    }
+                        var par = new Model.PARTICULARSERVICE();
+                        par.IDBill = nBill.ID;
+                        par.IDService = s.ID;
+                        par.OldIndex = 0;
+                        if (s.ServiceName.Equals("Điện"))
+                        {
+                            par.NewIndex = par.OldIndex + int.Parse(txtKiDien.Text);
+                            par.Total = (Decimal)int.Parse(lbTienDien.Text.Replace(",", ""));
+                        }
+                        else if (s.ServiceName.Equals("Nước"))
+                        {
+                            par.NewIndex = par.OldIndex + int.Parse(txtKhoiNuoc.Text.Replace(",", ""));
+                            par.Total = (Decimal)int.Parse(lbTienNuoc.Text.Replace(",", ""));
+                        }
+                        else if (s.ID == 3)
+                        {
+                            par.NewIndex = Convert.ToInt32(nmrGuiXe.Value);
+                            par.Total = (Decimal)int.Parse(txtTienGuiXe.Text.Replace(",", ""));
+                        }
+                        else if (s.ServiceName.Equals("wifi"))
+                        {
+                            par.NewIndex = 1;
+                            par.Total = (Decimal)int.Parse(txtTienWifi.Text.Replace(",", ""));
+                        }
+                        else if (s.ServiceName.Equals("Rác"))
+                        {
+                            par.NewIndex = 1;
+                            par.Total = (Decimal)int.Parse(txtTienRac.Text.Replace(",", ""));
+                        }
 
-                    db.PARTICULARSERVICEs.Add(par);
+                        db.PARTICULARSERVICEs.Add(par);
+                    }
+                    // Thêm property cho Bill
+                    var price = db.MOTELROOMs.Single(p => p.ID.ToString().Equals(lbIDPhongSC4.Text));
+                    nBill.IDRoom = int.Parse(lbIDPhongSC4.Text);
+                    nBill.Date = DateTime.Now;
+                    string tongTien = txtTongTien.Text.Replace(",", "");
+                    nBill.TotalMoney = (Decimal)int.Parse(tongTien);
+                    nBill.Paid = false;
+                    price.Paid = false;
+                    db.SaveChanges();
                 }
-                // Thêm property cho Bill
-                nBill.IDRoom = int.Parse(lbIDPhongSC4.Text);
-                nBill.Date = DateTime.Now;
-                string tongTien = txtTongTien.Text.Replace(",", "");
-                nBill.TotalMoney = (Decimal)int.Parse(tongTien);
-                nBill.Paid = false;
-                db.SaveChanges();
+                MessageBox.Show("Thành công");
+                frmPrice_Load(sender, e);
             }
-            MessageBox.Show("Thành công");
         }
 
         private void nmrGuiXe_ValueChanged(object sender, EventArgs e)
         {
             var service = (from s in db.SERVICEs
-                           where s.ServiceName.Equals("Gửi xe máy")
+                           where s.ServiceName.Equals("Gửi xe")
                            select new
                            {
                                s.Price,
                            }).ToList();
-            txtTienGuiXe.Text = String.Format("{0:0,0}", service[0].Price * nmrGuiXe.Value);
+            foreach(var price in service)
+            txtTienGuiXe.Text = String.Format("{0:0,0}", price.Price * nmrGuiXe.Value);
         }
 
         private void buttonCancle_Click(object sender, EventArgs e)

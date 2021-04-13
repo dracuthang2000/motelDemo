@@ -109,6 +109,12 @@
     <Compile Include="rankFormSetting.Designer.cs">
       <DependentUpon>rankFormSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="serviceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="serviceForm.Designer.cs">
+      <DependentUpon>serviceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShowCustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>

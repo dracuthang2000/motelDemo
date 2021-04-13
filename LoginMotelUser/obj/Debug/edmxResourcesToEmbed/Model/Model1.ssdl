@@ -32,6 +32,7 @@
     <Property Name="StateRoom" Type="smallint" />
     <Property Name="IDRoomRank" Type="int" />
     <Property Name="IDRoomRange" Type="int" />
+    <Property Name="Paid" Type="bit" />
   </EntityType>
   <EntityType Name="PARTICULARSERVICE">
     <Key>
@@ -289,6 +290,9 @@
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="updatePaidMotelRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idRoom" Type="int" Mode="In" />
+  </Function>
   <Function Name="USP_CountCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="USP_CountRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="USP_CountRank" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />

@@ -112,7 +112,7 @@ namespace LoginMotelUser
         public void saveDate()
         {
 
-            Model.MOTELROOM room = new Model.MOTELROOM() { RoomName = textRoomName.Text, StateRoom = 1, IDRoomRank = int.Parse(comBoxIDRank.SelectedValue.ToString()), IDRoomRange = int.Parse(comBoxIDRange.SelectedValue.ToString()) };
+            Model.MOTELROOM room = new Model.MOTELROOM() { RoomName = textRoomName.Text, StateRoom = 1, IDRoomRank = int.Parse(comBoxIDRank.SelectedValue.ToString()),Paid = null,IDRoomRange = int.Parse(comBoxIDRange.SelectedValue.ToString())};
             data.MOTELROOMs.Add(room);
             data.SaveChanges();
         }

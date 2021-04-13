@@ -268,5 +268,14 @@ namespace LoginMotelUser.Model
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_PageStaff_Result>("USP_PageStaff", bdParameter, ktParameter);
         }
+    
+        public virtual int updatePaidMotelRoom(Nullable<int> idRoom)
+        {
+            var idRoomParameter = idRoom.HasValue ?
+                new ObjectParameter("idRoom", idRoom) :
+                new ObjectParameter("idRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updatePaidMotelRoom", idRoomParameter);
+        }
     }
 }
