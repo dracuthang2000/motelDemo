@@ -43,6 +43,7 @@
             this.roomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,6 +52,7 @@
             this.roomToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.rankToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.rageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serviceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.billsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.collectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,8 +91,6 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.serviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.serviceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -199,6 +199,13 @@
             this.rangeToolStripMenuItem.Text = "Range";
             this.rangeToolStripMenuItem.Click += new System.EventHandler(this.rangeToolStripMenuItem_Click);
             // 
+            // serviceToolStripMenuItem
+            // 
+            this.serviceToolStripMenuItem.Name = "serviceToolStripMenuItem";
+            this.serviceToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.serviceToolStripMenuItem.Text = "Service";
+            this.serviceToolStripMenuItem.Click += new System.EventHandler(this.serviceToolStripMenuItem_Click);
+            // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
@@ -230,37 +237,44 @@
             // updateuserMenuItem
             // 
             this.updateuserMenuItem.Name = "updateuserMenuItem";
-            this.updateuserMenuItem.Size = new System.Drawing.Size(155, 26);
+            this.updateuserMenuItem.Size = new System.Drawing.Size(224, 26);
             this.updateuserMenuItem.Text = "User";
             this.updateuserMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
             // customerToolStripMenuItem1
             // 
             this.customerToolStripMenuItem1.Name = "customerToolStripMenuItem1";
-            this.customerToolStripMenuItem1.Size = new System.Drawing.Size(155, 26);
+            this.customerToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.customerToolStripMenuItem1.Text = "Customer";
             this.customerToolStripMenuItem1.Click += new System.EventHandler(this.customerToolStripMenuItem1_Click);
             // 
             // roomToolStripMenuItem1
             // 
             this.roomToolStripMenuItem1.Name = "roomToolStripMenuItem1";
-            this.roomToolStripMenuItem1.Size = new System.Drawing.Size(155, 26);
+            this.roomToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.roomToolStripMenuItem1.Text = "Room";
             this.roomToolStripMenuItem1.Click += new System.EventHandler(this.roomToolStripMenuItem1_Click);
             // 
             // rankToolStripMenuItem1
             // 
             this.rankToolStripMenuItem1.Name = "rankToolStripMenuItem1";
-            this.rankToolStripMenuItem1.Size = new System.Drawing.Size(155, 26);
+            this.rankToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.rankToolStripMenuItem1.Text = "Rank";
             this.rankToolStripMenuItem1.Click += new System.EventHandler(this.rankToolStripMenuItem1_Click);
             // 
             // rageToolStripMenuItem
             // 
             this.rageToolStripMenuItem.Name = "rageToolStripMenuItem";
-            this.rageToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
-            this.rageToolStripMenuItem.Text = "Rage";
+            this.rageToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.rageToolStripMenuItem.Text = "Range";
             this.rageToolStripMenuItem.Click += new System.EventHandler(this.rageToolStripMenuItem_Click);
+            // 
+            // serviceToolStripMenuItem1
+            // 
+            this.serviceToolStripMenuItem1.Name = "serviceToolStripMenuItem1";
+            this.serviceToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.serviceToolStripMenuItem1.Text = "Service";
+            this.serviceToolStripMenuItem1.Click += new System.EventHandler(this.serviceToolStripMenuItem1_Click);
             // 
             // menuStrip1
             // 
@@ -707,20 +721,6 @@
             this.label36.Size = new System.Drawing.Size(181, 25);
             this.label36.TabIndex = 0;
             this.label36.Text = "Danh sách phòng";
-            // 
-            // serviceToolStripMenuItem
-            // 
-            this.serviceToolStripMenuItem.Name = "serviceToolStripMenuItem";
-            this.serviceToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.serviceToolStripMenuItem.Text = "Service";
-            this.serviceToolStripMenuItem.Click += new System.EventHandler(this.serviceToolStripMenuItem_Click);
-            // 
-            // serviceToolStripMenuItem1
-            // 
-            this.serviceToolStripMenuItem1.Name = "serviceToolStripMenuItem1";
-            this.serviceToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.serviceToolStripMenuItem1.Text = "Service";
-            this.serviceToolStripMenuItem1.Click += new System.EventHandler(this.serviceToolStripMenuItem1_Click);
             // 
             // Admin_Formcs
             // 

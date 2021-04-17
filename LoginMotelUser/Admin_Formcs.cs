@@ -123,11 +123,23 @@ namespace LoginMotelUser
             {
                 newtUserMenuItem.Visible = true;
                 updateuserMenuItem.Visible = true;
+                rangeToolStripMenuItem.Visible = true;
+                rankToolStripMenuItem.Visible = true;
+                rankToolStripMenuItem1.Visible = true;
+                rageToolStripMenuItem.Visible = true;
+                roomToolStripMenuItem.Visible = true;
+                roomToolStripMenuItem1.Visible = true;
             }
             else
             {
                 newtUserMenuItem.Visible = false;
                 updateuserMenuItem.Visible = false;
+                rangeToolStripMenuItem.Visible = false;
+                rankToolStripMenuItem.Visible = false;
+                rankToolStripMenuItem1.Visible = false;
+                rageToolStripMenuItem.Visible = false;
+                roomToolStripMenuItem.Visible = false;
+                roomToolStripMenuItem1.Visible = false;
             }
 
             var query = (from m in db.MOTELROOMs
