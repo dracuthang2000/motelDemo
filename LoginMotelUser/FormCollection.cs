@@ -26,6 +26,7 @@ namespace LoginMotelUser
             cbbDaySC5.SelectedIndex = -1;
 
             // Tại đây hóa đơn có vấn về
+            lvDanhSachHoaDonSC5.Items.Clear();
             loadListViewDanhSachHoaDon();
         }
         void loadListViewDanhSachHoaDon()
@@ -40,8 +41,14 @@ namespace LoginMotelUser
                 lvi.SubItems.Add(bill.IDRoom.ToString());
                 lvi.SubItems.Add(String.Format("{0:d}", bill.Date));
                 // Chưa có đăng nhập
-                // lvi.SubItems.Add(bill.IDStaff);
-                lvi.SubItems.Add("Admin");
+                if (bill.IDStaff == null)
+                {
+                    lvi.SubItems.Add("Admin");
+                }
+                else
+                {
+                    lvi.SubItems.Add(bill.STAFF.IDCard);
+                }
                 lvi.SubItems.Add(String.Format("{0:0,0}", bill.TotalMoney));
 
                 lvDanhSachHoaDonSC5.Items.Add(lvi);
@@ -50,25 +57,22 @@ namespace LoginMotelUser
 
         private void txtIDPhongSC5_TextChanged(object sender, EventArgs e)
         {
-            if (txtIDPhongSC5.Text.Length != 0)
+            lvDanhSachHoaDonSC5.Items.Clear();
+            var bill = (from b in db.BILLs
+                        where b.IDRoom.ToString().Contains(txtIDPhongSC5.Text) && b.Paid == false
+                        select b).ToList();
+
+            if (bill.Count > 0)
             {
-                lvDanhSachHoaDonSC5.Items.Clear();
-                var bill = (from b in db.BILLs
-                            where b.IDRoom.ToString().Equals(txtIDPhongSC5.Text) && b.Paid == false
-                            select b).ToList();
+                ListViewItem lvi = new ListViewItem(bill[0].ID.ToString());
+                lvi.SubItems.Add(bill[0].IDRoom.ToString());
+                lvi.SubItems.Add(String.Format("{0:d}", bill[0].Date));
+                // Chưa có đăng nhập
+                // lvi.SubItems.Add(bill.IDStaff);
+                lvi.SubItems.Add("Admin");
+                lvi.SubItems.Add(String.Format("{0:0,0}", bill[0].TotalMoney));
 
-                if (bill.Count > 0)
-                {
-                    ListViewItem lvi = new ListViewItem(bill[0].ID.ToString());
-                    lvi.SubItems.Add(bill[0].IDRoom.ToString());
-                    lvi.SubItems.Add(String.Format("{0:d}", bill[0].Date));
-                    // Chưa có đăng nhập
-                    // lvi.SubItems.Add(bill.IDStaff);
-                    lvi.SubItems.Add("Admin");
-                    lvi.SubItems.Add(String.Format("{0:0,0}", bill[0].TotalMoney));
-
-                    lvDanhSachHoaDonSC5.Items.Add(lvi);
-                }
+                lvDanhSachHoaDonSC5.Items.Add(lvi);
             }
         }
 
@@ -76,6 +80,7 @@ namespace LoginMotelUser
         {
             if (cbbDaySC5.SelectedIndex > -1)
             {
+                lvDanhSachHoaDonSC5.Items.Clear();
                 var Rooms = from ra in db.ROOMRANGEs
                             join r in db.MOTELROOMs on ra.ID equals r.IDRoomRange
                             where ra.RangeName.Equals(cbbDaySC5.Text)

@@ -18,6 +18,7 @@ namespace LoginMotelUser
         LoginMotelUser.Model.MotelManagerEntities2 us = new Model.MotelManagerEntities2();
         public bool isLoggedIn { get; set; }
         public bool checkRole { get; set; }
+        public int IDStaff;
         public String checkUsername { get; set; }
 
         public static Image resizeImage(Image image, int new_height, int new_width)

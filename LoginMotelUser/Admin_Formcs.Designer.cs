@@ -41,12 +41,16 @@
             this.insertCustomerMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateuserMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.roomToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.rankToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.rageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.billsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.collectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,10 +89,8 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.rankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rankToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.rageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serviceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -149,7 +151,8 @@
             this.customerToolStripMenuItem,
             this.roomToolStripMenuItem,
             this.rankToolStripMenuItem,
-            this.rangeToolStripMenuItem});
+            this.rangeToolStripMenuItem,
+            this.serviceToolStripMenuItem});
             this.newMenuItem.Name = "newMenuItem";
             this.newMenuItem.Size = new System.Drawing.Size(224, 26);
             this.newMenuItem.Text = "New";
@@ -182,6 +185,20 @@
             this.roomToolStripMenuItem.Text = "Room";
             this.roomToolStripMenuItem.Click += new System.EventHandler(this.roomToolStripMenuItem_Click);
             // 
+            // rankToolStripMenuItem
+            // 
+            this.rankToolStripMenuItem.Name = "rankToolStripMenuItem";
+            this.rankToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.rankToolStripMenuItem.Text = "Rank";
+            this.rankToolStripMenuItem.Click += new System.EventHandler(this.rankToolStripMenuItem_Click);
+            // 
+            // rangeToolStripMenuItem
+            // 
+            this.rangeToolStripMenuItem.Name = "rangeToolStripMenuItem";
+            this.rangeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.rangeToolStripMenuItem.Text = "Range";
+            this.rangeToolStripMenuItem.Click += new System.EventHandler(this.rangeToolStripMenuItem_Click);
+            // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
@@ -204,7 +221,8 @@
             this.customerToolStripMenuItem1,
             this.roomToolStripMenuItem1,
             this.rankToolStripMenuItem1,
-            this.rageToolStripMenuItem});
+            this.rageToolStripMenuItem,
+            this.serviceToolStripMenuItem1});
             this.updateMenuItem.Name = "updateMenuItem";
             this.updateMenuItem.Size = new System.Drawing.Size(224, 26);
             this.updateMenuItem.Text = "Update";
@@ -212,23 +230,37 @@
             // updateuserMenuItem
             // 
             this.updateuserMenuItem.Name = "updateuserMenuItem";
-            this.updateuserMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.updateuserMenuItem.Size = new System.Drawing.Size(155, 26);
             this.updateuserMenuItem.Text = "User";
             this.updateuserMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
             // customerToolStripMenuItem1
             // 
             this.customerToolStripMenuItem1.Name = "customerToolStripMenuItem1";
-            this.customerToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.customerToolStripMenuItem1.Size = new System.Drawing.Size(155, 26);
             this.customerToolStripMenuItem1.Text = "Customer";
             this.customerToolStripMenuItem1.Click += new System.EventHandler(this.customerToolStripMenuItem1_Click);
             // 
             // roomToolStripMenuItem1
             // 
             this.roomToolStripMenuItem1.Name = "roomToolStripMenuItem1";
-            this.roomToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.roomToolStripMenuItem1.Size = new System.Drawing.Size(155, 26);
             this.roomToolStripMenuItem1.Text = "Room";
             this.roomToolStripMenuItem1.Click += new System.EventHandler(this.roomToolStripMenuItem1_Click);
+            // 
+            // rankToolStripMenuItem1
+            // 
+            this.rankToolStripMenuItem1.Name = "rankToolStripMenuItem1";
+            this.rankToolStripMenuItem1.Size = new System.Drawing.Size(155, 26);
+            this.rankToolStripMenuItem1.Text = "Rank";
+            this.rankToolStripMenuItem1.Click += new System.EventHandler(this.rankToolStripMenuItem1_Click);
+            // 
+            // rageToolStripMenuItem
+            // 
+            this.rageToolStripMenuItem.Name = "rageToolStripMenuItem";
+            this.rageToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
+            this.rageToolStripMenuItem.Text = "Rage";
+            this.rageToolStripMenuItem.Click += new System.EventHandler(this.rageToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -676,33 +708,19 @@
             this.label36.TabIndex = 0;
             this.label36.Text = "Danh sách phòng";
             // 
-            // rankToolStripMenuItem
+            // serviceToolStripMenuItem
             // 
-            this.rankToolStripMenuItem.Name = "rankToolStripMenuItem";
-            this.rankToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.rankToolStripMenuItem.Text = "Rank";
-            this.rankToolStripMenuItem.Click += new System.EventHandler(this.rankToolStripMenuItem_Click);
+            this.serviceToolStripMenuItem.Name = "serviceToolStripMenuItem";
+            this.serviceToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.serviceToolStripMenuItem.Text = "Service";
+            this.serviceToolStripMenuItem.Click += new System.EventHandler(this.serviceToolStripMenuItem_Click);
             // 
-            // rankToolStripMenuItem1
+            // serviceToolStripMenuItem1
             // 
-            this.rankToolStripMenuItem1.Name = "rankToolStripMenuItem1";
-            this.rankToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.rankToolStripMenuItem1.Text = "Rank";
-            this.rankToolStripMenuItem1.Click += new System.EventHandler(this.rankToolStripMenuItem1_Click);
-            // 
-            // rageToolStripMenuItem
-            // 
-            this.rageToolStripMenuItem.Name = "rageToolStripMenuItem";
-            this.rageToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.rageToolStripMenuItem.Text = "Rage";
-            this.rageToolStripMenuItem.Click += new System.EventHandler(this.rageToolStripMenuItem_Click);
-            // 
-            // rangeToolStripMenuItem
-            // 
-            this.rangeToolStripMenuItem.Name = "rangeToolStripMenuItem";
-            this.rangeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.rangeToolStripMenuItem.Text = "Range";
-            this.rangeToolStripMenuItem.Click += new System.EventHandler(this.rangeToolStripMenuItem_Click);
+            this.serviceToolStripMenuItem1.Name = "serviceToolStripMenuItem1";
+            this.serviceToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.serviceToolStripMenuItem1.Text = "Service";
+            this.serviceToolStripMenuItem1.Click += new System.EventHandler(this.serviceToolStripMenuItem1_Click);
             // 
             // Admin_Formcs
             // 
@@ -794,5 +812,7 @@
         private System.Windows.Forms.ToolStripMenuItem rankToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem rangeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem serviceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem serviceToolStripMenuItem1;
     }
 }

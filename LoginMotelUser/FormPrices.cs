@@ -12,17 +12,17 @@ namespace LoginMotelUser
 {
     public partial class FormPrices : Form
     {
-        public FormPrices()
+        string userName;
+        public FormPrices(String userName)
         {
             InitializeComponent();
+            this.userName = userName;
         }
 
         Model.MotelManagerEntities2 db;
-        string taikhoan = "admin";
         private void frmPrice_Load(object sender, EventArgs e)
         {
             db = new Model.MotelManagerEntities2();
-            lvDanhSachPhongSC4.Items.Clear();
             cbbDaySC4.DataSource = db.ROOMRANGEs.ToList();
             cbbDaySC4.DisplayMember = "RangeName";
             cbbDaySC4.SelectedIndex = -1;
@@ -30,7 +30,13 @@ namespace LoginMotelUser
             cbbLoaiPhongSC4.DataSource = db.ROOMRANKs.ToList();
             cbbLoaiPhongSC4.DisplayMember = "RankName";
             cbbLoaiPhongSC4.SelectedIndex = -1;
+
+            cbbDaySC4.Enabled = true;
+            cbbLoaiPhongSC4.Enabled = false;
+            lbIDPhongSC4.Text = "";
+            listService.Items.Clear();
         }
+
         private void showListRoomTheoDayVaLoaiPhong(string rangeName, string rankName)
         {
             lvDanhSachPhongSC4.Items.Clear();
@@ -184,25 +190,32 @@ namespace LoginMotelUser
         }
         private void cbbDaySC4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbbCMNDSC4.Text.Equals(""))
-            {
-                showListRoomTheoDayVaLoaiPhong(cbbDaySC4.Text, cbbLoaiPhongSC4.Text);
-
-            }
+            clear();
+            cbbLoaiPhongSC4.Enabled = true;
+            showListRoomTheoDayVaLoaiPhong(cbbDaySC4.Text, cbbLoaiPhongSC4.Text);
         }
 
         private void cbbLoaiPhongSC4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbbCMNDSC4.Text.Equals(""))
-            {
-                showListRoomTheoDayVaLoaiPhong(cbbDaySC4.Text, cbbLoaiPhongSC4.Text);
-            }
+            clear();
+            showListRoomTheoDayVaLoaiPhong(cbbDaySC4.Text, cbbLoaiPhongSC4.Text);
         }
 
+        public void clear()
+        {
+            cbbCMNDSC4.Text="";
+            txtHoTenSC4.Text = "";
+            txtSDTSC4.Text = "";
+            txtQueQuanSC4.Text = "";
+            txtGioiTinhSC4.Text = "";
+            txtTongTien.Text = "";
+            cbbCMNDSC4.Enabled = false;
+        }
         private void lvDanhSachPhongSC4_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvDanhSachPhongSC4.SelectedItems.Count > 0)
             {
+                cbbCMNDSC4.Enabled = true;
                 // sau Khi click vào 1 List View Item thì ta cần truy vấn 
                 // được customer, sau đó đổ thông tin vào các textBox
                 ListViewItem lvi = lvDanhSachPhongSC4.SelectedItems[0];
@@ -234,310 +247,142 @@ namespace LoginMotelUser
 
         private void cbbCMNDSC4_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (!cbbCMNDSC4.Text.Equals(""))
+            var customers = (from cus in db.CUSTOMERs
+                             where cus.IDCard.Equals(cbbCMNDSC4.Text)
+                             select new
+                             {
+                                 cus.IDCard,
+                                 cus.CustomerName,
+                                 cus.NumberPhone,
+                                 cus.Address,
+                                 cus.Sexual,
+                             }).ToList();
+            if (customers.Count > 0)
             {
-                var customers = (from cus in db.CUSTOMERs
-                                 where cus.IDCard.Equals(cbbCMNDSC4.Text)
-                                 select new
-                                 {
-                                     cus.IDCard,
-                                     cus.CustomerName,
-                                     cus.NumberPhone,
-                                     cus.Address,
-                                     cus.Sexual,
-                                 }).ToList();
-                if (customers.Count > 0)
-                {
-                    txtHoTenSC4.Text = customers[0].CustomerName;
-                    txtSDTSC4.Text = customers[0].NumberPhone;
-                    txtQueQuanSC4.Text = customers[0].Address;
-                    txtGioiTinhSC4.Text = customers[0].Sexual;
-                }
+                txtHoTenSC4.Text = customers[0].CustomerName;
+                txtSDTSC4.Text = customers[0].NumberPhone;
+                txtQueQuanSC4.Text = customers[0].Address;
+                txtGioiTinhSC4.Text = customers[0].Sexual;
             }
-        }
-
-        // Bắt đầu xử lý tiền điện
-        private void txtKiDien_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtKiDien_TextChanged(object sender, EventArgs e)
-        {
-            var service = (from s in db.SERVICEs
-                           where s.ServiceName.Equals("Điện")
-                           select new
-                           {
-                               s.Price,
-                           }).ToList();
-            int price = Convert.ToInt32(service[0].Price);
-            if (!txtKiDien.Text.Equals(""))
-            {
-                int tienDiem = price * (int.Parse(txtKiDien.Text));
-                lbTienDien.Text = String.Format("{0,0:0,0}", tienDiem);
-            }
-            else
-            {
-                lbTienDien.Text = "0";
-            }
-        }
-        // Kết thúc xử lý tiền điện
-
-        // Bắt đầu xử lý tiền nước
-        private void txtKhoiNuoc_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-        private void txtKhoiNuoc_TextChanged(object sender, EventArgs e)
-        {
-            var service = (from s in db.SERVICEs
-                           where s.ServiceName.Equals("Nước")
-                           select new
-                           {
-                               s.Price,
-                           }).ToList();
-            int price = Convert.ToInt32(service[0].Price);
-            if (!txtKhoiNuoc.Text.Equals(""))
-            {
-                int tienNuoc = price * (int.Parse(txtKhoiNuoc.Text));
-                lbTienNuoc.Text = String.Format("{0,0:0,0}", tienNuoc);
-            }
-            else
-            {
-                lbTienNuoc.Text = "0";
-            }
-        }
-        // Kết thúc xử lý tiền nước
-        private void ckRac_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ckRac.Checked)
-            {
-                var service = (from s in db.SERVICEs
-                               where s.ServiceName.Equals("Rác")
-                               select new
-                               {
-                                   s.Price,
-                               }).ToList();
-                txtTienRac.Text = String.Format("{0:0,0}", service[0].Price);
-            }
-            else txtTienRac.Text = "0";
-        }
-
-        private void ckWifi_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ckWifi.Checked)
-            {
-                var service = (from s in db.SERVICEs
-                               where s.ServiceName.Equals("Wifi")
-                               select new
-                               {
-                                   s.Price,
-                               }).ToList();
-                txtTienWifi.Text = String.Format("{0:0,0}", service[0].Price);
-            }
-            else txtTienWifi.Text = "0";
-        }
-
-        private void ckGuiXe_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ckGuiXe.Checked)
-            {
-                var service = (from s in db.SERVICEs
-                               where s.ServiceName.Equals("Gửi xe")
-                               select new
-                               {
-                                   s.Price,
-                               }).ToList();
-                txtTienGuiXe.Text = String.Format("{0:0,0}", service[0].Price * nmrGuiXe.Value);
-            }
-            else txtTienGuiXe.Text = "0";
-        }
+        }       // Bắt đầu xử lý tiền điện
 
         private void btnTinhTongTien_Click(object sender, EventArgs e)
         {
-            if (lbTienPhong.Text.Equals("0"))
+            decimal TotalSer = 0;
+            foreach (ListViewItem list in listService.Items)
             {
-                MessageBox.Show("Vui lòng chọn phòng!");
+                TotalSer = TotalSer + decimal.Parse(list.SubItems[4].Text);
             }
-            else
-            {
-                string tienPhong = lbTienPhong.Text.Replace(",", "");
-
-                string tienDien = lbTienDien.Text.Replace(",", "");
-
-                string tienNuoc = lbTienNuoc.Text.Replace(",", "");
-
-                string tienWifi = txtTienWifi.Text.Replace(",", "");
-                string tienRac = txtTienRac.Text.Replace(",", "");
-                string tienGuiXe = txtTienGuiXe.Text.Replace(",", "");
-
-                int tongTien = int.Parse(tienPhong) + int.Parse(tienDien)
-                    + int.Parse(tienNuoc) + int.Parse(tienGuiXe)
-                    + int.Parse(tienRac) + int.Parse(tienWifi);
-                txtTongTien.Text = String.Format("{0:0,0}", tongTien);
-            }
+            decimal Total = decimal.Parse(lbTienPhong.Text) + TotalSer;
+            txtTongTien.Text = (Total).ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
 
             DialogResult d = MessageBox.Show("Are you saving this?", "QUESTION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (d == DialogResult.Yes)
+            if (txtTongTien.Text.Trim().Equals(""))
             {
-                var bills = (
-                        from b in db.BILLs
-                        join p in db.PARTICULARSERVICEs on b.ID equals p.IDBill
-                        where b.IDRoom.ToString().Equals(lbIDPhongSC4.Text)
-                        select b
-                    ).ToList();
-                int oldIDBill;
-                // Thêm Bill mới
-                var nBill = new Model.BILL();
-                db.BILLs.Add(nBill);
-                db.SaveChanges();
-                // Thêm thành công
-                if (bills.Count > 0) // CÓ bill trước đó => oldIndex là newIndex cũ
-                {
-                    oldIDBill = bills.Max(x => x.ID);
-                    foreach (var s in db.SERVICEs)
-                    {
-                        var ps = new Model.PARTICULARSERVICE();
-                        ps.IDBill = nBill.ID;
-                        ps.IDService = s.ID;
-                        var oldPar = (
-                            from a in db.PARTICULARSERVICEs
-                            join b in db.BILLs on a.IDBill equals b.ID
-                            where b.ID == oldIDBill
-                            where s.ID == a.IDService
-                            select new
-                            {
-                                a.NewIndex
-                            }
-                                      ).ToList();
-                        ps.OldIndex = oldPar[0].NewIndex;
-                        // Đoạn này cải tiến thành 1 Grid View Data ta có thể chỉnh sửa được
-                        if (s.ServiceName.Equals("Điện"))
-                        {
-                            ps.NewIndex = ps.OldIndex + int.Parse(txtKiDien.Text);
-                            ps.Total = (Decimal)int.Parse(lbTienDien.Text);
-                        }
-                        else if (s.ServiceName.Equals("Nước"))
-                        {
-                            ps.NewIndex = ps.OldIndex + int.Parse(txtKhoiNuoc.Text);
-                            ps.Total = (Decimal)int.Parse(lbTienNuoc.Text);
-                        }
-                        else if (s.ID == 3)
-                        {
-                            ps.NewIndex = Convert.ToInt32(nmrGuiXe.Value);
-                            ps.Total = (Decimal)int.Parse(txtTienGuiXe.Text);
-                        }
-                        else if (s.ServiceName.Equals("Wifi"))
-                        {
-                            ps.NewIndex = 1;
-                            ps.Total = (Decimal)int.Parse(txtTienWifi.Text);
-                        }
-                        else if (s.ServiceName.Equals("Rác"))
-                        {
-                            ps.NewIndex = 1;
-                            ps.Total = (Decimal)int.Parse(txtTienRac.Text);
-                        }
-                        db.PARTICULARSERVICEs.Add(ps);
-                    }
-                    nBill.Date = DateTime.Now;
-                    nBill.IDRoom = int.Parse(lbIDPhongSC4.Text);
-                    nBill.Paid = false;
-                    string tongtien = txtTongTien.Text.Replace(",", "");
-                    nBill.TotalMoney = Decimal.Parse(tongtien);
-
-                    // Kết thúc bước này đồng nghĩa với việc ta đã thêm thành công 
-                    // các particular service
-
-                    // Tiếp theo ta chỉnh sữa các thuộc tính còn lại của Bill
-                    // IDRoom - IDStaff - Date - TotalMoney - Paid
-
-                    nBill.IDRoom = int.Parse(lbIDPhongSC4.Text);
-                    nBill.Date = DateTime.Now;
-                    string tongTien = txtTongTien.Text.Replace(",", "");
-                    nBill.TotalMoney = (Decimal)int.Parse(tongTien);
-                    var price = db.MOTELROOMs.Single(p => p.ID.ToString().Equals(lbIDPhongSC4.Text));
-                    price.Paid = false;
-                    nBill.Paid = false;
-                    db.SaveChanges();
-                }
-                else // không có bill trước đó => oldIndex = 0
-                {
-                    // Chỉ cần thiết lập toàn bộ particular service của phòng này
-                    // với oldIndex = 0;
-                    foreach (var s in db.SERVICEs)
-                    {
-                        var par = new Model.PARTICULARSERVICE();
-                        par.IDBill = nBill.ID;
-                        par.IDService = s.ID;
-                        par.OldIndex = 0;
-                        if (s.ServiceName.Equals("Điện"))
-                        {
-                            par.NewIndex = par.OldIndex + int.Parse(txtKiDien.Text);
-                            par.Total = (Decimal)int.Parse(lbTienDien.Text.Replace(",", ""));
-                        }
-                        else if (s.ServiceName.Equals("Nước"))
-                        {
-                            par.NewIndex = par.OldIndex + int.Parse(txtKhoiNuoc.Text.Replace(",", ""));
-                            par.Total = (Decimal)int.Parse(lbTienNuoc.Text.Replace(",", ""));
-                        }
-                        else if (s.ID == 3)
-                        {
-                            par.NewIndex = Convert.ToInt32(nmrGuiXe.Value);
-                            par.Total = (Decimal)int.Parse(txtTienGuiXe.Text.Replace(",", ""));
-                        }
-                        else if (s.ServiceName.Equals("wifi"))
-                        {
-                            par.NewIndex = 1;
-                            par.Total = (Decimal)int.Parse(txtTienWifi.Text.Replace(",", ""));
-                        }
-                        else if (s.ServiceName.Equals("Rác"))
-                        {
-                            par.NewIndex = 1;
-                            par.Total = (Decimal)int.Parse(txtTienRac.Text.Replace(",", ""));
-                        }
-
-                        db.PARTICULARSERVICEs.Add(par);
-                    }
-                    // Thêm property cho Bill
-                    var price = db.MOTELROOMs.Single(p => p.ID.ToString().Equals(lbIDPhongSC4.Text));
-                    nBill.IDRoom = int.Parse(lbIDPhongSC4.Text);
-                    nBill.Date = DateTime.Now;
-                    string tongTien = txtTongTien.Text.Replace(",", "");
-                    nBill.TotalMoney = (Decimal)int.Parse(tongTien);
-                    nBill.Paid = false;
-                    price.Paid = false;
-                    db.SaveChanges();
-                }
-                MessageBox.Show("Thành công");
-                frmPrice_Load(sender, e);
+                MessageBox.Show("TotalBill is null", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
+            else
+            {
+                if (d == DialogResult.Yes)
+                {
+                    int ID = int.Parse(lbIDPhongSC4.Text);
 
-        private void nmrGuiXe_ValueChanged(object sender, EventArgs e)
-        {
-            var service = (from s in db.SERVICEs
-                           where s.ServiceName.Equals("Gửi xe")
-                           select new
-                           {
-                               s.Price,
-                           }).ToList();
-            foreach(var price in service)
-            txtTienGuiXe.Text = String.Format("{0:0,0}", price.Price * nmrGuiXe.Value);
+                    var IDStaff = (from staff in db.STAFFs
+                                  where staff.UserName == userName
+                                  select staff).ToList();
+                    if (IDStaff.Count == 0)
+                    {
+                        db.BILLs.Add(new Model.BILL
+                        {
+                            IDRoom = ID,
+                            Date = DateTime.Now,
+                            TotalMoney = Decimal.Parse(txtTongTien.Text),
+                            Paid = false
+                        });
+                    }
+                    else
+                    {
+                        foreach (var staff in IDStaff)
+                        {
+                            db.BILLs.Add(new Model.BILL
+                            {
+                                IDRoom = ID,
+                                Date = DateTime.Now,
+                                TotalMoney = Decimal.Parse(txtTongTien.Text),
+                                IDStaff = staff.ID,
+                                Paid = false
+                            }) ;
+                        }
+                    }
+                    db.SaveChanges();
+                    var maxDate = db.getMaxdate(ID);
+                    foreach (var id in maxDate)
+                    {
+                        foreach (ListViewItem l in listService.Items)
+                        {
+                            var parS = new Model.PARTICULARSERVICE();
+                            parS.IDBill = id.Value;
+                            parS.IDService = int.Parse(l.SubItems[0].Text);
+                            parS.NewIndex = int.Parse(l.SubItems[2].Text);
+                            parS.Total = Decimal.Parse(l.SubItems[4].Text);
+                            db.PARTICULARSERVICEs.Add(parS);
+                        }
+                    }
+                    var paid = db.MOTELROOMs.Single(room => room.ID.Equals(ID));
+                    paid.Paid = true;
+                    db.SaveChanges();
+                    clear();
+                    frmPrice_Load(sender, e);
+                }
+            }
         }
 
         private void buttonCancle_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!lbIDPhongSC4.Text.Trim().Equals(""))
+            {
+                AddParticularServiceForm f;
+                if (listService.Items.Count == 0)
+                {
+                    f = new AddParticularServiceForm(lbIDPhongSC4.Text);
+                    f.ShowDialog();
+                    listService.Items.Clear();
+                }
+                else
+                {
+                    f = new AddParticularServiceForm(listService, lbIDPhongSC4.Text);
+                    f.ShowDialog();
+                    listService.Items.Clear();
+                }
+                foreach (ListViewItem l in f.listServiceChoose().Items)
+                {
+                    ListViewItem list = new ListViewItem(l.SubItems[0].Text);
+                    list.SubItems.Add(l.SubItems[1].Text);
+                    list.SubItems.Add(l.SubItems[2].Text);
+                    list.SubItems.Add(l.SubItems[3].Text);
+                    list.SubItems.Add(l.SubItems[4].Text);
+                    listService.Items.Add(list);
+                }
+                txtTongTien.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Let's choose Room", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if (listService.Items.Count != 0)
+            {
+                cbbDaySC4.Enabled = false;
+                cbbLoaiPhongSC4.Enabled = false;
+            }
         }
     }
 }

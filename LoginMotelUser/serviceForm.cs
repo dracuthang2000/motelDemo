@@ -17,9 +17,21 @@ namespace LoginMotelUser
         int tong;
         int tinh;
         Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2();
-        public serviceForm()
+        private Boolean check;
+        public serviceForm(Boolean check)
         {
             InitializeComponent();
+            this.check = check;
+            if (check == true)
+            {
+                buttUpdate.Text = "ADD";
+                textNewName.Visible = false;
+                label1.Visible = false;
+            }
+            else
+            {
+                buttUpdate.Text = "UPDATE";
+            }
             loadData(0, soLuong);
             dem = 0;
         }
@@ -70,7 +82,10 @@ namespace LoginMotelUser
         public void updateData()
         {
             Model.SERVICE a = data.SERVICEs.Find(int.Parse(textIDService.Text));
-            a.ServiceName = textServiceName.Text;
+            if (!textNewName.Text.Trim().Equals(""))
+            {
+                a.ServiceName = textNewName.Text;
+            }           
             decimal b = decimal.Parse(textPrice.Text);
             a.Price = b;
             data.SaveChanges();
@@ -78,39 +93,13 @@ namespace LoginMotelUser
 
         private void buttUpdate_Click(object sender, EventArgs e)
         {
-            if (textServiceName.Text == "")
+            if(check == true)
             {
-                MessageBox.Show("Hay nhap ten dich vu!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (System.Text.RegularExpressions.Regex.IsMatch(textPrice.Text, "[^0-9.]"))
-            {
-                MessageBox.Show("Chi nhap so vao don gia!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textPrice.Text = "";
-                return;
-            }
-            if (textIDService.Text != "")
-            {
-                DialogResult result = MessageBox.Show("Ban co chac chinh sua dich vu co ID = " + textIDService.Text + " khong ? (tat ca cac du lieu lien quan deu se thay doi!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                switch (result)
+                if (textServiceName.Text.Trim() == "")
                 {
-                    case DialogResult.Cancel: return;
-                    case DialogResult.Yes:
-                        {
-                            updateData(); listService.Clear();
-                            loadData(0, soLuong);
-                            dem = 0;
-                            break;
-                        }
-                    case DialogResult.No: return;
-
-                    default:
-                        break;
-
+                    MessageBox.Show("Hay nhap ten dich vu!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
-            }
-            else
-            {
                 DialogResult result = MessageBox.Show("Ban co chac them dich vu khong?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 switch (result)
                 {
@@ -129,6 +118,35 @@ namespace LoginMotelUser
 
                 }
 
+            }
+            else 
+            {      
+            if (System.Text.RegularExpressions.Regex.IsMatch(textPrice.Text, "[^0-9.]"))
+            {
+                MessageBox.Show("Chi nhap so vao don gia!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textPrice.Text = "";
+                return;
+            }
+                if (textIDService.Text != "")
+                {
+                    DialogResult result = MessageBox.Show("Ban co chac chinh sua dich vu co ID = " + textIDService.Text + " khong ? (tat ca cac du lieu lien quan deu se thay doi!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    switch (result)
+                    {
+                        case DialogResult.Cancel: return;
+                        case DialogResult.Yes:
+                            {
+                                updateData(); listService.Clear();
+                                loadData(0, soLuong);
+                                dem = 0;
+                                break;
+                            }
+                        case DialogResult.No: return;
+
+                        default:
+                            break;
+
+                    }
+                }
             }
 
         }
@@ -270,6 +288,27 @@ namespace LoginMotelUser
 
                 }
             }
+        }
+
+        private void textServiceName_TextChanged(object sender, EventArgs e)
+        {
+            if(check == true)
+            {
+
+            }
+            else
+            {
+               textSearch.Text = textServiceName.Text;
+                var query = from service in data.SERVICEs
+                            where service.ServiceName.Equals(textServiceName.Text)
+                            select service;
+                foreach(var ser in query)
+                {
+                    textIDService.Text = ser.ID.ToString();
+                    textPrice.Text = ser.Price.ToString();
+                }
+            }
+            
         }
     }
 }

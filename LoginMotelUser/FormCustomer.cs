@@ -190,6 +190,7 @@ namespace LoginMotelUser
         }
         private void butUpdate_Click(object sender, EventArgs e)
         {
+            if (catchData() == false) return;
             if (check == true)
             {
                 DialogResult result = MessageBox.Show("Ban co chac them khach co ID =" + textIDCus.Text + " khong?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
@@ -206,7 +207,6 @@ namespace LoginMotelUser
             }
             else
             {
-                if (catchData() == false) return;
                 //int ID = int.Parse(la)
                 var cus = (from Cus in data.CUSTOMERs
                            where Cus.IDCard.Equals(textIDCus.Text) && Cus.ID != this.IDcus

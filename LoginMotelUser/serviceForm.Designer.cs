@@ -45,14 +45,18 @@
             this.labID = new System.Windows.Forms.Label();
             this.listService = new System.Windows.Forms.ListView();
             this.labTieuDe = new System.Windows.Forms.Label();
+            this.textNewName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panService.SuspendLayout();
             this.SuspendLayout();
             // 
             // panService
             // 
-            this.panService.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panService.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panService.Controls.Add(this.label1);
+            this.panService.Controls.Add(this.textNewName);
             this.panService.Controls.Add(this.labPage);
             this.panService.Controls.Add(this.butRight);
             this.panService.Controls.Add(this.butLeft);
@@ -119,13 +123,13 @@
             this.labSearch.AutoSize = true;
             this.labSearch.Location = new System.Drawing.Point(492, 82);
             this.labSearch.Name = "labSearch";
-            this.labSearch.Size = new System.Drawing.Size(74, 17);
+            this.labSearch.Size = new System.Drawing.Size(61, 17);
             this.labSearch.TabIndex = 8;
-            this.labSearch.Text = "Tìm Kiếm :";
+            this.labSearch.Text = "Search: ";
             // 
             // textPrice
             // 
-            this.textPrice.Location = new System.Drawing.Point(627, 281);
+            this.textPrice.Location = new System.Drawing.Point(627, 304);
             this.textPrice.Name = "textPrice";
             this.textPrice.Size = new System.Drawing.Size(167, 22);
             this.textPrice.TabIndex = 6;
@@ -133,11 +137,11 @@
             // labPrice
             // 
             this.labPrice.AutoSize = true;
-            this.labPrice.Location = new System.Drawing.Point(498, 284);
+            this.labPrice.Location = new System.Drawing.Point(492, 309);
             this.labPrice.Name = "labPrice";
-            this.labPrice.Size = new System.Drawing.Size(68, 17);
+            this.labPrice.Size = new System.Drawing.Size(48, 17);
             this.labPrice.TabIndex = 7;
-            this.labPrice.Text = "Đơn Giá :";
+            this.labPrice.Text = "Price :";
             // 
             // butClear
             // 
@@ -157,7 +161,7 @@
             this.butDelete.Name = "butDelete";
             this.butDelete.Size = new System.Drawing.Size(104, 64);
             this.butDelete.TabIndex = 8;
-            this.butDelete.Text = "Xóa";
+            this.butDelete.Text = "DELETE";
             this.butDelete.UseVisualStyleBackColor = true;
             this.butDelete.Click += new System.EventHandler(this.butDelete_Click);
             // 
@@ -178,6 +182,7 @@
             this.textServiceName.Name = "textServiceName";
             this.textServiceName.Size = new System.Drawing.Size(167, 22);
             this.textServiceName.TabIndex = 5;
+            this.textServiceName.TextChanged += new System.EventHandler(this.textServiceName_TextChanged);
             // 
             // textIDService
             // 
@@ -190,16 +195,16 @@
             // labServiceName
             // 
             this.labServiceName.AutoSize = true;
-            this.labServiceName.Location = new System.Drawing.Point(474, 214);
+            this.labServiceName.Location = new System.Drawing.Point(492, 216);
             this.labServiceName.Name = "labServiceName";
-            this.labServiceName.Size = new System.Drawing.Size(92, 17);
+            this.labServiceName.Size = new System.Drawing.Size(118, 17);
             this.labServiceName.TabIndex = 3;
-            this.labServiceName.Text = "Tên Dịch vụ :";
+            this.labServiceName.Text = "Old service name";
             // 
             // labID
             // 
             this.labID.AutoSize = true;
-            this.labID.Location = new System.Drawing.Point(537, 138);
+            this.labID.Location = new System.Drawing.Point(492, 135);
             this.labID.Name = "labID";
             this.labID.Size = new System.Drawing.Size(29, 17);
             this.labID.TabIndex = 2;
@@ -227,6 +232,22 @@
             this.labTieuDe.Size = new System.Drawing.Size(304, 32);
             this.labTieuDe.TabIndex = 0;
             this.labTieuDe.Text = "THÔNG TIN DỊCH VỤ";
+            // 
+            // textNewName
+            // 
+            this.textNewName.Location = new System.Drawing.Point(627, 253);
+            this.textNewName.Name = "textNewName";
+            this.textNewName.Size = new System.Drawing.Size(167, 22);
+            this.textNewName.TabIndex = 13;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(492, 256);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 17);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "New service name";
             // 
             // serviceForm
             // 
@@ -261,5 +282,7 @@
         private System.Windows.Forms.Button butLeft;
         private System.Windows.Forms.Button butRight;
         private System.Windows.Forms.Label labPage;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textNewName;
     }
 }

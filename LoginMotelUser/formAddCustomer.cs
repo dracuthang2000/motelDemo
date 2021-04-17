@@ -239,31 +239,43 @@ namespace LoginMotelUser
                                      room.StateRoom
                                  }).ToList();
 
-                foreach (var c in customers)
+                if (customers.Count == 0)
                 {
-                    if (c.StateRoom == 3)
+                    txtCMNDSC3.Enabled = true;
+                    txtDiaChiSC3.Enabled = true;
+                    txtSDTSC3.Enabled = true;
+                    txtHoTenSC3.Enabled = true;
+                    dtDateSC3.Enabled = true;
+                    cbbGioiTinhSC3.Enabled = true;
+                }
+                else
+                {
+                    foreach (var c in customers)
                     {
-                        txtCMNDSC3.Enabled = false;
-                        txtDiaChiSC3.Enabled = false;
-                        txtSDTSC3.Enabled = false;
-                        txtHoTenSC3.Enabled = false;
-                        dtDateSC3.Enabled = false;
-                        cbbGioiTinhSC3.Enabled = false;
+                        if (c.StateRoom == 3)
+                        {
+                            txtCMNDSC3.Enabled = false;
+                            txtDiaChiSC3.Enabled = false;
+                            txtSDTSC3.Enabled = false;
+                            txtHoTenSC3.Enabled = false;
+                            dtDateSC3.Enabled = false;
+                            cbbGioiTinhSC3.Enabled = false;
+                        }
+                        else
+                        {
+                            txtCMNDSC3.Enabled = true;
+                            txtDiaChiSC3.Enabled = true;
+                            txtSDTSC3.Enabled = true;
+                            txtHoTenSC3.Enabled = true;
+                            dtDateSC3.Enabled = true;
+                            cbbGioiTinhSC3.Enabled = true;
+                        }
+                        ListViewItem lv = new ListViewItem(c.IDCard);
+                        lv.SubItems.Add(c.CustomerName);
+                        lv.SubItems.Add(c.Sexual);
+                        lv.SubItems.Add(c.Address);
+                        lvDanhSachKhachSC3.Items.Add(lv);
                     }
-                    else
-                    {
-                        txtCMNDSC3.Enabled = true;
-                        txtDiaChiSC3.Enabled = true;
-                        txtSDTSC3.Enabled = true;
-                        txtHoTenSC3.Enabled = true;
-                        dtDateSC3.Enabled = true;
-                        cbbGioiTinhSC3.Enabled = true;
-                    }
-                    ListViewItem lv = new ListViewItem(c.IDCard);
-                    lv.SubItems.Add(c.CustomerName);
-                    lv.SubItems.Add(c.Sexual);
-                    lv.SubItems.Add(c.Address);
-                    lvDanhSachKhachSC3.Items.Add(lv);
                 }
             }
         }

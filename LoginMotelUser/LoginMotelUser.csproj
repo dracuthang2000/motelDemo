@@ -61,6 +61,12 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddParticularServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddParticularServiceForm.Designer.cs">
+      <DependentUpon>AddParticularServiceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddRoomcs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="rankFormSetting.resx">
       <DependentUpon>rankFormSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="serviceForm.resx">
+      <DependentUpon>serviceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ShowCustomerForm.resx">
       <DependentUpon>ShowCustomerForm.cs</DependentUpon>

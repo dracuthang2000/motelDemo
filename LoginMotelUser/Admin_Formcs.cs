@@ -327,7 +327,7 @@ namespace LoginMotelUser
 
         private void pricesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormPrices FP = new FormPrices();
+            FormPrices FP = new FormPrices(checkUsername);
             FP.ShowDialog();
             this.frmHome_Load(sender, e);
         }
@@ -390,6 +390,20 @@ namespace LoginMotelUser
         {
             showRangeForm rF = new showRangeForm(false);
             rF.ShowDialog();
+            this.frmHome_Load(sender, e);
+        }
+
+        private void serviceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            serviceForm sF = new serviceForm(true);
+            sF.ShowDialog();
+            this.frmHome_Load(sender, e);
+        }
+
+        private void serviceToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            serviceForm sF = new serviceForm(false);
+            sF.ShowDialog();
             this.frmHome_Load(sender, e);
         }
     }

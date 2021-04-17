@@ -130,8 +130,11 @@ namespace LoginMotelUser
                         case DialogResult.Cancel: return;
                         case DialogResult.Yes:
                             {
-                                Model.CUSTOMER temp = data.CUSTOMERs.Find(listKhach.FocusedItem.Text);
-                                data.CUSTOMERs.Remove(temp);
+                                var temp = data.CUSTOMERs.Where(c => c.IDCard.Equals(listKhach.FocusedItem.Text));
+                                foreach (var cus in temp)
+                                {
+                                    data.CUSTOMERs.Remove(cus);
+                                }
                                 data.SaveChanges();
                                 listKhach.Clear();
                                 loadCustomer(0, soLuong);

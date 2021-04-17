@@ -238,5 +238,6 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="updatePaidMotelRoom" FunctionName="MotelManagerModel.Store.updatePaidMotelRoom" />
+    <FunctionImportMapping FunctionImportName="getMaxdate" FunctionName="MotelManagerModel.Store.getMaxdate" />
   </EntityContainerMapping>
 </Mapping>
