@@ -38,7 +38,7 @@ namespace LoginMotelUser
             foreach (var bill in bills)
             {
                 ListViewItem lvi = new ListViewItem(bill.ID.ToString());
-                lvi.SubItems.Add(bill.IDRoom.ToString());
+                lvi.SubItems.Add(bill.MOTELROOM.RoomName);
                 lvi.SubItems.Add(String.Format("{0:d}", bill.Date));
                 // Chưa có đăng nhập
                 if (bill.IDStaff == null)
@@ -58,19 +58,25 @@ namespace LoginMotelUser
         private void txtIDPhongSC5_TextChanged(object sender, EventArgs e)
         {
             lvDanhSachHoaDonSC5.Items.Clear();
-            var bill = (from b in db.BILLs
-                        where b.IDRoom.ToString().Contains(txtIDPhongSC5.Text) && b.Paid == false
+            var bills = (from b in db.BILLs
+                        where b.MOTELROOM.RoomName.Contains(txtIDPhongSC5.Text) && b.Paid == false && b.MOTELROOM.ROOMRANGE.RangeName.Contains(cbbDaySC5.Text)
                         select b).ToList();
 
-            if (bill.Count > 0)
+            foreach (var bill in bills)
             {
-                ListViewItem lvi = new ListViewItem(bill[0].ID.ToString());
-                lvi.SubItems.Add(bill[0].IDRoom.ToString());
-                lvi.SubItems.Add(String.Format("{0:d}", bill[0].Date));
+                ListViewItem lvi = new ListViewItem(bill.ID.ToString());
+                lvi.SubItems.Add(bill.MOTELROOM.RoomName);
+                lvi.SubItems.Add(String.Format("{0:d}", bill.Date));
                 // Chưa có đăng nhập
-                // lvi.SubItems.Add(bill.IDStaff);
-                lvi.SubItems.Add("Admin");
-                lvi.SubItems.Add(String.Format("{0:0,0}", bill[0].TotalMoney));
+                if (bill.IDStaff == null)
+                {
+                    lvi.SubItems.Add("Admin");
+                }
+                else
+                {
+                    lvi.SubItems.Add(bill.STAFF.IDCard);
+                }
+                lvi.SubItems.Add(String.Format("{0:0,0}", bill.TotalMoney));
 
                 lvDanhSachHoaDonSC5.Items.Add(lvi);
             }
@@ -95,7 +101,7 @@ namespace LoginMotelUser
                     foreach (var bill in bills)
                     {
                         ListViewItem lvi = new ListViewItem(bill.ID.ToString());
-                        lvi.SubItems.Add(bill.IDRoom.ToString());
+                        lvi.SubItems.Add(bill.MOTELROOM.RoomName);
                         lvi.SubItems.Add(String.Format("{0:d}", bill.Date));
                         // Chưa có đăng nhập
                         // lvi.SubItems.Add(bill.IDStaff);
@@ -113,6 +119,7 @@ namespace LoginMotelUser
         {
             if (lvDanhSachHoaDonSC5.SelectedItems.Count > 0)
             {
+                lvChiTietHoaDonSC5.Items.Clear();
                 ListViewItem lvi = lvDanhSachHoaDonSC5.SelectedItems[0];
                 string id = lvi.SubItems[0].Text;
 
@@ -127,7 +134,6 @@ namespace LoginMotelUser
                                     p.NewIndex,
                                     p.Total,
                                 }).ToList();
-                MessageBox.Show(services.Count().ToString());
                 if (services.Count() > 0)
                 {
                     foreach (var s in services)
@@ -146,15 +152,39 @@ namespace LoginMotelUser
         {
             if (lvDanhSachHoaDonSC5.SelectedItems.Count > 0)
             {
-                ListViewItem lvi = lvDanhSachHoaDonSC5.SelectedItems[0];
-                int idBill = int.Parse(lvi.SubItems[0].Text);
-                var bill = (from b in db.BILLs
-                            where b.ID == idBill
-                            select b).ToList();
-                bill[0].Paid = true;
+                DialogResult d = MessageBox.Show("Are you sure ?", "QUESTION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (d == DialogResult.Yes)
+                {
+                    ListViewItem lvi = lvDanhSachHoaDonSC5.SelectedItems[0];
+                    int idBill = int.Parse(lvi.SubItems[0].Text);
+                    var bill = (from b in db.BILLs
+                                where b.ID == idBill
+                                select b).ToList();
+                    bill[0].Paid = true;
+                    db.SaveChanges();
+                    loadListViewDanhSachHoaDon();
+                    MessageBox.Show("Update complete!");
+                    lvChiTietHoaDonSC5.Items.Clear();
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult d = MessageBox.Show("Are you sure ?", "QUESTION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (d == DialogResult.Yes)
+            {
+                int id = int.Parse(lvDanhSachHoaDonSC5.SelectedItems[0].Text);
+                var idBill = (from bill in db.BILLs
+                              where bill.ID == id
+                              select bill).ToList();
+                foreach (var bill in idBill)
+                {
+                    db.BILLs.Remove(bill);
+                }
                 db.SaveChanges();
-                loadListViewDanhSachHoaDon();
-                MessageBox.Show("Cập nhật thành công!");
+                MessageBox.Show("Delete complete!");
+
             }
         }
     }

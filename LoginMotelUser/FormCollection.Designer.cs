@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel13 = new System.Windows.Forms.Panel();
+            this.buttonCancle = new System.Windows.Forms.Button();
             this.txtIDPhongSC5 = new System.Windows.Forms.TextBox();
             this.label128 = new System.Windows.Forms.Label();
             this.lvChiTietHoaDonSC5 = new System.Windows.Forms.ListView();
@@ -49,12 +50,13 @@
             this.cbbDaySC5 = new System.Windows.Forms.ComboBox();
             this.label149 = new System.Windows.Forms.Label();
             this.label150 = new System.Windows.Forms.Label();
-            this.buttonCancle = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel13
             // 
+            this.panel13.Controls.Add(this.button1);
             this.panel13.Controls.Add(this.buttonCancle);
             this.panel13.Controls.Add(this.txtIDPhongSC5);
             this.panel13.Controls.Add(this.label128);
@@ -74,6 +76,16 @@
             this.panel13.Size = new System.Drawing.Size(1095, 578);
             this.panel13.TabIndex = 65;
             // 
+            // buttonCancle
+            // 
+            this.buttonCancle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonCancle.Location = new System.Drawing.Point(927, 453);
+            this.buttonCancle.Name = "buttonCancle";
+            this.buttonCancle.Size = new System.Drawing.Size(100, 30);
+            this.buttonCancle.TabIndex = 54;
+            this.buttonCancle.Text = "Cancle";
+            this.buttonCancle.UseVisualStyleBackColor = true;
+            // 
             // txtIDPhongSC5
             // 
             this.txtIDPhongSC5.Location = new System.Drawing.Point(89, 77);
@@ -89,9 +101,9 @@
             this.label128.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label128.Location = new System.Drawing.Point(3, 79);
             this.label128.Name = "label128";
-            this.label128.Size = new System.Drawing.Size(78, 20);
+            this.label128.Size = new System.Drawing.Size(89, 20);
             this.label128.TabIndex = 56;
-            this.label128.Text = "ID Phòng";
+            this.label128.Text = "Tên Phòng";
             // 
             // lvChiTietHoaDonSC5
             // 
@@ -101,9 +113,9 @@
             this.columnHeader25,
             this.columnHeader1});
             this.lvChiTietHoaDonSC5.HideSelection = false;
-            this.lvChiTietHoaDonSC5.Location = new System.Drawing.Point(624, 90);
+            this.lvChiTietHoaDonSC5.Location = new System.Drawing.Point(577, 139);
             this.lvChiTietHoaDonSC5.Name = "lvChiTietHoaDonSC5";
-            this.lvChiTietHoaDonSC5.Size = new System.Drawing.Size(425, 242);
+            this.lvChiTietHoaDonSC5.Size = new System.Drawing.Size(506, 242);
             this.lvChiTietHoaDonSC5.TabIndex = 55;
             this.lvChiTietHoaDonSC5.UseCompatibleStateImageBehavior = false;
             this.lvChiTietHoaDonSC5.View = System.Windows.Forms.View.Details;
@@ -132,9 +144,9 @@
             // 
             this.btnXacNhanDaDong.AutoSize = true;
             this.btnXacNhanDaDong.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnXacNhanDaDong.Location = new System.Drawing.Point(600, 453);
+            this.btnXacNhanDaDong.Location = new System.Drawing.Point(559, 453);
             this.btnXacNhanDaDong.Name = "btnXacNhanDaDong";
-            this.btnXacNhanDaDong.Size = new System.Drawing.Size(92, 30);
+            this.btnXacNhanDaDong.Size = new System.Drawing.Size(100, 30);
             this.btnXacNhanDaDong.TabIndex = 54;
             this.btnXacNhanDaDong.Text = "Đã đóng";
             this.btnXacNhanDaDong.UseVisualStyleBackColor = true;
@@ -143,7 +155,7 @@
             // label134
             // 
             this.label134.AutoSize = true;
-            this.label134.Location = new System.Drawing.Point(570, 430);
+            this.label134.Location = new System.Drawing.Point(538, 430);
             this.label134.Name = "label134";
             this.label134.Size = new System.Drawing.Size(152, 20);
             this.label134.TabIndex = 49;
@@ -153,7 +165,7 @@
             // 
             this.label141.AutoSize = true;
             this.label141.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label141.Location = new System.Drawing.Point(726, 55);
+            this.label141.Location = new System.Drawing.Point(775, 116);
             this.label141.Name = "label141";
             this.label141.Size = new System.Drawing.Size(142, 20);
             this.label141.TabIndex = 38;
@@ -195,7 +207,7 @@
             // 
             // columnHeader16
             // 
-            this.columnHeader16.Text = "Mã phòng";
+            this.columnHeader16.Text = "Tên phòng";
             this.columnHeader16.Width = 100;
             // 
             // columnHeader17
@@ -243,15 +255,15 @@
             this.label150.TabIndex = 0;
             this.label150.Text = "Dãy";
             // 
-            // buttonCancle
+            // button1
             // 
-            this.buttonCancle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCancle.Location = new System.Drawing.Point(919, 453);
-            this.buttonCancle.Name = "buttonCancle";
-            this.buttonCancle.Size = new System.Drawing.Size(97, 30);
-            this.buttonCancle.TabIndex = 54;
-            this.buttonCancle.Text = "Cancle";
-            this.buttonCancle.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(746, 453);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 30);
+            this.button1.TabIndex = 58;
+            this.button1.Text = "DELETE";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormCollection
             // 
@@ -293,5 +305,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button buttonCancle;
+        private System.Windows.Forms.Button button1;
     }
 }

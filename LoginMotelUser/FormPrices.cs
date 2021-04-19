@@ -328,6 +328,7 @@ namespace LoginMotelUser
                             parS.IDBill = id.Value;
                             parS.IDService = int.Parse(l.SubItems[0].Text);
                             parS.NewIndex = int.Parse(l.SubItems[2].Text);
+                            parS.OldIndex = int.Parse(l.SubItems[3].Text);
                             parS.Total = Decimal.Parse(l.SubItems[4].Text);
                             db.PARTICULARSERVICEs.Add(parS);
                         }

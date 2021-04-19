@@ -37,6 +37,7 @@ namespace LoginMotelUser
             txtHoTenSC3.Enabled = false;
             dtDateSC3.Enabled = false;
             cbbGioiTinhSC3.Enabled = false;
+            lvDanhSachKhachSC3.Items.Clear();
 
         }
         private void showListRoomTheoDayVaLoaiPhong(string rangeName, string rankName)
@@ -228,7 +229,7 @@ namespace LoginMotelUser
                 var customers = (from rent in db.REINTINFORs
                                  join room in db.MOTELROOMs on rent.IDRoom equals room.ID
                                  join cus in db.CUSTOMERs on rent.IDCustomer equals cus.ID
-                                 where room.ID == IDRoom
+                                 where room.ID == IDRoom && rent.CheckOutDate == null
                                  select new
                                  {
                                      cus.ID,
@@ -334,6 +335,24 @@ namespace LoginMotelUser
 
         private void btnXoaSC3_Click(object sender, EventArgs e)
         {
+            var idCus = from cus in db.CUSTOMERs
+                        where cus.IDCard == txtCMNDSC3.Text
+                        select cus;
+            int IDroom = int.Parse(lbPhongSC3.Text);
+            foreach(var cus in idCus)
+            {
+                //var temp = from rein in db.REINTINFORs
+                //           where rein.IDCustomer == cus.ID && rein.IDRoom == IDroom
+                //           select rein;
+                var temp = db.REINTINFORs.Single(rein => rein.IDCustomer == cus.ID && rein.IDRoom == IDroom);
+                    temp.CheckOutDate = DateTime.Now;
+            }
+            db.SaveChanges();
+            clear();
+            frmAddCustomer_Load(sender,e);
+        }
+        public void clear()
+        {
             txtHoTenSC3.ReadOnly = false;
             txtDiaChiSC3.ReadOnly = false;
             dtDateSC3.Value = DateTime.Now;
@@ -344,7 +363,6 @@ namespace LoginMotelUser
             txtSDTSC3.Text = "";
             txtDiaChiSC3.Text = "";
         }
-
         private void btnThemSC3_Click_1(object sender, EventArgs e)
         {
             string firstNumber = txtSDTSC3.Text;

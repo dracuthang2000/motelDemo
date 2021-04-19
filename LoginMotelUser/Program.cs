@@ -19,7 +19,7 @@ namespace LoginMotelUser
         begin:
             Form1 f1 = new Form1();
             Admin_Formcs ad = new Admin_Formcs();
-            Application.Run(f1);
+            Application.Run(new showStaffForm());
             if (f1.isLoggedIn == true)
             {
                 if (f1.checkRole == true)

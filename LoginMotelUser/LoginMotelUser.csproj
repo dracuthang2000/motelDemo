@@ -79,6 +79,12 @@
     <Compile Include="Admin_Formcs.Designer.cs">
       <DependentUpon>Admin_Formcs.cs</DependentUpon>
     </Compile>
+    <Compile Include="createStaffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="createStaffForm.Designer.cs">
+      <DependentUpon>createStaffForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forgetpassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,12 @@
     </Compile>
     <Compile Include="showRoomForm.Designer.cs">
       <DependentUpon>showRoomForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="showStaffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="showStaffForm.Designer.cs">
+      <DependentUpon>showStaffForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Update_User.cs">
       <SubType>Form</SubType>

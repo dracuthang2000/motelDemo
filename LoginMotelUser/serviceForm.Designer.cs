@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panService = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textNewName = new System.Windows.Forms.TextBox();
             this.labPage = new System.Windows.Forms.Label();
             this.butRight = new System.Windows.Forms.Button();
             this.butLeft = new System.Windows.Forms.Button();
@@ -45,8 +47,6 @@
             this.labID = new System.Windows.Forms.Label();
             this.listService = new System.Windows.Forms.ListView();
             this.labTieuDe = new System.Windows.Forms.Label();
-            this.textNewName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panService.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +77,22 @@
             this.panService.Name = "panService";
             this.panService.Size = new System.Drawing.Size(910, 618);
             this.panService.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(492, 256);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 17);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "New service name";
+            // 
+            // textNewName
+            // 
+            this.textNewName.Location = new System.Drawing.Point(627, 253);
+            this.textNewName.Name = "textNewName";
+            this.textNewName.Size = new System.Drawing.Size(167, 22);
+            this.textNewName.TabIndex = 13;
             // 
             // labPage
             // 
@@ -232,22 +248,6 @@
             this.labTieuDe.Size = new System.Drawing.Size(304, 32);
             this.labTieuDe.TabIndex = 0;
             this.labTieuDe.Text = "THÔNG TIN DỊCH VỤ";
-            // 
-            // textNewName
-            // 
-            this.textNewName.Location = new System.Drawing.Point(627, 253);
-            this.textNewName.Name = "textNewName";
-            this.textNewName.Size = new System.Drawing.Size(167, 22);
-            this.textNewName.TabIndex = 13;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(492, 256);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 17);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "New service name";
             // 
             // serviceForm
             // 

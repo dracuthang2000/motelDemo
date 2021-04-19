@@ -100,7 +100,7 @@ namespace LoginMotelUser
             int i = 0;
             foreach(var id in IDroom)
             {
-                var count = db.REINTINFORs.Count(r => r.IDRoom == id.ID);
+                var count = db.REINTINFORs.Count(r => r.IDRoom == id.ID && r.CheckOutDate==null);
                 if(count == id.ROOMRANK.Quantity)
                 {
                     var up = db.MOTELROOMs.Single(r => r.ID == id.ID);
@@ -113,6 +113,7 @@ namespace LoginMotelUser
                 {
                     var up = db.MOTELROOMs.Single(r => r.ID == id.ID);
                     up.StateRoom = 1;
+                    up.Paid = null;
                 }
             }
             db.SaveChanges();
