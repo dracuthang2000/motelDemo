@@ -38,9 +38,9 @@ namespace LoginMotelUser
         public void loadData(int b, int e)
         {
             var list = (from d in data.USP_PageService(b, e) select d).ToList();
-            listService.Columns.Add("ID Dịch vụ", 100);
-            listService.Columns.Add("Tên Dịch Vụ", 140);
-            listService.Columns.Add("Đơn Giá", 140);
+            listService.Columns.Add("ID Service", 100);
+            listService.Columns.Add("Service name", 140);
+            listService.Columns.Add("Price", 140);
             foreach (var a in list)
             {
                 ListViewItem item = new ListViewItem(a.ID.ToString());
@@ -60,7 +60,7 @@ namespace LoginMotelUser
                 tinh = tong / soLuong;
             }
 
-            labPage.Text = "Trang 1/" + tinh;
+            labPage.Text = "Page 1/" + tinh;
 
         }
 
@@ -268,15 +268,15 @@ namespace LoginMotelUser
             if (e.KeyChar == (char)Keys.Return)
             {
                 listService.Clear();
-                labPage.Text = "Trang 1/1";
+                labPage.Text = "Page 1/1";
                 using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
                 {
                     String temp = textSearch.Text;
                     List<Model.SERVICE> list = (from a in data.SERVICEs where a.ServiceName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();
 
-                    listService.Columns.Add("ID Dịch vụ", 100);
-                    listService.Columns.Add("Tên Dịch Vụ", 140);
-                    listService.Columns.Add("Đơn Giá", 140);
+                    listService.Columns.Add("ID Service", 100);
+                    listService.Columns.Add("Service name", 140);
+                    listService.Columns.Add("Price", 140);
                     foreach (Model.SERVICE a in list)
                     {
                         ListViewItem item = new ListViewItem(a.ID.ToString());

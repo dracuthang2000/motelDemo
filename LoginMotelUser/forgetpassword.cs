@@ -22,7 +22,7 @@ namespace LoginMotelUser
         LoginMotelUser.Model.MotelManagerEntities2 stf = new Model.MotelManagerEntities2();
         private void createpassword_Load(object sender, EventArgs e)
         {
-
+            dateTimePicker.CustomFormat = "dd/MM/yyyy";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace LoginMotelUser
                     }
                     else
                     {
-                        if (!(st.IDCard.Trim().Equals(text_idCard.Text)) || !(st.DateOfBirth.Value.ToString("dd/MM/yyyy").Equals(dateTimePicker.Value)))
+                        if (!(st.IDCard.Trim().Equals(text_idCard.Text)) || !(dateTimePicker.Value.Date == st.DateOfBirth.Value.Date))
                         {
                             checkIdanddate.Visible = true;
                         }

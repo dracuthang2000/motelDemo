@@ -44,6 +44,7 @@
             this.rankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.staffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,10 +54,11 @@
             this.rankToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.rageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.staffToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.billsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.collectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pricesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.collectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtLoaiPhongSC1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -139,8 +141,9 @@
             this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newMenuItem,
             this.exitMenuItem});
+            this.fileMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fileMenuItem.Image")));
             this.fileMenuItem.Name = "fileMenuItem";
-            this.fileMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileMenuItem.Size = new System.Drawing.Size(66, 24);
             this.fileMenuItem.Text = "File";
             // 
             // newMenuItem
@@ -152,64 +155,82 @@
             this.roomToolStripMenuItem,
             this.rankToolStripMenuItem,
             this.rangeToolStripMenuItem,
-            this.serviceToolStripMenuItem});
+            this.serviceToolStripMenuItem,
+            this.staffToolStripMenuItem});
+            this.newMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newMenuItem.Image")));
             this.newMenuItem.Name = "newMenuItem";
-            this.newMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.newMenuItem.Size = new System.Drawing.Size(224, 26);
             this.newMenuItem.Text = "New";
             // 
             // newtUserMenuItem
             // 
+            this.newtUserMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newtUserMenuItem.Image")));
             this.newtUserMenuItem.Name = "newtUserMenuItem";
-            this.newtUserMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.newtUserMenuItem.Size = new System.Drawing.Size(224, 26);
             this.newtUserMenuItem.Text = "Users";
             this.newtUserMenuItem.Click += new System.EventHandler(this.insertUserToolStripMenuItem_Click);
             // 
             // insertCustomerMenuItem
             // 
+            this.insertCustomerMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("insertCustomerMenuItem.Image")));
             this.insertCustomerMenuItem.Name = "insertCustomerMenuItem";
-            this.insertCustomerMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.insertCustomerMenuItem.Size = new System.Drawing.Size(224, 26);
             this.insertCustomerMenuItem.Text = "RenInFormation";
             this.insertCustomerMenuItem.Click += new System.EventHandler(this.inserCustomerToolStripMenuItem_Click);
             // 
             // customerToolStripMenuItem
             // 
+            this.customerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("customerToolStripMenuItem.Image")));
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.customerToolStripMenuItem.Text = "Customer";
             this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
             // 
             // roomToolStripMenuItem
             // 
+            this.roomToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("roomToolStripMenuItem.Image")));
             this.roomToolStripMenuItem.Name = "roomToolStripMenuItem";
-            this.roomToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.roomToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.roomToolStripMenuItem.Text = "Room";
             this.roomToolStripMenuItem.Click += new System.EventHandler(this.roomToolStripMenuItem_Click);
             // 
             // rankToolStripMenuItem
             // 
+            this.rankToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("rankToolStripMenuItem.Image")));
             this.rankToolStripMenuItem.Name = "rankToolStripMenuItem";
-            this.rankToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.rankToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.rankToolStripMenuItem.Text = "Rank";
             this.rankToolStripMenuItem.Click += new System.EventHandler(this.rankToolStripMenuItem_Click);
             // 
             // rangeToolStripMenuItem
             // 
+            this.rangeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("rangeToolStripMenuItem.Image")));
             this.rangeToolStripMenuItem.Name = "rangeToolStripMenuItem";
-            this.rangeToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.rangeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.rangeToolStripMenuItem.Text = "Range";
             this.rangeToolStripMenuItem.Click += new System.EventHandler(this.rangeToolStripMenuItem_Click);
             // 
             // serviceToolStripMenuItem
             // 
+            this.serviceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("serviceToolStripMenuItem.Image")));
             this.serviceToolStripMenuItem.Name = "serviceToolStripMenuItem";
-            this.serviceToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.serviceToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.serviceToolStripMenuItem.Text = "Service";
             this.serviceToolStripMenuItem.Click += new System.EventHandler(this.serviceToolStripMenuItem_Click);
             // 
+            // staffToolStripMenuItem
+            // 
+            this.staffToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("staffToolStripMenuItem.Image")));
+            this.staffToolStripMenuItem.Name = "staffToolStripMenuItem";
+            this.staffToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.staffToolStripMenuItem.Text = "Staff";
+            this.staffToolStripMenuItem.Click += new System.EventHandler(this.staffToolStripMenuItem_Click);
+            // 
             // exitMenuItem
             // 
+            this.exitMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitMenuItem.Image")));
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.exitMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
@@ -217,8 +238,9 @@
             // 
             this.editMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.updateMenuItem});
+            this.editMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editMenuItem.Image")));
             this.editMenuItem.Name = "editMenuItem";
-            this.editMenuItem.Size = new System.Drawing.Size(49, 24);
+            this.editMenuItem.Size = new System.Drawing.Size(69, 24);
             this.editMenuItem.Text = "Edit";
             // 
             // updateMenuItem
@@ -229,52 +251,68 @@
             this.roomToolStripMenuItem1,
             this.rankToolStripMenuItem1,
             this.rageToolStripMenuItem,
-            this.serviceToolStripMenuItem1});
+            this.serviceToolStripMenuItem1,
+            this.staffToolStripMenuItem1});
+            this.updateMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("updateMenuItem.Image")));
             this.updateMenuItem.Name = "updateMenuItem";
-            this.updateMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.updateMenuItem.Size = new System.Drawing.Size(224, 26);
             this.updateMenuItem.Text = "Update";
             // 
             // updateuserMenuItem
             // 
+            this.updateuserMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("updateuserMenuItem.Image")));
             this.updateuserMenuItem.Name = "updateuserMenuItem";
-            this.updateuserMenuItem.Size = new System.Drawing.Size(155, 26);
+            this.updateuserMenuItem.Size = new System.Drawing.Size(224, 26);
             this.updateuserMenuItem.Text = "User";
             this.updateuserMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
             // customerToolStripMenuItem1
             // 
+            this.customerToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("customerToolStripMenuItem1.Image")));
             this.customerToolStripMenuItem1.Name = "customerToolStripMenuItem1";
-            this.customerToolStripMenuItem1.Size = new System.Drawing.Size(155, 26);
+            this.customerToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.customerToolStripMenuItem1.Text = "Customer";
             this.customerToolStripMenuItem1.Click += new System.EventHandler(this.customerToolStripMenuItem1_Click);
             // 
             // roomToolStripMenuItem1
             // 
+            this.roomToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("roomToolStripMenuItem1.Image")));
             this.roomToolStripMenuItem1.Name = "roomToolStripMenuItem1";
-            this.roomToolStripMenuItem1.Size = new System.Drawing.Size(155, 26);
+            this.roomToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.roomToolStripMenuItem1.Text = "Room";
             this.roomToolStripMenuItem1.Click += new System.EventHandler(this.roomToolStripMenuItem1_Click);
             // 
             // rankToolStripMenuItem1
             // 
+            this.rankToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("rankToolStripMenuItem1.Image")));
             this.rankToolStripMenuItem1.Name = "rankToolStripMenuItem1";
-            this.rankToolStripMenuItem1.Size = new System.Drawing.Size(155, 26);
+            this.rankToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.rankToolStripMenuItem1.Text = "Rank";
             this.rankToolStripMenuItem1.Click += new System.EventHandler(this.rankToolStripMenuItem1_Click);
             // 
             // rageToolStripMenuItem
             // 
+            this.rageToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("rageToolStripMenuItem.Image")));
             this.rageToolStripMenuItem.Name = "rageToolStripMenuItem";
-            this.rageToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
+            this.rageToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.rageToolStripMenuItem.Text = "Range";
             this.rageToolStripMenuItem.Click += new System.EventHandler(this.rageToolStripMenuItem_Click);
             // 
             // serviceToolStripMenuItem1
             // 
+            this.serviceToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("serviceToolStripMenuItem1.Image")));
             this.serviceToolStripMenuItem1.Name = "serviceToolStripMenuItem1";
-            this.serviceToolStripMenuItem1.Size = new System.Drawing.Size(155, 26);
+            this.serviceToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.serviceToolStripMenuItem1.Text = "Service";
             this.serviceToolStripMenuItem1.Click += new System.EventHandler(this.serviceToolStripMenuItem1_Click);
+            // 
+            // staffToolStripMenuItem1
+            // 
+            this.staffToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("staffToolStripMenuItem1.Image")));
+            this.staffToolStripMenuItem1.Name = "staffToolStripMenuItem1";
+            this.staffToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.staffToolStripMenuItem1.Text = "Staff";
+            this.staffToolStripMenuItem1.Click += new System.EventHandler(this.staffToolStripMenuItem1_Click);
             // 
             // menuStrip1
             // 
@@ -295,23 +333,26 @@
             this.billsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pricesToolStripMenuItem,
             this.collectionsToolStripMenuItem});
+            this.billsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("billsToolStripMenuItem.Image")));
             this.billsToolStripMenuItem.Name = "billsToolStripMenuItem";
-            this.billsToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
+            this.billsToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
             this.billsToolStripMenuItem.Text = "Bills";
-            // 
-            // collectionsToolStripMenuItem
-            // 
-            this.collectionsToolStripMenuItem.Name = "collectionsToolStripMenuItem";
-            this.collectionsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.collectionsToolStripMenuItem.Text = "Collections";
-            this.collectionsToolStripMenuItem.Click += new System.EventHandler(this.collectionsToolStripMenuItem_Click);
             // 
             // pricesToolStripMenuItem
             // 
+            this.pricesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pricesToolStripMenuItem.Image")));
             this.pricesToolStripMenuItem.Name = "pricesToolStripMenuItem";
             this.pricesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.pricesToolStripMenuItem.Text = "Prices";
+            this.pricesToolStripMenuItem.Text = "Payment";
             this.pricesToolStripMenuItem.Click += new System.EventHandler(this.pricesToolStripMenuItem_Click);
+            // 
+            // collectionsToolStripMenuItem
+            // 
+            this.collectionsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("collectionsToolStripMenuItem.Image")));
+            this.collectionsToolStripMenuItem.Name = "collectionsToolStripMenuItem";
+            this.collectionsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.collectionsToolStripMenuItem.Text = "Receipts";
+            this.collectionsToolStripMenuItem.Click += new System.EventHandler(this.collectionsToolStripMenuItem_Click);
             // 
             // panel2
             // 
@@ -373,9 +414,9 @@
             this.label2.ForeColor = System.Drawing.Color.AliceBlue;
             this.label2.Location = new System.Drawing.Point(767, 137);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 20);
+            this.label2.Size = new System.Drawing.Size(47, 20);
             this.label2.TabIndex = 23;
-            this.label2.Text = "Loại phòng";
+            this.label2.Text = "Rank";
             // 
             // txtTienCocSC1
             // 
@@ -395,9 +436,9 @@
             this.label1.ForeColor = System.Drawing.Color.AliceBlue;
             this.label1.Location = new System.Drawing.Point(767, 196);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 20);
+            this.label1.Size = new System.Drawing.Size(67, 20);
             this.label1.TabIndex = 21;
-            this.label1.Text = "Tiền cọc";
+            this.label1.Text = "Deposti";
             // 
             // labelHetCho
             // 
@@ -496,9 +537,9 @@
             this.label47.ForeColor = System.Drawing.Color.AliceBlue;
             this.label47.Location = new System.Drawing.Point(767, 170);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(85, 20);
+            this.label47.Size = new System.Drawing.Size(48, 20);
             this.label47.TabIndex = 13;
-            this.label47.Text = "Giá phòng";
+            this.label47.Text = "Price";
             // 
             // label3
             // 
@@ -552,9 +593,9 @@
             this.label44.ForeColor = System.Drawing.Color.AliceBlue;
             this.label44.Location = new System.Drawing.Point(766, 361);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(39, 20);
+            this.label44.Size = new System.Drawing.Size(57, 20);
             this.label44.TabIndex = 10;
-            this.label44.Text = "Dãy";
+            this.label44.Text = "Range";
             // 
             // label42
             // 
@@ -565,9 +606,9 @@
             this.label42.ForeColor = System.Drawing.Color.AliceBlue;
             this.label42.Location = new System.Drawing.Point(767, 226);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(84, 20);
+            this.label42.Size = new System.Drawing.Size(48, 20);
             this.label42.TabIndex = 8;
-            this.label42.Text = "Trạng thái";
+            this.label42.Text = "State";
             // 
             // label41
             // 
@@ -578,9 +619,9 @@
             this.label41.ForeColor = System.Drawing.Color.AliceBlue;
             this.label41.Location = new System.Drawing.Point(767, 108);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(39, 20);
+            this.label41.Size = new System.Drawing.Size(57, 20);
             this.label41.TabIndex = 7;
-            this.label41.Text = "Dãy";
+            this.label41.Text = "Range";
             // 
             // label40
             // 
@@ -591,9 +632,9 @@
             this.label40.ForeColor = System.Drawing.Color.AliceBlue;
             this.label40.Location = new System.Drawing.Point(766, 82);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(82, 20);
+            this.label40.Size = new System.Drawing.Size(69, 20);
             this.label40.TabIndex = 6;
-            this.label40.Text = "Mã phòng";
+            this.label40.Text = "ID room";
             // 
             // lvDanhSachKhachSC1
             // 
@@ -617,36 +658,36 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "CMND";
+            this.columnHeader1.Text = "ID Card";
             this.columnHeader1.Width = 100;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Họ tên";
+            this.columnHeader2.Text = "Full Name";
             this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader2.Width = 180;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Ngày sinh";
+            this.columnHeader5.Text = "Birthday";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader5.Width = 120;
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Quê quán";
+            this.columnHeader6.Text = "Address";
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader6.Width = 100;
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "SDT";
+            this.columnHeader7.Text = "Phone number";
             this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader7.Width = 100;
             // 
             // columnHeader8
             // 
-            this.columnHeader8.Text = "Giới tính";
+            this.columnHeader8.Text = "Sexual";
             this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader8.Width = 80;
             // 
@@ -677,11 +718,11 @@
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label39.Location = new System.Drawing.Point(797, 307);
+            this.label39.Location = new System.Drawing.Point(851, 305);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(95, 25);
+            this.label39.Size = new System.Drawing.Size(100, 25);
             this.label39.TabIndex = 3;
-            this.label39.Text = "thong ke";
+            this.label39.Text = "Statistics";
             // 
             // label38
             // 
@@ -692,9 +733,9 @@
             this.label38.ForeColor = System.Drawing.Color.AliceBlue;
             this.label38.Location = new System.Drawing.Point(797, 50);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(174, 25);
+            this.label38.Size = new System.Drawing.Size(229, 25);
             this.label38.TabIndex = 2;
-            this.label38.Text = "Thông tin cơ bản";
+            this.label38.Text = "ABOUT INFOMATION";
             // 
             // label37
             // 
@@ -703,11 +744,11 @@
             this.label37.BackColor = System.Drawing.Color.SeaShell;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label37.Location = new System.Drawing.Point(136, 297);
+            this.label37.Location = new System.Drawing.Point(251, 295);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(176, 25);
+            this.label37.Size = new System.Drawing.Size(188, 25);
             this.label37.TabIndex = 1;
-            this.label37.Text = "danh sach khach";
+            this.label37.Text = "LIST CUSTOMER";
             // 
             // label36
             // 
@@ -716,11 +757,11 @@
             this.label36.BackColor = System.Drawing.Color.SeaShell;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label36.Location = new System.Drawing.Point(109, 50);
+            this.label36.Location = new System.Drawing.Point(181, 50);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(181, 25);
+            this.label36.Size = new System.Drawing.Size(131, 25);
             this.label36.TabIndex = 0;
-            this.label36.Text = "Danh sách phòng";
+            this.label36.Text = "LIST ROOM";
             // 
             // Admin_Formcs
             // 
@@ -730,11 +771,12 @@
             this.ClientSize = new System.Drawing.Size(1068, 557);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "Admin_Formcs";
-            this.Text = "frmHome";
+            this.Text = "HOME";
             this.Load += new System.EventHandler(this.frmHome_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -814,5 +856,7 @@
         private System.Windows.Forms.ToolStripMenuItem rageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serviceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serviceToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem staffToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem staffToolStripMenuItem1;
     }
 }

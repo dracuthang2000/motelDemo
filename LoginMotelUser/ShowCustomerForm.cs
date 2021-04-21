@@ -33,12 +33,12 @@ namespace LoginMotelUser
         {
             using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
             {
-                listKhach.Columns.Add("ID", 100);
-                listKhach.Columns.Add("Họ Tên", 150);
-                listKhach.Columns.Add("Ngày Sinh", 100);
-                listKhach.Columns.Add("Địa Chỉ", 200);
-                listKhach.Columns.Add("Số điện thoại", 100);
-                listKhach.Columns.Add("Giới Tính", 70);
+                listKhach.Columns.Add("ID card", 100);
+                listKhach.Columns.Add("Full name", 150);
+                listKhach.Columns.Add("Birthday", 100);
+                listKhach.Columns.Add("Address", 200);
+                listKhach.Columns.Add("Phone number", 100);
+                listKhach.Columns.Add("Sexual", 70);
                 var list = (from d in data.USP_PageCustomer(a, b) select d).ToList();
 
 
@@ -64,7 +64,7 @@ namespace LoginMotelUser
                     tinh = tong / soLuong;
                 }
 
-                labPage.Text = "Trang 1/" + tinh;
+                labPage.Text = "Page 1/" + tinh;
 
 
             }
@@ -162,14 +162,14 @@ namespace LoginMotelUser
             using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
             {
                 String temp = textSearch.Text;
-                List<Model.CUSTOMER> list = (from a in data.CUSTOMERs where a.CustomerName.Contains(temp) || a.ID.ToString().Contains(temp) || a.NumberPhone.Contains(temp) select a).ToList();
+                List<Model.CUSTOMER> list = (from a in data.CUSTOMERs where a.CustomerName.Contains(temp) || a.IDCard.ToString().Contains(temp) || a.NumberPhone.Contains(temp) select a).ToList();
                 listKhach.Clear();
-                listKhach.Columns.Add("ID", 100);
-                listKhach.Columns.Add("Họ Tên", 150);
-                listKhach.Columns.Add("Ngày Sinh", 100);
-                listKhach.Columns.Add("Địa Chỉ", 200);
-                listKhach.Columns.Add("Số điện thoại", 100);
-                listKhach.Columns.Add("Giới Tính", 70);
+                listKhach.Columns.Add("ID card", 100);
+                listKhach.Columns.Add("Full name", 150);
+                listKhach.Columns.Add("Birthday", 100);
+                listKhach.Columns.Add("Address", 200);
+                listKhach.Columns.Add("Phone number", 100);
+                listKhach.Columns.Add("Sexual", 70);
                 foreach (Model.CUSTOMER c in list)
                 {
                     ListViewItem item = new ListViewItem(c.IDCard.ToString());
@@ -235,7 +235,7 @@ namespace LoginMotelUser
                 listKhach.Clear();
                 loadCustomer(dem * soLuong, soLuong);
             }
-            labPage.Text = "Trang " + (dem + 1) + "/" + tinh;
+            labPage.Text = "Page " + (dem + 1) + "/" + tinh;
         }
 
         private void textSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -249,12 +249,12 @@ namespace LoginMotelUser
                     String temp = textSearch.Text;
                     List<Model.CUSTOMER> list = (from a in data.CUSTOMERs where a.CustomerName.Contains(temp) || a.ID.ToString().Contains(temp) || a.NumberPhone.Contains(temp) select a).ToList();
                     listKhach.Clear();
-                    listKhach.Columns.Add("ID", 100);
-                    listKhach.Columns.Add("Họ Tên", 150);
-                    listKhach.Columns.Add("Ngày Sinh", 100);
-                    listKhach.Columns.Add("Địa Chỉ", 200);
-                    listKhach.Columns.Add("Số điện thoại", 100);
-                    listKhach.Columns.Add("Giới Tính", 70);
+                    listKhach.Columns.Add("ID Card", 100);
+                    listKhach.Columns.Add("Full name", 150);
+                    listKhach.Columns.Add("Birthday", 100);
+                    listKhach.Columns.Add("Address", 200);
+                    listKhach.Columns.Add("Phone number", 100);
+                    listKhach.Columns.Add("Sexual", 70);
                     foreach (Model.CUSTOMER c in list)
                     {
                         ListViewItem item = new ListViewItem(c.ID.ToString());

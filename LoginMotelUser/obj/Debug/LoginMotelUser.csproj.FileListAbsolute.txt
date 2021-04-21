@@ -1,7 +1,6 @@
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\LoginMotelUser.exe.config
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\LoginMotelUser.exe
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\LoginMotelUser.pdb
-C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.csprojAssemblyReference.cache
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.Form1.resources
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.Properties.Resources.resources
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.csproj.GenerateResource.cache
@@ -27,3 +26,8 @@ C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUs
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.rankFormSetting.resources
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.showRangeForm.resources
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.serviceForm.resources
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.chooseUserName.resources
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.createStaffForm.resources
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.showStaffForm.resources
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.showRoomForm.resources
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.AddParticularServiceForm.resources

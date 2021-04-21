@@ -419,5 +419,20 @@ namespace LoginMotelUser
             sF.ShowDialog();
             this.frmHome_Load(sender, e);
         }
+
+        private void staffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showStaffForm staff = new showStaffForm(true);
+            staff.ShowDialog();
+            this.frmHome_Load(sender, e);
+        }
+
+        private void staffToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            showStaffForm staff = new showStaffForm(false);
+            staff.ShowDialog();
+            this.frmHome_Load(sender, e);
+        }
+
     }
 }

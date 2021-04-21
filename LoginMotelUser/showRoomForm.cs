@@ -24,19 +24,19 @@ namespace LoginMotelUser
             loadRoom(0, soLuong);
             dem = 0;
             if (this.check == true)
-                butThem.Text = "ADD";
+                buttonUp.Text = "ADD";
             else
-                butSua.Text = "Update";
+                buttonUp.Text = "UPDATE";
         }
         public void loadRoom(int e, int f)
         {
             using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
             {
-                listRoom.Columns.Add("ID Phòng", 100);
-                listRoom.Columns.Add("Tên Phòng", 150);
-                listRoom.Columns.Add("Trạng Thái", 120);
-                listRoom.Columns.Add("Loại phòng", 140);
-                listRoom.Columns.Add("Tên Khu Vực ", 200);
+                listRoom.Columns.Add("ID Room", 100);
+                listRoom.Columns.Add("Room name", 150);
+                listRoom.Columns.Add("State", 120);
+                listRoom.Columns.Add("Rank", 140);
+                listRoom.Columns.Add("Range Name", 200);
 
                 var list = (from d in data.USP_PageRoom(e, f) select d).ToList();
 
@@ -73,7 +73,7 @@ namespace LoginMotelUser
                     tinh = tong / soLuong;
                 }
 
-                labPage.Text = "Trang 1/" + tinh;
+                labPage.Text = "Page 1/" + tinh;
             }
         }
         private void loadList()
@@ -84,42 +84,6 @@ namespace LoginMotelUser
         }
         private void butThem_Click(object sender, EventArgs e)
         {
-            if (this.check == true)
-            {
-                AddRoomcs rOF = new AddRoomcs(true);
-                rOF.goiHam = loadList;
-                rOF.ShowDialog();
-            }
-            else
-            {
-                if (listRoom.SelectedItems.Count > 0)
-                {
-                    String temp = listRoom.FocusedItem.Text;
-                    AddRoomcs rOF = new AddRoomcs(temp,false);
-                    rOF.goiHam = loadList;
-                    rOF.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("hay chon phong tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-        }
-
-
-        private void butSua_Click(object sender, EventArgs e)
-        {
-            if (listRoom.SelectedItems.Count > 0)
-            {
-                String temp = listRoom.FocusedItem.Text;
-                AddRoomcs rOF = new AddRoomcs(temp,false);
-                rOF.goiHam = loadList;
-                rOF.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("hay chon phong tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
         }
 
         private void listRoom_DoubleClick(object sender, EventArgs e)
@@ -128,40 +92,6 @@ namespace LoginMotelUser
             AddRoomcs rOF = new AddRoomcs(temp,this.check);
             rOF.goiHam = loadList;
             rOF.ShowDialog();
-        }
-
-        private void butXoa_Click(object sender, EventArgs e)
-        {
-            if (listRoom.SelectedItems.Count > 0)
-            {
-                using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
-                {
-                    DialogResult result = MessageBox.Show("Ban co chac xoa phong co ID = " + listRoom.FocusedItem.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                    switch (result)
-                    {
-                        case DialogResult.Cancel: return;
-                        case DialogResult.Yes:
-                            {
-                                Model.MOTELROOM temp = data.MOTELROOMs.Find(int.Parse(listRoom.FocusedItem.Text));
-                                data.MOTELROOMs.Remove(temp);
-                                data.SaveChanges();
-                                listRoom.Clear();
-                                loadRoom(0, soLuong);
-                                dem = 0;
-                                break;
-                            }
-                        case DialogResult.No: return;
-
-                        default:
-                            break;
-
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("hay chon phong tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
         }
 
         private void textSearch_TextChanged(object sender, EventArgs e)
@@ -173,11 +103,11 @@ namespace LoginMotelUser
                 String temp = textSearch.Text;
                 List<Model.MOTELROOM> list = (from a in data.MOTELROOMs where a.RoomName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();
 
-                listRoom.Columns.Add("ID Phòng", 100);
-                listRoom.Columns.Add("Tên Phòng", 150);
-                listRoom.Columns.Add("Trạng Thái", 120);
-                listRoom.Columns.Add("Loại phòng", 140);
-                listRoom.Columns.Add("Tên Khu Vực ", 200);
+                listRoom.Columns.Add("ID Room", 100);
+                listRoom.Columns.Add("Room name", 150);
+                listRoom.Columns.Add("State", 120);
+                listRoom.Columns.Add("Rank", 140);
+                listRoom.Columns.Add("Room state ", 200);
 
                 foreach (Model.MOTELROOM c in list)
                 {
@@ -254,7 +184,7 @@ namespace LoginMotelUser
                 listRoom.Clear();
                 loadRoom(dem * soLuong, soLuong);
             }
-            labPage.Text = "Trang " + (dem + 1) + "/" + tinh;
+            labPage.Text = "Page " + (dem + 1) + "/" + tinh;
         }
 
         private void textSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -268,11 +198,11 @@ namespace LoginMotelUser
                     String temp = textSearch.Text;
                     List<Model.MOTELROOM> list = (from a in data.MOTELROOMs where a.RoomName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();
 
-                    listRoom.Columns.Add("ID Phòng", 100);
-                    listRoom.Columns.Add("Tên Phòng", 150);
-                    listRoom.Columns.Add("Trạng Thái", 120);
-                    listRoom.Columns.Add("Loại phòng", 140);
-                    listRoom.Columns.Add("Tên Khu Vực ", 200);
+                    listRoom.Columns.Add("ID Room", 100);
+                    listRoom.Columns.Add("Room name", 150);
+                    listRoom.Columns.Add("State", 120);
+                    listRoom.Columns.Add("Rank", 140);
+                    listRoom.Columns.Add("Range name", 200);
 
                     foreach (Model.MOTELROOM c in list)
                     {
@@ -296,8 +226,66 @@ namespace LoginMotelUser
                         item.SubItems.Add(b.RangeName.ToString());
                         listRoom.Items.Add(item);
                     }
-                    labPage.Text = "Trang 1/1";
+                    labPage.Text = "Page 1/1";
                 }
+            }
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (this.check == true)
+            {
+                AddRoomcs rOF = new AddRoomcs(true);
+                rOF.goiHam = loadList;
+                rOF.ShowDialog();
+            }
+            else
+            {
+                if (listRoom.SelectedItems.Count > 0)
+                {
+                    String temp = listRoom.FocusedItem.Text;
+                    AddRoomcs rOF = new AddRoomcs(temp, false);
+                    rOF.goiHam = loadList;
+                    rOF.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("hay chon phong tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (listRoom.SelectedItems.Count > 0)
+            {
+                using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+                {
+                    DialogResult result = MessageBox.Show("Ban co chac xoa phong co ID = " + listRoom.FocusedItem.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    switch (result)
+                    {
+                        case DialogResult.Cancel: return;
+                        case DialogResult.Yes:
+                            {
+                                Model.MOTELROOM temp = data.MOTELROOMs.Find(int.Parse(listRoom.FocusedItem.Text));
+                                data.MOTELROOMs.Remove(temp);
+                                data.SaveChanges();
+                                listRoom.Clear();
+                                loadRoom(0, soLuong);
+                                dem = 0;
+                                break;
+                            }
+                        case DialogResult.No: return;
+
+                        default:
+                            break;
+
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("hay chon phong tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

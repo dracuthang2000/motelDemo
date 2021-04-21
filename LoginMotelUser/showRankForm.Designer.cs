@@ -26,15 +26,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(showRankForm));
             this.panRank = new System.Windows.Forms.Panel();
+            this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonUpdate = new ePOSOne.btnProduct.Button_WOC();
             this.labPage = new System.Windows.Forms.Label();
             this.butRight = new System.Windows.Forms.Button();
             this.butLeft = new System.Windows.Forms.Button();
             this.textSearch = new System.Windows.Forms.TextBox();
             this.labSearch = new System.Windows.Forms.Label();
-            this.butSua = new System.Windows.Forms.Button();
-            this.butThem = new System.Windows.Forms.Button();
-            this.butXoa = new System.Windows.Forms.Button();
             this.listRank = new System.Windows.Forms.ListView();
             this.labTieuDe = new System.Windows.Forms.Label();
             this.panRank.SuspendLayout();
@@ -45,20 +45,64 @@
             this.panRank.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panRank.BackColor = System.Drawing.Color.GhostWhite;
+            this.panRank.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panRank.BackgroundImage")));
+            this.panRank.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panRank.Controls.Add(this.button_WOC1);
+            this.panRank.Controls.Add(this.buttonUpdate);
             this.panRank.Controls.Add(this.labPage);
             this.panRank.Controls.Add(this.butRight);
             this.panRank.Controls.Add(this.butLeft);
             this.panRank.Controls.Add(this.textSearch);
             this.panRank.Controls.Add(this.labSearch);
-            this.panRank.Controls.Add(this.butSua);
-            this.panRank.Controls.Add(this.butThem);
-            this.panRank.Controls.Add(this.butXoa);
             this.panRank.Controls.Add(this.listRank);
             this.panRank.Controls.Add(this.labTieuDe);
             this.panRank.Location = new System.Drawing.Point(3, 1);
             this.panRank.Name = "panRank";
             this.panRank.Size = new System.Drawing.Size(969, 656);
             this.panRank.TabIndex = 1;
+            // 
+            // button_WOC1
+            // 
+            this.button_WOC1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_WOC1.BackgroundImage")));
+            this.button_WOC1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_WOC1.BorderColor = System.Drawing.Color.Silver;
+            this.button_WOC1.ButtonColor = System.Drawing.Color.MediumTurquoise;
+            this.button_WOC1.FlatAppearance.BorderSize = 0;
+            this.button_WOC1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC1.Location = new System.Drawing.Point(612, 583);
+            this.button_WOC1.Name = "button_WOC1";
+            this.button_WOC1.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.button_WOC1.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.button_WOC1.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.button_WOC1.Size = new System.Drawing.Size(103, 37);
+            this.button_WOC1.TabIndex = 13;
+            this.button_WOC1.Text = "DELETE";
+            this.button_WOC1.TextColor = System.Drawing.Color.White;
+            this.button_WOC1.UseVisualStyleBackColor = true;
+            this.button_WOC1.Click += new System.EventHandler(this.button_WOC1_Click_1);
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.BackgroundImage")));
+            this.buttonUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonUpdate.BorderColor = System.Drawing.Color.Silver;
+            this.buttonUpdate.ButtonColor = System.Drawing.Color.MediumTurquoise;
+            this.buttonUpdate.FlatAppearance.BorderSize = 0;
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUpdate.Location = new System.Drawing.Point(291, 583);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonUpdate.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonUpdate.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonUpdate.Size = new System.Drawing.Size(103, 37);
+            this.buttonUpdate.TabIndex = 12;
+            this.buttonUpdate.Text = "...";
+            this.buttonUpdate.TextColor = System.Drawing.Color.White;
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.button_WOC1_Click);
             // 
             // labPage
             // 
@@ -112,42 +156,6 @@
             this.labSearch.TabIndex = 7;
             this.labSearch.Text = "Tìm Kiếm :";
             // 
-            // butSua
-            // 
-            this.butSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.butSua.AutoSize = true;
-            this.butSua.Location = new System.Drawing.Point(302, 575);
-            this.butSua.Name = "butSua";
-            this.butSua.Size = new System.Drawing.Size(75, 53);
-            this.butSua.TabIndex = 6;
-            this.butSua.Text = "Sửa";
-            this.butSua.UseVisualStyleBackColor = true;
-            this.butSua.Click += new System.EventHandler(this.butSua_Click);
-            // 
-            // butThem
-            // 
-            this.butThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.butThem.AutoSize = true;
-            this.butThem.Location = new System.Drawing.Point(302, 575);
-            this.butThem.Name = "butThem";
-            this.butThem.Size = new System.Drawing.Size(75, 53);
-            this.butThem.TabIndex = 4;
-            this.butThem.Text = "Thêm";
-            this.butThem.UseVisualStyleBackColor = true;
-            this.butThem.Click += new System.EventHandler(this.butThem_Click);
-            // 
-            // butXoa
-            // 
-            this.butXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.butXoa.AutoSize = true;
-            this.butXoa.Location = new System.Drawing.Point(590, 575);
-            this.butXoa.Name = "butXoa";
-            this.butXoa.Size = new System.Drawing.Size(75, 53);
-            this.butXoa.TabIndex = 5;
-            this.butXoa.Text = "Xóa";
-            this.butXoa.UseVisualStyleBackColor = true;
-            this.butXoa.Click += new System.EventHandler(this.butXoa_Click);
-            // 
             // listRank
             // 
             this.listRank.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -181,6 +189,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(973, 657);
             this.Controls.Add(this.panRank);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "showRankForm";
             this.Text = "rankForm";
             this.panRank.ResumeLayout(false);
@@ -192,9 +201,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panRank;
-        private System.Windows.Forms.Button butSua;
-        private System.Windows.Forms.Button butThem;
-        private System.Windows.Forms.Button butXoa;
         private System.Windows.Forms.ListView listRank;
         private System.Windows.Forms.Label labTieuDe;
         private System.Windows.Forms.Label labSearch;
@@ -202,6 +208,7 @@
         private System.Windows.Forms.Button butLeft;
         private System.Windows.Forms.Button butRight;
         private System.Windows.Forms.Label labPage;
-
+        private ePOSOne.btnProduct.Button_WOC buttonUpdate;
+        private ePOSOne.btnProduct.Button_WOC button_WOC1;
     }
 }

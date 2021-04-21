@@ -258,20 +258,20 @@
             this.sortToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(215, 84);
+            this.contextMenuStrip.Size = new System.Drawing.Size(127, 56);
             // 
             // sortToolStripMenuItem
             // 
             this.sortToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sortToolStripMenuItem.Image")));
             this.sortToolStripMenuItem.Name = "sortToolStripMenuItem";
-            this.sortToolStripMenuItem.Size = new System.Drawing.Size(109, 26);
+            this.sortToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
             this.sortToolStripMenuItem.Text = "Sort";
             this.sortToolStripMenuItem.Click += new System.EventHandler(this.sortToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -295,9 +295,10 @@
             this.Controls.Add(this.textPassword);
             this.Controls.Add(this.textUsername);
             this.Controls.Add(this.dataUser);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "Update_User";
-            this.Text = "Update_User";
+            this.Text = "UPDATE USER";
             this.Load += new System.EventHandler(this.Update_User_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uSERBindingSource1)).EndInit();

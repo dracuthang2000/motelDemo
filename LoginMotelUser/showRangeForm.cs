@@ -46,8 +46,8 @@ namespace LoginMotelUser
         public void loadData(int b, int e)
         {
             var list = (from d in data.USP_PageRange(b, e) select d).ToList();
-            listRange.Columns.Add("ID Khu vực", 100);
-            listRange.Columns.Add("Tên Khu Vực", 140);
+            listRange.Columns.Add("ID Range", 100);
+            listRange.Columns.Add("Range name", 140);
             foreach (var a in list)
             {
                 ListViewItem item = new ListViewItem(a.ID.ToString());
@@ -65,7 +65,7 @@ namespace LoginMotelUser
                 tinh = tong / soLuong;
             }
 
-            labPage.Text = "Trang 1/" + tinh;
+            labPage.Text = "Page 1/" + tinh;
         }
 
         private void listRange_SelectedIndexChanged(object sender, EventArgs e)
@@ -205,8 +205,8 @@ namespace LoginMotelUser
             {
                 String temp = textSearch.Text;
                 List<Model.ROOMRANGE> list = (from a in data.ROOMRANGEs where a.RangeName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();
-                listRange.Columns.Add("ID Khu vực", 100);
-                listRange.Columns.Add("Tên Khu Vực", 140);
+                listRange.Columns.Add("ID Range", 100);
+                listRange.Columns.Add("Range name", 140);
                 foreach (Model.ROOMRANGE a in list)
                 {
                     ListViewItem item = new ListViewItem(a.ID.ToString());
@@ -240,7 +240,7 @@ namespace LoginMotelUser
                 listRange.Clear();
                 loadData(dem * soLuong, soLuong);
             }
-            labPage.Text = "Trang " + (dem + 1) + "/" + tinh;
+            labPage.Text = "Page " + (dem + 1) + "/" + tinh;
         }
 
         private void butLeft_Click(object sender, EventArgs e)
@@ -266,7 +266,7 @@ namespace LoginMotelUser
                 listRange.Clear();
                 loadData(dem * soLuong, soLuong);
             }
-            labPage.Text = "Trang " + (dem + 1) + "/" + tinh;
+            labPage.Text = "Page " + (dem + 1) + "/" + tinh;
         }
 
         private void textSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -274,13 +274,13 @@ namespace LoginMotelUser
             if (e.KeyChar == (char)Keys.Return)
             {
                 listRange.Clear();
-                labPage.Text = "Trang 1/1";
+                labPage.Text = "Page 1/1";
                 using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
                 {
                     String temp = textSearch.Text;
                     List<Model.ROOMRANGE> list = (from a in data.ROOMRANGEs where a.RangeName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();
-                    listRange.Columns.Add("ID Khu vực", 100);
-                    listRange.Columns.Add("Tên Khu Vực", 140);
+                    listRange.Columns.Add("ID Range", 100);
+                    listRange.Columns.Add("Range name", 140);
                     foreach (Model.ROOMRANGE a in list)
                     {
                         ListViewItem item = new ListViewItem(a.ID.ToString());

@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCustomer));
             this.panGuestOpen = new System.Windows.Forms.Panel();
             this.butExit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -304,13 +305,15 @@
             this.labTieuDe.TabIndex = 0;
             this.labTieuDe.Text = "THÔNG TIN KHÁCH TRỌ";
             // 
-            // AddCustomerForm
+            // FormCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 693);
             this.Controls.Add(this.panGuestOpen);
-            this.Name = "AddCustomerForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "FormCustomer";
+            this.Text = "CUSTOMER";
             this.panGuestOpen.ResumeLayout(false);
             this.panGuestOpen.PerformLayout();
             this.ResumeLayout(false);

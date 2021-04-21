@@ -15,22 +15,55 @@ namespace LoginMotelUser
     {
         Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2();
         public callFunction goiHam;
+        private int IDStaff;
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
             if (goiHam != null)
                 goiHam();
         }
-        public createStaffForm()
+        private Boolean checkUpdate;
+        public createStaffForm(Boolean checkUpdate)
         {
             InitializeComponent();
+            setColor();
+            this.checkUpdate = checkUpdate;
+            this.checkEdit(checkUpdate);
         }
 
-        public createStaffForm(String a)
+        public void checkEdit(Boolean check)
+        {
+            if (check == true)
+            {
+                textHoTen.Enabled = false;
+                textSDT.Enabled = false;
+                buttonChoose.Enabled = false;
+                textAddress.Enabled = false;
+                datePickerBirth.Enabled = false;
+                comBoxSexual.Enabled = false;
+                buttonSave.Enabled = false;
+
+            }
+            else
+            {
+                textHoTen.Enabled = true;
+                textSDT.Enabled = true;
+                buttonChoose.Enabled = true;
+                textAddress.Enabled = true;
+                datePickerBirth.Enabled = true;
+                comBoxSexual.Enabled = true;
+                buttonSave.Enabled = true;
+            }
+        }
+
+        public createStaffForm(String a, Boolean checkUpdate)
         {
             InitializeComponent();
+            setColor();
             this.textIDStaff.Text = a;
             loadData(a);
+            this.checkEdit(checkUpdate);
+            this.checkUpdate = checkUpdate;
         }
         public bool catchData()
         {
@@ -140,6 +173,7 @@ namespace LoginMotelUser
                             select staff;
             foreach (var staff in Tempstaff)
             {
+                IDStaff = staff.ID;
                 textIDStaff.Text = staff.IDCard;
                 textHoTen.Text = staff.StaffName;
                 textAddress.Text = staff.Address;
@@ -153,9 +187,9 @@ namespace LoginMotelUser
         public void saveDate()
         {
 
-            //Model.STAFF staff = new Model.STAFF() { ID = textIDStaff.Text, StaffName = textHoTen.Text, DateOfBirth = datePickerBirth.Value, Address = textAddress.Text, NumberPhone = textSDT.Text,UserName=textUserName.Text, Sexual = comBoxSexual.Text };
-            //data.STAFFs.Add(staff);
-            //data.SaveChanges();
+            Model.STAFF staff = new Model.STAFF() { IDCard = textIDStaff.Text, StaffName = textHoTen.Text, DateOfBirth = datePickerBirth.Value, Address = textAddress.Text, NumberPhone = textSDT.Text, UserName = textUserName.Text, Sexual = comBoxSexual.Text };
+            data.STAFFs.Add(staff);
+            data.SaveChanges();
             ////Model.USER user = new Model.USER() { UserName = textUserName.Text, Password = "",IDRole=2};
             //data.USERs.Add(user);
             //data.SaveChanges();
@@ -163,7 +197,8 @@ namespace LoginMotelUser
         }
         public void updateData()
         {
-            Model.STAFF temp = data.STAFFs.Find(textIDStaff.Text);
+            Model.STAFF temp = data.STAFFs.Find(IDStaff);
+            temp.IDCard = textIDStaff.Text;
             temp.StaffName = textHoTen.Text;
             temp.DateOfBirth = datePickerBirth.Value;
             temp.Address = textAddress.Text;
@@ -173,49 +208,149 @@ namespace LoginMotelUser
             data.SaveChanges();
 
         }
-        private void butUpdate_Click(object sender, EventArgs e)
+        private void buttonChoose_Click(object sender, EventArgs e)
         {
-            //if (catchData() == false) return;
-            //List<Model.STAFF> list = (from b in data.STAFFs where b.ID == textIDStaff.Text select b).ToList();
-            //if (list.Count > 0)
-            //{
-            //    DialogResult result = MessageBox.Show("Ban co chac chinh sua quan ly co ID = " + textIDStaff.Text + " khong ? (tat ca cac du lieu lien quan deu se thay doi!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-            //    switch (result)
-            //    {
-            //        case DialogResult.Cancel: return;
-            //        case DialogResult.Yes: { updateData(); this.Close(); break; }
-            //        case DialogResult.No: return;
-
-            //        default:
-            //            break;
-
-            //    }
-
-            //}
-            //else
-            //{
-            //    DialogResult result = MessageBox.Show("Ban co chac them quan ly co ID =" + textIDStaff.Text + " khong?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-            //    switch (result)
-            //    {
-            //        case DialogResult.Cancel: return;
-            //        case DialogResult.Yes: { saveDate(); this.Close(); break; }
-            //        case DialogResult.No: return;
-
-            //        default:
-            //            break;
-
-            //    }
-
-            //}
-            //this.Close();
-
+            chooseUserName ChooseUser = new chooseUserName();
+            ChooseUser.ShowDialog();
+            if (!ChooseUser.userName().Equals(""))
+                textUserName.Text = ChooseUser.userName();
         }
 
+        private void textIndex_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
 
+        private void textIDStaff_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
 
-        private void butExit_Click(object sender, EventArgs e)
+        private void textSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        public void clear()
+        {
+            textHoTen.Text = "";
+            textSDT.Text = "";
+            textUserName.Text = "";
+            textAddress.Text = "";
+            datePickerBirth.Value = DateTime.Now;
+            comBoxSexual.Text = "";
+        }
+        private void textIDStaff_TextChanged(object sender, EventArgs e)
+        {
+            if (checkUpdate == true)
+            {
+                var staff = (from staffs in data.STAFFs
+                             where staffs.IDCard.Equals(textIDStaff.Text)
+                             select staffs).ToList();
+                if (staff.Count == 0 && textIDStaff.Text.Length == 9)
+                {
+                    this.checkEdit(false);
+                }
+                else
+                {
+                    this.checkEdit(true);
+                    if (textIDStaff.Text.Length == 9)
+                    {
+                        foreach (var Staffs in staff)
+                        {
+                            textHoTen.Text = Staffs.StaffName;
+                            textSDT.Text = Staffs.NumberPhone;
+                            textUserName.Text = Staffs.UserName;
+                            textAddress.Text = Staffs.Address;
+                            datePickerBirth.Value = Staffs.DateOfBirth.Value.Date;
+                            comBoxSexual.Text = Staffs.Sexual;
+                        }
+                    }
+                    else
+                    {
+                        this.clear();
+                    }
+                }
+            }
+        }
+
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            if (catchData() == false) return;
+            List<Model.STAFF> list = (from b in data.STAFFs where b.ID == IDStaff select b).ToList();
+            if (checkUpdate == true)
+            {
+                DialogResult result = MessageBox.Show("Are you sure SAVE IDCard =" + textIDStaff.Text + "?", "QUESTION", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                switch (result)
+                {
+                    case DialogResult.Yes: { saveDate(); this.Close(); break; }
+                    case DialogResult.No: return;
+
+                    default:
+                        break;
+
+                }
+            }
+            else
+            {
+                if (list.Count > 0)
+                {
+                    DialogResult result = MessageBox.Show("Are you sure SAVE IDCard = " + textIDStaff.Text + " ? (All date will be change!)", "QUESTION", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                    switch (result)
+                    {
+                        case DialogResult.Yes: { updateData(); this.Close(); break; }
+                        case DialogResult.No: return;
+
+                        default:
+                            break;
+
+                    }
+
+                }
+                else
+                {
+
+                }
+            }
+            this.Close();
+        }
+
+        private void buttonCancle_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void setColor()
+        {
+            this.labNgaySinh.BackColor = System.Drawing.Color.Transparent;
+            this.labHoTen.BackColor = System.Drawing.Color.Transparent;
+            this.labDiaChi.BackColor = System.Drawing.Color.Transparent;
+            this.labIDStaff.BackColor = System.Drawing.Color.Transparent;
+            this.labSDT.BackColor = System.Drawing.Color.Transparent;
+            this.labSexual.BackColor = System.Drawing.Color.Transparent;
+            this.labTieuDe.BackColor = System.Drawing.Color.Transparent;
+            this.labUserName.BackColor = System.Drawing.Color.Transparent;
         }
     }
 }

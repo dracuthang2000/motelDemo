@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rankFormSetting));
             this.labTieuDe = new System.Windows.Forms.Label();
             this.labIDRank = new System.Windows.Forms.Label();
             this.labRankName = new System.Windows.Forms.Label();
@@ -185,6 +186,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 559);
             this.Controls.Add(this.panRankOpen);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "rankFormSetting";
             this.Text = "rankOpenForm";
             this.panRankOpen.ResumeLayout(false);

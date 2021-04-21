@@ -22,7 +22,11 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(showRangeForm));
             this.panRange = new System.Windows.Forms.Panel();
+            this.OldName = new System.Windows.Forms.Label();
+            this.NewName = new System.Windows.Forms.Label();
+            this.textNewName = new System.Windows.Forms.TextBox();
             this.labPage = new System.Windows.Forms.Label();
             this.butRight = new System.Windows.Forms.Button();
             this.butLeft = new System.Windows.Forms.Button();
@@ -37,9 +41,6 @@
             this.labID = new System.Windows.Forms.Label();
             this.listRange = new System.Windows.Forms.ListView();
             this.labTieuDe = new System.Windows.Forms.Label();
-            this.textNewName = new System.Windows.Forms.TextBox();
-            this.NewName = new System.Windows.Forms.Label();
-            this.OldName = new System.Windows.Forms.Label();
             this.panRange.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +49,8 @@
             this.panRange.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panRange.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panRange.BackgroundImage")));
+            this.panRange.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panRange.Controls.Add(this.OldName);
             this.panRange.Controls.Add(this.NewName);
             this.panRange.Controls.Add(this.textNewName);
@@ -65,10 +68,37 @@
             this.panRange.Controls.Add(this.labID);
             this.panRange.Controls.Add(this.listRange);
             this.panRange.Controls.Add(this.labTieuDe);
-            this.panRange.Location = new System.Drawing.Point(-1, 4);
+            this.panRange.Location = new System.Drawing.Point(-1, 1);
             this.panRange.Name = "panRange";
-            this.panRange.Size = new System.Drawing.Size(910, 618);
+            this.panRange.Size = new System.Drawing.Size(913, 621);
             this.panRange.TabIndex = 0;
+            // 
+            // OldName
+            // 
+            this.OldName.AutoSize = true;
+            this.OldName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OldName.Location = new System.Drawing.Point(443, 214);
+            this.OldName.Name = "OldName";
+            this.OldName.Size = new System.Drawing.Size(151, 20);
+            this.OldName.TabIndex = 14;
+            this.OldName.Text = "Old Range Name";
+            // 
+            // NewName
+            // 
+            this.NewName.AutoSize = true;
+            this.NewName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewName.Location = new System.Drawing.Point(443, 262);
+            this.NewName.Name = "NewName";
+            this.NewName.Size = new System.Drawing.Size(158, 20);
+            this.NewName.TabIndex = 13;
+            this.NewName.Text = "New Range Name";
+            // 
+            // textNewName
+            // 
+            this.textNewName.Location = new System.Drawing.Point(627, 260);
+            this.textNewName.Name = "textNewName";
+            this.textNewName.Size = new System.Drawing.Size(167, 22);
+            this.textNewName.TabIndex = 12;
             // 
             // labPage
             // 
@@ -113,11 +143,12 @@
             // labSearch
             // 
             this.labSearch.AutoSize = true;
-            this.labSearch.Location = new System.Drawing.Point(492, 67);
+            this.labSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labSearch.Location = new System.Drawing.Point(443, 67);
             this.labSearch.Name = "labSearch";
-            this.labSearch.Size = new System.Drawing.Size(74, 17);
+            this.labSearch.Size = new System.Drawing.Size(80, 20);
             this.labSearch.TabIndex = 7;
-            this.labSearch.Text = "Tìm Kiếm :";
+            this.labSearch.Text = "Search: ";
             // 
             // butClear
             // 
@@ -163,9 +194,9 @@
             // textIDRange
             // 
             this.textIDRange.Enabled = false;
-            this.textIDRange.Location = new System.Drawing.Point(627, 124);
+            this.textIDRange.Location = new System.Drawing.Point(627, 137);
             this.textIDRange.Name = "textIDRange";
-            this.textIDRange.Size = new System.Drawing.Size(161, 22);
+            this.textIDRange.Size = new System.Drawing.Size(167, 22);
             this.textIDRange.TabIndex = 4;
             // 
             // labRangeName
@@ -180,9 +211,10 @@
             // labID
             // 
             this.labID.AutoSize = true;
-            this.labID.Location = new System.Drawing.Point(537, 138);
+            this.labID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labID.Location = new System.Drawing.Point(443, 137);
             this.labID.Name = "labID";
-            this.labID.Size = new System.Drawing.Size(29, 17);
+            this.labID.Size = new System.Drawing.Size(40, 20);
             this.labID.TabIndex = 2;
             this.labID.Text = "ID :";
             // 
@@ -203,45 +235,22 @@
             // 
             this.labTieuDe.AutoSize = true;
             this.labTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTieuDe.Location = new System.Drawing.Point(272, 5);
+            this.labTieuDe.Location = new System.Drawing.Point(286, 5);
             this.labTieuDe.Name = "labTieuDe";
-            this.labTieuDe.Size = new System.Drawing.Size(316, 32);
+            this.labTieuDe.Size = new System.Drawing.Size(333, 32);
             this.labTieuDe.TabIndex = 0;
-            this.labTieuDe.Text = "THÔNG TIN KHU VỰC";
-            // 
-            // textNewName
-            // 
-            this.textNewName.Location = new System.Drawing.Point(627, 260);
-            this.textNewName.Name = "textNewName";
-            this.textNewName.Size = new System.Drawing.Size(167, 22);
-            this.textNewName.TabIndex = 12;
-            // 
-            // NewName
-            // 
-            this.NewName.AutoSize = true;
-            this.NewName.Location = new System.Drawing.Point(471, 260);
-            this.NewName.Name = "NewName";
-            this.NewName.Size = new System.Drawing.Size(122, 17);
-            this.NewName.TabIndex = 13;
-            this.NewName.Text = "New Range Name";
-            // 
-            // OldName
-            // 
-            this.OldName.AutoSize = true;
-            this.OldName.Location = new System.Drawing.Point(468, 214);
-            this.OldName.Name = "OldName";
-            this.OldName.Size = new System.Drawing.Size(117, 17);
-            this.OldName.TabIndex = 14;
-            this.OldName.Text = "Old Range Name";
+            this.labTieuDe.Text = "RANGE INFORMATION";
             // 
             // showRangeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(909, 621);
             this.Controls.Add(this.panRange);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "showRangeForm";
-            this.Text = "rangeForm";
+            this.Text = "RANGE";
             this.panRange.ResumeLayout(false);
             this.panRange.PerformLayout();
             this.ResumeLayout(false);

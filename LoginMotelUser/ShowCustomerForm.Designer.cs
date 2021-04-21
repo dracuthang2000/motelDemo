@@ -30,6 +30,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowCustomerForm));
             this.panKhach = new System.Windows.Forms.Panel();
             this.labPage = new System.Windows.Forms.Label();
             this.butLeft = new System.Windows.Forms.Button();
@@ -54,6 +55,8 @@
             this.panKhach.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panKhach.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panKhach.BackgroundImage")));
+            this.panKhach.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panKhach.Controls.Add(this.labPage);
             this.panKhach.Controls.Add(this.butLeft);
             this.panKhach.Controls.Add(this.butRight);
@@ -74,9 +77,9 @@
             this.labPage.AutoSize = true;
             this.labPage.Location = new System.Drawing.Point(438, 541);
             this.labPage.Name = "labPage";
-            this.labPage.Size = new System.Drawing.Size(70, 17);
+            this.labPage.Size = new System.Drawing.Size(65, 17);
             this.labPage.TabIndex = 9;
-            this.labPage.Text = "Trang 0/0";
+            this.labPage.Text = "Page 0/0";
             // 
             // butLeft
             // 
@@ -86,7 +89,7 @@
             this.butLeft.Name = "butLeft";
             this.butLeft.Size = new System.Drawing.Size(75, 27);
             this.butLeft.TabIndex = 2;
-            this.butLeft.Text = "Trái";
+            this.butLeft.Text = "Left";
             this.butLeft.UseVisualStyleBackColor = true;
             this.butLeft.Click += new System.EventHandler(this.butLeft_Click);
             // 
@@ -98,7 +101,7 @@
             this.butRight.Name = "butRight";
             this.butRight.Size = new System.Drawing.Size(75, 27);
             this.butRight.TabIndex = 3;
-            this.butRight.Text = "Phải";
+            this.butRight.Text = "Right";
             this.butRight.UseVisualStyleBackColor = true;
             this.butRight.Click += new System.EventHandler(this.butRight_Click);
             // 
@@ -114,11 +117,12 @@
             // labSearch
             // 
             this.labSearch.AutoSize = true;
-            this.labSearch.Location = new System.Drawing.Point(36, 73);
+            this.labSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labSearch.Location = new System.Drawing.Point(36, 70);
             this.labSearch.Name = "labSearch";
-            this.labSearch.Size = new System.Drawing.Size(74, 17);
+            this.labSearch.Size = new System.Drawing.Size(74, 20);
             this.labSearch.TabIndex = 6;
-            this.labSearch.Text = "Tìm Kiếm :";
+            this.labSearch.Text = "Search:";
             // 
             // butThem
             // 
@@ -140,7 +144,7 @@
             this.butXoa.Name = "butXoa";
             this.butXoa.Size = new System.Drawing.Size(75, 53);
             this.butXoa.TabIndex = 5;
-            this.butXoa.Text = "Xóa";
+            this.butXoa.Text = "DELETE";
             this.butXoa.UseVisualStyleBackColor = true;
             this.butXoa.Click += new System.EventHandler(this.butXoa_Click);
             // 
@@ -167,11 +171,11 @@
             // 
             this.labTieuDe.AutoSize = true;
             this.labTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTieuDe.Location = new System.Drawing.Point(314, 7);
+            this.labTieuDe.Location = new System.Drawing.Point(357, 7);
             this.labTieuDe.Name = "labTieuDe";
-            this.labTieuDe.Size = new System.Drawing.Size(369, 32);
+            this.labTieuDe.Size = new System.Drawing.Size(254, 32);
             this.labTieuDe.TabIndex = 0;
-            this.labTieuDe.Text = "DANH SÁCH KHÁCH TRỌ";
+            this.labTieuDe.Text = "LIST CUSTOMER";
             // 
             // contextMenuStrip1
             // 
@@ -179,7 +183,7 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sortToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 56);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(106, 28);
             // 
             // sortToolStripMenuItem
             // 
@@ -188,14 +192,14 @@
             this.nameToolStripMenuItem,
             this.dateToolStripMenuItem});
             this.sortToolStripMenuItem.Name = "sortToolStripMenuItem";
-            this.sortToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.sortToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
             this.sortToolStripMenuItem.Text = "Sort";
             // 
             // iDToolStripMenuItem
             // 
             this.iDToolStripMenuItem.CheckOnClick = true;
             this.iDToolStripMenuItem.Name = "iDToolStripMenuItem";
-            this.iDToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.iDToolStripMenuItem.Size = new System.Drawing.Size(132, 26);
             this.iDToolStripMenuItem.Text = "ID";
             this.iDToolStripMenuItem.Click += new System.EventHandler(this.iDToolStripMenuItem_Click);
             // 
@@ -203,7 +207,7 @@
             // 
             this.nameToolStripMenuItem.CheckOnClick = true;
             this.nameToolStripMenuItem.Name = "nameToolStripMenuItem";
-            this.nameToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.nameToolStripMenuItem.Size = new System.Drawing.Size(132, 26);
             this.nameToolStripMenuItem.Text = "Name";
             this.nameToolStripMenuItem.Click += new System.EventHandler(this.nameToolStripMenuItem_Click);
             // 
@@ -211,18 +215,19 @@
             // 
             this.dateToolStripMenuItem.CheckOnClick = true;
             this.dateToolStripMenuItem.Name = "dateToolStripMenuItem";
-            this.dateToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dateToolStripMenuItem.Size = new System.Drawing.Size(132, 26);
             this.dateToolStripMenuItem.Text = "Date";
             this.dateToolStripMenuItem.Click += new System.EventHandler(this.dateToolStripMenuItem_Click);
             // 
-            // AddCustomerForm
+            // ShowCustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(973, 659);
             this.Controls.Add(this.panKhach);
-            this.Name = "AddCustomerForm";
-            this.Text = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "ShowCustomerForm";
+            this.Text = "CUSTOMER";
             this.panKhach.ResumeLayout(false);
             this.panKhach.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);

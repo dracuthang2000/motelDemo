@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddRoomcs));
             this.panRoomOpen = new System.Windows.Forms.Panel();
             this.butExit = new System.Windows.Forms.Button();
             this.comBoxIDRange = new System.Windows.Forms.ComboBox();
@@ -47,6 +48,8 @@
             // 
             // panRoomOpen
             // 
+            this.panRoomOpen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panRoomOpen.BackgroundImage")));
+            this.panRoomOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panRoomOpen.Controls.Add(this.butExit);
             this.panRoomOpen.Controls.Add(this.comBoxIDRange);
             this.panRoomOpen.Controls.Add(this.comBoxIDRank);
@@ -60,18 +63,18 @@
             this.panRoomOpen.Controls.Add(this.labRoomName);
             this.panRoomOpen.Controls.Add(this.labIDRoom);
             this.panRoomOpen.Controls.Add(this.labTieuDe);
-            this.panRoomOpen.Location = new System.Drawing.Point(3, 4);
+            this.panRoomOpen.Location = new System.Drawing.Point(-2, 0);
             this.panRoomOpen.Name = "panRoomOpen";
-            this.panRoomOpen.Size = new System.Drawing.Size(992, 678);
+            this.panRoomOpen.Size = new System.Drawing.Size(988, 589);
             this.panRoomOpen.TabIndex = 0;
             // 
             // butExit
             // 
-            this.butExit.Location = new System.Drawing.Point(613, 450);
+            this.butExit.Location = new System.Drawing.Point(644, 516);
             this.butExit.Name = "butExit";
             this.butExit.Size = new System.Drawing.Size(141, 70);
             this.butExit.TabIndex = 17;
-            this.butExit.Text = "Thoát";
+            this.butExit.Text = "CANCLE";
             this.butExit.UseVisualStyleBackColor = true;
             this.butExit.Click += new System.EventHandler(this.butExit_Click);
             // 
@@ -122,77 +125,79 @@
             // 
             // butUpdate
             // 
-            this.butUpdate.Location = new System.Drawing.Point(229, 450);
+            this.butUpdate.Location = new System.Drawing.Point(203, 516);
             this.butUpdate.Name = "butUpdate";
             this.butUpdate.Size = new System.Drawing.Size(141, 70);
             this.butUpdate.TabIndex = 9;
-            this.butUpdate.Text = "Cập Nhật";
+            this.butUpdate.Text = "SAVE";
             this.butUpdate.UseVisualStyleBackColor = true;
             this.butUpdate.Click += new System.EventHandler(this.butUpdate_Click);
             // 
             // labState
             // 
             this.labState.AutoSize = true;
-            this.labState.Location = new System.Drawing.Point(243, 196);
+            this.labState.Location = new System.Drawing.Point(238, 196);
             this.labState.Name = "labState";
-            this.labState.Size = new System.Drawing.Size(81, 17);
+            this.labState.Size = new System.Drawing.Size(45, 17);
             this.labState.TabIndex = 5;
-            this.labState.Text = "Trạng thái :";
+            this.labState.Text = "State:";
             // 
             // labIDRange
             // 
             this.labIDRange.AutoSize = true;
             this.labIDRange.Location = new System.Drawing.Point(238, 301);
             this.labIDRange.Name = "labIDRange";
-            this.labIDRange.Size = new System.Drawing.Size(86, 17);
+            this.labIDRange.Size = new System.Drawing.Size(58, 17);
             this.labIDRange.TabIndex = 4;
-            this.labIDRange.Text = "ID Khu Vực :";
+            this.labIDRange.Text = "Range :";
             // 
             // labIDRank
             // 
             this.labIDRank.AutoSize = true;
-            this.labIDRank.Location = new System.Drawing.Point(264, 253);
+            this.labIDRank.Location = new System.Drawing.Point(238, 249);
             this.labIDRank.Name = "labIDRank";
-            this.labIDRank.Size = new System.Drawing.Size(60, 17);
+            this.labIDRank.Size = new System.Drawing.Size(45, 17);
             this.labIDRank.TabIndex = 3;
-            this.labIDRank.Text = "ID Loại :";
+            this.labIDRank.Text = "Rank:";
             // 
             // labRoomName
             // 
             this.labRoomName.AutoSize = true;
             this.labRoomName.Location = new System.Drawing.Point(238, 143);
             this.labRoomName.Name = "labRoomName";
-            this.labRoomName.Size = new System.Drawing.Size(86, 17);
+            this.labRoomName.Size = new System.Drawing.Size(92, 17);
             this.labRoomName.TabIndex = 2;
-            this.labRoomName.Text = "Tên Phòng :";
+            this.labRoomName.Text = "Room name :";
             // 
             // labIDRoom
             // 
             this.labIDRoom.AutoSize = true;
             this.labIDRoom.Location = new System.Drawing.Point(238, 76);
             this.labIDRoom.Name = "labIDRoom";
-            this.labIDRoom.Size = new System.Drawing.Size(74, 17);
+            this.labIDRoom.Size = new System.Drawing.Size(66, 17);
             this.labIDRoom.TabIndex = 1;
-            this.labIDRoom.Text = "ID Phòng :";
+            this.labIDRoom.Text = "ID Room:";
             // 
             // labTieuDe
             // 
             this.labTieuDe.AutoSize = true;
             this.labTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTieuDe.Location = new System.Drawing.Point(308, 0);
+            this.labTieuDe.Location = new System.Drawing.Point(344, 5);
             this.labTieuDe.Name = "labTieuDe";
-            this.labTieuDe.Size = new System.Drawing.Size(362, 32);
+            this.labTieuDe.Size = new System.Drawing.Size(298, 32);
             this.labTieuDe.TabIndex = 0;
-            this.labTieuDe.Text = "THÔNG TIN PHÒNG TRỌ";
+            this.labTieuDe.Text = "ROOM INFOMATION";
             // 
             // AddRoomcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(998, 684);
+            this.ClientSize = new System.Drawing.Size(983, 590);
             this.Controls.Add(this.panRoomOpen);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "AddRoomcs";
-            this.Text = "roomOpenForm";
+            this.Text = "ROOM";
             this.panRoomOpen.ResumeLayout(false);
             this.panRoomOpen.PerformLayout();
             this.ResumeLayout(false);

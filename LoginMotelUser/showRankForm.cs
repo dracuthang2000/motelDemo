@@ -22,13 +22,11 @@ namespace LoginMotelUser
             InitializeComponent();
             if(check == true)
             {
-                butThem.Text = "ADD";
-                butSua.Visible = false;
+                buttonUpdate.Text = "ADD";
             }
             else
             {
-                butSua.Text = "Update";
-                butThem.Visible = false;
+                buttonUpdate.Text = "UPDATE";
             }
             this.check = check;
             loadData(0, soLuong);
@@ -78,30 +76,6 @@ namespace LoginMotelUser
             loadData(0, soLuong);
             dem = 0;
         }
-        private void butThem_Click(object sender, EventArgs e)
-        {
-            rankFormSetting rOF = new rankFormSetting(this.check);
-            rOF.goiHam = loadList;
-            rOF.ShowDialog();
-        }
-
-
-        private void butSua_Click(object sender, EventArgs e)
-        {
-            if (listRank.SelectedItems.Count > 0)
-            {
-                String temp = listRank.FocusedItem.Text;
-
-
-                rankFormSetting rOF = new rankFormSetting(temp,this.check);
-                rOF.goiHam = loadList;
-                rOF.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Hay chon khach can xoa tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
 
         private void listRank_DoubleClick(object sender, EventArgs e)
         {
@@ -112,42 +86,6 @@ namespace LoginMotelUser
             rOF.goiHam = loadList;
             rOF.ShowDialog();
         }
-
-        private void butXoa_Click(object sender, EventArgs e)
-        {
-            if (listRank.SelectedItems.Count > 0)
-            {
-                using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
-                {
-                    DialogResult result = MessageBox.Show("Ban co chac xoa khach co ID = " + listRank.FocusedItem.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                    switch (result)
-                    {
-                        case DialogResult.Cancel: return;
-                        case DialogResult.Yes:
-                            {
-
-                                Model.ROOMRANK temp = data.ROOMRANKs.Find(int.Parse(listRank.FocusedItem.Text));
-                                data.ROOMRANKs.Remove(temp);
-                                data.SaveChanges();
-                                listRank.Clear();
-                                loadData(0, soLuong);
-                                dem = 0;
-                                break;
-                            }
-                        case DialogResult.No: return;
-
-                        default:
-                            break;
-
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Hay chon khach can xoa tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
         private void textSearch_TextChanged(object sender, EventArgs e)
         {
             listRank.Clear();
@@ -262,6 +200,66 @@ namespace LoginMotelUser
                     }
 
                 }
+            }
+        }
+        private void button_WOC1_Click(object sender, EventArgs e)
+        {
+           if(check == true)
+            {
+                rankFormSetting rOF = new rankFormSetting(this.check);
+                rOF.goiHam = loadList;
+                rOF.ShowDialog();
+            }
+            else
+            {
+                if (listRank.SelectedItems.Count > 0)
+                {
+                    String temp = listRank.FocusedItem.Text;
+
+
+                    rankFormSetting rOF = new rankFormSetting(temp, this.check);
+                    rOF.goiHam = loadList;
+                    rOF.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Hay chon khach can xoa tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void button_WOC1_Click_1(object sender, EventArgs e)
+        {
+            if (listRank.SelectedItems.Count > 0)
+            {
+                using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+                {
+                    DialogResult result = MessageBox.Show("Ban co chac xoa khach co ID = " + listRank.FocusedItem.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    switch (result)
+                    {
+                        case DialogResult.Cancel: return;
+                        case DialogResult.Yes:
+                            {
+
+                                Model.ROOMRANK temp = data.ROOMRANKs.Find(int.Parse(listRank.FocusedItem.Text));
+                                data.ROOMRANKs.Remove(temp);
+                                data.SaveChanges();
+                                listRank.Clear();
+                                loadData(0, soLuong);
+                                dem = 0;
+                                break;
+                            }
+                        case DialogResult.No: return;
+
+                        default:
+                            break;
+
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Hay chon khach can xoa tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

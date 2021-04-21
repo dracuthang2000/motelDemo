@@ -105,14 +105,14 @@
             this.panel1.Controls.Add(this.text_idCard);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(39, 72);
+            this.panel1.Location = new System.Drawing.Point(36, 72);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(432, 276);
             this.panel1.TabIndex = 5;
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker.Location = new System.Drawing.Point(134, 101);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(119, 22);
@@ -183,7 +183,7 @@
             this.panelPassword.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.panelPassword.Location = new System.Drawing.Point(36, 72);
             this.panelPassword.Name = "panelPassword";
-            this.panelPassword.Size = new System.Drawing.Size(445, 276);
+            this.panelPassword.Size = new System.Drawing.Size(432, 276);
             this.panelPassword.TabIndex = 6;
             this.panelPassword.Visible = false;
             // 
@@ -303,13 +303,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(530, 383);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panelPassword);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "forgetpassword";
-            this.Text = "createpassword";
+            this.Text = "GET PASSWORD";
             this.Load += new System.EventHandler(this.createpassword_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

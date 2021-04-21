@@ -15,6 +15,7 @@ namespace LoginMotelUser
         public FormCollection()
         {
             InitializeComponent();
+            setColor();
         }
         Model.MotelManagerEntities2 db;
         private void frmCollect_Load(object sender, EventArgs e)
@@ -147,8 +148,7 @@ namespace LoginMotelUser
                 }
             }
         }
-
-        private void btnXacNhanDaDong_Click(object sender, EventArgs e)
+        private void buttonsubmit_Click(object sender, EventArgs e)
         {
             if (lvDanhSachHoaDonSC5.SelectedItems.Count > 0)
             {
@@ -169,7 +169,7 @@ namespace LoginMotelUser
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonDelete_Click(object sender, EventArgs e)
         {
             DialogResult d = MessageBox.Show("Are you sure ?", "QUESTION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (d == DialogResult.Yes)
@@ -187,5 +187,22 @@ namespace LoginMotelUser
 
             }
         }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public void setColor()
+        {
+            this.label128.BackColor = System.Drawing.Color.Transparent;
+            this.label134.BackColor = System.Drawing.Color.Transparent;
+            this.label141.BackColor = System.Drawing.Color.Transparent;
+            this.label142.BackColor = System.Drawing.Color.Transparent;
+            this.label149.BackColor = System.Drawing.Color.Transparent;
+            this.label150.BackColor = System.Drawing.Color.Transparent;
+
+        }
+
     }
 }

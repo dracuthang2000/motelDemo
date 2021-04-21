@@ -21,6 +21,7 @@
         }
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrices));
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -457,9 +458,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1086, 562);
             this.Controls.Add(this.pnlPrice);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormPrices";
-            this.Text = "frmPrice";
+            this.Text = "PAYMENT";
             this.Load += new System.EventHandler(this.frmPrice_Load);
             this.pnlPrice.ResumeLayout(false);
             this.pnlPrice.PerformLayout();

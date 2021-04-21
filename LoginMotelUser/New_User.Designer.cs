@@ -168,7 +168,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(626, 406);
+            this.dataGridView1.Size = new System.Drawing.Size(636, 406);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
@@ -220,6 +220,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1026, 495);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label4);
@@ -231,9 +233,10 @@
             this.Controls.Add(this.roleComboBox);
             this.Controls.Add(this.textUsername);
             this.Controls.Add(this.textPassword);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "New_User";
-            this.Text = "New_User";
+            this.Text = "New User";
             this.Load += new System.EventHandler(this.New_User_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.motelManagerDataSet)).EndInit();

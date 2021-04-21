@@ -30,7 +30,6 @@ namespace LoginMotelUser
             InitializeComponent();
             this.check = check;
             loadComboBox();
-            butUpdate.Text = "ADD";
             butUpdate.Enabled = false;
         }
         public AddRoomcs(String a, Boolean check)
@@ -42,13 +41,11 @@ namespace LoginMotelUser
             if (this.check == false)
             {
 
-                butUpdate.Text = "Update";
                 comBoxIDRange.Enabled = true;
                 comBoxIDRank.Enabled = true;
             }
             else
             {
-                butUpdate.Text = "ADD";
                 comBoxIDRange.Enabled = false;
                 comBoxIDRank.Enabled = false;
                 butUpdate.Enabled = false;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddParticularServiceForm));
             this.listService = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ServiceName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,7 +61,7 @@
             this.listService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listService.FullRowSelect = true;
             this.listService.HideSelection = false;
-            this.listService.Location = new System.Drawing.Point(12, 40);
+            this.listService.Location = new System.Drawing.Point(9, 40);
             this.listService.Name = "listService";
             this.listService.Size = new System.Drawing.Size(410, 149);
             this.listService.Sorting = System.Windows.Forms.SortOrder.Ascending;
@@ -132,9 +133,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 20);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(172, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 17);
+            this.label5.Size = new System.Drawing.Size(72, 20);
             this.label5.TabIndex = 6;
             this.label5.Text = "Service";
             // 
@@ -150,7 +152,7 @@
             this.listServicePar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listServicePar.FullRowSelect = true;
             this.listServicePar.HideSelection = false;
-            this.listServicePar.Location = new System.Drawing.Point(12, 216);
+            this.listServicePar.Location = new System.Drawing.Point(9, 317);
             this.listServicePar.Name = "listServicePar";
             this.listServicePar.Size = new System.Drawing.Size(410, 166);
             this.listServicePar.Sorting = System.Windows.Forms.SortOrder.Ascending;
@@ -184,7 +186,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(704, 389);
+            this.button3.Location = new System.Drawing.Point(732, 460);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 4;
@@ -194,7 +196,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(425, 389);
+            this.button2.Location = new System.Drawing.Point(444, 459);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(92, 24);
             this.button2.TabIndex = 8;
@@ -213,17 +215,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.label1.Location = new System.Drawing.Point(504, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 17);
             this.label1.TabIndex = 10;
             this.label1.Text = "Old index";
             // 
-            // Form1
+            // AddParticularServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 424);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(854, 495);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textOldIndex);
             this.Controls.Add(this.button2);
@@ -236,8 +241,9 @@
             this.Controls.Add(this.textServiceName);
             this.Controls.Add(this.textIndex);
             this.Controls.Add(this.listService);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "AddParticularServiceForm";
+            this.Text = "CHOOSE SEVICE";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(serviceForm));
             this.panService = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.textNewName = new System.Windows.Forms.TextBox();
@@ -55,6 +56,8 @@
             this.panService.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panService.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panService.BackgroundImage")));
+            this.panService.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panService.Controls.Add(this.label1);
             this.panService.Controls.Add(this.textNewName);
             this.panService.Controls.Add(this.labPage);
@@ -73,9 +76,9 @@
             this.panService.Controls.Add(this.labID);
             this.panService.Controls.Add(this.listService);
             this.panService.Controls.Add(this.labTieuDe);
-            this.panService.Location = new System.Drawing.Point(3, 2);
+            this.panService.Location = new System.Drawing.Point(-2, 0);
             this.panService.Name = "panService";
-            this.panService.Size = new System.Drawing.Size(910, 618);
+            this.panService.Size = new System.Drawing.Size(921, 620);
             this.panService.TabIndex = 1;
             // 
             // label1
@@ -99,9 +102,9 @@
             this.labPage.AutoSize = true;
             this.labPage.Location = new System.Drawing.Point(198, 543);
             this.labPage.Name = "labPage";
-            this.labPage.Size = new System.Drawing.Size(70, 17);
+            this.labPage.Size = new System.Drawing.Size(65, 17);
             this.labPage.TabIndex = 12;
-            this.labPage.Text = "Trang 0/0";
+            this.labPage.Text = "Page 0/0";
             // 
             // butRight
             // 
@@ -110,7 +113,7 @@
             this.butRight.Name = "butRight";
             this.butRight.Size = new System.Drawing.Size(75, 27);
             this.butRight.TabIndex = 2;
-            this.butRight.Text = "Phải";
+            this.butRight.Text = "Right";
             this.butRight.UseVisualStyleBackColor = true;
             this.butRight.Click += new System.EventHandler(this.butRight_Click);
             // 
@@ -121,7 +124,7 @@
             this.butLeft.Name = "butLeft";
             this.butLeft.Size = new System.Drawing.Size(75, 27);
             this.butLeft.TabIndex = 1;
-            this.butLeft.Text = "Trái";
+            this.butLeft.Text = "Left";
             this.butLeft.UseVisualStyleBackColor = true;
             this.butLeft.Click += new System.EventHandler(this.butLeft_Click);
             // 
@@ -162,7 +165,7 @@
             // butClear
             // 
             this.butClear.AutoSize = true;
-            this.butClear.Location = new System.Drawing.Point(774, 378);
+            this.butClear.Location = new System.Drawing.Point(801, 468);
             this.butClear.Name = "butClear";
             this.butClear.Size = new System.Drawing.Size(104, 64);
             this.butClear.TabIndex = 9;
@@ -173,7 +176,7 @@
             // butDelete
             // 
             this.butDelete.AutoSize = true;
-            this.butDelete.Location = new System.Drawing.Point(627, 378);
+            this.butDelete.Location = new System.Drawing.Point(627, 468);
             this.butDelete.Name = "butDelete";
             this.butDelete.Size = new System.Drawing.Size(104, 64);
             this.butDelete.TabIndex = 8;
@@ -184,7 +187,7 @@
             // buttUpdate
             // 
             this.buttUpdate.AutoSize = true;
-            this.buttUpdate.Location = new System.Drawing.Point(462, 378);
+            this.buttUpdate.Location = new System.Drawing.Point(469, 468);
             this.buttUpdate.Name = "buttUpdate";
             this.buttUpdate.Size = new System.Drawing.Size(104, 64);
             this.buttUpdate.TabIndex = 7;
@@ -245,9 +248,9 @@
             this.labTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labTieuDe.Location = new System.Drawing.Point(272, 5);
             this.labTieuDe.Name = "labTieuDe";
-            this.labTieuDe.Size = new System.Drawing.Size(304, 32);
+            this.labTieuDe.Size = new System.Drawing.Size(358, 32);
             this.labTieuDe.TabIndex = 0;
-            this.labTieuDe.Text = "THÔNG TIN DỊCH VỤ";
+            this.labTieuDe.Text = "SERVICE INFORMATION";
             // 
             // serviceForm
             // 
@@ -255,6 +258,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 620);
             this.Controls.Add(this.panService);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "serviceForm";
             this.Text = "serviceForm";
             this.panService.ResumeLayout(false);
