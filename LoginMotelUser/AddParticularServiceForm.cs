@@ -16,6 +16,7 @@ namespace LoginMotelUser
         public AddParticularServiceForm(String idRoom)
         {
             InitializeComponent();
+            setColor();
             createNewList();
             IDcheck = int.Parse(idRoom);
         }
@@ -203,38 +204,6 @@ namespace LoginMotelUser
                 MessageBox.Show("You need choose ID Service to add", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            listServiceChoose();
-            this.Close();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (!IDlist.Trim().Equals("") && !serviceName.Trim().Equals(""))
-            {
-                for (int i = listServicePar.SelectedIndices.Count - 1; i >= 0; i--)
-                {
-                    if (listServicePar.SelectedItems[i].Text.Equals(IDlist))
-                        listServicePar.Items.RemoveAt(listServicePar.SelectedIndices[i]);
-
-                }
-
-                ListViewItem list = new ListViewItem(IDlist);
-                list.SubItems.Add(serviceName);
-                list.SubItems.Add(Pricelist);
-                listService.Items.Add(list);
-
-                IDlist = "";
-                Pricelist = "";
-                serviceName = "";
-            }
-            else
-            {
-                MessageBox.Show("You need choose ID Service to remove", "WARING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
         private void listServicePar_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listServicePar.SelectedItems.Count > 0)
@@ -265,6 +234,46 @@ namespace LoginMotelUser
             {
                 e.Handled = true;
             }
+        }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            if (!IDlist.Trim().Equals("") && !serviceName.Trim().Equals(""))
+            {
+                for (int i = listServicePar.SelectedIndices.Count - 1; i >= 0; i--)
+                {
+                    if (listServicePar.SelectedItems[i].Text.Equals(IDlist))
+                        listServicePar.Items.RemoveAt(listServicePar.SelectedIndices[i]);
+
+                }
+
+                ListViewItem list = new ListViewItem(IDlist);
+                list.SubItems.Add(serviceName);
+                list.SubItems.Add(Pricelist);
+                listService.Items.Add(list);
+
+                IDlist = "";
+                Pricelist = "";
+                serviceName = "";
+            }
+            else
+            {
+                MessageBox.Show("You need choose ID Service to remove", "WARING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void button_WOC1_Click(object sender, EventArgs e)
+        {
+            listServiceChoose();
+            this.Close();
+        }
+
+        public void setColor()
+        {
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
         }
     }
 }

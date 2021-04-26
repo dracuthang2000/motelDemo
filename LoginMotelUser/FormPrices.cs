@@ -16,6 +16,7 @@ namespace LoginMotelUser
         public FormPrices(String userName)
         {
             InitializeComponent();
+            setColor();
             this.userName = userName;
         }
 
@@ -280,66 +281,6 @@ namespace LoginMotelUser
         private void button2_Click(object sender, EventArgs e)
         {
 
-            DialogResult d = MessageBox.Show("Are you saving this?", "QUESTION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (txtTongTien.Text.Trim().Equals(""))
-            {
-                MessageBox.Show("TotalBill is null", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                if (d == DialogResult.Yes)
-                {
-                    int ID = int.Parse(lbIDPhongSC4.Text);
-
-                    var IDStaff = (from staff in db.STAFFs
-                                  where staff.UserName == userName
-                                  select staff).ToList();
-                    if (IDStaff.Count == 0)
-                    {
-                        db.BILLs.Add(new Model.BILL
-                        {
-                            IDRoom = ID,
-                            Date = DateTime.Now,
-                            TotalMoney = Decimal.Parse(txtTongTien.Text),
-                            Paid = false
-                        });
-                    }
-                    else
-                    {
-                        foreach (var staff in IDStaff)
-                        {
-                            db.BILLs.Add(new Model.BILL
-                            {
-                                IDRoom = ID,
-                                Date = DateTime.Now,
-                                TotalMoney = Decimal.Parse(txtTongTien.Text),
-                                IDStaff = staff.ID,
-                                Paid = false
-                            }) ;
-                        }
-                    }
-                    db.SaveChanges();
-                    var maxDate = db.getMaxdate(ID);
-                    foreach (var id in maxDate)
-                    {
-                        foreach (ListViewItem l in listService.Items)
-                        {
-                            var parS = new Model.PARTICULARSERVICE();
-                            parS.IDBill = id.Value;
-                            parS.IDService = int.Parse(l.SubItems[0].Text);
-                            parS.NewIndex = int.Parse(l.SubItems[2].Text);
-                            parS.OldIndex = int.Parse(l.SubItems[3].Text);
-                            parS.Total = Decimal.Parse(l.SubItems[4].Text);
-                            db.PARTICULARSERVICEs.Add(parS);
-                        }
-                    }
-                    var paid = db.MOTELROOMs.Single(room => room.ID.Equals(ID));
-                    paid.Paid = true;
-                    db.SaveChanges();
-                    clear();
-                    frmPrice_Load(sender, e);
-                }
-            }
         }
 
         private void buttonCancle_Click(object sender, EventArgs e)
@@ -384,6 +325,94 @@ namespace LoginMotelUser
                 cbbDaySC4.Enabled = false;
                 cbbLoaiPhongSC4.Enabled = false;
             }
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+
+            DialogResult d = MessageBox.Show("Are you saving this?", "QUESTION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (txtTongTien.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("TotalBill is null", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (d == DialogResult.Yes)
+                {
+                    int ID = int.Parse(lbIDPhongSC4.Text);
+
+                    var IDStaff = (from staff in db.STAFFs
+                                   where staff.UserName == userName
+                                   select staff).ToList();
+                    if (IDStaff.Count == 0)
+                    {
+                        db.BILLs.Add(new Model.BILL
+                        {
+                            IDRoom = ID,
+                            Date = DateTime.Now,
+                            TotalMoney = Decimal.Parse(txtTongTien.Text),
+                            Paid = false
+                        });
+                    }
+                    else
+                    {
+                        foreach (var staff in IDStaff)
+                        {
+                            db.BILLs.Add(new Model.BILL
+                            {
+                                IDRoom = ID,
+                                Date = DateTime.Now,
+                                TotalMoney = Decimal.Parse(txtTongTien.Text),
+                                IDStaff = staff.ID,
+                                Paid = false
+                            });
+                        }
+                    }
+                    db.SaveChanges();
+                    var maxDate = db.getMaxdate(ID);
+                    foreach (var id in maxDate)
+                    {
+                        foreach (ListViewItem l in listService.Items)
+                        {
+                            var parS = new Model.PARTICULARSERVICE();
+                            parS.IDBill = id.Value;
+                            parS.IDService = int.Parse(l.SubItems[0].Text);
+                            parS.NewIndex = int.Parse(l.SubItems[2].Text);
+                            parS.OldIndex = int.Parse(l.SubItems[3].Text);
+                            parS.Total = Decimal.Parse(l.SubItems[4].Text);
+                            db.PARTICULARSERVICEs.Add(parS);
+                        }
+                    }
+                    var paid = db.MOTELROOMs.Single(room => room.ID.Equals(ID));
+                    paid.Paid = true;
+                    db.SaveChanges();
+                    clear();
+                    frmPrice_Load(sender, e);
+                }
+            }
+        }
+
+        private void buttonCan_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        public void setColor()
+        {
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.lbIDPhongSC4.BackColor = System.Drawing.Color.Transparent;
+            this.lbTienPhong.BackColor = System.Drawing.Color.Transparent;
         }
     }
 }

@@ -29,184 +29,227 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddRoomcs));
-            this.panRoomOpen = new System.Windows.Forms.Panel();
-            this.butExit = new System.Windows.Forms.Button();
+            this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonUp = new ePOSOne.btnProduct.Button_WOC();
             this.comBoxIDRange = new System.Windows.Forms.ComboBox();
             this.comBoxIDRank = new System.Windows.Forms.ComboBox();
             this.labStateShow = new System.Windows.Forms.Label();
             this.textRoomName = new System.Windows.Forms.TextBox();
             this.labIDRoomShow = new System.Windows.Forms.Label();
-            this.butUpdate = new System.Windows.Forms.Button();
             this.labState = new System.Windows.Forms.Label();
             this.labIDRange = new System.Windows.Forms.Label();
             this.labIDRank = new System.Windows.Forms.Label();
             this.labRoomName = new System.Windows.Forms.Label();
             this.labIDRoom = new System.Windows.Forms.Label();
             this.labTieuDe = new System.Windows.Forms.Label();
-            this.panRoomOpen.SuspendLayout();
+            this.panel = new System.Windows.Forms.Panel();
+            this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panRoomOpen
+            // button_WOC1
             // 
-            this.panRoomOpen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panRoomOpen.BackgroundImage")));
-            this.panRoomOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panRoomOpen.Controls.Add(this.butExit);
-            this.panRoomOpen.Controls.Add(this.comBoxIDRange);
-            this.panRoomOpen.Controls.Add(this.comBoxIDRank);
-            this.panRoomOpen.Controls.Add(this.labStateShow);
-            this.panRoomOpen.Controls.Add(this.textRoomName);
-            this.panRoomOpen.Controls.Add(this.labIDRoomShow);
-            this.panRoomOpen.Controls.Add(this.butUpdate);
-            this.panRoomOpen.Controls.Add(this.labState);
-            this.panRoomOpen.Controls.Add(this.labIDRange);
-            this.panRoomOpen.Controls.Add(this.labIDRank);
-            this.panRoomOpen.Controls.Add(this.labRoomName);
-            this.panRoomOpen.Controls.Add(this.labIDRoom);
-            this.panRoomOpen.Controls.Add(this.labTieuDe);
-            this.panRoomOpen.Location = new System.Drawing.Point(-2, 0);
-            this.panRoomOpen.Name = "panRoomOpen";
-            this.panRoomOpen.Size = new System.Drawing.Size(988, 589);
-            this.panRoomOpen.TabIndex = 0;
+            this.button_WOC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_WOC1.BackColor = System.Drawing.Color.Peru;
+            this.button_WOC1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_WOC1.BackgroundImage")));
+            this.button_WOC1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_WOC1.BorderColor = System.Drawing.Color.Silver;
+            this.button_WOC1.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.button_WOC1.FlatAppearance.BorderSize = 0;
+            this.button_WOC1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC1.Location = new System.Drawing.Point(885, 541);
+            this.button_WOC1.Name = "button_WOC1";
+            this.button_WOC1.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.button_WOC1.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.button_WOC1.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.button_WOC1.Size = new System.Drawing.Size(103, 47);
+            this.button_WOC1.TabIndex = 59;
+            this.button_WOC1.Text = "CANCLE";
+            this.button_WOC1.TextColor = System.Drawing.Color.Black;
+            this.button_WOC1.UseVisualStyleBackColor = false;
+            this.button_WOC1.Click += new System.EventHandler(this.button_WOC1_Click);
             // 
-            // butExit
+            // buttonUp
             // 
-            this.butExit.Location = new System.Drawing.Point(644, 516);
-            this.butExit.Name = "butExit";
-            this.butExit.Size = new System.Drawing.Size(141, 70);
-            this.butExit.TabIndex = 17;
-            this.butExit.Text = "CANCLE";
-            this.butExit.UseVisualStyleBackColor = true;
-            this.butExit.Click += new System.EventHandler(this.butExit_Click);
+            this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonUp.BackColor = System.Drawing.Color.Peru;
+            this.buttonUp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonUp.BackgroundImage")));
+            this.buttonUp.BorderColor = System.Drawing.Color.Silver;
+            this.buttonUp.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonUp.FlatAppearance.BorderSize = 0;
+            this.buttonUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUp.Location = new System.Drawing.Point(3, 541);
+            this.buttonUp.Name = "buttonUp";
+            this.buttonUp.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonUp.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonUp.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonUp.Size = new System.Drawing.Size(103, 47);
+            this.buttonUp.TabIndex = 58;
+            this.buttonUp.Text = "SAVE";
+            this.buttonUp.TextColor = System.Drawing.Color.Black;
+            this.buttonUp.UseVisualStyleBackColor = false;
+            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
             // 
             // comBoxIDRange
             // 
+            this.comBoxIDRange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comBoxIDRange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comBoxIDRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comBoxIDRange.FormattingEnabled = true;
-            this.comBoxIDRange.Location = new System.Drawing.Point(396, 301);
+            this.comBoxIDRange.Location = new System.Drawing.Point(352, 376);
             this.comBoxIDRange.Name = "comBoxIDRange";
-            this.comBoxIDRange.Size = new System.Drawing.Size(179, 24);
+            this.comBoxIDRange.Size = new System.Drawing.Size(179, 28);
             this.comBoxIDRange.TabIndex = 3;
             this.comBoxIDRange.SelectedIndexChanged += new System.EventHandler(this.comBoxIDRange_SelectedIndexChanged);
             // 
             // comBoxIDRank
             // 
+            this.comBoxIDRank.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comBoxIDRank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comBoxIDRank.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comBoxIDRank.FormattingEnabled = true;
-            this.comBoxIDRank.Location = new System.Drawing.Point(396, 246);
+            this.comBoxIDRank.Location = new System.Drawing.Point(352, 311);
             this.comBoxIDRank.Name = "comBoxIDRank";
-            this.comBoxIDRank.Size = new System.Drawing.Size(179, 24);
+            this.comBoxIDRank.Size = new System.Drawing.Size(179, 28);
             this.comBoxIDRank.TabIndex = 2;
             // 
             // labStateShow
             // 
+            this.labStateShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labStateShow.AutoSize = true;
-            this.labStateShow.Location = new System.Drawing.Point(393, 196);
+            this.labStateShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labStateShow.Location = new System.Drawing.Point(349, 255);
             this.labStateShow.Name = "labStateShow";
-            this.labStateShow.Size = new System.Drawing.Size(54, 17);
+            this.labStateShow.Size = new System.Drawing.Size(62, 20);
             this.labStateShow.TabIndex = 12;
             this.labStateShow.Text = "loading";
             // 
             // textRoomName
             // 
-            this.textRoomName.Location = new System.Drawing.Point(396, 129);
+            this.textRoomName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textRoomName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textRoomName.Location = new System.Drawing.Point(352, 192);
             this.textRoomName.Name = "textRoomName";
-            this.textRoomName.Size = new System.Drawing.Size(179, 22);
+            this.textRoomName.Size = new System.Drawing.Size(179, 27);
             this.textRoomName.TabIndex = 1;
             this.textRoomName.TextChanged += new System.EventHandler(this.textRoomName_TextChanged);
             // 
             // labIDRoomShow
             // 
+            this.labIDRoomShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labIDRoomShow.AutoSize = true;
-            this.labIDRoomShow.Location = new System.Drawing.Point(393, 76);
+            this.labIDRoomShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labIDRoomShow.Location = new System.Drawing.Point(349, 146);
             this.labIDRoomShow.Name = "labIDRoomShow";
-            this.labIDRoomShow.Size = new System.Drawing.Size(54, 17);
+            this.labIDRoomShow.Size = new System.Drawing.Size(62, 20);
             this.labIDRoomShow.TabIndex = 10;
             this.labIDRoomShow.Text = "loading";
             // 
-            // butUpdate
-            // 
-            this.butUpdate.Location = new System.Drawing.Point(203, 516);
-            this.butUpdate.Name = "butUpdate";
-            this.butUpdate.Size = new System.Drawing.Size(141, 70);
-            this.butUpdate.TabIndex = 9;
-            this.butUpdate.Text = "SAVE";
-            this.butUpdate.UseVisualStyleBackColor = true;
-            this.butUpdate.Click += new System.EventHandler(this.butUpdate_Click);
-            // 
             // labState
             // 
+            this.labState.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labState.AutoSize = true;
-            this.labState.Location = new System.Drawing.Point(238, 196);
+            this.labState.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labState.Location = new System.Drawing.Point(140, 255);
             this.labState.Name = "labState";
-            this.labState.Size = new System.Drawing.Size(45, 17);
+            this.labState.Size = new System.Drawing.Size(53, 20);
             this.labState.TabIndex = 5;
             this.labState.Text = "State:";
             // 
             // labIDRange
             // 
+            this.labIDRange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labIDRange.AutoSize = true;
-            this.labIDRange.Location = new System.Drawing.Point(238, 301);
+            this.labIDRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labIDRange.Location = new System.Drawing.Point(140, 379);
             this.labIDRange.Name = "labIDRange";
-            this.labIDRange.Size = new System.Drawing.Size(58, 17);
+            this.labIDRange.Size = new System.Drawing.Size(67, 20);
             this.labIDRange.TabIndex = 4;
             this.labIDRange.Text = "Range :";
             // 
             // labIDRank
             // 
+            this.labIDRank.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labIDRank.AutoSize = true;
-            this.labIDRank.Location = new System.Drawing.Point(238, 249);
+            this.labIDRank.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labIDRank.Location = new System.Drawing.Point(140, 318);
             this.labIDRank.Name = "labIDRank";
-            this.labIDRank.Size = new System.Drawing.Size(45, 17);
+            this.labIDRank.Size = new System.Drawing.Size(52, 20);
             this.labIDRank.TabIndex = 3;
             this.labIDRank.Text = "Rank:";
             // 
             // labRoomName
             // 
+            this.labRoomName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labRoomName.AutoSize = true;
-            this.labRoomName.Location = new System.Drawing.Point(238, 143);
+            this.labRoomName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labRoomName.Location = new System.Drawing.Point(140, 197);
             this.labRoomName.Name = "labRoomName";
-            this.labRoomName.Size = new System.Drawing.Size(92, 17);
+            this.labRoomName.Size = new System.Drawing.Size(109, 20);
             this.labRoomName.TabIndex = 2;
             this.labRoomName.Text = "Room name :";
             // 
             // labIDRoom
             // 
+            this.labIDRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labIDRoom.AutoSize = true;
-            this.labIDRoom.Location = new System.Drawing.Point(238, 76);
+            this.labIDRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labIDRoom.Location = new System.Drawing.Point(140, 146);
             this.labIDRoom.Name = "labIDRoom";
-            this.labIDRoom.Size = new System.Drawing.Size(66, 17);
+            this.labIDRoom.Size = new System.Drawing.Size(80, 20);
             this.labIDRoom.TabIndex = 1;
             this.labIDRoom.Text = "ID Room:";
             // 
             // labTieuDe
             // 
+            this.labTieuDe.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labTieuDe.AutoSize = true;
             this.labTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTieuDe.Location = new System.Drawing.Point(344, 5);
+            this.labTieuDe.Location = new System.Drawing.Point(196, 24);
             this.labTieuDe.Name = "labTieuDe";
             this.labTieuDe.Size = new System.Drawing.Size(298, 32);
             this.labTieuDe.TabIndex = 0;
             this.labTieuDe.Text = "ROOM INFOMATION";
             // 
+            // panel
+            // 
+            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panel.Controls.Add(this.labTieuDe);
+            this.panel.Controls.Add(this.comBoxIDRange);
+            this.panel.Controls.Add(this.labIDRange);
+            this.panel.Controls.Add(this.labRoomName);
+            this.panel.Controls.Add(this.labIDRoomShow);
+            this.panel.Controls.Add(this.comBoxIDRank);
+            this.panel.Controls.Add(this.textRoomName);
+            this.panel.Controls.Add(this.labIDRank);
+            this.panel.Controls.Add(this.labStateShow);
+            this.panel.Controls.Add(this.labState);
+            this.panel.Controls.Add(this.labIDRoom);
+            this.panel.Location = new System.Drawing.Point(170, 70);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(662, 455);
+            this.panel.TabIndex = 61;
+            // 
             // AddRoomcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(983, 590);
-            this.Controls.Add(this.panRoomOpen);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(990, 590);
+            this.Controls.Add(this.button_WOC1);
+            this.Controls.Add(this.panel);
+            this.Controls.Add(this.buttonUp);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.Name = "AddRoomcs";
             this.Text = "ROOM";
-            this.panRoomOpen.ResumeLayout(false);
-            this.panRoomOpen.PerformLayout();
+            this.panel.ResumeLayout(false);
+            this.panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panRoomOpen;
         private System.Windows.Forms.Label labState;
         private System.Windows.Forms.Label labIDRange;
         private System.Windows.Forms.Label labIDRank;
@@ -216,9 +259,10 @@
         private System.Windows.Forms.Label labStateShow;
         private System.Windows.Forms.TextBox textRoomName;
         private System.Windows.Forms.Label labIDRoomShow;
-        private System.Windows.Forms.Button butUpdate;
         private System.Windows.Forms.ComboBox comBoxIDRange;
         private System.Windows.Forms.ComboBox comBoxIDRank;
-        private System.Windows.Forms.Button butExit;
+        private ePOSOne.btnProduct.Button_WOC buttonUp;
+        private ePOSOne.btnProduct.Button_WOC button_WOC1;
+        private System.Windows.Forms.Panel panel;
     }
 }

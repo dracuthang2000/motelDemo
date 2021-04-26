@@ -20,12 +20,13 @@ namespace LoginMotelUser
         public ShowCustomerForm(Boolean check)
         {
             InitializeComponent();
+            setColor();
             this.check = check;
             loadCustomer(0, soLuong);
             if (check == true)
-                butThem.Text = "ADD";
+                buttonUp.Text = "ADD";
             else
-                butThem.Text = "Update";
+                buttonUp.Text = "UPDATE";
             dem = 0;
         }
 
@@ -75,31 +76,6 @@ namespace LoginMotelUser
             loadCustomer(0, soLuong);
             dem = 0;
         }
-        private void butThem_Click(object sender, EventArgs e)
-        {
-            if (this.check == true)
-            {
-                FormCustomer gOF = new FormCustomer(true);
-                gOF.goiHam = loadList;
-                gOF.ShowDialog();
-            }
-            else
-            {
-                if (listKhach.SelectedItems.Count > 0)
-                {
-                    String temp = listKhach.FocusedItem.Text;
-                    FormCustomer gOF = new FormCustomer(temp,false);
-                    gOF.goiHam = loadList;
-                    gOF.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Let's Choice one customer", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-
-        }
-
         private void listKhach_DoubleClick(object sender, EventArgs e)
         {
             if (check == true)
@@ -115,43 +91,6 @@ namespace LoginMotelUser
                 FormCustomer gOF = new FormCustomer(temp, false);
                 gOF.goiHam = loadList;
                 gOF.ShowDialog();
-            }
-        }
-
-        private void butXoa_Click(object sender, EventArgs e)
-        {
-            if (listKhach.SelectedItems.Count > 0)
-            {
-                using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
-                {
-                    DialogResult result = MessageBox.Show("Ban co chac xoa khach co ID = " + listKhach.FocusedItem.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                    switch (result)
-                    {
-                        case DialogResult.Cancel: return;
-                        case DialogResult.Yes:
-                            {
-                                var temp = data.CUSTOMERs.Where(c => c.IDCard.Equals(listKhach.FocusedItem.Text));
-                                foreach (var cus in temp)
-                                {
-                                    data.CUSTOMERs.Remove(cus);
-                                }
-                                data.SaveChanges();
-                                listKhach.Clear();
-                                loadCustomer(0, soLuong);
-                                dem = 0;
-                                break;
-                            }
-                        case DialogResult.No: return;
-
-                        default:
-                            break;
-
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Hay chon khach can xoa tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -391,6 +330,87 @@ namespace LoginMotelUser
             listKhach.Sort();
             nameToolStripMenuItem.Checked = false;
             iDToolStripMenuItem.Checked = false;
+        }
+
+        private void buttonUp_Click(object sender, EventArgs e)
+        {
+            if (this.check == true)
+            {
+                FormCustomer gOF = new FormCustomer(true);
+                gOF.goiHam = loadList;
+                gOF.ShowDialog();
+            }
+            else
+            {
+                if (listKhach.SelectedItems.Count > 0)
+                {
+                    String temp = listKhach.FocusedItem.Text;
+                    FormCustomer gOF = new FormCustomer(temp, false);
+                    gOF.goiHam = loadList;
+                    gOF.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Let's Choice one customer", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+
+            if (listKhach.SelectedItems.Count > 0)
+            {
+                using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+                {
+                    DialogResult result = MessageBox.Show("Ban co chac xoa khach co ID = " + listKhach.FocusedItem.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    switch (result)
+                    {
+                        case DialogResult.Cancel: return;
+                        case DialogResult.Yes:
+                            {
+                                var temp = data.CUSTOMERs.Where(c => c.IDCard.Equals(listKhach.FocusedItem.Text));
+                                foreach (var cus in temp)
+                                {
+                                    data.CUSTOMERs.Remove(cus);
+                                }
+                                data.SaveChanges();
+                                listKhach.Clear();
+                                loadCustomer(0, soLuong);
+                                dem = 0;
+                                break;
+                            }
+                        case DialogResult.No: return;
+
+                        default:
+                            break;
+
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Hay chon khach can xoa tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void buttonCancle_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public void setColor()
+        {
+            this.labTieuDe.BackColor = System.Drawing.Color.Transparent;
+            this.labSearch.BackColor = System.Drawing.Color.Transparent;
+            this.labPage.BackColor = System.Drawing.Color.Transparent;
+            this.buttonUp.BackColor = System.Drawing.Color.Transparent;
+            this.buttonDelete.BackColor = System.Drawing.Color.Transparent;
+            this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonCancle.BackColor = System.Drawing.Color.Transparent;
+            this.buttonCancle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
         }
     }
 }

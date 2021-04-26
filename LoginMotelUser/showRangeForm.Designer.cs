@@ -24,6 +24,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(showRangeForm));
             this.panRange = new System.Windows.Forms.Panel();
+            this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonClear = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonDelete = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonUp = new ePOSOne.btnProduct.Button_WOC();
             this.OldName = new System.Windows.Forms.Label();
             this.NewName = new System.Windows.Forms.Label();
             this.textNewName = new System.Windows.Forms.TextBox();
@@ -32,9 +36,6 @@
             this.butLeft = new System.Windows.Forms.Button();
             this.textSearch = new System.Windows.Forms.TextBox();
             this.labSearch = new System.Windows.Forms.Label();
-            this.butClear = new System.Windows.Forms.Button();
-            this.butDelete = new System.Windows.Forms.Button();
-            this.buttUpdate = new System.Windows.Forms.Button();
             this.textRangeName = new System.Windows.Forms.TextBox();
             this.textIDRange = new System.Windows.Forms.TextBox();
             this.labRangeName = new System.Windows.Forms.Label();
@@ -51,6 +52,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panRange.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panRange.BackgroundImage")));
             this.panRange.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panRange.Controls.Add(this.button_WOC1);
+            this.panRange.Controls.Add(this.buttonClear);
+            this.panRange.Controls.Add(this.buttonDelete);
+            this.panRange.Controls.Add(this.buttonUp);
             this.panRange.Controls.Add(this.OldName);
             this.panRange.Controls.Add(this.NewName);
             this.panRange.Controls.Add(this.textNewName);
@@ -59,9 +64,6 @@
             this.panRange.Controls.Add(this.butLeft);
             this.panRange.Controls.Add(this.textSearch);
             this.panRange.Controls.Add(this.labSearch);
-            this.panRange.Controls.Add(this.butClear);
-            this.panRange.Controls.Add(this.butDelete);
-            this.panRange.Controls.Add(this.buttUpdate);
             this.panRange.Controls.Add(this.textRangeName);
             this.panRange.Controls.Add(this.textIDRange);
             this.panRange.Controls.Add(this.labRangeName);
@@ -72,6 +74,91 @@
             this.panRange.Name = "panRange";
             this.panRange.Size = new System.Drawing.Size(913, 621);
             this.panRange.TabIndex = 0;
+            // 
+            // button_WOC1
+            // 
+            this.button_WOC1.BackColor = System.Drawing.Color.Peru;
+            this.button_WOC1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_WOC1.BackgroundImage")));
+            this.button_WOC1.BorderColor = System.Drawing.Color.Silver;
+            this.button_WOC1.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.button_WOC1.FlatAppearance.BorderSize = 0;
+            this.button_WOC1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC1.Location = new System.Drawing.Point(830, 588);
+            this.button_WOC1.Name = "button_WOC1";
+            this.button_WOC1.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.button_WOC1.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.button_WOC1.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.button_WOC1.Size = new System.Drawing.Size(80, 30);
+            this.button_WOC1.TabIndex = 60;
+            this.button_WOC1.Text = "CANCLE";
+            this.button_WOC1.TextColor = System.Drawing.Color.Black;
+            this.button_WOC1.UseVisualStyleBackColor = false;
+            this.button_WOC1.Click += new System.EventHandler(this.button_WOC1_Click);
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.BackColor = System.Drawing.Color.Peru;
+            this.buttonClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonClear.BackgroundImage")));
+            this.buttonClear.BorderColor = System.Drawing.Color.Silver;
+            this.buttonClear.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonClear.FlatAppearance.BorderSize = 0;
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClear.Location = new System.Drawing.Point(684, 348);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonClear.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonClear.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonClear.Size = new System.Drawing.Size(80, 30);
+            this.buttonClear.TabIndex = 59;
+            this.buttonClear.Text = "CLEAR";
+            this.buttonClear.TextColor = System.Drawing.Color.Black;
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.BackColor = System.Drawing.Color.Peru;
+            this.buttonDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonDelete.BackgroundImage")));
+            this.buttonDelete.BorderColor = System.Drawing.Color.Silver;
+            this.buttonDelete.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonDelete.FlatAppearance.BorderSize = 0;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDelete.Location = new System.Drawing.Point(539, 348);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonDelete.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonDelete.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonDelete.Size = new System.Drawing.Size(80, 30);
+            this.buttonDelete.TabIndex = 58;
+            this.buttonDelete.Text = "DELETE";
+            this.buttonDelete.TextColor = System.Drawing.Color.Black;
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonUp
+            // 
+            this.buttonUp.BackColor = System.Drawing.Color.LimeGreen;
+            this.buttonUp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonUp.BackgroundImage")));
+            this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonUp.BorderColor = System.Drawing.Color.Silver;
+            this.buttonUp.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonUp.FlatAppearance.BorderSize = 0;
+            this.buttonUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUp.Location = new System.Drawing.Point(414, 348);
+            this.buttonUp.Name = "buttonUp";
+            this.buttonUp.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonUp.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonUp.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonUp.Size = new System.Drawing.Size(80, 30);
+            this.buttonUp.TabIndex = 57;
+            this.buttonUp.Text = "ADD";
+            this.buttonUp.TextColor = System.Drawing.Color.Black;
+            this.buttonUp.UseVisualStyleBackColor = false;
+            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
             // 
             // OldName
             // 
@@ -105,9 +192,9 @@
             this.labPage.AutoSize = true;
             this.labPage.Location = new System.Drawing.Point(184, 543);
             this.labPage.Name = "labPage";
-            this.labPage.Size = new System.Drawing.Size(70, 17);
+            this.labPage.Size = new System.Drawing.Size(65, 17);
             this.labPage.TabIndex = 11;
-            this.labPage.Text = "Trang 0/0";
+            this.labPage.Text = "Page 0/0";
             // 
             // butRight
             // 
@@ -116,7 +203,7 @@
             this.butRight.Name = "butRight";
             this.butRight.Size = new System.Drawing.Size(75, 27);
             this.butRight.TabIndex = 2;
-            this.butRight.Text = "Phải";
+            this.butRight.Text = "Right";
             this.butRight.UseVisualStyleBackColor = true;
             this.butRight.Click += new System.EventHandler(this.butRight_Click);
             // 
@@ -127,7 +214,7 @@
             this.butLeft.Name = "butLeft";
             this.butLeft.Size = new System.Drawing.Size(75, 27);
             this.butLeft.TabIndex = 1;
-            this.butLeft.Text = "Trái";
+            this.butLeft.Text = "Left";
             this.butLeft.UseVisualStyleBackColor = true;
             this.butLeft.Click += new System.EventHandler(this.butLeft_Click);
             // 
@@ -149,39 +236,6 @@
             this.labSearch.Size = new System.Drawing.Size(80, 20);
             this.labSearch.TabIndex = 7;
             this.labSearch.Text = "Search: ";
-            // 
-            // butClear
-            // 
-            this.butClear.AutoSize = true;
-            this.butClear.Location = new System.Drawing.Point(765, 321);
-            this.butClear.Name = "butClear";
-            this.butClear.Size = new System.Drawing.Size(104, 64);
-            this.butClear.TabIndex = 8;
-            this.butClear.Text = "CLEAR";
-            this.butClear.UseVisualStyleBackColor = true;
-            this.butClear.Click += new System.EventHandler(this.butClear_Click);
-            // 
-            // butDelete
-            // 
-            this.butDelete.AutoSize = true;
-            this.butDelete.Location = new System.Drawing.Point(588, 321);
-            this.butDelete.Name = "butDelete";
-            this.butDelete.Size = new System.Drawing.Size(104, 64);
-            this.butDelete.TabIndex = 7;
-            this.butDelete.Text = "DELETE";
-            this.butDelete.UseVisualStyleBackColor = true;
-            this.butDelete.Click += new System.EventHandler(this.butDelete_Click);
-            // 
-            // buttUpdate
-            // 
-            this.buttUpdate.AutoSize = true;
-            this.buttUpdate.Location = new System.Drawing.Point(418, 321);
-            this.buttUpdate.Name = "buttUpdate";
-            this.buttUpdate.Size = new System.Drawing.Size(104, 64);
-            this.buttUpdate.TabIndex = 6;
-            this.buttUpdate.Text = "...";
-            this.buttUpdate.UseVisualStyleBackColor = true;
-            this.buttUpdate.Click += new System.EventHandler(this.buttUpdate_Click);
             // 
             // textRangeName
             // 
@@ -249,6 +303,7 @@
             this.ClientSize = new System.Drawing.Size(909, 621);
             this.Controls.Add(this.panRange);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "showRangeForm";
             this.Text = "RANGE";
             this.panRange.ResumeLayout(false);
@@ -258,15 +313,12 @@
         }
 
         private System.Windows.Forms.Panel panRange;
-        private System.Windows.Forms.Button butDelete;
-        private System.Windows.Forms.Button buttUpdate;
         private System.Windows.Forms.TextBox textRangeName;
         private System.Windows.Forms.TextBox textIDRange;
         private System.Windows.Forms.Label labRangeName;
         private System.Windows.Forms.Label labID;
         private System.Windows.Forms.ListView listRange;
         private System.Windows.Forms.Label labTieuDe;
-        private System.Windows.Forms.Button butClear;
         private System.Windows.Forms.Label labSearch;
         private System.Windows.Forms.TextBox textSearch;
         private System.Windows.Forms.Button butLeft;
@@ -275,5 +327,9 @@
         private System.Windows.Forms.Label OldName;
         private System.Windows.Forms.Label NewName;
         private System.Windows.Forms.TextBox textNewName;
+        private ePOSOne.btnProduct.Button_WOC buttonClear;
+        private ePOSOne.btnProduct.Button_WOC buttonDelete;
+        private ePOSOne.btnProduct.Button_WOC buttonUp;
+        private ePOSOne.btnProduct.Button_WOC button_WOC1;
     }
 }

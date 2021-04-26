@@ -36,11 +36,11 @@ namespace LoginMotelUser
         {
             using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
             {
-                listRank.Columns.Add("ID loại phòng", 100);
-                listRank.Columns.Add("Tên loại phòng", 150);
-                listRank.Columns.Add("Giá Phòng", 100);
-                listRank.Columns.Add("Tiền Cọc", 200);
-                listRank.Columns.Add("Ghi Chú", 100);
+                listRank.Columns.Add("ID Rank", 100);
+                listRank.Columns.Add("Rank name", 150);
+                listRank.Columns.Add("Price", 100);
+                listRank.Columns.Add("Desposit", 200);
+                listRank.Columns.Add("About", 100);
 
                 var list = (from d in data.USP_PageRank(a, b) select d).ToList();
 
@@ -67,7 +67,7 @@ namespace LoginMotelUser
                     tinh = tong / soLuong;
                 }
 
-                labPage.Text = "Trang 1/" + tinh;
+                labPage.Text = "Page 1/" + tinh;
             }
         }
         private void loadList()
@@ -89,17 +89,17 @@ namespace LoginMotelUser
         private void textSearch_TextChanged(object sender, EventArgs e)
         {
             listRank.Clear();
-            labPage.Text = "Trang 1/1";
+            labPage.Text = "Page 1/1";
             using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
             {
                 String temp = textSearch.Text;
                 List<Model.ROOMRANK> list = (from a in data.ROOMRANKs where a.RankName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();
 
-                listRank.Columns.Add("ID loại phòng", 100);
-                listRank.Columns.Add("Tên loại phòng", 150);
-                listRank.Columns.Add("Giá Phòng", 100);
-                listRank.Columns.Add("Tiền Cọc", 200);
-                listRank.Columns.Add("Ghi Chú", 100);
+                listRank.Columns.Add("ID Rank", 100);
+                listRank.Columns.Add("Rank name", 150);
+                listRank.Columns.Add("Price", 100);
+                listRank.Columns.Add("Desposit", 200);
+                listRank.Columns.Add("About", 100);
 
 
                 foreach (Model.ROOMRANK c in list)
@@ -140,7 +140,7 @@ namespace LoginMotelUser
                 listRank.Clear();
                 loadData(dem * soLuong, soLuong);
             }
-            labPage.Text = "Trang " + (dem + 1) + "/" + tinh;
+            labPage.Text = "Page " + (dem + 1) + "/" + tinh;
         }
 
         private void butLeft_Click(object sender, EventArgs e)
@@ -166,7 +166,7 @@ namespace LoginMotelUser
                 listRank.Clear();
                 loadData(dem * soLuong, soLuong);
             }
-            labPage.Text = "Trang " + (dem + 1) + "/" + tinh;
+            labPage.Text = "Page " + (dem + 1) + "/" + tinh;
         }
 
         private void textSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -174,17 +174,17 @@ namespace LoginMotelUser
             if (e.KeyChar == (char)Keys.Return)
             {
                 listRank.Clear();
-                labPage.Text = "Trang 1/1";
+                labPage.Text = "Page 1/1";
                 using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
                 {
                     String temp = textSearch.Text;
                     List<Model.ROOMRANK> list = (from a in data.ROOMRANKs where a.RankName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();
 
-                    listRank.Columns.Add("ID loại phòng", 100);
-                    listRank.Columns.Add("Tên loại phòng", 150);
-                    listRank.Columns.Add("Giá Phòng", 100);
-                    listRank.Columns.Add("Tiền Cọc", 200);
-                    listRank.Columns.Add("Ghi Chú", 100);
+                    listRank.Columns.Add("ID Rank", 100);
+                    listRank.Columns.Add("Rank name", 150);
+                    listRank.Columns.Add("Price", 100);
+                    listRank.Columns.Add("Desposit", 200);
+                    listRank.Columns.Add("About", 100);
 
 
                     foreach (Model.ROOMRANK c in list)
@@ -261,6 +261,13 @@ namespace LoginMotelUser
             {
                 MessageBox.Show("Hay chon khach can xoa tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        public void setColor()
+        {
+            this.labTieuDe.BackColor = System.Drawing.Color.Transparent;
+            this.labSearch.BackColor = System.Drawing.Color.Transparent;
+            this.labPage.BackColor = System.Drawing.Color.Transparent;
         }
     }
 }

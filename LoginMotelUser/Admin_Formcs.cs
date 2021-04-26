@@ -40,22 +40,30 @@ namespace LoginMotelUser
      
         private void insertUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             New_User nU = new New_User();
             nU.ShowDialog();
+            this.Visible = true;
+            this.frmHome_Load(sender, e);
         }
 
         private void inserCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             formAddCustomer AC = new formAddCustomer();
             AC.ShowDialog();
+            this.Visible = true;
             this.frmHome_Load(sender,e);
         }
 
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             Update_User udU = new Update_User();
             udU.checkUsername = this.checkUsername;
             udU.ShowDialog();
+            this.Visible = true;
+            frmHome_Load(sender, e);
         }
 
         private void exitMenuItem_Click(object sender, EventArgs e)
@@ -334,28 +342,37 @@ namespace LoginMotelUser
 
         private void collectionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             FormCollection Fc = new FormCollection();
             Fc.ShowDialog();
+            this.Visible = true;
+            frmHome_Load(sender, e);
         }
 
         private void pricesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             FormPrices FP = new FormPrices(checkUsername);
             FP.ShowDialog();
+            this.Visible = true;
             this.frmHome_Load(sender, e);
         }
 
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             ShowCustomerForm gf = new ShowCustomerForm(true);
             gf.ShowDialog();
+            this.Visible = true;
             this.frmHome_Load(sender,e);
         }
 
         private void customerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             ShowCustomerForm uC = new ShowCustomerForm(false);
             uC.ShowDialog();
+            this.Visible = true;
             this.frmHome_Load(sender, e);
         }
 
@@ -366,71 +383,91 @@ namespace LoginMotelUser
 
         private void roomToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             showRoomForm sFR = new showRoomForm(true);
             sFR.ShowDialog();
+            this.Visible = true;
             this.frmHome_Load(sender, e);
         }
 
         private void roomToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             showRoomForm sFR = new showRoomForm(false);
             sFR.ShowDialog();
+            this.Visible = true;
             this.frmHome_Load(sender, e);
         }
 
         private void rankToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             showRankForm rF = new showRankForm(true);
             rF.ShowDialog();
+            this.Visible = true;
             this.frmHome_Load(sender, e);
         }
 
         private void rankToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             showRankForm rF = new showRankForm(false);
             rF.ShowDialog();
+            this.Visible = true;
             this.frmHome_Load(sender, e);
         }
 
         private void rangeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             showRangeForm rF = new showRangeForm(true);
             rF.ShowDialog();
+            this.Visible = true;
             this.frmHome_Load(sender, e);
         }
 
         private void rageToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             showRangeForm rF = new showRangeForm(false);
             rF.ShowDialog();
+            this.Visible = true;
             this.frmHome_Load(sender, e);
         }
 
         private void serviceToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             serviceForm sF = new serviceForm(true);
-            sF.ShowDialog();
+            sF.ShowDialog(); 
+            this.Visible = true;
             this.frmHome_Load(sender, e);
         }
 
         private void serviceToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             serviceForm sF = new serviceForm(false);
             sF.ShowDialog();
+            this.Visible = true;
             this.frmHome_Load(sender, e);
         }
 
         private void staffToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             showStaffForm staff = new showStaffForm(true);
             staff.ShowDialog();
+            this.Visible = true;
             this.frmHome_Load(sender, e);
         }
 
         private void staffToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             showStaffForm staff = new showStaffForm(false);
             staff.ShowDialog();
+            this.Visible = true;
             this.frmHome_Load(sender, e);
         }
 

@@ -15,6 +15,7 @@ namespace LoginMotelUser
         public Update_User()
         {
             InitializeComponent();
+            setColor();
         }
         private bool checkClick = false;
         LoginMotelUser.Model.MotelManagerEntities2 us = new Model.MotelManagerEntities2();
@@ -48,85 +49,12 @@ namespace LoginMotelUser
             }
         }
 
-        private void buttonUpdate_Click(object sender, EventArgs e)
-        {
-            var userName = (from u in us.USERs
-                            where u.UserName.Equals(textUsername.Text)
-                            select u).ToList();
-
-            if (userName.Count == 0)
-            {
-                MessageBox.Show("This account does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-
-                DialogResult d = MessageBox.Show("Are you sure ?", "UPDATE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (d == DialogResult.Yes)
-                {
-                    var uN = textUsername.Text;
-                    var user = us.USERs.Single(u => u.UserName.Equals(uN));
-                    user.UserName = textUsername.Text.Trim();
-                    user.Password = textPassword.Text.Trim();
-                    user.IDRole = Int32.Parse(comboBoxRole.GetItemText(comboBoxRole.SelectedValue));
-                    us.SaveChanges();
-                    textPassword.Text = "";
-                    textUsername.Text = "";
-                    comboBoxRole.SelectedIndex = 0;
-                    this.Update_User_Load(sender, e);
-                }
-            }
-        }
-
-        private void buttonCancle_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             var users = (from u in us.USERs
                          where u.UserName.Contains(textBox1.Text)
                          select new { u.UserName, u.Password, u.ROLE.RoleName }).ToList();
             this.uSERBindingSource1.DataSource = users;
-        }
-
-        private void buttonDelete_Click(object sender, EventArgs e)
-        {
-            var users = (from u in us.USERs
-                         where u.UserName.Equals(textUsername.Text)
-                         select u).ToList();
-            if (users.Count == 0)
-            {
-                MessageBox.Show("This account does not exist!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                foreach (var user in users)
-                {
-                    if (user.UserName.Equals(checkUsername.ToLower()))
-                    {
-                        MessageBox.Show("This user name is running!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        textPassword.Text = "";
-                        textUsername.Text = "";
-                        comboBoxRole.SelectedIndex = 0;
-                    }
-                    else
-                    {
-                        DialogResult d;
-                        d = MessageBox.Show("Are you sure ?", "DELETE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (d == DialogResult.Yes)
-                        {
-                            us.USERs.Remove(user);
-                            us.SaveChanges();
-                            textPassword.Text = "";
-                            textUsername.Text = "";
-                            comboBoxRole.SelectedIndex = 0;
-                            this.Update_User_Load(sender, e);
-                        }
-                    }
-                }
-
-            }
         }
 
         private void dataUser_MouseClick(object sender, MouseEventArgs e)
@@ -194,6 +122,89 @@ namespace LoginMotelUser
                 }
 
             }
+        }
+
+        private void buttonUp_Click(object sender, EventArgs e)
+        {
+            var userName = (from u in us.USERs
+                            where u.UserName.Equals(textUsername.Text)
+                            select u).ToList();
+
+            if (userName.Count == 0)
+            {
+                MessageBox.Show("This account does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+
+                DialogResult d = MessageBox.Show("Are you sure ?", "UPDATE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (d == DialogResult.Yes)
+                {
+                    var uN = textUsername.Text;
+                    var user = us.USERs.Single(u => u.UserName.Equals(uN));
+                    user.UserName = textUsername.Text.Trim();
+                    user.Password = textPassword.Text.Trim();
+                    user.IDRole = Int32.Parse(comboBoxRole.GetItemText(comboBoxRole.SelectedValue));
+                    us.SaveChanges();
+                    textPassword.Text = "";
+                    textUsername.Text = "";
+                    comboBoxRole.SelectedIndex = 0;
+                    this.Update_User_Load(sender, e);
+                }
+            }
+        }
+
+        private void button_WOC1_Click(object sender, EventArgs e)
+        {
+            var users = (from u in us.USERs
+                         where u.UserName.Equals(textUsername.Text)
+                         select u).ToList();
+            if (users.Count == 0)
+            {
+                MessageBox.Show("This account does not exist!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                foreach (var user in users)
+                {
+                    if (user.UserName.Equals(checkUsername.ToLower()))
+                    {
+                        MessageBox.Show("This user name is running!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textPassword.Text = "";
+                        textUsername.Text = "";
+                        comboBoxRole.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                        DialogResult d;
+                        d = MessageBox.Show("Are you sure ?", "DELETE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (d == DialogResult.Yes)
+                        {
+                            us.USERs.Remove(user);
+                            us.SaveChanges();
+                            textPassword.Text = "";
+                            textUsername.Text = "";
+                            comboBoxRole.SelectedIndex = 0;
+                            this.Update_User_Load(sender, e);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void buttonCan_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public void setColor()
+        {
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.buttonCan.BackColor = System.Drawing.Color.Transparent;
         }
     }
 }

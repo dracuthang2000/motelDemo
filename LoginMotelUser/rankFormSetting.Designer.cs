@@ -39,10 +39,10 @@
             this.textRankName = new System.Windows.Forms.TextBox();
             this.textPrice = new System.Windows.Forms.TextBox();
             this.textDeposit = new System.Windows.Forms.TextBox();
-            this.butUpdate = new System.Windows.Forms.Button();
-            this.butExit = new System.Windows.Forms.Button();
             this.panRankOpen = new System.Windows.Forms.Panel();
             this.textAbout = new System.Windows.Forms.TextBox();
+            this.buttonSave = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonCancle = new ePOSOne.btnProduct.Button_WOC();
             this.panRankOpen.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,11 +50,11 @@
             // 
             this.labTieuDe.AutoSize = true;
             this.labTieuDe.Font = new System.Drawing.Font("Arial Narrow", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTieuDe.Location = new System.Drawing.Point(181, 0);
+            this.labTieuDe.Location = new System.Drawing.Point(225, 9);
             this.labTieuDe.Name = "labTieuDe";
-            this.labTieuDe.Size = new System.Drawing.Size(297, 33);
+            this.labTieuDe.Size = new System.Drawing.Size(252, 33);
             this.labTieuDe.TabIndex = 0;
-            this.labTieuDe.Text = "THÔNG TIN LOẠI PHÒNG";
+            this.labTieuDe.Text = "RANK INFORMATION";
             // 
             // labIDRank
             // 
@@ -70,36 +70,36 @@
             this.labRankName.AutoSize = true;
             this.labRankName.Location = new System.Drawing.Point(51, 141);
             this.labRankName.Name = "labRankName";
-            this.labRankName.Size = new System.Drawing.Size(117, 17);
+            this.labRankName.Size = new System.Drawing.Size(88, 17);
             this.labRankName.TabIndex = 2;
-            this.labRankName.Text = "Tên Loại Phòng :";
+            this.labRankName.Text = "Rank name :";
             // 
             // labPrice
             // 
             this.labPrice.AutoSize = true;
             this.labPrice.Location = new System.Drawing.Point(51, 191);
             this.labPrice.Name = "labPrice";
-            this.labPrice.Size = new System.Drawing.Size(68, 17);
+            this.labPrice.Size = new System.Drawing.Size(44, 17);
             this.labPrice.TabIndex = 4;
-            this.labPrice.Text = "Đơn Giá :";
+            this.labPrice.Text = "Price:";
             // 
             // labDeposit
             // 
             this.labDeposit.AutoSize = true;
             this.labDeposit.Location = new System.Drawing.Point(51, 251);
             this.labDeposit.Name = "labDeposit";
-            this.labDeposit.Size = new System.Drawing.Size(72, 17);
+            this.labDeposit.Size = new System.Drawing.Size(67, 17);
             this.labDeposit.TabIndex = 5;
-            this.labDeposit.Text = "Tiền Cọc :";
+            this.labDeposit.Text = "Desposit:";
             // 
             // GhiAbout
             // 
             this.GhiAbout.AutoSize = true;
             this.GhiAbout.Location = new System.Drawing.Point(51, 329);
             this.GhiAbout.Name = "GhiAbout";
-            this.GhiAbout.Size = new System.Drawing.Size(67, 17);
+            this.GhiAbout.Size = new System.Drawing.Size(49, 17);
             this.GhiAbout.TabIndex = 7;
-            this.GhiAbout.Text = "Ghi Chú :";
+            this.GhiAbout.Text = "About:";
             // 
             // labIDShow
             // 
@@ -132,31 +132,13 @@
             this.textDeposit.Size = new System.Drawing.Size(326, 22);
             this.textDeposit.TabIndex = 3;
             // 
-            // butUpdate
-            // 
-            this.butUpdate.Location = new System.Drawing.Point(79, 448);
-            this.butUpdate.Name = "butUpdate";
-            this.butUpdate.Size = new System.Drawing.Size(141, 70);
-            this.butUpdate.TabIndex = 5;
-            this.butUpdate.Text = "Cập Nhật";
-            this.butUpdate.UseVisualStyleBackColor = true;
-            this.butUpdate.Click += new System.EventHandler(this.butUpdate_Click);
-            // 
-            // butExit
-            // 
-            this.butExit.Location = new System.Drawing.Point(477, 448);
-            this.butExit.Name = "butExit";
-            this.butExit.Size = new System.Drawing.Size(141, 70);
-            this.butExit.TabIndex = 6;
-            this.butExit.Text = "THOÁT";
-            this.butExit.UseVisualStyleBackColor = true;
-            this.butExit.Click += new System.EventHandler(this.butExit_Click);
-            // 
             // panRankOpen
             // 
+            this.panRankOpen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panRankOpen.BackgroundImage")));
+            this.panRankOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panRankOpen.Controls.Add(this.buttonCancle);
+            this.panRankOpen.Controls.Add(this.buttonSave);
             this.panRankOpen.Controls.Add(this.textAbout);
-            this.panRankOpen.Controls.Add(this.butExit);
-            this.panRankOpen.Controls.Add(this.butUpdate);
             this.panRankOpen.Controls.Add(this.textDeposit);
             this.panRankOpen.Controls.Add(this.textPrice);
             this.panRankOpen.Controls.Add(this.textRankName);
@@ -167,9 +149,9 @@
             this.panRankOpen.Controls.Add(this.labRankName);
             this.panRankOpen.Controls.Add(this.labIDRank);
             this.panRankOpen.Controls.Add(this.labTieuDe);
-            this.panRankOpen.Location = new System.Drawing.Point(1, 0);
+            this.panRankOpen.Location = new System.Drawing.Point(-3, 0);
             this.panRankOpen.Name = "panRankOpen";
-            this.panRankOpen.Size = new System.Drawing.Size(673, 563);
+            this.panRankOpen.Size = new System.Drawing.Size(683, 563);
             this.panRankOpen.TabIndex = 1;
             // 
             // textAbout
@@ -180,6 +162,48 @@
             this.textAbout.Size = new System.Drawing.Size(326, 100);
             this.textAbout.TabIndex = 4;
             // 
+            // buttonSave
+            // 
+            this.buttonSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSave.BackgroundImage")));
+            this.buttonSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSave.BorderColor = System.Drawing.Color.Silver;
+            this.buttonSave.ButtonColor = System.Drawing.Color.MediumTurquoise;
+            this.buttonSave.FlatAppearance.BorderSize = 0;
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Location = new System.Drawing.Point(0, 523);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonSave.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonSave.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonSave.Size = new System.Drawing.Size(103, 37);
+            this.buttonSave.TabIndex = 13;
+            this.buttonSave.Text = "SAVE";
+            this.buttonSave.TextColor = System.Drawing.Color.White;
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonCancle
+            // 
+            this.buttonCancle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCancle.BackgroundImage")));
+            this.buttonCancle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCancle.BorderColor = System.Drawing.Color.Silver;
+            this.buttonCancle.ButtonColor = System.Drawing.Color.MediumTurquoise;
+            this.buttonCancle.FlatAppearance.BorderSize = 0;
+            this.buttonCancle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancle.Location = new System.Drawing.Point(577, 523);
+            this.buttonCancle.Name = "buttonCancle";
+            this.buttonCancle.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonCancle.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonCancle.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonCancle.Size = new System.Drawing.Size(103, 37);
+            this.buttonCancle.TabIndex = 14;
+            this.buttonCancle.Text = "CANCLE";
+            this.buttonCancle.TextColor = System.Drawing.Color.White;
+            this.buttonCancle.UseVisualStyleBackColor = true;
+            this.buttonCancle.Click += new System.EventHandler(this.buttonCancle_Click);
+            // 
             // rankFormSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -187,6 +211,7 @@
             this.ClientSize = new System.Drawing.Size(678, 559);
             this.Controls.Add(this.panRankOpen);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
             this.Name = "rankFormSetting";
             this.Text = "rankOpenForm";
             this.panRankOpen.ResumeLayout(false);
@@ -207,9 +232,9 @@
         private System.Windows.Forms.TextBox textRankName;
         private System.Windows.Forms.TextBox textPrice;
         private System.Windows.Forms.TextBox textDeposit;
-        private System.Windows.Forms.Button butUpdate;
-        private System.Windows.Forms.Button butExit;
         private System.Windows.Forms.Panel panRankOpen;
         private System.Windows.Forms.TextBox textAbout;
+        private ePOSOne.btnProduct.Button_WOC buttonSave;
+        private ePOSOne.btnProduct.Button_WOC buttonCancle;
     }
 }

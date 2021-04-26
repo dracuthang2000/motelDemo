@@ -186,6 +186,7 @@
             this.ClientSize = new System.Drawing.Size(974, 598);
             this.Controls.Add(this.panKhach);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "showStaffForm";
             this.Text = "STAFF";
             this.panKhach.ResumeLayout(false);

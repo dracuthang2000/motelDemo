@@ -24,13 +24,13 @@ namespace LoginMotelUser
             this.check = check;
             if (check == true)
             {
-                buttUpdate.Text = "ADD";
+                buttonSave.Text = "ADD";
                 textNewName.Visible = false;
                 label1.Visible = false;
             }
             else
             {
-                buttUpdate.Text = "UPDATE";
+                buttonSave.Text = "UPDATE";
             }
             loadData(0, soLuong);
             dem = 0;
@@ -93,98 +93,17 @@ namespace LoginMotelUser
 
         private void buttUpdate_Click(object sender, EventArgs e)
         {
-            if(check == true)
-            {
-                if (textServiceName.Text.Trim() == "")
-                {
-                    MessageBox.Show("Hay nhap ten dich vu!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                DialogResult result = MessageBox.Show("Ban co chac them dich vu khong?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                switch (result)
-                {
-                    case DialogResult.Cancel: return;
-                    case DialogResult.Yes:
-                        {
-                            saveData(); listService.Clear();
-                            loadData(0, soLuong);
-                            dem = 0;
-                            break;
-                        }
-                    case DialogResult.No: return;
-
-                    default:
-                        break;
-
-                }
-
-            }
-            else 
-            {      
-            if (System.Text.RegularExpressions.Regex.IsMatch(textPrice.Text, "[^0-9.]"))
-            {
-                MessageBox.Show("Chi nhap so vao don gia!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textPrice.Text = "";
-                return;
-            }
-                if (textIDService.Text != "")
-                {
-                    DialogResult result = MessageBox.Show("Ban co chac chinh sua dich vu co ID = " + textIDService.Text + " khong ? (tat ca cac du lieu lien quan deu se thay doi!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                    switch (result)
-                    {
-                        case DialogResult.Cancel: return;
-                        case DialogResult.Yes:
-                            {
-                                updateData(); listService.Clear();
-                                loadData(0, soLuong);
-                                dem = 0;
-                                break;
-                            }
-                        case DialogResult.No: return;
-
-                        default:
-                            break;
-
-                    }
-                }
-            }
-
+          
         }
 
         private void butDelete_Click(object sender, EventArgs e)
         {
-            if (textIDService.Text == "")
-            {
-                MessageBox.Show("Hay chon id can xoa tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            DialogResult result = MessageBox.Show("Ban co chac xoa dich vu co ID = " + textIDService.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-            switch (result)
-            {
-                case DialogResult.Cancel: return;
-                case DialogResult.Yes:
-                    {
-                        Model.SERVICE temp = data.SERVICEs.Find(int.Parse(textIDService.Text));
-                        data.SERVICEs.Remove(temp);
-                        data.SaveChanges();
-                        listService.Clear();
-                        loadData(0, soLuong);
-                        dem = 0;
-                        break;
-                    }
-                case DialogResult.No: return;
-
-                default:
-                    break;
-
-            }
+          
         }
 
         private void butClear_Click(object sender, EventArgs e)
         {
-            textIDService.Text = "";
-            textServiceName.Text = "";
-            textPrice.Text = "";
+          
         }
 
         private void textSearch_TextChanged(object sender, EventArgs e)
@@ -309,6 +228,115 @@ namespace LoginMotelUser
                 }
             }
             
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (check == true)
+            {
+                if (textServiceName.Text.Trim() == "")
+                {
+                    MessageBox.Show("Hay nhap ten dich vu!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                DialogResult result = MessageBox.Show("Ban co chac them dich vu khong?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                switch (result)
+                {
+                    case DialogResult.Cancel: return;
+                    case DialogResult.Yes:
+                        {
+                            saveData(); listService.Clear();
+                            loadData(0, soLuong);
+                            dem = 0;
+                            break;
+                        }
+                    case DialogResult.No: return;
+
+                    default:
+                        break;
+
+                }
+
+            }
+            else
+            {
+                if (System.Text.RegularExpressions.Regex.IsMatch(textPrice.Text, "[^0-9.]"))
+                {
+                    MessageBox.Show("Chi nhap so vao don gia!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    textPrice.Text = "";
+                    return;
+                }
+                if (textIDService.Text != "")
+                {
+                    DialogResult result = MessageBox.Show("Ban co chac chinh sua dich vu co ID = " + textIDService.Text + " khong ? (tat ca cac du lieu lien quan deu se thay doi!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    switch (result)
+                    {
+                        case DialogResult.Cancel: return;
+                        case DialogResult.Yes:
+                            {
+                                updateData(); listService.Clear();
+                                loadData(0, soLuong);
+                                dem = 0;
+                                break;
+                            }
+                        case DialogResult.No: return;
+
+                        default:
+                            break;
+
+                    }
+                }
+            }
+
+        }
+
+        private void button_WOC1_Click(object sender, EventArgs e)
+        {
+            if (textIDService.Text == "")
+            {
+                MessageBox.Show("Hay chon id can xoa tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DialogResult result = MessageBox.Show("Ban co chac xoa dich vu co ID = " + textIDService.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            switch (result)
+            {
+                case DialogResult.Cancel: return;
+                case DialogResult.Yes:
+                    {
+                        Model.SERVICE temp = data.SERVICEs.Find(int.Parse(textIDService.Text));
+                        data.SERVICEs.Remove(temp);
+                        data.SaveChanges();
+                        listService.Clear();
+                        loadData(0, soLuong);
+                        dem = 0;
+                        break;
+                    }
+                case DialogResult.No: return;
+
+                default:
+                    break;
+
+            }
+        }
+
+        private void button_WOC2_Click(object sender, EventArgs e)
+        {
+            textIDService.Text = "";
+            textServiceName.Text = "";
+            textPrice.Text = "";
+        }
+
+        public void setColor()
+        {
+            this.labTieuDe.BackColor = System.Drawing.Color.Transparent;
+            this.labSearch.BackColor = System.Drawing.Color.Transparent;
+            this.labPage.BackColor = System.Drawing.Color.Transparent;
+            this.labPrice.BackColor = System.Drawing.Color.Transparent;
+            this.labID.BackColor = System.Drawing.Color.Transparent;
+            this.labServiceName.BackColor = System.Drawing.Color.Transparent;
+            this.labID.BackColor = System.Drawing.Color.Transparent;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
         }
     }
 }

@@ -35,14 +35,15 @@
             this.cbbLoaiPhongSC4 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtTongTien = new System.Windows.Forms.TextBox();
-            this.btnLuuSC4 = new System.Windows.Forms.Button();
-            this.btnInHoaDonSC4 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.txtQueQuanSC4 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtGioiTinhSC4 = new System.Windows.Forms.TextBox();
             this.pnlPrice = new System.Windows.Forms.Panel();
+            this.buttonPrint = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonCan = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonSave = new ePOSOne.btnProduct.Button_WOC();
             this.label2 = new System.Windows.Forms.Label();
             this.listService = new System.Windows.Forms.ListView();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -51,7 +52,6 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
-            this.buttonCancle = new System.Windows.Forms.Button();
             this.lbIDPhongSC4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnTinhTongTien = new System.Windows.Forms.Button();
@@ -72,19 +72,19 @@
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(19, 12);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(79, 20);
+            this.label21.Size = new System.Drawing.Size(57, 20);
             this.label21.TabIndex = 0;
-            this.label21.Text = "Chọn dãy";
+            this.label21.Text = "Range";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(114, 45);
+            this.label20.Location = new System.Drawing.Point(201, 91);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(181, 25);
+            this.label20.Size = new System.Drawing.Size(131, 25);
             this.label20.TabIndex = 1;
-            this.label20.Text = "Danh sách phòng";
+            this.label20.Text = "LIST ROOM";
             // 
             // label19
             // 
@@ -102,9 +102,9 @@
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(23, 342);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(60, 20);
+            this.label17.Size = new System.Drawing.Size(64, 20);
             this.label17.TabIndex = 6;
-            this.label17.Text = "CMND";
+            this.label17.Text = "ID card";
             // 
             // label15
             // 
@@ -112,9 +112,9 @@
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(23, 420);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(43, 20);
+            this.label15.Size = new System.Drawing.Size(56, 20);
             this.label15.TabIndex = 10;
-            this.label15.Text = "SDT";
+            this.label15.Text = "Phone";
             // 
             // cbbDaySC4
             // 
@@ -154,16 +154,16 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(12, 81);
+            this.label13.Location = new System.Drawing.Point(19, 49);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(91, 20);
+            this.label13.Size = new System.Drawing.Size(96, 20);
             this.label13.TabIndex = 35;
-            this.label13.Text = "Loại phòng";
+            this.label13.Text = "Room Rank";
             // 
             // cbbLoaiPhongSC4
             // 
             this.cbbLoaiPhongSC4.FormattingEnabled = true;
-            this.cbbLoaiPhongSC4.Location = new System.Drawing.Point(125, 77);
+            this.cbbLoaiPhongSC4.Location = new System.Drawing.Point(125, 46);
             this.cbbLoaiPhongSC4.Name = "cbbLoaiPhongSC4";
             this.cbbLoaiPhongSC4.Size = new System.Drawing.Size(121, 28);
             this.cbbLoaiPhongSC4.TabIndex = 36;
@@ -175,9 +175,9 @@
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(651, 28);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(269, 25);
+            this.label12.Size = new System.Drawing.Size(118, 25);
             this.label12.TabIndex = 38;
-            this.label12.Text = "Dịch vụ sử dụng ID Phòng:";
+            this.label12.Text = "ID ROOM: ";
             // 
             // txtTongTien
             // 
@@ -188,34 +188,15 @@
             this.txtTongTien.Size = new System.Drawing.Size(176, 27);
             this.txtTongTien.TabIndex = 52;
             // 
-            // btnLuuSC4
-            // 
-            this.btnLuuSC4.Location = new System.Drawing.Point(572, 503);
-            this.btnLuuSC4.Name = "btnLuuSC4";
-            this.btnLuuSC4.Size = new System.Drawing.Size(110, 47);
-            this.btnLuuSC4.TabIndex = 53;
-            this.btnLuuSC4.Text = "luu";
-            this.btnLuuSC4.UseVisualStyleBackColor = true;
-            this.btnLuuSC4.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnInHoaDonSC4
-            // 
-            this.btnInHoaDonSC4.Location = new System.Drawing.Point(707, 503);
-            this.btnInHoaDonSC4.Name = "btnInHoaDonSC4";
-            this.btnInHoaDonSC4.Size = new System.Drawing.Size(132, 47);
-            this.btnInHoaDonSC4.TabIndex = 54;
-            this.btnInHoaDonSC4.Text = "in hoa don";
-            this.btnInHoaDonSC4.UseVisualStyleBackColor = true;
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(19, 454);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(81, 20);
+            this.label14.Size = new System.Drawing.Size(71, 20);
             this.label14.TabIndex = 64;
-            this.label14.Text = "Quê quán";
+            this.label14.Text = "Address";
             // 
             // txtQueQuanSC4
             // 
@@ -231,9 +212,9 @@
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(23, 383);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(59, 20);
+            this.label18.Size = new System.Drawing.Size(82, 20);
             this.label18.TabIndex = 66;
-            this.label18.Text = "Họ tên";
+            this.label18.Text = "Full name";
             // 
             // label16
             // 
@@ -241,9 +222,9 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(19, 494);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(71, 20);
+            this.label16.Size = new System.Drawing.Size(59, 20);
             this.label16.TabIndex = 67;
-            this.label16.Text = "Giới tính";
+            this.label16.Text = "Sexual";
             // 
             // txtGioiTinhSC4
             // 
@@ -255,10 +236,14 @@
             // 
             // pnlPrice
             // 
+            this.pnlPrice.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlPrice.BackgroundImage")));
+            this.pnlPrice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlPrice.Controls.Add(this.buttonPrint);
+            this.pnlPrice.Controls.Add(this.buttonCan);
+            this.pnlPrice.Controls.Add(this.buttonSave);
             this.pnlPrice.Controls.Add(this.label2);
             this.pnlPrice.Controls.Add(this.listService);
             this.pnlPrice.Controls.Add(this.button1);
-            this.pnlPrice.Controls.Add(this.buttonCancle);
             this.pnlPrice.Controls.Add(this.lbIDPhongSC4);
             this.pnlPrice.Controls.Add(this.label1);
             this.pnlPrice.Controls.Add(this.btnTinhTongTien);
@@ -268,8 +253,6 @@
             this.pnlPrice.Controls.Add(this.txtQueQuanSC4);
             this.pnlPrice.Controls.Add(this.label14);
             this.pnlPrice.Controls.Add(this.lbTienPhong);
-            this.pnlPrice.Controls.Add(this.btnInHoaDonSC4);
-            this.pnlPrice.Controls.Add(this.btnLuuSC4);
             this.pnlPrice.Controls.Add(this.txtTongTien);
             this.pnlPrice.Controls.Add(this.label11);
             this.pnlPrice.Controls.Add(this.label12);
@@ -292,12 +275,78 @@
             this.pnlPrice.Size = new System.Drawing.Size(1086, 562);
             this.pnlPrice.TabIndex = 52;
             // 
+            // buttonPrint
+            // 
+            this.buttonPrint.BackColor = System.Drawing.Color.Peru;
+            this.buttonPrint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonPrint.BackgroundImage")));
+            this.buttonPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonPrint.BorderColor = System.Drawing.Color.Silver;
+            this.buttonPrint.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonPrint.FlatAppearance.BorderSize = 0;
+            this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPrint.Location = new System.Drawing.Point(743, 503);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonPrint.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonPrint.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonPrint.Size = new System.Drawing.Size(99, 40);
+            this.buttonPrint.TabIndex = 86;
+            this.buttonPrint.Text = "PRINT BILL";
+            this.buttonPrint.TextColor = System.Drawing.Color.Black;
+            this.buttonPrint.UseVisualStyleBackColor = false;
+            // 
+            // buttonCan
+            // 
+            this.buttonCan.BackColor = System.Drawing.Color.Peru;
+            this.buttonCan.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCan.BackgroundImage")));
+            this.buttonCan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCan.BorderColor = System.Drawing.Color.Silver;
+            this.buttonCan.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonCan.FlatAppearance.BorderSize = 0;
+            this.buttonCan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCan.Location = new System.Drawing.Point(906, 503);
+            this.buttonCan.Name = "buttonCan";
+            this.buttonCan.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonCan.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonCan.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonCan.Size = new System.Drawing.Size(80, 40);
+            this.buttonCan.TabIndex = 85;
+            this.buttonCan.Text = "CANCLE";
+            this.buttonCan.TextColor = System.Drawing.Color.Black;
+            this.buttonCan.UseVisualStyleBackColor = false;
+            this.buttonCan.Click += new System.EventHandler(this.buttonCan_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.BackColor = System.Drawing.Color.Peru;
+            this.buttonSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSave.BackgroundImage")));
+            this.buttonSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSave.BorderColor = System.Drawing.Color.Silver;
+            this.buttonSave.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonSave.FlatAppearance.BorderSize = 0;
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Location = new System.Drawing.Point(592, 503);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonSave.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonSave.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonSave.Size = new System.Drawing.Size(80, 40);
+            this.buttonSave.TabIndex = 84;
+            this.buttonSave.Text = "SAVE";
+            this.buttonSave.TextColor = System.Drawing.Color.Black;
+            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(746, 96);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(738, 87);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 20);
+            this.label2.Size = new System.Drawing.Size(119, 25);
             this.label2.TabIndex = 83;
             this.label2.Text = "ListService";
             // 
@@ -352,20 +401,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // buttonCancle
-            // 
-            this.buttonCancle.Location = new System.Drawing.Point(874, 503);
-            this.buttonCancle.Name = "buttonCancle";
-            this.buttonCancle.Size = new System.Drawing.Size(110, 47);
-            this.buttonCancle.TabIndex = 78;
-            this.buttonCancle.Text = "Cancle";
-            this.buttonCancle.UseVisualStyleBackColor = true;
-            // 
             // lbIDPhongSC4
             // 
             this.lbIDPhongSC4.AutoSize = true;
             this.lbIDPhongSC4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIDPhongSC4.Location = new System.Drawing.Point(938, 28);
+            this.lbIDPhongSC4.Location = new System.Drawing.Point(776, 28);
             this.lbIDPhongSC4.Name = "lbIDPhongSC4";
             this.lbIDPhongSC4.Size = new System.Drawing.Size(30, 25);
             this.lbIDPhongSC4.TabIndex = 74;
@@ -387,7 +427,7 @@
             this.btnTinhTongTien.Name = "btnTinhTongTien";
             this.btnTinhTongTien.Size = new System.Drawing.Size(136, 30);
             this.btnTinhTongTien.TabIndex = 72;
-            this.btnTinhTongTien.Text = "Tính tổng tiền";
+            this.btnTinhTongTien.Text = "Total Price";
             this.btnTinhTongTien.UseVisualStyleBackColor = true;
             this.btnTinhTongTien.Click += new System.EventHandler(this.btnTinhTongTien_Click);
             // 
@@ -403,11 +443,11 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(641, 67);
+            this.label11.Location = new System.Drawing.Point(652, 67);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(91, 20);
+            this.label11.Size = new System.Drawing.Size(97, 20);
             this.label11.TabIndex = 39;
-            this.label11.Text = "Tiền phòng";
+            this.label11.Text = "Room Price";
             // 
             // lvDanhSachPhongSC4
             // 
@@ -430,26 +470,26 @@
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Mã phòng";
+            this.columnHeader4.Text = "ID room";
             this.columnHeader4.Width = 100;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Phòng";
+            this.columnHeader5.Text = "Room";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Dãy";
+            this.columnHeader1.Text = "Range";
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Loại phòng";
+            this.columnHeader2.Text = "Rank";
             this.columnHeader2.Width = 100;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Số người ở";
+            this.columnHeader3.Text = "Amount";
             this.columnHeader3.Width = 100;
             // 
             // FormPrices
@@ -460,6 +500,7 @@
             this.Controls.Add(this.pnlPrice);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "FormPrices";
             this.Text = "PAYMENT";
             this.Load += new System.EventHandler(this.frmPrice_Load);
@@ -484,8 +525,6 @@
         private System.Windows.Forms.ComboBox cbbLoaiPhongSC4;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtTongTien;
-        private System.Windows.Forms.Button btnLuuSC4;
-        private System.Windows.Forms.Button btnInHoaDonSC4;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtQueQuanSC4;
         private System.Windows.Forms.Label label18;
@@ -495,7 +534,6 @@
         private System.Windows.Forms.Button btnTinhTongTien;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbIDPhongSC4;
-        private System.Windows.Forms.Button buttonCancle;
         private System.Windows.Forms.ListView lvDanhSachPhongSC4;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
@@ -512,5 +550,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
+        private ePOSOne.btnProduct.Button_WOC buttonPrint;
+        private ePOSOne.btnProduct.Button_WOC buttonCan;
+        private ePOSOne.btnProduct.Button_WOC buttonSave;
     }
 }

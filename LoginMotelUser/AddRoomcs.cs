@@ -28,13 +28,15 @@ namespace LoginMotelUser
         public AddRoomcs(Boolean check)
         {
             InitializeComponent();
+            setColor();
             this.check = check;
             loadComboBox();
-            butUpdate.Enabled = false;
+            buttonUp.Enabled = false;
         }
         public AddRoomcs(String a, Boolean check)
         {
             InitializeComponent();
+            setColor();
             this.check = check;
             loadComboBox();
             loadData(a);
@@ -48,7 +50,7 @@ namespace LoginMotelUser
             {
                 comBoxIDRange.Enabled = false;
                 comBoxIDRank.Enabled = false;
-                butUpdate.Enabled = false;
+                buttonUp.Enabled = false;
             }
         }
         public bool catchData()
@@ -124,6 +126,72 @@ namespace LoginMotelUser
         }
         private void butUpdate_Click(object sender, EventArgs e)
         {
+           
+        }
+        private void butExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void comBoxIDRange_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // lableDefaultName.Text = comBoxIDRange.Text;
+        }
+
+        private void textRoomName_TextChanged(object sender, EventArgs e)
+        {
+            if (check == true)
+            {
+                var query = (from room in data.MOTELROOMs
+                             where room.RoomName.Equals(textRoomName.Text)
+                             select room).ToList();
+                textRoomName.Text.ToUpper();
+                if (query.Count == 0)
+                {
+                    comBoxIDRange.Enabled = true;
+                    comBoxIDRank.Enabled = true;
+                    if (textRoomName.Text.Trim().Equals(""))
+                        buttonUp.Enabled = false;
+                    else
+                        buttonUp.Enabled = true;
+
+
+                    labIDRoomShow.Text = "Loading ....";
+                    labStateShow.Text = "Loading....";
+                }
+                else
+                {
+                    comBoxIDRange.Enabled = false;
+                    comBoxIDRank.Enabled = false;
+                    buttonUp.Enabled = false;
+                    var query1 = (from room in data.MOTELROOMs
+                                  join rank in data.ROOMRANKs on room.IDRoomRank equals rank.ID
+                                  join range in data.ROOMRANGEs on room.IDRoomRange equals range.ID
+                                  where room.RoomName.Equals(textRoomName.Text)
+                                  select new { rank.RankName, range.RangeName, room.ID, room.StateRoom }).ToList();
+                    foreach (var select in query1)
+                    {
+                        comBoxIDRange.Text = select.RangeName;
+                        comBoxIDRank.Text = select.RankName;
+                        labIDRoomShow.Text = select.ID.ToString();
+                        if (select.StateRoom.Value == 1)
+                        {
+                            labStateShow.Text = "phòng trống";
+                        }
+                        else if (select.StateRoom.Value == 2)
+                        {
+                            labStateShow.Text = "Còn chỗ";
+                        }
+                        else
+                        {
+                            labStateShow.Text = "Hết chỗ";
+                        }
+                    }
+                }
+            }
+        }
+
+        private void buttonUp_Click(object sender, EventArgs e)
+        {
             if (check == true)
             {
                 DialogResult result = MessageBox.Show("Ban co chac them phong co ID =" + labIDRoomShow.Text + " khong?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
@@ -143,7 +211,7 @@ namespace LoginMotelUser
                 if (catchData() == false) return;
                 int ID = int.Parse(labIDRoomShow.Text);
                 var query = (from room in data.MOTELROOMs
-                             where room.RoomName.Equals(textRoomName.Text) && room.ID!=ID
+                             where room.RoomName.Equals(textRoomName.Text) && room.ID != ID
                              select room).ToList();
 
                 if (query.Count == 0)
@@ -170,66 +238,23 @@ namespace LoginMotelUser
 
             this.Close();
         }
-        private void butExit_Click(object sender, EventArgs e)
+
+        private void button_WOC1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        private void comBoxIDRange_SelectedIndexChanged(object sender, EventArgs e)
+
+        public void setColor()
         {
-            // lableDefaultName.Text = comBoxIDRange.Text;
-        }
-
-        private void textRoomName_TextChanged(object sender, EventArgs e)
-        {
-            if (check == true)
-            {
-                var query = (from room in data.MOTELROOMs
-                             where room.RoomName.Equals(textRoomName.Text)
-                             select room).ToList();
-                textRoomName.Text.ToUpper();
-                if (query.Count == 0)
-                {
-                    comBoxIDRange.Enabled = true;
-                    comBoxIDRank.Enabled = true;
-                    if (textRoomName.Text.Trim().Equals(""))
-                        butUpdate.Enabled = false;
-                    else
-                        butUpdate.Enabled = true;
-
-
-                    labIDRoomShow.Text = "Loading ....";
-                    labStateShow.Text = "Loading....";
-                }
-                else
-                {
-                    comBoxIDRange.Enabled = false;
-                    comBoxIDRank.Enabled = false;
-                    butUpdate.Enabled = false;
-                    var query1 = (from room in data.MOTELROOMs
-                                  join rank in data.ROOMRANKs on room.IDRoomRank equals rank.ID
-                                  join range in data.ROOMRANGEs on room.IDRoomRange equals range.ID
-                                  where room.RoomName.Equals(textRoomName.Text)
-                                  select new { rank.RankName, range.RangeName, room.ID, room.StateRoom }).ToList();
-                    foreach (var select in query1)
-                    {
-                        comBoxIDRange.Text = select.RangeName;
-                        comBoxIDRank.Text = select.RankName;
-                        labIDRoomShow.Text = select.ID.ToString();
-                        if (select.StateRoom.Value == 1)
-                        {
-                            labStateShow.Text = "phòng trống";
-                        }
-                        else if (select.StateRoom.Value == 2)
-                        {
-                            labStateShow.Text = "Còn chỗ";
-                        }
-                        else
-                        {
-                            labStateShow.Text = "Hết chỗ";
-                        }
-                    }
-                }
-            }
+            this.labIDRange.BackColor = System.Drawing.Color.Transparent;
+            this.labIDRank.BackColor = System.Drawing.Color.Transparent;
+            this.labTieuDe.BackColor = System.Drawing.Color.Transparent;
+            this.labIDRoom.BackColor = System.Drawing.Color.Transparent;
+            this.labIDRoomShow.BackColor = System.Drawing.Color.Transparent;
+            this.labRoomName.BackColor = System.Drawing.Color.Transparent;
+            this.labState.BackColor = System.Drawing.Color.Transparent;
+            this.labStateShow.BackColor = System.Drawing.Color.Transparent;
+            //this.panel.BackColor = System.Drawing.Color.Transparent;
         }
     }
 }

@@ -364,7 +364,15 @@ namespace LoginMotelUser
                     dtDateSC3.Value = (DateTime)cus.DateOfBirth;
                     cbbGioiTinhSC3.Text = cus.Sexual;
                 }
-           }
+
+                //txtCMNDSC3.Enabled = false;
+                txtDiaChiSC3.Enabled = false;
+                txtSDTSC3.Enabled = false;
+                txtHoTenSC3.Enabled = false;
+                dtDateSC3.Enabled = false;
+                cbbGioiTinhSC3.Enabled = false;
+
+            }
         }
 
         private void lvDanhSachKhachSC3_MouseClick(object sender, MouseEventArgs e)

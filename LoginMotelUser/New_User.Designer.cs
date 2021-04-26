@@ -35,8 +35,6 @@
             this.roleComboBox = new System.Windows.Forms.ComboBox();
             this.rOLEBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.motelManagerDataSet = new LoginMotelUser.MotelManagerDataSet();
-            this.buttonInsert = new System.Windows.Forms.Button();
-            this.buttonCancle = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,35 +47,42 @@
             this.rOLETableAdapter1 = new LoginMotelUser.MotelManagerDataSetTableAdapters.ROLETableAdapter();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonIn = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
+            this.panel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.motelManagerDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uSERBindingSource1)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
+            this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // textPassword
             // 
-            this.textPassword.Location = new System.Drawing.Point(97, 141);
+            this.textPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPassword.Location = new System.Drawing.Point(103, 78);
             this.textPassword.Name = "textPassword";
-            this.textPassword.Size = new System.Drawing.Size(285, 22);
+            this.textPassword.Size = new System.Drawing.Size(285, 24);
             this.textPassword.TabIndex = 0;
             // 
             // textUsername
             // 
-            this.textUsername.Location = new System.Drawing.Point(97, 87);
+            this.textUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textUsername.Location = new System.Drawing.Point(103, 27);
             this.textUsername.Name = "textUsername";
-            this.textUsername.Size = new System.Drawing.Size(285, 22);
+            this.textUsername.Size = new System.Drawing.Size(285, 24);
             this.textUsername.TabIndex = 1;
             // 
             // roleComboBox
             // 
             this.roleComboBox.DataSource = this.rOLEBindingSource1;
             this.roleComboBox.DisplayMember = "RoleName";
+            this.roleComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roleComboBox.FormattingEnabled = true;
-            this.roleComboBox.Location = new System.Drawing.Point(97, 202);
+            this.roleComboBox.Location = new System.Drawing.Point(103, 129);
             this.roleComboBox.Name = "roleComboBox";
-            this.roleComboBox.Size = new System.Drawing.Size(148, 24);
+            this.roleComboBox.Size = new System.Drawing.Size(148, 26);
             this.roleComboBox.TabIndex = 2;
             this.roleComboBox.ValueMember = "id";
             // 
@@ -91,56 +96,33 @@
             this.motelManagerDataSet.DataSetName = "MotelManagerDataSet";
             this.motelManagerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // buttonInsert
-            // 
-            this.buttonInsert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonInsert.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonInsert.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.buttonInsert.Location = new System.Drawing.Point(0, 470);
-            this.buttonInsert.Name = "buttonInsert";
-            this.buttonInsert.Size = new System.Drawing.Size(75, 23);
-            this.buttonInsert.TabIndex = 3;
-            this.buttonInsert.Text = "Insert";
-            this.buttonInsert.UseVisualStyleBackColor = true;
-            this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);
-            // 
-            // buttonCancle
-            // 
-            this.buttonCancle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCancle.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancle.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.buttonCancle.Location = new System.Drawing.Point(307, 470);
-            this.buttonCancle.Name = "buttonCancle";
-            this.buttonCancle.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancle.TabIndex = 4;
-            this.buttonCancle.Text = "Cancle";
-            this.buttonCancle.UseVisualStyleBackColor = true;
-            this.buttonCancle.Click += new System.EventHandler(this.buttonCancle_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 87);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(4, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 17);
+            this.label1.Size = new System.Drawing.Size(84, 18);
             this.label1.TabIndex = 5;
             this.label1.Text = "User Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 141);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 84);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 17);
+            this.label2.Size = new System.Drawing.Size(79, 18);
             this.label2.TabIndex = 6;
             this.label2.Text = "Pass word";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 209);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 137);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 17);
+            this.label3.Size = new System.Drawing.Size(39, 18);
             this.label3.TabIndex = 7;
             this.label3.Text = "Role";
             // 
@@ -157,6 +139,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -164,11 +149,11 @@
             this.userNameDataGridViewTextBoxColumn,
             this.passwordDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.uSERBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(388, 87);
+            this.dataGridView1.Location = new System.Drawing.Point(452, 87);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(636, 406);
+            this.dataGridView1.Size = new System.Drawing.Size(572, 406);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
@@ -215,6 +200,66 @@
             this.sortToolStripMenuItem.Text = "Sort";
             this.sortToolStripMenuItem.Click += new System.EventHandler(this.sortToolStripMenuItem_Click);
             // 
+            // buttonIn
+            // 
+            this.buttonIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonIn.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonIn.BorderColor = System.Drawing.Color.Silver;
+            this.buttonIn.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonIn.FlatAppearance.BorderSize = 0;
+            this.buttonIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonIn.Location = new System.Drawing.Point(3, 376);
+            this.buttonIn.Name = "buttonIn";
+            this.buttonIn.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonIn.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonIn.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonIn.Size = new System.Drawing.Size(80, 30);
+            this.buttonIn.TabIndex = 21;
+            this.buttonIn.Text = "UPDATE";
+            this.buttonIn.TextColor = System.Drawing.Color.Black;
+            this.buttonIn.UseVisualStyleBackColor = false;
+            this.buttonIn.Click += new System.EventHandler(this.buttonIn_Click);
+            // 
+            // button_WOC1
+            // 
+            this.button_WOC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_WOC1.BackColor = System.Drawing.SystemColors.Control;
+            this.button_WOC1.BorderColor = System.Drawing.Color.Silver;
+            this.button_WOC1.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.button_WOC1.FlatAppearance.BorderSize = 0;
+            this.button_WOC1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC1.Location = new System.Drawing.Point(321, 373);
+            this.button_WOC1.Name = "button_WOC1";
+            this.button_WOC1.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.button_WOC1.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.button_WOC1.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.button_WOC1.Size = new System.Drawing.Size(80, 30);
+            this.button_WOC1.TabIndex = 22;
+            this.button_WOC1.Text = "CANCLE";
+            this.button_WOC1.TextColor = System.Drawing.Color.Black;
+            this.button_WOC1.UseVisualStyleBackColor = false;
+            this.button_WOC1.Click += new System.EventHandler(this.button_WOC1_Click);
+            // 
+            // panel
+            // 
+            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel.BackColor = System.Drawing.SystemColors.Control;
+            this.panel.Controls.Add(this.roleComboBox);
+            this.panel.Controls.Add(this.label3);
+            this.panel.Controls.Add(this.button_WOC1);
+            this.panel.Controls.Add(this.textPassword);
+            this.panel.Controls.Add(this.buttonIn);
+            this.panel.Controls.Add(this.label2);
+            this.panel.Controls.Add(this.textUsername);
+            this.panel.Controls.Add(this.label1);
+            this.panel.Location = new System.Drawing.Point(9, 87);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(404, 406);
+            this.panel.TabIndex = 23;
+            // 
             // New_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -223,18 +268,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1026, 495);
+            this.Controls.Add(this.panel);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonCancle);
-            this.Controls.Add(this.buttonInsert);
-            this.Controls.Add(this.roleComboBox);
-            this.Controls.Add(this.textUsername);
-            this.Controls.Add(this.textPassword);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.Name = "New_User";
             this.Text = "New User";
             this.Load += new System.EventHandler(this.New_User_Load);
@@ -243,6 +280,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uSERBindingSource1)).EndInit();
             this.contextMenuStrip.ResumeLayout(false);
+            this.panel.ResumeLayout(false);
+            this.panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,8 +292,6 @@
         private System.Windows.Forms.TextBox textPassword;
         private System.Windows.Forms.TextBox textUsername;
         private System.Windows.Forms.ComboBox roleComboBox;
-        private System.Windows.Forms.Button buttonInsert;
-        private System.Windows.Forms.Button buttonCancle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -271,5 +308,8 @@
         private MotelManagerDataSetTableAdapters.ROLETableAdapter rOLETableAdapter1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem sortToolStripMenuItem;
+        private ePOSOne.btnProduct.Button_WOC buttonIn;
+        private ePOSOne.btnProduct.Button_WOC button_WOC1;
+        private System.Windows.Forms.Panel panel;
     }
 }

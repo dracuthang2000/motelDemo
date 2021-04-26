@@ -21,25 +21,26 @@ namespace LoginMotelUser
         public showRangeForm(Boolean check)
         {
             InitializeComponent();
+            setColor();
             loadData(0, soLuong);
             dem = 0;
             if(check == true)
             {
-                buttUpdate.Enabled = false;
+                buttonUp.Enabled = false;
                 textSearch.Visible = false;
                 labSearch.Visible = false;
                 OldName.Visible = false;
                 NewName.Visible = false;
                 textNewName.Visible = false;
                 labRangeName.Visible = true;
-                buttUpdate.Text = "ADD";
+                buttonUp.Text = "ADD";
             }
             else
             {
                 OldName.Visible = true;
                 NewName.Visible = true;
                 labRangeName.Visible = false;
-                buttUpdate.Text = "UPDATE";
+                buttonUp.Text = "UPDATE";
             }
             this.check = check;
         }
@@ -87,120 +88,10 @@ namespace LoginMotelUser
             a.RangeName = textNewName.Text;
             data.SaveChanges();
         }
-
-        private void buttUpdate_Click(object sender, EventArgs e)
-        {
-            if (check == false)
-            {
-                if (textRangeName.Text == "")
-                {
-                    MessageBox.Show("Let'type Old Range Name!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                else if(textIDRange.Text.Equals(""))
-                {
-                    MessageBox.Show("ID is not exist", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                else if(textNewName.Text.Trim().Equals(""))
-                {
-                    MessageBox.Show("Let'type New Range Name!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                else
-                {
-                    var query = (from range in data.ROOMRANGEs
-                                 where range.RangeName.Equals(textNewName.Text)
-                                 select range).ToList();
-                    DialogResult result = MessageBox.Show("Are you sure Range Name " + textRangeName.Text + " ?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                    if (query.Count == 0)
-                    {
-                        switch (result)
-                        {
-                            case DialogResult.Yes:
-                                {
-                                    updateData(); listRange.Clear();
-                                    loadData(0, soLuong);
-                                    dem = 0;
-                                    break;
-                                }
-                            case DialogResult.No: return;
-
-                            default:
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Range Name is exist", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                }
-
-            }
-            else
-            {
-                DialogResult result = MessageBox.Show("Are you sure insert this Range?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                switch (result)
-                {
-                    case DialogResult.Yes:
-                        {
-                            saveData(); listRange.Clear();
-                            loadData(0, soLuong);
-                            dem = 0;
-                            break;
-                        }
-                    case DialogResult.No: return;
-
-                    default:
-                        break;
-
-                }
-
-            }
-
-        }
-
-        private void butDelete_Click(object sender, EventArgs e)
-        {
-            if (textIDRange.Text == "")
-            {
-                MessageBox.Show("Hay chon id can xoa tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            DialogResult result = MessageBox.Show("Ban co chac xoa khu vuc co ID = " + textIDRange.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-            switch (result)
-            {
-                case DialogResult.Cancel: return;
-                case DialogResult.Yes:
-                    {
-                        Model.ROOMRANGE temp = data.ROOMRANGEs.Find(int.Parse(textIDRange.Text));
-                        data.ROOMRANGEs.Remove(temp);
-                        data.SaveChanges();
-                        listRange.Clear();
-                        loadData(0, soLuong);
-                        dem = 0;
-                        break;
-                    }
-                case DialogResult.No: return;
-
-                default:
-                    break;
-
-            }
-        }
-
-        private void butClear_Click(object sender, EventArgs e)
-        {
-            textIDRange.Text = "";
-            textRangeName.Text = "";
-            textNewName.Text = "";
-        }
-
         private void textSearch_TextChanged(object sender, EventArgs e)
         {
             listRange.Clear();
-            labPage.Text = "Trang 1/1";
+            labPage.Text = "Page 1/1";
             using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
             {
                 String temp = textSearch.Text;
@@ -301,12 +192,12 @@ namespace LoginMotelUser
                 textSearch.Text = textRangeName.Text;
                 if (query.Count == 0 && !textRangeName.Text.Trim().Equals(""))
                 {
-                    buttUpdate.Enabled = true;
+                    buttonUp.Enabled = true;
                     textIDRange.Text = "";
                 }
                 else
                 {
-                    buttUpdate.Enabled = false;
+                    buttonUp.Enabled = false;
                     if(textRangeName.Text.Trim().Equals(""))
                         textIDRange.Text = "";
                     foreach (var range in query)
@@ -320,6 +211,130 @@ namespace LoginMotelUser
                 foreach (var range in query)
                     textIDRange.Text = range.ID.ToString();
             }
+        }
+
+        private void buttonUp_Click(object sender, EventArgs e)
+        {
+            if (check == false)
+            {
+                if (textRangeName.Text == "")
+                {
+                    MessageBox.Show("Let'type Old Range Name!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else if (textIDRange.Text.Equals(""))
+                {
+                    MessageBox.Show("ID is not exist", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (textNewName.Text.Trim().Equals(""))
+                {
+                    MessageBox.Show("Let'type New Range Name!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    var query = (from range in data.ROOMRANGEs
+                                 where range.RangeName.Equals(textNewName.Text)
+                                 select range).ToList();
+                    DialogResult result = MessageBox.Show("Are you sure Range Name " + textRangeName.Text + " ?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    if (query.Count == 0)
+                    {
+                        switch (result)
+                        {
+                            case DialogResult.Yes:
+                                {
+                                    updateData(); listRange.Clear();
+                                    loadData(0, soLuong);
+                                    dem = 0;
+                                    break;
+                                }
+                            case DialogResult.No: return;
+
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Range Name is exist", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Are you sure insert this Range?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                switch (result)
+                {
+                    case DialogResult.Yes:
+                        {
+                            saveData(); listRange.Clear();
+                            loadData(0, soLuong);
+                            dem = 0;
+                            break;
+                        }
+                    case DialogResult.No: return;
+
+                    default:
+                        break;
+
+                }
+
+            }
+
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (textIDRange.Text == "")
+            {
+                MessageBox.Show("Hay chon id can xoa tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DialogResult result = MessageBox.Show("Ban co chac xoa khu vuc co ID = " + textIDRange.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            switch (result)
+            {
+                case DialogResult.Cancel: return;
+                case DialogResult.Yes:
+                    {
+                        Model.ROOMRANGE temp = data.ROOMRANGEs.Find(int.Parse(textIDRange.Text));
+                        data.ROOMRANGEs.Remove(temp);
+                        data.SaveChanges();
+                        listRange.Clear();
+                        loadData(0, soLuong);
+                        dem = 0;
+                        break;
+                    }
+                case DialogResult.No: return;
+
+                default:
+                    break;
+            }
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            textIDRange.Text = "";
+            textRangeName.Text = "";
+            textNewName.Text = "";
+        }
+
+        private void button_WOC1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public void setColor()
+        {
+            this.labTieuDe.BackColor = System.Drawing.Color.Transparent;
+            this.labSearch.BackColor = System.Drawing.Color.Transparent;
+            this.labPage.BackColor = System.Drawing.Color.Transparent;
+            this.labRangeName.BackColor = System.Drawing.Color.Transparent;
+            this.labID.BackColor = System.Drawing.Color.Transparent;
+            this.OldName.BackColor = System.Drawing.Color.Transparent;
+            this.NewName.BackColor = System.Drawing.Color.Transparent;
         }
     }
 }

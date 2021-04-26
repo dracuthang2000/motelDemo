@@ -21,12 +21,44 @@ namespace LoginMotelUser
         {
             InitializeComponent();
             this.check = check;
+            setColor();
             loadRoom(0, soLuong);
             dem = 0;
             if (this.check == true)
                 buttonUp.Text = "ADD";
             else
                 buttonUp.Text = "UPDATE";
+        }
+
+        private void AutoSizeColumnList(ListView listView)
+        {
+            //Prevents flickering
+            listView.BeginUpdate();
+
+            Dictionary<int, int> columnSize = new Dictionary<int, int>();
+
+            //Auto size using header
+            listView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            //Grab column size based on header
+            foreach (ColumnHeader colHeader in listView.Columns)
+                columnSize.Add(colHeader.Index, colHeader.Width);
+
+            //Auto size using data
+            listView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+
+            //Grab comumn size based on data and set max width
+            foreach (ColumnHeader colHeader in listView.Columns)
+            {
+                int nColWidth;
+                if (columnSize.TryGetValue(colHeader.Index, out nColWidth))
+                    colHeader.Width = Math.Max(nColWidth, colHeader.Width);
+                else
+                    //Default to 50
+                    colHeader.Width = Math.Max(50, colHeader.Width);
+            }
+
+            listView.EndUpdate();
         }
         public void loadRoom(int e, int f)
         {
@@ -37,7 +69,6 @@ namespace LoginMotelUser
                 listRoom.Columns.Add("State", 120);
                 listRoom.Columns.Add("Rank", 140);
                 listRoom.Columns.Add("Range Name", 200);
-
                 var list = (from d in data.USP_PageRoom(e, f) select d).ToList();
 
                 foreach (var c in list)
@@ -287,6 +318,28 @@ namespace LoginMotelUser
             {
                 MessageBox.Show("hay chon phong tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+        public void setColor()
+        {
+            this.labPage.BackColor = System.Drawing.Color.Transparent;
+            this.labSearch.BackColor = System.Drawing.Color.Transparent;
+            this.labTieuDe.BackColor = System.Drawing.Color.Transparent;
+            this.buttonUp.BackColor = System.Drawing.Color.Transparent;
+            this.buttonDelete.BackColor = System.Drawing.Color.Transparent;
+            this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonCancle.BackColor = System.Drawing.Color.Transparent;
+            this.buttonCancle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void buttonCancle_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void showRoomForm_MaximumSizeChanged(object sender, EventArgs e)
+        {
+            AutoSizeColumnList(listRoom);
         }
     }
 }

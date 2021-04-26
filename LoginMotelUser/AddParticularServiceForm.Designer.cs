@@ -45,15 +45,17 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.textOldIndex = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonRemove = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
             this.SuspendLayout();
             // 
             // listService
             // 
             this.listService.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.listService.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.listService.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.ServiceName,
@@ -88,6 +90,7 @@
             // 
             // textIndex
             // 
+            this.textIndex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textIndex.Location = new System.Drawing.Point(606, 120);
             this.textIndex.Name = "textIndex";
             this.textIndex.Size = new System.Drawing.Size(100, 22);
@@ -96,6 +99,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(504, 120);
             this.label2.Name = "label2";
@@ -105,6 +109,7 @@
             // 
             // textServiceName
             // 
+            this.textServiceName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textServiceName.Enabled = false;
             this.textServiceName.Location = new System.Drawing.Point(606, 40);
             this.textServiceName.Name = "textServiceName";
@@ -113,6 +118,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(504, 40);
             this.label4.Name = "label4";
@@ -122,6 +128,7 @@
             // 
             // buttonADD
             // 
+            this.buttonADD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonADD.Location = new System.Drawing.Point(606, 166);
             this.buttonADD.Name = "buttonADD";
             this.buttonADD.Size = new System.Drawing.Size(75, 23);
@@ -132,6 +139,8 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(172, 9);
@@ -143,6 +152,9 @@
             // listServicePar
             // 
             this.listServicePar.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.listServicePar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listServicePar.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader3,
@@ -184,28 +196,9 @@
             this.columnHeader6.Text = "Total";
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(732, 460);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "OK";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(444, 459);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(92, 24);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "REMOVE";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // textOldIndex
             // 
+            this.textOldIndex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textOldIndex.Enabled = false;
             this.textOldIndex.Location = new System.Drawing.Point(606, 82);
             this.textOldIndex.Name = "textOldIndex";
@@ -214,6 +207,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.label1.Location = new System.Drawing.Point(504, 82);
@@ -222,6 +216,52 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Old index";
             // 
+            // buttonRemove
+            // 
+            this.buttonRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonRemove.BackColor = System.Drawing.Color.Peru;
+            this.buttonRemove.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonRemove.BackgroundImage")));
+            this.buttonRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonRemove.BorderColor = System.Drawing.Color.Silver;
+            this.buttonRemove.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonRemove.FlatAppearance.BorderSize = 0;
+            this.buttonRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRemove.Location = new System.Drawing.Point(441, 453);
+            this.buttonRemove.Name = "buttonRemove";
+            this.buttonRemove.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonRemove.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonRemove.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonRemove.Size = new System.Drawing.Size(80, 30);
+            this.buttonRemove.TabIndex = 60;
+            this.buttonRemove.Text = "REMOVE";
+            this.buttonRemove.TextColor = System.Drawing.Color.Black;
+            this.buttonRemove.UseVisualStyleBackColor = false;
+            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
+            // 
+            // button_WOC1
+            // 
+            this.button_WOC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_WOC1.BackColor = System.Drawing.Color.Peru;
+            this.button_WOC1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_WOC1.BackgroundImage")));
+            this.button_WOC1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_WOC1.BorderColor = System.Drawing.Color.Silver;
+            this.button_WOC1.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.button_WOC1.FlatAppearance.BorderSize = 0;
+            this.button_WOC1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC1.Location = new System.Drawing.Point(772, 453);
+            this.button_WOC1.Name = "button_WOC1";
+            this.button_WOC1.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.button_WOC1.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.button_WOC1.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.button_WOC1.Size = new System.Drawing.Size(80, 30);
+            this.button_WOC1.TabIndex = 61;
+            this.button_WOC1.Text = "OK";
+            this.button_WOC1.TextColor = System.Drawing.Color.Black;
+            this.button_WOC1.UseVisualStyleBackColor = false;
+            this.button_WOC1.Click += new System.EventHandler(this.button_WOC1_Click);
+            // 
             // AddParticularServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -229,19 +269,20 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(854, 495);
+            this.Controls.Add(this.button_WOC1);
+            this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textOldIndex);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.listServicePar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.buttonADD);
             this.Controls.Add(this.textServiceName);
             this.Controls.Add(this.textIndex);
             this.Controls.Add(this.listService);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "AddParticularServiceForm";
             this.Text = "CHOOSE SEVICE";
             this.ResumeLayout(false);
@@ -265,11 +306,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ColumnHeader Price;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textOldIndex;
         private System.Windows.Forms.Label label1;
+        private ePOSOne.btnProduct.Button_WOC buttonRemove;
+        private ePOSOne.btnProduct.Button_WOC button_WOC1;
     }
 }

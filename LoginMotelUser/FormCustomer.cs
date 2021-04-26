@@ -26,6 +26,7 @@ namespace LoginMotelUser
         public FormCustomer(Boolean check)
         {
             InitializeComponent();
+            setColor();
             this.check = check;
             datePickerCheckIn.Visible = false;
             datePickerCheckOut.Visible = false;
@@ -35,6 +36,7 @@ namespace LoginMotelUser
         public FormCustomer(String a,Boolean check)
         {
             InitializeComponent();
+            setColor();
             this.check = check;
             this.textIDCus.Text = a;
             label1.Visible = false;
@@ -126,14 +128,6 @@ namespace LoginMotelUser
         }
         public void loadData(String a)
         {
-            if(check == false)
-            {
-                butUpdate.Text = "Update";
-            }
-            else
-            {
-                butUpdate.Text = "ADD";
-            }
             var query = (from Cus in data.CUSTOMERs
                          where Cus.IDCard.Equals(a)
                          select Cus).ToList();
@@ -188,55 +182,6 @@ namespace LoginMotelUser
             data.SaveChanges();
 
         }
-        private void butUpdate_Click(object sender, EventArgs e)
-        {
-            if (catchData() == false) return;
-            if (check == true)
-            {
-                DialogResult result = MessageBox.Show("Ban co chac them khach co ID =" + textIDCus.Text + " khong?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                switch (result)
-                {
-                    case DialogResult.Cancel: return;
-                    case DialogResult.Yes: { saveDate(); this.Close(); break; }
-                    case DialogResult.No: return;
-
-                    default:
-                        break;
-
-                }
-            }
-            else
-            {
-                //int ID = int.Parse(la)
-                var cus = (from Cus in data.CUSTOMERs
-                           where Cus.IDCard.Equals(textIDCus.Text) && Cus.ID != this.IDcus
-                           select Cus).ToList();
-               // List<Model.CUSTOMER> list = (from b in data.CUSTOMERs where b.IDCard == textIDCus.Text select b).ToList();
-                if (cus.Count == 0)
-                {
-                    DialogResult result = MessageBox.Show("Ban co chac chinh sua khach co ID = " + textIDCus.Text + " khong ? (tat ca cac du lieu lien quan deu se thay doi!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                    switch (result)
-                    {
-                        case DialogResult.Cancel: return;
-                        case DialogResult.Yes: { updateData(); this.Close(); break; }
-                        case DialogResult.No: return;
-
-                        default:
-                            break;
-
-                    }
-
-                }
-                else
-                {
-                    MessageBox.Show("ID Customer is exist", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-
-                }
-            }
-
-
-        }
 
         private void textIDCus_TextChanged(object sender, EventArgs e)
         {
@@ -276,6 +221,7 @@ namespace LoginMotelUser
                         comBoxSexual.Enabled = false;
                         datePickerCheckOut.Enabled = false;
                         datePickerCheckIn.Enabled = false;
+                        buttonUp.Enabled = false;
                     }
                     if (query.Count == 0)
                     {
@@ -296,6 +242,7 @@ namespace LoginMotelUser
                             textSDT.Enabled = false;
                             datePickerBirth.Enabled = false;
                             comBoxSexual.Enabled = false;
+                            buttonUp.Enabled = false;
                         }
                     }
                 }
@@ -323,9 +270,76 @@ namespace LoginMotelUser
             }
         }
 
-        private void butExit_Click(object sender, EventArgs e)
+        private void buttonADD_Click(object sender, EventArgs e)
+        {
+            if (catchData() == false) return;
+            if (check == true)
+            {
+                DialogResult result = MessageBox.Show("Ban co chac them khach co ID =" + textIDCus.Text + " khong?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                switch (result)
+                {
+                    case DialogResult.Cancel: return;
+                    case DialogResult.Yes: { saveDate(); this.Close(); break; }
+                    case DialogResult.No: return;
+
+                    default:
+                        break;
+
+                }
+            }
+            else
+            {
+                //int ID = int.Parse(la)
+                var cus = (from Cus in data.CUSTOMERs
+                           where Cus.IDCard.Equals(textIDCus.Text) && Cus.ID != this.IDcus
+                           select Cus).ToList();
+                // List<Model.CUSTOMER> list = (from b in data.CUSTOMERs where b.IDCard == textIDCus.Text select b).ToList();
+                if (cus.Count == 0)
+                {
+                    DialogResult result = MessageBox.Show("Ban co chac chinh sua khach co ID = " + textIDCus.Text + " khong ? (tat ca cac du lieu lien quan deu se thay doi!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    switch (result)
+                    {
+                        case DialogResult.Cancel: return;
+                        case DialogResult.Yes: { updateData(); this.Close(); break; }
+                        case DialogResult.No: return;
+
+                        default:
+                            break;
+
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("ID Customer is exist", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+                }
+            }
+
+        }
+
+        private void button_WOC1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void setColor()
+        {
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.labDiaChi.BackColor = System.Drawing.Color.Transparent;
+            this.labCOD.BackColor = System.Drawing.Color.Transparent;
+            this.labCID.BackColor = System.Drawing.Color.Transparent;
+            this.labHoTen.BackColor = System.Drawing.Color.Transparent;
+            this.labIDCus.BackColor = System.Drawing.Color.Transparent;
+            this.labIDRoom.BackColor = System.Drawing.Color.Transparent;
+            this.labIDRoomShow.BackColor = System.Drawing.Color.Transparent;
+            //this.lvDanhSachKhachSC1.ForeColor = System.Drawing.Color.Transparent;
+            this.labNgaySinh.BackColor = System.Drawing.Color.Transparent;
+            this.labSDT.BackColor = System.Drawing.Color.Transparent;
+            this.labSexual.BackColor = System.Drawing.Color.Transparent;
+            this.labTieuDe.BackColor = System.Drawing.Color.Transparent;
         }
     }
 }

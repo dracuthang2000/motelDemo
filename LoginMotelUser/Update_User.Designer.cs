@@ -44,26 +44,31 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.buttonUpdate = new System.Windows.Forms.Button();
-            this.buttonCancle = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonDelete = new System.Windows.Forms.Button();
             this.uSERTableAdapter1 = new LoginMotelUser.MotelManagerDataSetTableAdapters.USERTableAdapter();
             this.rOLETableAdapter1 = new LoginMotelUser.MotelManagerDataSetTableAdapters.ROLETableAdapter();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonUp = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonDelete = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonCan = new ePOSOne.btnProduct.Button_WOC();
+            this.panel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uSERBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.motelManagerDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource1)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
+            this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataUser
             // 
+            this.dataUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataUser.AutoGenerateColumns = false;
             this.dataUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -115,14 +120,14 @@
             // 
             // textUsername
             // 
-            this.textUsername.Location = new System.Drawing.Point(97, 94);
+            this.textUsername.Location = new System.Drawing.Point(86, 41);
             this.textUsername.Name = "textUsername";
             this.textUsername.Size = new System.Drawing.Size(238, 22);
             this.textUsername.TabIndex = 1;
             // 
             // textPassword
             // 
-            this.textPassword.Location = new System.Drawing.Point(97, 137);
+            this.textPassword.Location = new System.Drawing.Point(86, 86);
             this.textPassword.Name = "textPassword";
             this.textPassword.Size = new System.Drawing.Size(238, 22);
             this.textPassword.TabIndex = 2;
@@ -132,7 +137,7 @@
             this.comboBoxRole.DataSource = this.rOLEBindingSource1;
             this.comboBoxRole.DisplayMember = "RoleName";
             this.comboBoxRole.FormattingEnabled = true;
-            this.comboBoxRole.Location = new System.Drawing.Point(97, 176);
+            this.comboBoxRole.Location = new System.Drawing.Point(86, 133);
             this.comboBoxRole.Name = "comboBoxRole";
             this.comboBoxRole.Size = new System.Drawing.Size(121, 24);
             this.comboBoxRole.TabIndex = 3;
@@ -146,7 +151,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 94);
+            this.label1.Location = new System.Drawing.Point(5, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 17);
             this.label1.TabIndex = 4;
@@ -155,7 +160,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 137);
+            this.label2.Location = new System.Drawing.Point(5, 89);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 5;
@@ -164,7 +169,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 179);
+            this.label3.Location = new System.Drawing.Point(5, 140);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 17);
             this.label3.TabIndex = 6;
@@ -181,30 +186,6 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "UPDATE USER";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.buttonUpdate.Location = new System.Drawing.Point(12, 481);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
-            this.buttonUpdate.TabIndex = 8;
-            this.buttonUpdate.Text = "Update";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
-            // 
-            // buttonCancle
-            // 
-            this.buttonCancle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCancle.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.buttonCancle.Location = new System.Drawing.Point(264, 481);
-            this.buttonCancle.Name = "buttonCancle";
-            this.buttonCancle.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancle.TabIndex = 9;
-            this.buttonCancle.Text = "Cancle";
-            this.buttonCancle.UseVisualStyleBackColor = true;
-            this.buttonCancle.Click += new System.EventHandler(this.buttonCancle_Click);
             // 
             // textBox1
             // 
@@ -231,17 +212,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(20, 22);
             this.panel1.TabIndex = 12;
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.buttonDelete.Location = new System.Drawing.Point(143, 481);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelete.TabIndex = 13;
-            this.buttonDelete.Text = "Delete";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // uSERTableAdapter1
             // 
@@ -275,28 +245,103 @@
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
+            // buttonUp
+            // 
+            this.buttonUp.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonUp.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonUp.BorderColor = System.Drawing.Color.Silver;
+            this.buttonUp.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonUp.FlatAppearance.BorderSize = 0;
+            this.buttonUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUp.Location = new System.Drawing.Point(4, 377);
+            this.buttonUp.Name = "buttonUp";
+            this.buttonUp.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonUp.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonUp.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonUp.Size = new System.Drawing.Size(80, 30);
+            this.buttonUp.TabIndex = 20;
+            this.buttonUp.Text = "UPDATE";
+            this.buttonUp.TextColor = System.Drawing.Color.Black;
+            this.buttonUp.UseVisualStyleBackColor = false;
+            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonDelete.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonDelete.BorderColor = System.Drawing.Color.Silver;
+            this.buttonDelete.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonDelete.FlatAppearance.BorderSize = 0;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDelete.Location = new System.Drawing.Point(115, 377);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonDelete.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonDelete.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonDelete.Size = new System.Drawing.Size(80, 30);
+            this.buttonDelete.TabIndex = 21;
+            this.buttonDelete.Text = "DELETE";
+            this.buttonDelete.TextColor = System.Drawing.Color.Black;
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.button_WOC1_Click);
+            // 
+            // buttonCan
+            // 
+            this.buttonCan.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonCan.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonCan.BorderColor = System.Drawing.Color.Silver;
+            this.buttonCan.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonCan.FlatAppearance.BorderSize = 0;
+            this.buttonCan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCan.Location = new System.Drawing.Point(233, 377);
+            this.buttonCan.Name = "buttonCan";
+            this.buttonCan.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonCan.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonCan.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonCan.Size = new System.Drawing.Size(80, 30);
+            this.buttonCan.TabIndex = 22;
+            this.buttonCan.Text = "CANCLE";
+            this.buttonCan.TextColor = System.Drawing.Color.Black;
+            this.buttonCan.UseVisualStyleBackColor = false;
+            this.buttonCan.Click += new System.EventHandler(this.buttonCan_Click);
+            // 
+            // panel
+            // 
+            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel.BackColor = System.Drawing.SystemColors.Control;
+            this.panel.Controls.Add(this.buttonUp);
+            this.panel.Controls.Add(this.buttonDelete);
+            this.panel.Controls.Add(this.buttonCan);
+            this.panel.Controls.Add(this.comboBoxRole);
+            this.panel.Controls.Add(this.textPassword);
+            this.panel.Controls.Add(this.textUsername);
+            this.panel.Controls.Add(this.label1);
+            this.panel.Controls.Add(this.label2);
+            this.panel.Controls.Add(this.label3);
+            this.panel.Location = new System.Drawing.Point(11, 94);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(344, 410);
+            this.panel.TabIndex = 23;
+            // 
             // Update_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1027, 509);
-            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.panel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.buttonCancle);
-            this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBoxRole);
-            this.Controls.Add(this.textPassword);
-            this.Controls.Add(this.textUsername);
             this.Controls.Add(this.dataUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimizeBox = false;
             this.Name = "Update_User";
             this.Text = "UPDATE USER";
             this.Load += new System.EventHandler(this.Update_User_Load);
@@ -305,6 +350,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.motelManagerDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rOLEBindingSource1)).EndInit();
             this.contextMenuStrip.ResumeLayout(false);
+            this.panel.ResumeLayout(false);
+            this.panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,13 +367,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button buttonUpdate;
-        private System.Windows.Forms.Button buttonCancle;
         private System.Windows.Forms.DataGridViewTextBoxColumn idRoleDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button buttonDelete;
         private MotelManagerDataSet motelManagerDataSet;
         private System.Windows.Forms.BindingSource uSERBindingSource1;
         private MotelManagerDataSetTableAdapters.USERTableAdapter uSERTableAdapter1;
@@ -339,5 +383,9 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem sortToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private ePOSOne.btnProduct.Button_WOC buttonUp;
+        private ePOSOne.btnProduct.Button_WOC buttonDelete;
+        private ePOSOne.btnProduct.Button_WOC buttonCan;
+        private System.Windows.Forms.Panel panel;
     }
 }

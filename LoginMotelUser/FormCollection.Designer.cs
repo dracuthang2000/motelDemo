@@ -312,6 +312,7 @@
             this.Controls.Add(this.panel13);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "FormCollection";
             this.Text = "RECEIPTS";
             this.Load += new System.EventHandler(this.frmCollect_Load);

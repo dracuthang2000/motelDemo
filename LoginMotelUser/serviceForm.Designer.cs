@@ -39,16 +39,18 @@
             this.labSearch = new System.Windows.Forms.Label();
             this.textPrice = new System.Windows.Forms.TextBox();
             this.labPrice = new System.Windows.Forms.Label();
-            this.butClear = new System.Windows.Forms.Button();
-            this.butDelete = new System.Windows.Forms.Button();
-            this.buttUpdate = new System.Windows.Forms.Button();
             this.textServiceName = new System.Windows.Forms.TextBox();
             this.textIDService = new System.Windows.Forms.TextBox();
             this.labServiceName = new System.Windows.Forms.Label();
             this.labID = new System.Windows.Forms.Label();
             this.listService = new System.Windows.Forms.ListView();
             this.labTieuDe = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonClear = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonSave = new ePOSOne.btnProduct.Button_WOC();
             this.panService.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panService
@@ -58,33 +60,20 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panService.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panService.BackgroundImage")));
             this.panService.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panService.Controls.Add(this.label1);
-            this.panService.Controls.Add(this.textNewName);
             this.panService.Controls.Add(this.labPage);
             this.panService.Controls.Add(this.butRight);
             this.panService.Controls.Add(this.butLeft);
-            this.panService.Controls.Add(this.textSearch);
-            this.panService.Controls.Add(this.labSearch);
-            this.panService.Controls.Add(this.textPrice);
-            this.panService.Controls.Add(this.labPrice);
-            this.panService.Controls.Add(this.butClear);
-            this.panService.Controls.Add(this.butDelete);
-            this.panService.Controls.Add(this.buttUpdate);
-            this.panService.Controls.Add(this.textServiceName);
-            this.panService.Controls.Add(this.textIDService);
-            this.panService.Controls.Add(this.labServiceName);
-            this.panService.Controls.Add(this.labID);
             this.panService.Controls.Add(this.listService);
             this.panService.Controls.Add(this.labTieuDe);
-            this.panService.Location = new System.Drawing.Point(-2, 0);
+            this.panService.Location = new System.Drawing.Point(487, 5);
             this.panService.Name = "panService";
-            this.panService.Size = new System.Drawing.Size(921, 620);
+            this.panService.Size = new System.Drawing.Size(429, 615);
             this.panService.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(492, 256);
+            this.label1.Location = new System.Drawing.Point(3, 185);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(123, 17);
             this.label1.TabIndex = 14;
@@ -92,15 +81,16 @@
             // 
             // textNewName
             // 
-            this.textNewName.Location = new System.Drawing.Point(627, 253);
+            this.textNewName.Location = new System.Drawing.Point(177, 182);
             this.textNewName.Name = "textNewName";
             this.textNewName.Size = new System.Drawing.Size(167, 22);
             this.textNewName.TabIndex = 13;
             // 
             // labPage
             // 
+            this.labPage.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labPage.AutoSize = true;
-            this.labPage.Location = new System.Drawing.Point(198, 543);
+            this.labPage.Location = new System.Drawing.Point(175, 585);
             this.labPage.Name = "labPage";
             this.labPage.Size = new System.Drawing.Size(65, 17);
             this.labPage.TabIndex = 12;
@@ -108,8 +98,9 @@
             // 
             // butRight
             // 
+            this.butRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.butRight.AutoSize = true;
-            this.butRight.Location = new System.Drawing.Point(368, 538);
+            this.butRight.Location = new System.Drawing.Point(323, 580);
             this.butRight.Name = "butRight";
             this.butRight.Size = new System.Drawing.Size(75, 27);
             this.butRight.TabIndex = 2;
@@ -119,8 +110,9 @@
             // 
             // butLeft
             // 
+            this.butLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.butLeft.AutoSize = true;
-            this.butLeft.Location = new System.Drawing.Point(26, 538);
+            this.butLeft.Location = new System.Drawing.Point(26, 580);
             this.butLeft.Name = "butLeft";
             this.butLeft.Size = new System.Drawing.Size(75, 27);
             this.butLeft.TabIndex = 1;
@@ -130,7 +122,7 @@
             // 
             // textSearch
             // 
-            this.textSearch.Location = new System.Drawing.Point(627, 79);
+            this.textSearch.Location = new System.Drawing.Point(177, 55);
             this.textSearch.Name = "textSearch";
             this.textSearch.Size = new System.Drawing.Size(161, 22);
             this.textSearch.TabIndex = 3;
@@ -140,7 +132,7 @@
             // labSearch
             // 
             this.labSearch.AutoSize = true;
-            this.labSearch.Location = new System.Drawing.Point(492, 82);
+            this.labSearch.Location = new System.Drawing.Point(3, 60);
             this.labSearch.Name = "labSearch";
             this.labSearch.Size = new System.Drawing.Size(61, 17);
             this.labSearch.TabIndex = 8;
@@ -148,7 +140,7 @@
             // 
             // textPrice
             // 
-            this.textPrice.Location = new System.Drawing.Point(627, 304);
+            this.textPrice.Location = new System.Drawing.Point(177, 232);
             this.textPrice.Name = "textPrice";
             this.textPrice.Size = new System.Drawing.Size(167, 22);
             this.textPrice.TabIndex = 6;
@@ -156,48 +148,15 @@
             // labPrice
             // 
             this.labPrice.AutoSize = true;
-            this.labPrice.Location = new System.Drawing.Point(492, 309);
+            this.labPrice.Location = new System.Drawing.Point(3, 232);
             this.labPrice.Name = "labPrice";
             this.labPrice.Size = new System.Drawing.Size(48, 17);
             this.labPrice.TabIndex = 7;
             this.labPrice.Text = "Price :";
             // 
-            // butClear
-            // 
-            this.butClear.AutoSize = true;
-            this.butClear.Location = new System.Drawing.Point(801, 468);
-            this.butClear.Name = "butClear";
-            this.butClear.Size = new System.Drawing.Size(104, 64);
-            this.butClear.TabIndex = 9;
-            this.butClear.Text = "Clear";
-            this.butClear.UseVisualStyleBackColor = true;
-            this.butClear.Click += new System.EventHandler(this.butClear_Click);
-            // 
-            // butDelete
-            // 
-            this.butDelete.AutoSize = true;
-            this.butDelete.Location = new System.Drawing.Point(627, 468);
-            this.butDelete.Name = "butDelete";
-            this.butDelete.Size = new System.Drawing.Size(104, 64);
-            this.butDelete.TabIndex = 8;
-            this.butDelete.Text = "DELETE";
-            this.butDelete.UseVisualStyleBackColor = true;
-            this.butDelete.Click += new System.EventHandler(this.butDelete_Click);
-            // 
-            // buttUpdate
-            // 
-            this.buttUpdate.AutoSize = true;
-            this.buttUpdate.Location = new System.Drawing.Point(469, 468);
-            this.buttUpdate.Name = "buttUpdate";
-            this.buttUpdate.Size = new System.Drawing.Size(104, 64);
-            this.buttUpdate.TabIndex = 7;
-            this.buttUpdate.Text = "Cập Nhật";
-            this.buttUpdate.UseVisualStyleBackColor = true;
-            this.buttUpdate.Click += new System.EventHandler(this.buttUpdate_Click);
-            // 
             // textServiceName
             // 
-            this.textServiceName.Location = new System.Drawing.Point(627, 211);
+            this.textServiceName.Location = new System.Drawing.Point(177, 141);
             this.textServiceName.Name = "textServiceName";
             this.textServiceName.Size = new System.Drawing.Size(167, 22);
             this.textServiceName.TabIndex = 5;
@@ -206,7 +165,7 @@
             // textIDService
             // 
             this.textIDService.Enabled = false;
-            this.textIDService.Location = new System.Drawing.Point(627, 135);
+            this.textIDService.Location = new System.Drawing.Point(177, 96);
             this.textIDService.Name = "textIDService";
             this.textIDService.Size = new System.Drawing.Size(161, 22);
             this.textIDService.TabIndex = 4;
@@ -214,7 +173,7 @@
             // labServiceName
             // 
             this.labServiceName.AutoSize = true;
-            this.labServiceName.Location = new System.Drawing.Point(492, 216);
+            this.labServiceName.Location = new System.Drawing.Point(3, 146);
             this.labServiceName.Name = "labServiceName";
             this.labServiceName.Size = new System.Drawing.Size(118, 17);
             this.labServiceName.TabIndex = 3;
@@ -223,7 +182,7 @@
             // labID
             // 
             this.labID.AutoSize = true;
-            this.labID.Location = new System.Drawing.Point(492, 135);
+            this.labID.Location = new System.Drawing.Point(3, 101);
             this.labID.Name = "labID";
             this.labID.Size = new System.Drawing.Size(29, 17);
             this.labID.TabIndex = 2;
@@ -231,12 +190,15 @@
             // 
             // listService
             // 
+            this.listService.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listService.FullRowSelect = true;
             this.listService.GridLines = true;
             this.listService.HideSelection = false;
             this.listService.Location = new System.Drawing.Point(26, 67);
             this.listService.Name = "listService";
-            this.listService.Size = new System.Drawing.Size(417, 465);
+            this.listService.Size = new System.Drawing.Size(372, 507);
             this.listService.TabIndex = 0;
             this.listService.UseCompatibleStateImageBehavior = false;
             this.listService.View = System.Windows.Forms.View.Details;
@@ -246,23 +208,113 @@
             // 
             this.labTieuDe.AutoSize = true;
             this.labTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTieuDe.Location = new System.Drawing.Point(272, 5);
+            this.labTieuDe.Location = new System.Drawing.Point(52, 19);
             this.labTieuDe.Name = "labTieuDe";
             this.labTieuDe.Size = new System.Drawing.Size(358, 32);
             this.labTieuDe.TabIndex = 0;
             this.labTieuDe.Text = "SERVICE INFORMATION";
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.textSearch);
+            this.panel1.Controls.Add(this.buttonClear);
+            this.panel1.Controls.Add(this.labSearch);
+            this.panel1.Controls.Add(this.button_WOC1);
+            this.panel1.Controls.Add(this.textIDService);
+            this.panel1.Controls.Add(this.buttonSave);
+            this.panel1.Controls.Add(this.labID);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.textServiceName);
+            this.panel1.Controls.Add(this.textNewName);
+            this.panel1.Controls.Add(this.labPrice);
+            this.panel1.Controls.Add(this.textPrice);
+            this.panel1.Controls.Add(this.labServiceName);
+            this.panel1.Location = new System.Drawing.Point(12, 72);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(359, 548);
+            this.panel1.TabIndex = 61;
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClear.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonClear.BorderColor = System.Drawing.Color.Silver;
+            this.buttonClear.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonClear.FlatAppearance.BorderSize = 0;
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClear.Location = new System.Drawing.Point(247, 489);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonClear.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonClear.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonClear.Size = new System.Drawing.Size(103, 47);
+            this.buttonClear.TabIndex = 60;
+            this.buttonClear.Text = "CLEAR";
+            this.buttonClear.TextColor = System.Drawing.Color.Black;
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Click += new System.EventHandler(this.button_WOC2_Click);
+            // 
+            // button_WOC1
+            // 
+            this.button_WOC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_WOC1.BackColor = System.Drawing.SystemColors.Control;
+            this.button_WOC1.BorderColor = System.Drawing.Color.Silver;
+            this.button_WOC1.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.button_WOC1.FlatAppearance.BorderSize = 0;
+            this.button_WOC1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC1.Location = new System.Drawing.Point(127, 489);
+            this.button_WOC1.Name = "button_WOC1";
+            this.button_WOC1.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.button_WOC1.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.button_WOC1.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.button_WOC1.Size = new System.Drawing.Size(103, 47);
+            this.button_WOC1.TabIndex = 59;
+            this.button_WOC1.Text = "DELETE";
+            this.button_WOC1.TextColor = System.Drawing.Color.Black;
+            this.button_WOC1.UseVisualStyleBackColor = false;
+            this.button_WOC1.Click += new System.EventHandler(this.button_WOC1_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSave.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonSave.BorderColor = System.Drawing.Color.Silver;
+            this.buttonSave.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonSave.FlatAppearance.BorderSize = 0;
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Location = new System.Drawing.Point(6, 489);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonSave.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonSave.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonSave.Size = new System.Drawing.Size(103, 47);
+            this.buttonSave.TabIndex = 58;
+            this.buttonSave.Text = "SAVE";
+            this.buttonSave.TextColor = System.Drawing.Color.Black;
+            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // serviceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 620);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(917, 620);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panService);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "serviceForm";
-            this.Text = "serviceForm";
+            this.Text = "Z";
             this.panService.ResumeLayout(false);
             this.panService.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -272,9 +324,6 @@
         private System.Windows.Forms.Panel panService;
         private System.Windows.Forms.TextBox textPrice;
         private System.Windows.Forms.Label labPrice;
-        private System.Windows.Forms.Button butClear;
-        private System.Windows.Forms.Button butDelete;
-        private System.Windows.Forms.Button buttUpdate;
         private System.Windows.Forms.TextBox textServiceName;
         private System.Windows.Forms.TextBox textIDService;
         private System.Windows.Forms.Label labServiceName;
@@ -288,5 +337,9 @@
         private System.Windows.Forms.Label labPage;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textNewName;
+        private ePOSOne.btnProduct.Button_WOC buttonClear;
+        private ePOSOne.btnProduct.Button_WOC button_WOC1;
+        private ePOSOne.btnProduct.Button_WOC buttonSave;
+        private System.Windows.Forms.Panel panel1;
     }
 }

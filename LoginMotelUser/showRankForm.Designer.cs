@@ -110,9 +110,9 @@
             this.labPage.AutoSize = true;
             this.labPage.Location = new System.Drawing.Point(433, 505);
             this.labPage.Name = "labPage";
-            this.labPage.Size = new System.Drawing.Size(70, 17);
+            this.labPage.Size = new System.Drawing.Size(65, 17);
             this.labPage.TabIndex = 11;
-            this.labPage.Text = "Trang 0/0";
+            this.labPage.Text = "Page 0/0";
             // 
             // butRight
             // 
@@ -122,7 +122,7 @@
             this.butRight.Name = "butRight";
             this.butRight.Size = new System.Drawing.Size(75, 27);
             this.butRight.TabIndex = 3;
-            this.butRight.Text = "Phải";
+            this.butRight.Text = "Right";
             this.butRight.UseVisualStyleBackColor = true;
             this.butRight.Click += new System.EventHandler(this.butRight_Click);
             // 
@@ -134,7 +134,7 @@
             this.butLeft.Name = "butLeft";
             this.butLeft.Size = new System.Drawing.Size(75, 27);
             this.butLeft.TabIndex = 2;
-            this.butLeft.Text = "Trái";
+            this.butLeft.Text = "Left";
             this.butLeft.UseVisualStyleBackColor = true;
             this.butLeft.Click += new System.EventHandler(this.butLeft_Click);
             // 
@@ -152,9 +152,10 @@
             this.labSearch.AutoSize = true;
             this.labSearch.Location = new System.Drawing.Point(38, 66);
             this.labSearch.Name = "labSearch";
-            this.labSearch.Size = new System.Drawing.Size(74, 17);
+            this.labSearch.Size = new System.Drawing.Size(61, 17);
             this.labSearch.TabIndex = 7;
-            this.labSearch.Text = "Tìm Kiếm :";
+            this.labSearch.Tag = "";
+            this.labSearch.Text = "Search: ";
             // 
             // listRank
             // 
@@ -177,11 +178,11 @@
             // 
             this.labTieuDe.AutoSize = true;
             this.labTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTieuDe.Location = new System.Drawing.Point(314, 7);
+            this.labTieuDe.Location = new System.Drawing.Point(359, 8);
             this.labTieuDe.Name = "labTieuDe";
-            this.labTieuDe.Size = new System.Drawing.Size(380, 32);
+            this.labTieuDe.Size = new System.Drawing.Size(267, 32);
             this.labTieuDe.TabIndex = 0;
-            this.labTieuDe.Text = "DANH SÁCH LOẠI PHÒNG";
+            this.labTieuDe.Text = "LIST ROOM RANK";
             // 
             // showRankForm
             // 
@@ -190,6 +191,7 @@
             this.ClientSize = new System.Drawing.Size(973, 657);
             this.Controls.Add(this.panRank);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "showRankForm";
             this.Text = "rankForm";
             this.panRank.ResumeLayout(false);
