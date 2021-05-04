@@ -92,7 +92,7 @@ namespace LoginMotelUser
             this.lbPhongTrongSC1.BackColor = System.Drawing.Color.Transparent;
             this.labelHetCho.BackColor = System.Drawing.Color.Transparent;
             this.label37.BackColor = System.Drawing.Color.Transparent;
-            this.label36.BackColor = System.Drawing.Color.Transparent;
+            this.label36.BackColor = System.Drawing.Color.Transparent;  
         }
 
         private void frmHome_Load(object sender, EventArgs e)
@@ -471,5 +471,9 @@ namespace LoginMotelUser
             this.frmHome_Load(sender, e);
         }
 
+        private void button_WOC1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

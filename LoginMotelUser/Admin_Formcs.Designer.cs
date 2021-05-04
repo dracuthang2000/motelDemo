@@ -60,6 +60,11 @@
             this.pricesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.collectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonEdit = new System.Windows.Forms.Button();
+            this.buttonBill = new System.Windows.Forms.Button();
+            this.buttonNew = new System.Windows.Forms.Button();
+            this.button_Any = new System.Windows.Forms.Button();
             this.txtLoaiPhongSC1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTienCocSC1 = new System.Windows.Forms.TextBox();
@@ -95,6 +100,7 @@
             this.label36 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuFile
@@ -324,7 +330,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1068, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1068, 28);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -362,6 +368,7 @@
             this.panel2.BackColor = System.Drawing.Color.SeaShell;
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Controls.Add(this.txtLoaiPhongSC1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtTienCocSC1);
@@ -392,14 +399,92 @@
             this.panel2.ForeColor = System.Drawing.Color.AliceBlue;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1068, 560);
+            this.panel2.Size = new System.Drawing.Size(1068, 660);
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.46686F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.47185F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.46686F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.59442F));
+            this.tableLayoutPanel1.Controls.Add(this.buttonEdit, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonBill, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonNew, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.button_Any, 3, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 31);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1065, 66);
+            this.tableLayoutPanel1.TabIndex = 25;
+            // 
+            // buttonEdit
+            // 
+            this.buttonEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonEdit.BackgroundImage")));
+            this.buttonEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonEdit.ForeColor = System.Drawing.Color.Black;
+            this.buttonEdit.Image = ((System.Drawing.Image)(resources.GetObject("buttonEdit.Image")));
+            this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEdit.Location = new System.Drawing.Point(263, 3);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(150, 60);
+            this.buttonEdit.TabIndex = 0;
+            this.buttonEdit.Text = "EDIT";
+            this.buttonEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            // 
+            // buttonBill
+            // 
+            this.buttonBill.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonBill.BackgroundImage")));
+            this.buttonBill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonBill.ForeColor = System.Drawing.Color.Black;
+            this.buttonBill.Image = ((System.Drawing.Image)(resources.GetObject("buttonBill.Image")));
+            this.buttonBill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonBill.Location = new System.Drawing.Point(523, 3);
+            this.buttonBill.Name = "buttonBill";
+            this.buttonBill.Size = new System.Drawing.Size(150, 60);
+            this.buttonBill.TabIndex = 1;
+            this.buttonBill.Text = "BILLS";
+            this.buttonBill.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonBill.UseVisualStyleBackColor = true;
+            // 
+            // buttonNew
+            // 
+            this.buttonNew.BackColor = System.Drawing.Color.Transparent;
+            this.buttonNew.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonNew.BackgroundImage")));
+            this.buttonNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonNew.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.buttonNew.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonNew.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonNew.Image = ((System.Drawing.Image)(resources.GetObject("buttonNew.Image")));
+            this.buttonNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNew.Location = new System.Drawing.Point(3, 3);
+            this.buttonNew.Name = "buttonNew";
+            this.buttonNew.Size = new System.Drawing.Size(150, 60);
+            this.buttonNew.TabIndex = 3;
+            this.buttonNew.Text = "NEW";
+            this.buttonNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonNew.UseVisualStyleBackColor = false;
+            // 
+            // button_Any
+            // 
+            this.button_Any.Location = new System.Drawing.Point(783, 3);
+            this.button_Any.Name = "button_Any";
+            this.button_Any.Size = new System.Drawing.Size(150, 60);
+            this.button_Any.TabIndex = 4;
+            this.button_Any.Text = "ANY";
+            this.button_Any.UseVisualStyleBackColor = true;
             // 
             // txtLoaiPhongSC1
             // 
             this.txtLoaiPhongSC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLoaiPhongSC1.Location = new System.Drawing.Point(889, 140);
+            this.txtLoaiPhongSC1.Location = new System.Drawing.Point(889, 226);
             this.txtLoaiPhongSC1.Name = "txtLoaiPhongSC1";
             this.txtLoaiPhongSC1.ReadOnly = true;
             this.txtLoaiPhongSC1.Size = new System.Drawing.Size(145, 30);
@@ -412,7 +497,7 @@
             this.label2.BackColor = System.Drawing.Color.SeaShell;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label2.Location = new System.Drawing.Point(767, 137);
+            this.label2.Location = new System.Drawing.Point(756, 226);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 20);
             this.label2.TabIndex = 23;
@@ -421,7 +506,7 @@
             // txtTienCocSC1
             // 
             this.txtTienCocSC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTienCocSC1.Location = new System.Drawing.Point(889, 196);
+            this.txtTienCocSC1.Location = new System.Drawing.Point(889, 298);
             this.txtTienCocSC1.Name = "txtTienCocSC1";
             this.txtTienCocSC1.ReadOnly = true;
             this.txtTienCocSC1.Size = new System.Drawing.Size(145, 30);
@@ -434,7 +519,7 @@
             this.label1.BackColor = System.Drawing.Color.SeaShell;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label1.Location = new System.Drawing.Point(767, 196);
+            this.label1.Location = new System.Drawing.Point(756, 298);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 20);
             this.label1.TabIndex = 21;
@@ -448,7 +533,7 @@
             this.labelHetCho.BackColor = System.Drawing.Color.SeaShell;
             this.labelHetCho.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHetCho.ForeColor = System.Drawing.Color.AliceBlue;
-            this.labelHetCho.Location = new System.Drawing.Point(932, 519);
+            this.labelHetCho.Location = new System.Drawing.Point(932, 628);
             this.labelHetCho.Name = "labelHetCho";
             this.labelHetCho.Size = new System.Drawing.Size(27, 20);
             this.labelHetCho.TabIndex = 20;
@@ -462,7 +547,7 @@
             this.lbPhongDaThueSC1.BackColor = System.Drawing.Color.SeaShell;
             this.lbPhongDaThueSC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPhongDaThueSC1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lbPhongDaThueSC1.Location = new System.Drawing.Point(932, 471);
+            this.lbPhongDaThueSC1.Location = new System.Drawing.Point(932, 584);
             this.lbPhongDaThueSC1.Name = "lbPhongDaThueSC1";
             this.lbPhongDaThueSC1.Size = new System.Drawing.Size(27, 20);
             this.lbPhongDaThueSC1.TabIndex = 20;
@@ -475,7 +560,7 @@
             this.lbPhongTrongSC1.AutoSize = true;
             this.lbPhongTrongSC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPhongTrongSC1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lbPhongTrongSC1.Location = new System.Drawing.Point(932, 418);
+            this.lbPhongTrongSC1.Location = new System.Drawing.Point(932, 543);
             this.lbPhongTrongSC1.Name = "lbPhongTrongSC1";
             this.lbPhongTrongSC1.Size = new System.Drawing.Size(27, 20);
             this.lbPhongTrongSC1.TabIndex = 19;
@@ -486,7 +571,7 @@
             this.cbbDaySC1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC1.FormattingEnabled = true;
-            this.cbbDaySC1.Location = new System.Drawing.Point(889, 361);
+            this.cbbDaySC1.Location = new System.Drawing.Point(906, 495);
             this.cbbDaySC1.Name = "cbbDaySC1";
             this.cbbDaySC1.Size = new System.Drawing.Size(159, 33);
             this.cbbDaySC1.TabIndex = 18;
@@ -495,7 +580,7 @@
             // txtTrangThaiSC1
             // 
             this.txtTrangThaiSC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTrangThaiSC1.Location = new System.Drawing.Point(889, 224);
+            this.txtTrangThaiSC1.Location = new System.Drawing.Point(889, 334);
             this.txtTrangThaiSC1.Name = "txtTrangThaiSC1";
             this.txtTrangThaiSC1.ReadOnly = true;
             this.txtTrangThaiSC1.Size = new System.Drawing.Size(145, 30);
@@ -504,7 +589,7 @@
             // txtGiaPhongSC1
             // 
             this.txtGiaPhongSC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGiaPhongSC1.Location = new System.Drawing.Point(889, 168);
+            this.txtGiaPhongSC1.Location = new System.Drawing.Point(889, 262);
             this.txtGiaPhongSC1.Name = "txtGiaPhongSC1";
             this.txtGiaPhongSC1.ReadOnly = true;
             this.txtGiaPhongSC1.Size = new System.Drawing.Size(145, 30);
@@ -513,7 +598,7 @@
             // txtDaySC1
             // 
             this.txtDaySC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDaySC1.Location = new System.Drawing.Point(889, 108);
+            this.txtDaySC1.Location = new System.Drawing.Point(889, 190);
             this.txtDaySC1.Name = "txtDaySC1";
             this.txtDaySC1.ReadOnly = true;
             this.txtDaySC1.Size = new System.Drawing.Size(145, 30);
@@ -522,7 +607,7 @@
             // txtMaPhongSC1
             // 
             this.txtMaPhongSC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaPhongSC1.Location = new System.Drawing.Point(889, 80);
+            this.txtMaPhongSC1.Location = new System.Drawing.Point(889, 154);
             this.txtMaPhongSC1.Name = "txtMaPhongSC1";
             this.txtMaPhongSC1.ReadOnly = true;
             this.txtMaPhongSC1.Size = new System.Drawing.Size(145, 30);
@@ -535,7 +620,7 @@
             this.label47.BackColor = System.Drawing.Color.SeaShell;
             this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label47.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label47.Location = new System.Drawing.Point(767, 170);
+            this.label47.Location = new System.Drawing.Point(756, 262);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(48, 20);
             this.label47.TabIndex = 13;
@@ -549,7 +634,7 @@
             this.label3.BackColor = System.Drawing.Color.SeaShell;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label3.Location = new System.Drawing.Point(767, 519);
+            this.label3.Location = new System.Drawing.Point(767, 628);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(139, 20);
             this.label3.TabIndex = 12;
@@ -563,7 +648,7 @@
             this.label46.BackColor = System.Drawing.Color.SeaShell;
             this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label46.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label46.Location = new System.Drawing.Point(766, 471);
+            this.label46.Location = new System.Drawing.Point(766, 584);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(139, 20);
             this.label46.TabIndex = 12;
@@ -577,7 +662,7 @@
             this.label45.BackColor = System.Drawing.Color.SeaShell;
             this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label45.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label45.Location = new System.Drawing.Point(766, 418);
+            this.label45.Location = new System.Drawing.Point(766, 543);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(122, 20);
             this.label45.TabIndex = 11;
@@ -591,7 +676,7 @@
             this.label44.BackColor = System.Drawing.Color.SeaShell;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label44.Location = new System.Drawing.Point(766, 361);
+            this.label44.Location = new System.Drawing.Point(766, 502);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(57, 20);
             this.label44.TabIndex = 10;
@@ -604,7 +689,7 @@
             this.label42.BackColor = System.Drawing.Color.SeaShell;
             this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label42.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label42.Location = new System.Drawing.Point(767, 226);
+            this.label42.Location = new System.Drawing.Point(756, 334);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(48, 20);
             this.label42.TabIndex = 8;
@@ -617,7 +702,7 @@
             this.label41.BackColor = System.Drawing.Color.SeaShell;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label41.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label41.Location = new System.Drawing.Point(767, 108);
+            this.label41.Location = new System.Drawing.Point(756, 190);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(57, 20);
             this.label41.TabIndex = 7;
@@ -630,7 +715,7 @@
             this.label40.BackColor = System.Drawing.Color.SeaShell;
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label40.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label40.Location = new System.Drawing.Point(766, 82);
+            this.label40.Location = new System.Drawing.Point(754, 161);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(69, 20);
             this.label40.TabIndex = 6;
@@ -649,7 +734,7 @@
             this.columnHeader7,
             this.columnHeader8});
             this.lvDanhSachKhachSC1.HideSelection = false;
-            this.lvDanhSachKhachSC1.Location = new System.Drawing.Point(3, 337);
+            this.lvDanhSachKhachSC1.Location = new System.Drawing.Point(3, 440);
             this.lvDanhSachKhachSC1.Name = "lvDanhSachKhachSC1";
             this.lvDanhSachKhachSC1.Size = new System.Drawing.Size(709, 217);
             this.lvDanhSachKhachSC1.TabIndex = 5;
@@ -701,10 +786,10 @@
             this.tvDanhSachPhongSC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tvDanhSachPhongSC1.ImageIndex = 0;
             this.tvDanhSachPhongSC1.ImageList = this.imageList1;
-            this.tvDanhSachPhongSC1.Location = new System.Drawing.Point(12, 96);
+            this.tvDanhSachPhongSC1.Location = new System.Drawing.Point(3, 154);
             this.tvDanhSachPhongSC1.Name = "tvDanhSachPhongSC1";
             this.tvDanhSachPhongSC1.SelectedImageIndex = 0;
-            this.tvDanhSachPhongSC1.Size = new System.Drawing.Size(444, 178);
+            this.tvDanhSachPhongSC1.Size = new System.Drawing.Size(444, 210);
             this.tvDanhSachPhongSC1.TabIndex = 4;
             this.tvDanhSachPhongSC1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvDanhSachPhongSC1_AfterSelect_1);
             // 
@@ -720,7 +805,7 @@
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label39.Location = new System.Drawing.Point(851, 305);
+            this.label39.Location = new System.Drawing.Point(859, 440);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(100, 25);
             this.label39.TabIndex = 3;
@@ -733,7 +818,7 @@
             this.label38.BackColor = System.Drawing.Color.SeaShell;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label38.Location = new System.Drawing.Point(797, 50);
+            this.label38.Location = new System.Drawing.Point(788, 112);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(229, 25);
             this.label38.TabIndex = 2;
@@ -746,7 +831,7 @@
             this.label37.BackColor = System.Drawing.Color.SeaShell;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label37.Location = new System.Drawing.Point(251, 295);
+            this.label37.Location = new System.Drawing.Point(246, 412);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(188, 25);
             this.label37.TabIndex = 1;
@@ -759,7 +844,7 @@
             this.label36.BackColor = System.Drawing.Color.SeaShell;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label36.Location = new System.Drawing.Point(181, 50);
+            this.label36.Location = new System.Drawing.Point(138, 112);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(131, 25);
             this.label36.TabIndex = 0;
@@ -770,7 +855,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Tan;
-            this.ClientSize = new System.Drawing.Size(1068, 557);
+            this.ClientSize = new System.Drawing.Size(1068, 657);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -783,6 +868,7 @@
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -859,5 +945,10 @@
         private System.Windows.Forms.ToolStripMenuItem serviceToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem staffToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem staffToolStripMenuItem1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.Button buttonBill;
+        private System.Windows.Forms.Button buttonNew;
+        private System.Windows.Forms.Button button_Any;
     }
 }
