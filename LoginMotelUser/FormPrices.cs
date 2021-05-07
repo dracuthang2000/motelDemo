@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Spire.Doc;
+using Spire.Doc.Documents;
+using Spire.Doc.Fields;
 
 namespace LoginMotelUser
 {
@@ -20,10 +23,10 @@ namespace LoginMotelUser
             this.userName = userName;
         }
 
-        Model.MotelManagerEntities2 db;
+        Model.MotelManagerEntities3 db;
         private void frmPrice_Load(object sender, EventArgs e)
         {
-            db = new Model.MotelManagerEntities2();
+            db = new Model.MotelManagerEntities3();
             cbbDaySC4.DataSource = db.ROOMRANGEs.ToList();
             cbbDaySC4.DisplayMember = "RangeName";
             cbbDaySC4.SelectedIndex = -1;
@@ -370,8 +373,10 @@ namespace LoginMotelUser
                     }
                     db.SaveChanges();
                     var maxDate = db.getMaxdate(ID);
+                    int idBill=0;
                     foreach (var id in maxDate)
                     {
+                        idBill = id.Value;
                         foreach (ListViewItem l in listService.Items)
                         {
                             var parS = new Model.PARTICULARSERVICE();
@@ -386,6 +391,7 @@ namespace LoginMotelUser
                     var paid = db.MOTELROOMs.Single(room => room.ID.Equals(ID));
                     paid.Paid = true;
                     db.SaveChanges();
+                    printBill(idBill);
                     clear();
                     frmPrice_Load(sender, e);
                 }
@@ -413,6 +419,174 @@ namespace LoginMotelUser
             this.label21.BackColor = System.Drawing.Color.Transparent;
             this.lbIDPhongSC4.BackColor = System.Drawing.Color.Transparent;
             this.lbTienPhong.BackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void printBill(int id)
+        {
+            int so = id;
+
+            var list1 =(from bill in db.BILLs
+                        where bill.ID == so
+                        select bill).ToList();
+            //Create Table           
+            Document doc = new Document();
+            Paragraph p1 = doc.AddSection().AddParagraph();
+            TextRange text = p1.AppendText("Phiếu Thu Tiền Trọ\n");
+            text.CharacterFormat.Bold = true;
+            text.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
+            text.CharacterFormat.FontName = "Calibri";
+            text.CharacterFormat.FontSize = 22;
+            text.CharacterFormat.TextColor = Color.Red;
+            p1.Format.TextAlignment = TextAlignment.Center;
+            p1.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Center;
+            foreach (var bill in list1)
+            {
+                String[] xuLy = bill.Date.ToString().Split(' ');
+
+                p1.AppendText("Ngày: " + xuLy[0] + "\n");
+                Paragraph p2 = doc.Sections[0].AddParagraph();
+                p2.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Left;
+                p2.Format.TextAlignment = TextAlignment.Baseline;
+                if (bill.IDStaff == null)
+                {
+                    p2.AppendText("Tên Quản Lý: " + "Admin" + "\n");
+                }
+                else
+                {
+                    p2.AppendText("Tên Quản Lý: " + bill.STAFF.StaffName + "\n");
+                }
+                p2.AppendText("Tên Phòng: " + bill.MOTELROOM.RoomName + "\n");
+                p2.AppendText("\n");
+            }
+
+            Table table = doc.Sections[0].AddTable(true);
+            //Create Header and Data
+            String[] Header = { "STT", "Tên Dịch Vụ", "Chỉ Số Đầu", "Chỉ Số Cuối", "Đơn Giá", "Thành Tiền" };
+
+            String[][] data = new String[list1.Count + 1][];
+
+            var services = (from p in db.PARTICULARSERVICEs
+                            join s in db.SERVICEs on p.IDService equals s.ID
+                            join bill in db.BILLs on p.IDBill equals bill.ID
+                            where p.IDBill.Equals(id)
+                            select new
+                            {
+                                s.ServiceName,
+                                s.Price,
+                                p.OldIndex,
+                                p.NewIndex,
+                                p.Total,
+                            }).ToList();
+
+            int j = 0;
+            foreach (var temp in services)
+            {
+                String[] a = { (j + 1).ToString(), temp.ServiceName, temp.OldIndex.ToString(), temp.NewIndex.ToString(), temp.Price.ToString(), temp.Total.ToString() };
+
+                data[j] = a;
+                j++;
+            }
+            String[] b = { "Tổng Tiền", "", list1[0].TotalMoney.ToString() };
+            data[list1.Count] = b;
+            //Add Cells
+            table.ResetCells(data.Length + 1, Header.Length);
+
+            //Header Row
+
+            TableRow FRow = table.Rows[0];
+
+            FRow.IsHeader = true;
+
+            //Row Height
+
+            FRow.Height = 23;
+
+            //Header Format
+
+            FRow.RowFormat.BackColor = Color.AliceBlue;
+
+            for (int i = 0; i < Header.Length; i++)
+
+            {
+
+                //Cell Alignment
+
+                Paragraph p3 = FRow.Cells[i].AddParagraph();
+
+                FRow.Cells[i].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+
+                p3.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Center;
+
+                //Data Format
+
+                TextRange TR = p3.AppendText(Header[i]);
+
+                TR.CharacterFormat.FontName = "Calibri";
+
+                TR.CharacterFormat.FontSize = 14;
+
+                TR.CharacterFormat.TextColor = Color.Teal;
+
+                TR.CharacterFormat.Bold = true;
+
+            }
+            //Data Row
+            for (int r = 0; r < data.Length; r++)
+
+            {
+                TableRow DataRow = table.Rows[r + 1];
+                //Row Height
+                DataRow.Height = 20;
+
+                //C Represents Column.
+
+                for (int c = 0; c < data[r].Length; c++)
+
+                {
+                    doc.Sections[0].Tables[0].Rows[r + 1].Cells[c].Width = 200;
+
+                    //Cell Alignment
+
+                    DataRow.Cells[c].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+
+                    //Fill Data in Rows
+
+                    Paragraph p4 = DataRow.Cells[c].AddParagraph();
+
+                    TextRange TR2 = p4.AppendText(data[r][c]);
+
+                    //Format Cells
+
+                    p4.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Center;
+
+                    TR2.CharacterFormat.FontName = "Calibri";
+
+                    TR2.CharacterFormat.FontSize = 12;
+
+                    TR2.CharacterFormat.TextColor = Color.Brown;
+
+                }
+
+            }
+            table.ApplyHorizontalMerge(list1.Count + 1, 0, 1);
+            table.ApplyHorizontalMerge(list1.Count + 1, 2, 5);
+            Paragraph p5 = doc.Sections[0].AddParagraph();
+            p5.Format.Tabs.AddTab(20).Justification = TabJustification.Right;
+            p5.Format.Tabs.AddTab(300).Justification = TabJustification.Left;
+            p5.AppendText("\n");
+            Spire.Doc.Fields.TextRange text3 = p5.AppendText("\t Đại diện bên thuê\t Đại diện bên cho thuê\n");
+            text3.CharacterFormat.FontName = "Century Gothic";
+            text3.CharacterFormat.FontSize = 18;
+            p5.AppendText("\t             Kí xác nhận\t                Kí ghi rõ họ tên");
+
+
+
+            //Save and Launch
+
+            doc.SaveToFile(@"C:\Users\nguye\Documents\word.docx");
+            doc.Close();
+            System.Diagnostics.Process.Start(@"C:\Users\nguye\Documents\word.docx");
+            this.Close();
         }
     }
 }

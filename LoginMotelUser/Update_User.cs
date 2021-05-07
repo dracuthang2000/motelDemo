@@ -18,7 +18,7 @@ namespace LoginMotelUser
             setColor();
         }
         private bool checkClick = false;
-        LoginMotelUser.Model.MotelManagerEntities2 us = new Model.MotelManagerEntities2();
+        LoginMotelUser.Model.MotelManagerEntities3 us = new Model.MotelManagerEntities3();
         public String checkUsername { get; set; }
         private void Update_User_Load(object sender, EventArgs e)
         {

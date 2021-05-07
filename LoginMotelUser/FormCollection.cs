@@ -17,10 +17,10 @@ namespace LoginMotelUser
             InitializeComponent();
             setColor();
         }
-        Model.MotelManagerEntities2 db;
+        Model.MotelManagerEntities3 db;
         private void frmCollect_Load(object sender, EventArgs e)
         {
-            db = new Model.MotelManagerEntities2();
+            db = new Model.MotelManagerEntities3();
 
             cbbDaySC5.DataSource = db.ROOMRANGEs.ToList();
             cbbDaySC5.DisplayMember = "RangeName";

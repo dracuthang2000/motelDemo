@@ -47,12 +47,14 @@
   </EntityType>
   <EntityType Name="REINTINFOR">
     <Key>
+      <PropertyRef Name="ID" />
       <PropertyRef Name="IDCustomer" />
       <PropertyRef Name="IDRoom" />
     </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IDCustomer" Type="int" Nullable="false" />
     <Property Name="IDRoom" Type="int" Nullable="false" />
-    <Property Name="CheckInDate" Type="datetime" />
+    <Property Name="CheckInDate" Type="datetime" Nullable="false" />
     <Property Name="CheckOutDate" Type="datetime" />
   </EntityType>
   <EntityType Name="ROLE">
@@ -303,6 +305,9 @@
   <Function Name="USP_CountRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="USP_CountService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="USP_CountStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_GetListBillByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
   <Function Name="USP_PageCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="bd" Type="int" Mode="In" />
     <Parameter Name="kt" Type="int" Mode="In" />

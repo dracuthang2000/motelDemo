@@ -17,7 +17,7 @@ namespace LoginMotelUser
         int tong;
         int tinh;
         private Boolean check;
-        Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2();
+        Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3();
         public showRangeForm(Boolean check)
         {
             InitializeComponent();
@@ -92,7 +92,7 @@ namespace LoginMotelUser
         {
             listRange.Clear();
             labPage.Text = "Page 1/1";
-            using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+            using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
             {
                 String temp = textSearch.Text;
                 List<Model.ROOMRANGE> list = (from a in data.ROOMRANGEs where a.RangeName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();
@@ -166,7 +166,7 @@ namespace LoginMotelUser
             {
                 listRange.Clear();
                 labPage.Text = "Page 1/1";
-                using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+                using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
                 {
                     String temp = textSearch.Text;
                     List<Model.ROOMRANGE> list = (from a in data.ROOMRANGEs where a.RangeName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();

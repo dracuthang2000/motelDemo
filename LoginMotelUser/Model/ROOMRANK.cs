@@ -22,10 +22,10 @@ namespace LoginMotelUser.Model
     
         public int ID { get; set; }
         public string RankName { get; set; }
+        public Nullable<int> Quantity { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<decimal> Deposits { get; set; }
         public string About { get; set; }
-        public Nullable<int> Quantity { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MOTELROOM> MOTELROOMs { get; set; }

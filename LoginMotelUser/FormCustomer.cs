@@ -13,7 +13,7 @@ namespace LoginMotelUser
 {
     public partial class FormCustomer : Form
     {
-        Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2();
+        Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3();
         public callFunction goiHam;
         protected override void OnClosed(EventArgs e)
         {
@@ -147,7 +147,7 @@ namespace LoginMotelUser
             if (list.Count > 0)
             {
                 labIDRoomShow.Text = list[0].IDRoom.ToString();
-                datePickerCheckIn.Value = list[0].CheckInDate.GetValueOrDefault();
+                datePickerCheckIn.Value = list[0].CheckInDate.Date;
                 if (list[0].CheckOutDate.GetValueOrDefault().Year == 0001) { datePickerCheckOut.Value = datePickerCheckOut.MinDate; }
                 else
                 {

@@ -14,7 +14,7 @@ namespace LoginMotelUser
     public partial class AddRoomcs : Form
     {
 
-        Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2();
+        Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3();
         private Boolean check;
         public callFunction goiHam;
         protected override void OnClosed(EventArgs e)

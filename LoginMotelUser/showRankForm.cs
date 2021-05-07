@@ -34,7 +34,7 @@ namespace LoginMotelUser
         }
         public void loadData(int a, int b)
         {
-            using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+            using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
             {
                 listRank.Columns.Add("ID Rank", 100);
                 listRank.Columns.Add("Rank name", 150);
@@ -90,7 +90,7 @@ namespace LoginMotelUser
         {
             listRank.Clear();
             labPage.Text = "Page 1/1";
-            using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+            using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
             {
                 String temp = textSearch.Text;
                 List<Model.ROOMRANK> list = (from a in data.ROOMRANKs where a.RankName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();
@@ -175,7 +175,7 @@ namespace LoginMotelUser
             {
                 listRank.Clear();
                 labPage.Text = "Page 1/1";
-                using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+                using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
                 {
                     String temp = textSearch.Text;
                     List<Model.ROOMRANK> list = (from a in data.ROOMRANKs where a.RankName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();
@@ -232,7 +232,7 @@ namespace LoginMotelUser
         {
             if (listRank.SelectedItems.Count > 0)
             {
-                using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+                using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
                 {
                     DialogResult result = MessageBox.Show("Ban co chac xoa khach co ID = " + listRank.FocusedItem.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)

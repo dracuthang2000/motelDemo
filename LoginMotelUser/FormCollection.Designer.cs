@@ -57,6 +57,7 @@
             // 
             // panel13
             // 
+            this.panel13.BackColor = System.Drawing.Color.Transparent;
             this.panel13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel13.BackgroundImage")));
             this.panel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel13.Controls.Add(this.buttonCancel);
@@ -81,8 +82,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.BackColor = System.Drawing.Color.Peru;
-            this.buttonCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCancel.BackgroundImage")));
+            this.buttonCancel.BackColor = System.Drawing.Color.Transparent;
             this.buttonCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonCancel.BorderColor = System.Drawing.Color.Silver;
             this.buttonCancel.ButtonColor = System.Drawing.Color.MediumAquamarine;
@@ -103,8 +103,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.BackColor = System.Drawing.Color.Peru;
-            this.buttonDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonDelete.BackgroundImage")));
+            this.buttonDelete.BackColor = System.Drawing.Color.Transparent;
             this.buttonDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonDelete.BorderColor = System.Drawing.Color.Silver;
             this.buttonDelete.ButtonColor = System.Drawing.Color.MediumAquamarine;
@@ -125,8 +124,7 @@
             // 
             // buttonsubmit
             // 
-            this.buttonsubmit.BackColor = System.Drawing.Color.Peru;
-            this.buttonsubmit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonsubmit.BackgroundImage")));
+            this.buttonsubmit.BackColor = System.Drawing.Color.Transparent;
             this.buttonsubmit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonsubmit.BorderColor = System.Drawing.Color.Silver;
             this.buttonsubmit.ButtonColor = System.Drawing.Color.MediumAquamarine;
@@ -202,6 +200,7 @@
             // label134
             // 
             this.label134.AutoSize = true;
+            this.label134.BackColor = System.Drawing.Color.Transparent;
             this.label134.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label134.Location = new System.Drawing.Point(538, 502);
             this.label134.Name = "label134";

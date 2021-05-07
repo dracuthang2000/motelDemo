@@ -16,7 +16,7 @@ namespace LoginMotelUser
         int dem;
         int tong;
         int tinh;
-        Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2();
+        Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3();
         private Boolean check;
         public serviceForm(Boolean check)
         {
@@ -110,7 +110,7 @@ namespace LoginMotelUser
         {
             listService.Clear();
             labPage.Text = "Trang 1/1";
-            using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+            using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
             {
                 String temp = textSearch.Text;
                 List<Model.SERVICE> list = (from a in data.SERVICEs where a.ServiceName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();
@@ -188,7 +188,7 @@ namespace LoginMotelUser
             {
                 listService.Clear();
                 labPage.Text = "Page 1/1";
-                using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+                using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
                 {
                     String temp = textSearch.Text;
                     List<Model.SERVICE> list = (from a in data.SERVICEs where a.ServiceName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();

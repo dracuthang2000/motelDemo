@@ -30,7 +30,7 @@ namespace LoginMotelUser
         private Boolean checkUpdate;
         public void loadData()
         {
-            using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+            using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
             {
                 listStaff.Columns.Add("ID Card", 100);
                 listStaff.Columns.Add("Full name", 150);
@@ -196,7 +196,7 @@ namespace LoginMotelUser
         {
             if (listStaff.SelectedItems.Count > 0)
             {
-                using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+                using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
                 {
                     DialogResult result = MessageBox.Show("Are you sure DELETE ID CARD = " + listStaff.FocusedItem.Text + " ? (ALL data will be delete!)", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)
@@ -259,7 +259,7 @@ namespace LoginMotelUser
         {
             if (listStaff.SelectedItems.Count > 0)
             {
-                using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+                using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
                 {
                     DialogResult result = MessageBox.Show("Are you sure DELETE ID CARD = " + listStaff.FocusedItem.Text + " ? (ALL data will be delete!)", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)

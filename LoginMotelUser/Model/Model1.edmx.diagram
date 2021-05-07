@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4487f8b9a80f4970ad4943e183ae40c1" Name="Diagram1">
+      <Diagram DiagramId="9fffbf9253de4ac78149ba9ac10fcd7e" Name="Diagram1">
         <EntityTypeShape EntityType="MotelManagerModel.BILL" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MotelManagerModel.CUSTOMER" Width="1.5" PointX="6" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="MotelManagerModel.MOTELROOM" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="MotelManagerModel.REINTINFOR" Width="1.5" PointX="8.25" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="MotelManagerModel.ROLE" Width="1.5" PointX="1.5" PointY="13.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MotelManagerModel.ROOMRANGE" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MotelManagerModel.ROOMRANK" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MotelManagerModel.ROOMRANK" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MotelManagerModel.SERVICE" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MotelManagerModel.STAFF" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MotelManagerModel.sysdiagram" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />

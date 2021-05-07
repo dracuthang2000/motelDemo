@@ -36,11 +36,11 @@
     <Property Name="StateRoom" Type="Int16" />
     <Property Name="IDRoomRank" Type="Int32" />
     <Property Name="IDRoomRange" Type="Int32" />
+    <Property Name="Paid" Type="Boolean" />
     <NavigationProperty Name="BILLs" Relationship="Self.FK_BILL_MOTELROOM" FromRole="MOTELROOM" ToRole="BILL" />
     <NavigationProperty Name="ROOMRANGE" Relationship="Self.FK_MOTELROOM_ROOMRANGE" FromRole="MOTELROOM" ToRole="ROOMRANGE" />
     <NavigationProperty Name="ROOMRANK" Relationship="Self.FK_MOTELROOM_ROOMRANK" FromRole="MOTELROOM" ToRole="ROOMRANK" />
     <NavigationProperty Name="REINTINFORs" Relationship="Self.FK_REINTINFOR_MOTELROOM" FromRole="MOTELROOM" ToRole="REINTINFOR" />
-    <Property Name="Paid" Type="Boolean" />
   </EntityType>
   <EntityType Name="PARTICULARSERVICE">
     <Key>
@@ -59,13 +59,15 @@
     <Key>
       <PropertyRef Name="IDCustomer" />
       <PropertyRef Name="IDRoom" />
+      <PropertyRef Name="ID" />
     </Key>
     <Property Name="IDCustomer" Type="Int32" Nullable="false" />
     <Property Name="IDRoom" Type="Int32" Nullable="false" />
-    <Property Name="CheckInDate" Type="DateTime" Precision="3" />
+    <Property Name="CheckInDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="CheckOutDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_REINTINFOR_CUSTOMER1" FromRole="REINTINFOR" ToRole="CUSTOMER" />
     <NavigationProperty Name="MOTELROOM" Relationship="Self.FK_REINTINFOR_MOTELROOM" FromRole="REINTINFOR" ToRole="MOTELROOM" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="ROLE">
     <Key>
@@ -89,11 +91,11 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
     <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="Deposits" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="About" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="MOTELROOMs" Relationship="Self.FK_MOTELROOM_ROOMRANK" FromRole="ROOMRANK" ToRole="MOTELROOM" />
-    <Property Name="Quantity" Type="Int32" />
   </EntityType>
   <EntityType Name="SERVICE">
     <Key>
@@ -154,7 +156,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_BILL_STAFF">
-    <End Role="STAFF" Type="Self.STAFF" Multiplicity="0..1" />
+    <End Role="STAFF" Type="Self.STAFF" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="STAFF">
@@ -166,7 +170,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PARTICULARSERVICE_BILL">
-    <End Role="BILL" Type="Self.BILL" Multiplicity="1" />
+    <End Role="BILL" Type="Self.BILL" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="PARTICULARSERVICE" Type="Self.PARTICULARSERVICE" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="BILL">
@@ -178,7 +184,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_REINTINFOR_CUSTOMER1">
-    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="REINTINFOR" Type="Self.REINTINFOR" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CUSTOMER">
@@ -232,7 +240,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PARTICULARSERVICE_SERVICE">
-    <End Role="SERVICE" Type="Self.SERVICE" Multiplicity="1" />
+    <End Role="SERVICE" Type="Self.SERVICE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="PARTICULARSERVICE" Type="Self.PARTICULARSERVICE" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SERVICE">
@@ -271,7 +281,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="MotelManagerEntities2" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="MotelManagerEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="BILLs" EntityType="Self.BILL" />
     <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
     <EntitySet Name="MOTELROOMs" EntityType="Self.MOTELROOM" />
@@ -324,6 +334,9 @@
       <End Role="USER" EntitySet="USERs" />
       <End Role="STAFF" EntitySet="STAFFs" />
     </AssociationSet>
+    <FunctionImport Name="getMaxdate" ReturnType="Collection(Int32)">
+      <Parameter Name="idRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -354,6 +367,9 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="updatePaidMotelRoom">
+      <Parameter Name="idRoom" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="USP_CountCustomer" ReturnType="Collection(Int32)" />
     <FunctionImport Name="USP_CountRange" ReturnType="Collection(Int32)" />
     <FunctionImport Name="USP_CountRank" ReturnType="Collection(Int32)" />
@@ -361,6 +377,9 @@
     <FunctionImport Name="USP_CountRoom" ReturnType="Collection(Int32)" />
     <FunctionImport Name="USP_CountService" ReturnType="Collection(Int32)" />
     <FunctionImport Name="USP_CountStaff" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="USP_GetListBillByID" ReturnType="Collection(MotelManagerModel.USP_GetListBillByID_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="USP_PageCustomer" ReturnType="Collection(MotelManagerModel.USP_PageCustomer_Result)">
       <Parameter Name="bd" Mode="In" Type="Int32" />
       <Parameter Name="kt" Mode="In" Type="Int32" />
@@ -389,12 +408,6 @@
       <Parameter Name="bd" Mode="In" Type="Int32" />
       <Parameter Name="kt" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="updatePaidMotelRoom">
-      <Parameter Name="idRoom" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="getMaxdate" ReturnType="Collection(Int32)">
-      <Parameter Name="idRoom" Mode="In" Type="Int32" />
-    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -406,6 +419,17 @@
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_GetListBillByID_Result">
+    <Property Type="String" Name="TenDichVu" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ChiSoCu" Nullable="true" />
+    <Property Type="Int32" Name="ChiSoMoi" Nullable="true" />
+    <Property Type="Decimal" Name="GiaDV" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="GiaThanhPhan" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="ThanhTien" Nullable="true" Precision="19" />
+    <Property Type="DateTime" Name="Ngay" Nullable="true" Precision="23" />
+    <Property Type="String" Name="TenQL" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TenPhong" Nullable="true" MaxLength="50" />
   </ComplexType>
   <ComplexType Name="USP_PageCustomer_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
@@ -423,6 +447,7 @@
   <ComplexType Name="USP_PageRank_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="RankName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
     <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" />
     <Property Type="Decimal" Name="Deposits" Nullable="true" Precision="19" />
     <Property Type="String" Name="About" Nullable="true" MaxLength="20" />
@@ -430,7 +455,7 @@
   <ComplexType Name="USP_PageRentInfo_Result">
     <Property Type="Int32" Name="IDCustomer" Nullable="false" />
     <Property Type="Int32" Name="IDRoom" Nullable="false" />
-    <Property Type="DateTime" Name="CheckInDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="CheckInDate" Nullable="false" Precision="23" />
     <Property Type="DateTime" Name="CheckOutDate" Nullable="true" Precision="23" />
   </ComplexType>
   <ComplexType Name="USP_PageRoom_Result">
@@ -439,6 +464,7 @@
     <Property Type="Int16" Name="StateRoom" Nullable="true" />
     <Property Type="Int32" Name="IDRoomRank" Nullable="true" />
     <Property Type="Int32" Name="IDRoomRange" Nullable="true" />
+    <Property Type="Boolean" Name="Paid" Nullable="true" />
   </ComplexType>
   <ComplexType Name="USP_PageService_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />

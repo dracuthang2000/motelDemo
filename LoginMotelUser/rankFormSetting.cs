@@ -12,7 +12,7 @@ namespace LoginMotelUser
 {
     public partial class rankFormSetting : Form
     {
-        Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2();
+        Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3();
         public callFunction goiHam;
         private Boolean check;
         protected override void OnClosed(EventArgs e)

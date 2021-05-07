@@ -16,8 +16,9 @@ namespace LoginMotelUser.Model
     {
         public int IDCustomer { get; set; }
         public int IDRoom { get; set; }
-        public Nullable<System.DateTime> CheckInDate { get; set; }
+        public System.DateTime CheckInDate { get; set; }
         public Nullable<System.DateTime> CheckOutDate { get; set; }
+        public int ID { get; set; }
     
         public virtual CUSTOMER CUSTOMER { get; set; }
         public virtual MOTELROOM MOTELROOM { get; set; }

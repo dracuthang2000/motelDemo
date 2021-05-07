@@ -40,7 +40,7 @@ namespace LoginMotelUser
         public String IDlist = "";
         public String Pricelist = "";
         public String serviceName = "";
-        Model.MotelManagerEntities2 db = new Model.MotelManagerEntities2();
+        Model.MotelManagerEntities3 db = new Model.MotelManagerEntities3();
         public void createNewList()
         {
 

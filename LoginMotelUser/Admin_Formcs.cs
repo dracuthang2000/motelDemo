@@ -15,7 +15,7 @@ namespace LoginMotelUser
     /// </summary>
     public partial class Admin_Formcs : Form
     {
-        LoginMotelUser.Model.MotelManagerEntities2 db;
+        LoginMotelUser.Model.MotelManagerEntities3 db;
         public Admin_Formcs()
         {
             InitializeComponent();
@@ -46,16 +46,6 @@ namespace LoginMotelUser
             this.Visible = true;
             this.frmHome_Load(sender, e);
         }
-
-        private void inserCustomerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
-            formAddCustomer AC = new formAddCustomer();
-            AC.ShowDialog();
-            this.Visible = true;
-            this.frmHome_Load(sender,e);
-        }
-
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
@@ -100,7 +90,7 @@ namespace LoginMotelUser
             SetStyle(System.Windows.Forms.ControlStyles.SupportsTransparentBackColor, true);
             this.setColor();
             tvDanhSachPhongSC1.Nodes.Clear();
-            db = new Model.MotelManagerEntities2();
+            db = new Model.MotelManagerEntities3();
             loadListRoom();
             var IDroom = (from m in db.MOTELROOMs
                         select m).ToList();
@@ -376,11 +366,6 @@ namespace LoginMotelUser
             this.frmHome_Load(sender, e);
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void roomToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
@@ -474,6 +459,42 @@ namespace LoginMotelUser
         private void button_WOC1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonNew_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            NewController Ctrl = new NewController(checkRole, true);
+            Ctrl.ShowDialog();
+            this.Visible = true;
+            this.frmHome_Load(sender,e);
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            NewController Ctrl = new NewController(checkRole, false);
+            Ctrl.ShowDialog();
+            this.Visible = true;
+            this.frmHome_Load(sender, e);
+        }
+
+        private void checkInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            formAddCustomer AC = new formAddCustomer(true,checkUsername);
+            AC.ShowDialog();
+            this.Visible = true;
+            this.frmHome_Load(sender, e);
+        }
+
+        private void checkOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            formAddCustomer AC = new formAddCustomer(false, checkUsername);
+            AC.ShowDialog();
+            this.Visible = true;
+            this.frmHome_Load(sender, e);
         }
     }
 }

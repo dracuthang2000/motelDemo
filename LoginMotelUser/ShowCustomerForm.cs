@@ -32,7 +32,7 @@ namespace LoginMotelUser
 
         public void loadCustomer(int a, int b)
         {
-            using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+            using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
             {
                 listKhach.Columns.Add("ID card", 100);
                 listKhach.Columns.Add("Full name", 150);
@@ -98,7 +98,7 @@ namespace LoginMotelUser
         {
             listKhach.Clear();
             labPage.Text = "Trang 1/1";
-            using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+            using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
             {
                 String temp = textSearch.Text;
                 List<Model.CUSTOMER> list = (from a in data.CUSTOMERs where a.CustomerName.Contains(temp) || a.IDCard.ToString().Contains(temp) || a.NumberPhone.Contains(temp) select a).ToList();
@@ -183,7 +183,7 @@ namespace LoginMotelUser
             {
                 listKhach.Clear();
                 labPage.Text = "Trang 1/1";
-                using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+                using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
                 {
                     String temp = textSearch.Text;
                     List<Model.CUSTOMER> list = (from a in data.CUSTOMERs where a.CustomerName.Contains(temp) || a.ID.ToString().Contains(temp) || a.NumberPhone.Contains(temp) select a).ToList();
@@ -362,7 +362,7 @@ namespace LoginMotelUser
 
             if (listKhach.SelectedItems.Count > 0)
             {
-                using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+                using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
                 {
                     DialogResult result = MessageBox.Show("Ban co chac xoa khach co ID = " + listKhach.FocusedItem.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)

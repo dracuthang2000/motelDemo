@@ -216,7 +216,7 @@
             this.buttonIn.OnHoverTextColor = System.Drawing.Color.Gray;
             this.buttonIn.Size = new System.Drawing.Size(80, 30);
             this.buttonIn.TabIndex = 21;
-            this.buttonIn.Text = "UPDATE";
+            this.buttonIn.Text = "SAVE";
             this.buttonIn.TextColor = System.Drawing.Color.Black;
             this.buttonIn.UseVisualStyleBackColor = false;
             this.buttonIn.Click += new System.EventHandler(this.buttonIn_Click);

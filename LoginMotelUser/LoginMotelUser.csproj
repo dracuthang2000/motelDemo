@@ -41,6 +41,9 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Spire.Doc">
+      <HintPath>..\..\..\..\Downloads\New folder\Spire.Doc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -124,25 +127,6 @@
     <Compile Include="FormPrices.Designer.cs">
       <DependentUpon>FormPrices.cs</DependentUpon>
     </Compile>
-    <Compile Include="rankFormSetting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="rankFormSetting.Designer.cs">
-      <DependentUpon>rankFormSetting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="serviceForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="serviceForm.Designer.cs">
-      <DependentUpon>serviceForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ShowCustomerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ShowCustomerForm.Designer.cs">
-      <DependentUpon>ShowCustomerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ItemComparer.cs" />
     <Compile Include="Model\BILL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -200,6 +184,9 @@
     <Compile Include="Model\USER.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\USP_GetListBillByID_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\USP_PageCustomer_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -221,6 +208,31 @@
     <Compile Include="Model\USP_PageStaff_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="NewController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewController.Designer.cs">
+      <DependentUpon>NewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rankFormSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rankFormSetting.Designer.cs">
+      <DependentUpon>rankFormSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="serviceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="serviceForm.Designer.cs">
+      <DependentUpon>serviceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowCustomerForm.Designer.cs">
+      <DependentUpon>ShowCustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemComparer.cs" />
     <Compile Include="MotelManagerDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -299,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrices.resx">
       <DependentUpon>FormPrices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewController.resx">
+      <DependentUpon>NewController.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rankFormSetting.resx">
       <DependentUpon>rankFormSetting.cs</DependentUpon>

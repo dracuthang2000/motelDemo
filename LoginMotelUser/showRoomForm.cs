@@ -62,7 +62,7 @@ namespace LoginMotelUser
         }
         public void loadRoom(int e, int f)
         {
-            using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+            using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
             {
                 listRoom.Columns.Add("ID Room", 100);
                 listRoom.Columns.Add("Room name", 150);
@@ -129,7 +129,7 @@ namespace LoginMotelUser
         {
             listRoom.Clear();
 
-            using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+            using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
             {
                 String temp = textSearch.Text;
                 List<Model.MOTELROOM> list = (from a in data.MOTELROOMs where a.RoomName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();
@@ -224,7 +224,7 @@ namespace LoginMotelUser
             {
                 listRoom.Clear();
 
-                using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+                using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
                 {
                     String temp = textSearch.Text;
                     List<Model.MOTELROOM> list = (from a in data.MOTELROOMs where a.RoomName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();
@@ -290,7 +290,7 @@ namespace LoginMotelUser
         {
             if (listRoom.SelectedItems.Count > 0)
             {
-                using (Model.MotelManagerEntities2 data = new Model.MotelManagerEntities2())
+                using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
                 {
                     DialogResult result = MessageBox.Show("Ban co chac xoa phong co ID = " + listRoom.FocusedItem.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)

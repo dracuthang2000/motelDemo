@@ -41,9 +41,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtGioiTinhSC4 = new System.Windows.Forms.TextBox();
             this.pnlPrice = new System.Windows.Forms.Panel();
-            this.buttonPrint = new ePOSOne.btnProduct.Button_WOC();
-            this.buttonCan = new ePOSOne.btnProduct.Button_WOC();
-            this.buttonSave = new ePOSOne.btnProduct.Button_WOC();
             this.label2 = new System.Windows.Forms.Label();
             this.listService = new System.Windows.Forms.ListView();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -63,6 +60,9 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonCan = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonSave = new ePOSOne.btnProduct.Button_WOC();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnlPrice.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -236,11 +236,12 @@
             // 
             // pnlPrice
             // 
+            this.pnlPrice.BackColor = System.Drawing.Color.Transparent;
             this.pnlPrice.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlPrice.BackgroundImage")));
             this.pnlPrice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlPrice.Controls.Add(this.buttonPrint);
             this.pnlPrice.Controls.Add(this.buttonCan);
             this.pnlPrice.Controls.Add(this.buttonSave);
+            this.pnlPrice.Controls.Add(this.label3);
             this.pnlPrice.Controls.Add(this.label2);
             this.pnlPrice.Controls.Add(this.listService);
             this.pnlPrice.Controls.Add(this.button1);
@@ -274,71 +275,6 @@
             this.pnlPrice.Name = "pnlPrice";
             this.pnlPrice.Size = new System.Drawing.Size(1086, 562);
             this.pnlPrice.TabIndex = 52;
-            // 
-            // buttonPrint
-            // 
-            this.buttonPrint.BackColor = System.Drawing.Color.Peru;
-            this.buttonPrint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonPrint.BackgroundImage")));
-            this.buttonPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonPrint.BorderColor = System.Drawing.Color.Silver;
-            this.buttonPrint.ButtonColor = System.Drawing.Color.MediumAquamarine;
-            this.buttonPrint.FlatAppearance.BorderSize = 0;
-            this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrint.Location = new System.Drawing.Point(743, 503);
-            this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.buttonPrint.OnHoverButtonColor = System.Drawing.Color.Turquoise;
-            this.buttonPrint.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonPrint.Size = new System.Drawing.Size(99, 40);
-            this.buttonPrint.TabIndex = 86;
-            this.buttonPrint.Text = "PRINT BILL";
-            this.buttonPrint.TextColor = System.Drawing.Color.Black;
-            this.buttonPrint.UseVisualStyleBackColor = false;
-            // 
-            // buttonCan
-            // 
-            this.buttonCan.BackColor = System.Drawing.Color.Peru;
-            this.buttonCan.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCan.BackgroundImage")));
-            this.buttonCan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonCan.BorderColor = System.Drawing.Color.Silver;
-            this.buttonCan.ButtonColor = System.Drawing.Color.MediumAquamarine;
-            this.buttonCan.FlatAppearance.BorderSize = 0;
-            this.buttonCan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCan.Location = new System.Drawing.Point(906, 503);
-            this.buttonCan.Name = "buttonCan";
-            this.buttonCan.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.buttonCan.OnHoverButtonColor = System.Drawing.Color.Turquoise;
-            this.buttonCan.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonCan.Size = new System.Drawing.Size(80, 40);
-            this.buttonCan.TabIndex = 85;
-            this.buttonCan.Text = "CANCLE";
-            this.buttonCan.TextColor = System.Drawing.Color.Black;
-            this.buttonCan.UseVisualStyleBackColor = false;
-            this.buttonCan.Click += new System.EventHandler(this.buttonCan_Click);
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.BackColor = System.Drawing.Color.Peru;
-            this.buttonSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSave.BackgroundImage")));
-            this.buttonSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonSave.BorderColor = System.Drawing.Color.Silver;
-            this.buttonSave.ButtonColor = System.Drawing.Color.MediumAquamarine;
-            this.buttonSave.FlatAppearance.BorderSize = 0;
-            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(592, 503);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.buttonSave.OnHoverButtonColor = System.Drawing.Color.Turquoise;
-            this.buttonSave.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonSave.Size = new System.Drawing.Size(80, 40);
-            this.buttonSave.TabIndex = 84;
-            this.buttonSave.Text = "SAVE";
-            this.buttonSave.TextColor = System.Drawing.Color.Black;
-            this.buttonSave.UseVisualStyleBackColor = false;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // label2
             // 
@@ -492,6 +428,59 @@
             this.columnHeader3.Text = "Amount";
             this.columnHeader3.Width = 100;
             // 
+            // buttonCan
+            // 
+            this.buttonCan.BackColor = System.Drawing.Color.Transparent;
+            this.buttonCan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCan.BorderColor = System.Drawing.Color.Silver;
+            this.buttonCan.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonCan.FlatAppearance.BorderSize = 0;
+            this.buttonCan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCan.Location = new System.Drawing.Point(906, 503);
+            this.buttonCan.Name = "buttonCan";
+            this.buttonCan.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonCan.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonCan.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonCan.Size = new System.Drawing.Size(80, 40);
+            this.buttonCan.TabIndex = 85;
+            this.buttonCan.Text = "CANCLE";
+            this.buttonCan.TextColor = System.Drawing.Color.Black;
+            this.buttonCan.UseVisualStyleBackColor = false;
+            this.buttonCan.Click += new System.EventHandler(this.buttonCan_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.BackColor = System.Drawing.Color.Transparent;
+            this.buttonSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSave.BorderColor = System.Drawing.Color.Silver;
+            this.buttonSave.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonSave.FlatAppearance.BorderSize = 0;
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Location = new System.Drawing.Point(575, 503);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonSave.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonSave.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonSave.Size = new System.Drawing.Size(108, 40);
+            this.buttonSave.TabIndex = 84;
+            this.buttonSave.Text = "SUBMIT";
+            this.buttonSave.TextColor = System.Drawing.Color.Black;
+            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(508, 475);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(241, 25);
+            this.label3.TabIndex = 83;
+            this.label3.Text = "SAVE AND PRINT BILL";
+            // 
             // FormPrices
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -550,8 +539,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
-        private ePOSOne.btnProduct.Button_WOC buttonPrint;
         private ePOSOne.btnProduct.Button_WOC buttonCan;
         private ePOSOne.btnProduct.Button_WOC buttonSave;
+        private System.Windows.Forms.Label label3;
     }
 }

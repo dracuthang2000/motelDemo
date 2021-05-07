@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,15 +14,27 @@ namespace LoginMotelUser
 {
     public partial class formAddCustomer : Form
     {
-        public formAddCustomer()
+        String userName;
+        public formAddCustomer(Boolean check, String userName)
         {
             InitializeComponent();
+            if(check == true)
+            {
+                buttonADD.Visible = true;
+                buttonCheckOut.Visible = false;
+            }
+            else
+            {
+                buttonADD.Visible = false;
+                buttonCheckOut.Visible = true;
+            }
+            this.userName = userName;
             setColor();
         }
-        Model.MotelManagerEntities2 db = new Model.MotelManagerEntities2();
+        Model.MotelManagerEntities3 db = new Model.MotelManagerEntities3();
         private void frmAddCustomer_Load(object sender, EventArgs e)
         {
-            db = new Model.MotelManagerEntities2();
+            db = new Model.MotelManagerEntities3();
             cbbDaySC3.DataSource = db.ROOMRANGEs.ToList();
             cbbDaySC3.DisplayMember = "RangeName";
             cbbDaySC3.SelectedIndex = 0;
@@ -224,6 +238,7 @@ namespace LoginMotelUser
             lvDanhSachKhachSC3.Items.Clear();
             if (lvDanhSachPhongSC3.SelectedItems.Count > 0)
             {
+                Clear();
                 ListViewItem lvi = lvDanhSachPhongSC3.SelectedItems[0];
                 int IDRoom = int.Parse(lvi.Text);
                 lbPhongSC3.Text = lvi.Text;
@@ -279,9 +294,19 @@ namespace LoginMotelUser
                         lvDanhSachKhachSC3.Items.Add(lv);
                     }
                 }
+
             }
         }
 
+        public void Clear()
+        {
+            txtCMNDSC3.Text = "";
+            txtDiaChiSC3.Text = "";
+            txtSDTSC3.Text = "";
+            txtHoTenSC3.Text = "";
+            dtDateSC3.Value = DateTime.Now;
+            cbbGioiTinhSC3.SelectedIndex = 0;
+        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (txtCMNDSC3.TextLength == 9 || txtCMNDSC3.TextLength == 12)
@@ -470,6 +495,7 @@ namespace LoginMotelUser
 
         private void buttonUp_Click(object sender, EventArgs e)
         {
+            int IDRoom = int.Parse(lbPhongSC3.Text);
             string firstNumber = txtSDTSC3.Text;
             bool isOk = (txtCMNDSC3.TextLength == 9 || txtCMNDSC3.TextLength == 12)
                 && (txtHoTenSC3.Text.Length > 0) && (txtDiaChiSC3.Text.Length > 0)
@@ -479,10 +505,6 @@ namespace LoginMotelUser
             DialogResult d = MessageBox.Show("DO YOU WANT ADD " + txtCMNDSC3.Text + " ?", "UPDATE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (isOk)
             {
-                // Nếu IDRoom khác thì thêm bảng rent
-                // Nếu IDRoom giống thì kiểm tra
-                // Nếu như đã chưa ngày checkout thì báo: Khách hàng đã thuê phòng này
-                // Nếu như đã có ngày checkout ?? Chỉnh sửa lại ngày hả?
 
                 if (d == DialogResult.Yes)
                 {
@@ -495,7 +517,7 @@ namespace LoginMotelUser
                         ch = check[0].ID;
                     }
                     var rentInfor = (from ren in db.REINTINFORs
-                                     where ren.IDCustomer == ch
+                                     where ren.IDCustomer == ch && ren.IDRoom == IDRoom
                                      select ren).ToList();
                     bool checkRen = false;
                     if (rentInfor.Count != 0)
@@ -511,9 +533,10 @@ namespace LoginMotelUser
                                     newRent.IDCustomer = check[0].ID;
                                     newRent.IDRoom = int.Parse(lbPhongSC3.Text);
                                     newRent.CheckInDate = DateTime.Now;
-
                                     db.REINTINFORs.Add(newRent);
                                     db.SaveChanges();
+                                    checkRen = true;
+                                    break;
                                 }
                                 else // chưa trả phòng mà thuê nữa thì không cho
                                 {
@@ -536,7 +559,7 @@ namespace LoginMotelUser
                     else // thêm
                     {
                         // Thêm customer
-                        db = new Model.MotelManagerEntities2();
+                        db = new Model.MotelManagerEntities3();
                         var check1 = db.CUSTOMERs.Where(u => u.ID.Equals(ch)).ToList();
                         if (check1.Count == 0)
                         {
@@ -572,29 +595,40 @@ namespace LoginMotelUser
                         db.REINTINFORs.Add(newRent);
                         db.SaveChanges();
                         //frmAddCustomer_Load(sender, e);
-
                     }
                     lvDanhSachKhachSC3.Items.Clear();
-                    int IDRoom = int.Parse(lbPhongSC3.Text);
-                    var customer = from Room in db.MOTELROOMs
-                                   join Ren in db.REINTINFORs on Room.ID equals Ren.IDRoom
-                                   join Cus in db.CUSTOMERs on Ren.IDCustomer equals Cus.ID
-                                   where Room.ID == IDRoom
-                                   select Cus;
-                    foreach (var c in customer)
-                    {
-                        ListViewItem lv = new ListViewItem(c.IDCard);
-                        lv.SubItems.Add(c.CustomerName);
-                        lv.SubItems.Add(c.Sexual);
-                        lv.SubItems.Add(c.Address);
-                        lvDanhSachKhachSC3.Items.Add(lv);
-                    }
-                    txtCMNDSC3.Text = "";
-                    txtDiaChiSC3.Text = "";
-                    txtSDTSC3.Text = "";
-                    txtHoTenSC3.Text = "";
-                    dtDateSC3.Value = DateTime.Now;
-                    cbbGioiTinhSC3.SelectedIndex = 0;
+
+                    var customer = (from Room in db.MOTELROOMs
+                                    join Ren in db.REINTINFORs on Room.ID equals Ren.IDRoom
+                                    join Cus in db.CUSTOMERs on Ren.IDCustomer equals Cus.ID
+                                    where Room.ID == IDRoom && Ren.CheckOutDate == null
+                                    select Cus).ToList();
+                    var Quantity = (from Room in db.MOTELROOMs
+                                    where IDRoom == Room.ID
+                                    select Room).ToList();
+                        foreach (var c in customer)
+                        {
+                            ListViewItem lv = new ListViewItem(c.IDCard);
+                            lv.SubItems.Add(c.CustomerName);
+                            lv.SubItems.Add(c.Sexual);
+                            lv.SubItems.Add(c.Address);
+                            lvDanhSachKhachSC3.Items.Add(lv);
+                        }
+                        if (customer.Count == Quantity[0].ROOMRANK.Quantity)
+                        {
+                            var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
+                            temp.StateRoom = 3;
+                            db.SaveChanges();
+                            frmAddCustomer_Load(sender, e);
+                        }
+                        else
+                        {
+                            var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
+                            temp.StateRoom = 2;
+                            db.SaveChanges();
+                            frmAddCustomer_Load(sender, e);
+                        }
+                        Clear();
                 }
             }
             else
@@ -605,21 +639,53 @@ namespace LoginMotelUser
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            var idCus = from cus in db.CUSTOMERs
-                        where cus.IDCard == txtCMNDSC3.Text
-                        select cus;
-            int IDroom = int.Parse(lbPhongSC3.Text);
-            foreach (var cus in idCus)
+            DialogResult d = MessageBox.Show("ARE YOU SURE CHECK OUT " + txtCMNDSC3.Text + " ?", "DELETE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (d == DialogResult.Yes)
             {
-                //var temp = from rein in db.REINTINFORs
-                //           where rein.IDCustomer == cus.ID && rein.IDRoom == IDroom
-                //           select rein;
-                var temp = db.REINTINFORs.Single(rein => rein.IDCustomer == cus.ID && rein.IDRoom == IDroom);
-                temp.CheckOutDate = DateTime.Now;
+                var idCus = from cus in db.CUSTOMERs
+                            where cus.IDCard == txtCMNDSC3.Text
+                            select cus;
+                int IDroom = int.Parse(lbPhongSC3.Text);
+                foreach (var cus in idCus)
+                {
+                    var temp = db.REINTINFORs.Single(rein => rein.IDCustomer == cus.ID && rein.IDRoom == IDroom);
+                    temp.CheckOutDate = DateTime.Now;
+                }
+                db.SaveChanges();
+                clear();
             }
-            db.SaveChanges();
-            clear();
-            frmAddCustomer_Load(sender, e);
+
+            lvDanhSachKhachSC3.Items.Clear();
+            int IDRoom = int.Parse(lbPhongSC3.Text);
+            var customer = (from Room in db.MOTELROOMs
+                           join Ren in db.REINTINFORs on Room.ID equals Ren.IDRoom
+                           join Cus in db.CUSTOMERs on Ren.IDCustomer equals Cus.ID
+                           where Room.ID == IDRoom && Ren.CheckOutDate == null
+                           select Cus).ToList();
+            var Quantity = (from Room in db.MOTELROOMs
+                          where IDRoom == Room.ID
+                          select Room).ToList();
+            if (customer.Count == 0)
+            {
+                var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
+                temp.StateRoom = 1;
+                db.SaveChanges();
+                frmAddCustomer_Load(sender, e);
+            }else if(customer.Count == Quantity[0].ROOMRANK.Quantity)
+            {
+                var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
+                temp.StateRoom = 3;
+                db.SaveChanges();
+                frmAddCustomer_Load(sender, e);
+            }
+            foreach (var c in customer)
+            {
+                ListViewItem lv = new ListViewItem(c.IDCard);
+                lv.SubItems.Add(c.CustomerName);
+                lv.SubItems.Add(c.Sexual);
+                lv.SubItems.Add(c.Address);
+                lvDanhSachKhachSC3.Items.Add(lv);
+            }
         }
 
         private void buttonCancle_Click(object sender, EventArgs e)
@@ -644,6 +710,65 @@ namespace LoginMotelUser
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.lbPhongSC3.BackColor = System.Drawing.Color.Transparent;
 
+        }
+
+        private void ButtonDelete_Click_1(object sender, EventArgs e)
+        {
+            DialogResult d = MessageBox.Show("ARE YOU SURE DELETE " + txtCMNDSC3.Text + " ?", "DELETE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (d == DialogResult.Yes)
+            {
+                var idCus = from cus in db.CUSTOMERs
+                            where cus.IDCard == txtCMNDSC3.Text
+                            select cus;
+                int IDroom = int.Parse(lbPhongSC3.Text);
+                foreach (var cus in idCus)
+                {
+                    var date = db.REINTINFORs.Where(rein => rein.IDCustomer == cus.ID && rein.IDRoom == IDroom && rein.CheckOutDate == null).Select(rein => rein.CheckInDate).Max().Date;
+                    Model.REINTINFOR temp = db.REINTINFORs.Where(rein => rein.IDCustomer == cus.ID && rein.IDRoom == IDroom && EntityFunctions.TruncateTime(rein.CheckInDate) == date).FirstOrDefault();
+                    //foreach (var rein in temp)
+                    //{
+                    //    db.REINTINFORs.Attach(rein);
+                    //    db.REINTINFORs.Remove(rein);
+                    //}
+                    db.Entry(temp).State = EntityState.Deleted;
+                }
+                db.SaveChanges();
+                clear();
+                MessageBox.Show("COMPLETE", "MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+            lvDanhSachKhachSC3.Items.Clear();
+            int IDRoom = int.Parse(lbPhongSC3.Text);
+            var customer = (from Room in db.MOTELROOMs
+                           join Ren in db.REINTINFORs on Room.ID equals Ren.IDRoom
+                           join Cus in db.CUSTOMERs on Ren.IDCustomer equals Cus.ID
+                           where Room.ID == IDRoom && Ren.CheckOutDate == null
+                           select Cus).ToList();
+            var Quantity = (from Room in db.MOTELROOMs
+                            where IDRoom == Room.ID
+                            select Room).ToList();
+            if(customer.Count == 0)
+            {
+                var temp = db.MOTELROOMs.Single(room=> room.ID == IDRoom);
+                temp.StateRoom = 1;
+                db.SaveChanges();
+                frmAddCustomer_Load(sender, e);
+            }
+            else if (customer.Count == Quantity[0].ROOMRANK.Quantity)
+            {
+                var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
+                temp.StateRoom = 3;
+                db.SaveChanges();
+                frmAddCustomer_Load(sender, e);
+            }
+            foreach (var c in customer)
+            {
+                ListViewItem lv = new ListViewItem(c.IDCard);
+                lv.SubItems.Add(c.CustomerName);
+                lv.SubItems.Add(c.Sexual);
+                lv.SubItems.Add(c.Address);
+                lvDanhSachKhachSC3.Items.Add(lv);
+            }
+            Clear();
         }
     }
 }

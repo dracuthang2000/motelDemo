@@ -18,7 +18,7 @@ namespace LoginMotelUser
             setColor();
         }
         private bool checkClick = false;
-        LoginMotelUser.Model.MotelManagerEntities2 us = new Model.MotelManagerEntities2();
+        LoginMotelUser.Model.MotelManagerEntities3 us = new Model.MotelManagerEntities3();
         private void New_User_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'motelManagerDataSet.ROLE' table. You can move, or remove it, as needed.

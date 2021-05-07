@@ -15,10 +15,10 @@ namespace LoginMotelUser.Model
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class MotelManagerEntities2 : DbContext
+    public partial class MotelManagerEntities3 : DbContext
     {
-        public MotelManagerEntities2()
-            : base("name=MotelManagerEntities2")
+        public MotelManagerEntities3()
+            : base("name=MotelManagerEntities3")
         {
         }
     
@@ -39,6 +39,15 @@ namespace LoginMotelUser.Model
         public virtual DbSet<STAFF> STAFFs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<USER> USERs { get; set; }
+    
+        public virtual ObjectResult<Nullable<int>> getMaxdate(Nullable<int> idRoom)
+        {
+            var idRoomParameter = idRoom.HasValue ?
+                new ObjectParameter("idRoom", idRoom) :
+                new ObjectParameter("idRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("getMaxdate", idRoomParameter);
+        }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -143,6 +152,15 @@ namespace LoginMotelUser.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
     
+        public virtual int updatePaidMotelRoom(Nullable<int> idRoom)
+        {
+            var idRoomParameter = idRoom.HasValue ?
+                new ObjectParameter("idRoom", idRoom) :
+                new ObjectParameter("idRoom", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updatePaidMotelRoom", idRoomParameter);
+        }
+    
         public virtual ObjectResult<Nullable<int>> USP_CountCustomer()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("USP_CountCustomer");
@@ -176,6 +194,15 @@ namespace LoginMotelUser.Model
         public virtual ObjectResult<Nullable<int>> USP_CountStaff()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("USP_CountStaff");
+        }
+    
+        public virtual ObjectResult<USP_GetListBillByID_Result> USP_GetListBillByID(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_GetListBillByID_Result>("USP_GetListBillByID", iDParameter);
         }
     
         public virtual ObjectResult<USP_PageCustomer_Result> USP_PageCustomer(Nullable<int> bd, Nullable<int> kt)
@@ -267,24 +294,6 @@ namespace LoginMotelUser.Model
                 new ObjectParameter("kt", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_PageStaff_Result>("USP_PageStaff", bdParameter, ktParameter);
-        }
-    
-        public virtual int updatePaidMotelRoom(Nullable<int> idRoom)
-        {
-            var idRoomParameter = idRoom.HasValue ?
-                new ObjectParameter("idRoom", idRoom) :
-                new ObjectParameter("idRoom", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updatePaidMotelRoom", idRoomParameter);
-        }
-    
-        public virtual ObjectResult<Nullable<int>> getMaxdate(Nullable<int> idRoom)
-        {
-            var idRoomParameter = idRoom.HasValue ?
-                new ObjectParameter("idRoom", idRoom) :
-                new ObjectParameter("idRoom", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("getMaxdate", idRoomParameter);
         }
     }
 }

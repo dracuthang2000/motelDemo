@@ -66,10 +66,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cbbGioiTinhSC3 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.buttonADD = new ePOSOne.btnProduct.Button_WOC();
-            this.buttonDelete = new ePOSOne.btnProduct.Button_WOC();
             this.panel11 = new System.Windows.Forms.Panel();
             this.buttonCancle = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonCheckOut = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonADD = new ePOSOne.btnProduct.Button_WOC();
+            this.ButtonDelete = new ePOSOne.btnProduct.Button_WOC();
             this.contextMenuListcus.SuspendLayout();
             this.panel11.SuspendLayout();
             this.SuspendLayout();
@@ -401,54 +402,13 @@
             this.label8.TabIndex = 54;
             this.label8.Text = "ID room:";
             // 
-            // buttonADD
-            // 
-            this.buttonADD.BackColor = System.Drawing.Color.Peru;
-            this.buttonADD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonADD.BackgroundImage")));
-            this.buttonADD.BorderColor = System.Drawing.Color.Silver;
-            this.buttonADD.ButtonColor = System.Drawing.Color.MediumAquamarine;
-            this.buttonADD.FlatAppearance.BorderSize = 0;
-            this.buttonADD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonADD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonADD.Location = new System.Drawing.Point(773, 505);
-            this.buttonADD.Name = "buttonADD";
-            this.buttonADD.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.buttonADD.OnHoverButtonColor = System.Drawing.Color.Turquoise;
-            this.buttonADD.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonADD.Size = new System.Drawing.Size(80, 30);
-            this.buttonADD.TabIndex = 56;
-            this.buttonADD.Text = "ADD";
-            this.buttonADD.TextColor = System.Drawing.Color.Black;
-            this.buttonADD.UseVisualStyleBackColor = false;
-            this.buttonADD.Click += new System.EventHandler(this.buttonUp_Click);
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.BackColor = System.Drawing.Color.Peru;
-            this.buttonDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonDelete.BackgroundImage")));
-            this.buttonDelete.BorderColor = System.Drawing.Color.Silver;
-            this.buttonDelete.ButtonColor = System.Drawing.Color.MediumAquamarine;
-            this.buttonDelete.FlatAppearance.BorderSize = 0;
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.Location = new System.Drawing.Point(896, 505);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.buttonDelete.OnHoverButtonColor = System.Drawing.Color.Turquoise;
-            this.buttonDelete.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonDelete.Size = new System.Drawing.Size(80, 30);
-            this.buttonDelete.TabIndex = 57;
-            this.buttonDelete.Text = "DELETE";
-            this.buttonDelete.TextColor = System.Drawing.Color.Black;
-            this.buttonDelete.UseVisualStyleBackColor = false;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            // 
             // panel11
             // 
             this.panel11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel11.BackgroundImage")));
             this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel11.Controls.Add(this.ButtonDelete);
             this.panel11.Controls.Add(this.buttonCancle);
-            this.panel11.Controls.Add(this.buttonDelete);
+            this.panel11.Controls.Add(this.buttonCheckOut);
             this.panel11.Controls.Add(this.buttonADD);
             this.panel11.Controls.Add(this.label8);
             this.panel11.Controls.Add(this.cbbGioiTinhSC3);
@@ -494,12 +454,77 @@
             this.buttonCancle.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonCancle.OnHoverButtonColor = System.Drawing.Color.Turquoise;
             this.buttonCancle.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonCancle.Size = new System.Drawing.Size(80, 30);
+            this.buttonCancle.Size = new System.Drawing.Size(100, 30);
             this.buttonCancle.TabIndex = 58;
             this.buttonCancle.Text = "CANCLE";
             this.buttonCancle.TextColor = System.Drawing.Color.Black;
             this.buttonCancle.UseVisualStyleBackColor = false;
             this.buttonCancle.Click += new System.EventHandler(this.buttonCancle_Click);
+            // 
+            // buttonCheckOut
+            // 
+            this.buttonCheckOut.BackColor = System.Drawing.Color.Peru;
+            this.buttonCheckOut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCheckOut.BackgroundImage")));
+            this.buttonCheckOut.BorderColor = System.Drawing.Color.Silver;
+            this.buttonCheckOut.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonCheckOut.FlatAppearance.BorderSize = 0;
+            this.buttonCheckOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCheckOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCheckOut.Location = new System.Drawing.Point(773, 505);
+            this.buttonCheckOut.Name = "buttonCheckOut";
+            this.buttonCheckOut.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonCheckOut.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonCheckOut.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonCheckOut.Size = new System.Drawing.Size(100, 30);
+            this.buttonCheckOut.TabIndex = 57;
+            this.buttonCheckOut.Text = "CHECKOUT";
+            this.buttonCheckOut.TextColor = System.Drawing.Color.Black;
+            this.buttonCheckOut.UseVisualStyleBackColor = false;
+            this.buttonCheckOut.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonADD
+            // 
+            this.buttonADD.BackColor = System.Drawing.Color.Peru;
+            this.buttonADD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonADD.BackgroundImage")));
+            this.buttonADD.BorderColor = System.Drawing.Color.Silver;
+            this.buttonADD.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonADD.FlatAppearance.BorderSize = 0;
+            this.buttonADD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonADD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonADD.Location = new System.Drawing.Point(773, 505);
+            this.buttonADD.Name = "buttonADD";
+            this.buttonADD.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonADD.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonADD.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonADD.Size = new System.Drawing.Size(98, 30);
+            this.buttonADD.TabIndex = 56;
+            this.buttonADD.Text = "CHECK IN";
+            this.buttonADD.TextColor = System.Drawing.Color.Black;
+            this.buttonADD.UseVisualStyleBackColor = false;
+            this.buttonADD.Click += new System.EventHandler(this.buttonUp_Click);
+            // 
+            // ButtonDelete
+            // 
+            this.ButtonDelete.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonDelete.BorderColor = System.Drawing.Color.Silver;
+            this.ButtonDelete.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.ButtonDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonDelete.FlatAppearance.BorderSize = 0;
+            this.ButtonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ButtonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonDelete.Location = new System.Drawing.Point(892, 505);
+            this.ButtonDelete.Name = "ButtonDelete";
+            this.ButtonDelete.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.ButtonDelete.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.ButtonDelete.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.ButtonDelete.Size = new System.Drawing.Size(100, 30);
+            this.ButtonDelete.TabIndex = 59;
+            this.ButtonDelete.Text = "DELETE";
+            this.ButtonDelete.TextColor = System.Drawing.Color.Black;
+            this.ButtonDelete.UseVisualStyleBackColor = false;
+            this.ButtonDelete.Click += new System.EventHandler(this.ButtonDelete_Click_1);
             // 
             // formAddCustomer
             // 
@@ -561,9 +586,10 @@
         private System.Windows.Forms.ComboBox cbbGioiTinhSC3;
         private System.Windows.Forms.Label label8;
         private ePOSOne.btnProduct.Button_WOC buttonADD;
-        private ePOSOne.btnProduct.Button_WOC buttonDelete;
+        private ePOSOne.btnProduct.Button_WOC buttonCheckOut;
         private System.Windows.Forms.Panel panel11;
         private ePOSOne.btnProduct.Button_WOC buttonCancle;
+        private ePOSOne.btnProduct.Button_WOC ButtonDelete;
     }
         #region Windows Form Designer generated code
 

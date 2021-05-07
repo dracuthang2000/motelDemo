@@ -32,3 +32,7 @@ C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUs
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.showRoomForm.resources
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.AddParticularServiceForm.resources
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.csprojAssemblyReference.cache
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.NewController.resources
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\Spire.Pdf.dll
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\Spire.License.dll
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\Microsoft.mshtml.dll

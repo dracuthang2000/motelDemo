@@ -18,5 +18,6 @@ namespace LoginMotelUser.Model
         public Nullable<short> StateRoom { get; set; }
         public Nullable<int> IDRoomRank { get; set; }
         public Nullable<int> IDRoomRange { get; set; }
+        public Nullable<bool> Paid { get; set; }
     }
 }
