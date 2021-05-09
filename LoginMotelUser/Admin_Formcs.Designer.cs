@@ -58,6 +58,7 @@
             this.billsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pricesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.collectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reinforToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -107,6 +108,7 @@
             this.button_Any = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonBill = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -346,7 +348,8 @@
             // 
             this.billsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pricesToolStripMenuItem,
-            this.collectionsToolStripMenuItem});
+            this.collectionsToolStripMenuItem,
+            this.viewBillToolStripMenuItem});
             this.billsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("billsToolStripMenuItem.Image")));
             this.billsToolStripMenuItem.Name = "billsToolStripMenuItem";
             this.billsToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
@@ -356,7 +359,7 @@
             // 
             this.pricesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pricesToolStripMenuItem.Image")));
             this.pricesToolStripMenuItem.Name = "pricesToolStripMenuItem";
-            this.pricesToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
+            this.pricesToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
             this.pricesToolStripMenuItem.Text = "Payment";
             this.pricesToolStripMenuItem.Click += new System.EventHandler(this.pricesToolStripMenuItem_Click);
             // 
@@ -364,21 +367,31 @@
             // 
             this.collectionsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("collectionsToolStripMenuItem.Image")));
             this.collectionsToolStripMenuItem.Name = "collectionsToolStripMenuItem";
-            this.collectionsToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
+            this.collectionsToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
             this.collectionsToolStripMenuItem.Text = "Receipts";
             this.collectionsToolStripMenuItem.Click += new System.EventHandler(this.collectionsToolStripMenuItem_Click);
+            // 
+            // viewBillToolStripMenuItem
+            // 
+            this.viewBillToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewBillToolStripMenuItem.Image")));
+            this.viewBillToolStripMenuItem.Name = "viewBillToolStripMenuItem";
+            this.viewBillToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
+            this.viewBillToolStripMenuItem.Text = "View Bill";
+            this.viewBillToolStripMenuItem.Click += new System.EventHandler(this.viewBillToolStripMenuItem_Click);
             // 
             // reinforToolStripMenuItem
             // 
             this.reinforToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.checkInToolStripMenuItem,
             this.checkOutToolStripMenuItem});
+            this.reinforToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reinforToolStripMenuItem.Image")));
             this.reinforToolStripMenuItem.Name = "reinforToolStripMenuItem";
-            this.reinforToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.reinforToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
             this.reinforToolStripMenuItem.Text = "Reinfor";
             // 
             // checkInToolStripMenuItem
             // 
+            this.checkInToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("checkInToolStripMenuItem.Image")));
             this.checkInToolStripMenuItem.Name = "checkInToolStripMenuItem";
             this.checkInToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.checkInToolStripMenuItem.Text = "Check in";
@@ -386,6 +399,7 @@
             // 
             // checkOutToolStripMenuItem
             // 
+            this.checkOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("checkOutToolStripMenuItem.Image")));
             this.checkOutToolStripMenuItem.Name = "checkOutToolStripMenuItem";
             this.checkOutToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.checkOutToolStripMenuItem.Text = "Check out";
@@ -807,7 +821,7 @@
             // 
             this.cbbDaySC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC1.FormattingEnabled = true;
-            this.cbbDaySC1.Location = new System.Drawing.Point(192, 16);
+            this.cbbDaySC1.Location = new System.Drawing.Point(192, 12);
             this.cbbDaySC1.Name = "cbbDaySC1";
             this.cbbDaySC1.Size = new System.Drawing.Size(184, 33);
             this.cbbDaySC1.TabIndex = 18;
@@ -907,19 +921,20 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.buttonNew, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.button_Any, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.buttonEdit, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.buttonBill, 0, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(261, 494);
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(261, 620);
             this.tableLayoutPanel1.TabIndex = 25;
             // 
             // buttonNew
@@ -948,7 +963,7 @@
             this.button_Any.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button_Any.Image = ((System.Drawing.Image)(resources.GetObject("button_Any.Image")));
             this.button_Any.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_Any.Location = new System.Drawing.Point(3, 249);
+            this.button_Any.Location = new System.Drawing.Point(3, 251);
             this.button_Any.Name = "button_Any";
             this.button_Any.Size = new System.Drawing.Size(255, 117);
             this.button_Any.TabIndex = 4;
@@ -962,7 +977,7 @@
             this.buttonEdit.ForeColor = System.Drawing.Color.Black;
             this.buttonEdit.Image = ((System.Drawing.Image)(resources.GetObject("buttonEdit.Image")));
             this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEdit.Location = new System.Drawing.Point(3, 126);
+            this.buttonEdit.Location = new System.Drawing.Point(3, 127);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(255, 117);
             this.buttonEdit.TabIndex = 0;
@@ -977,12 +992,29 @@
             this.buttonBill.ForeColor = System.Drawing.Color.Black;
             this.buttonBill.Image = ((System.Drawing.Image)(resources.GetObject("buttonBill.Image")));
             this.buttonBill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBill.Location = new System.Drawing.Point(3, 372);
+            this.buttonBill.Location = new System.Drawing.Point(3, 375);
             this.buttonBill.Name = "buttonBill";
             this.buttonBill.Size = new System.Drawing.Size(255, 117);
             this.buttonBill.TabIndex = 1;
             this.buttonBill.Text = "BILLS";
             this.buttonBill.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(3, 499);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(255, 118);
+            this.button1.TabIndex = 33;
+            this.button1.Text = "Exit";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Admin_Formcs
             // 
@@ -1107,5 +1139,7 @@
         private System.Windows.Forms.ToolStripMenuItem reinforToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkInToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewBillToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -57,17 +57,17 @@
   </EntityType>
   <EntityType Name="REINTINFOR">
     <Key>
+      <PropertyRef Name="ID" />
       <PropertyRef Name="IDCustomer" />
       <PropertyRef Name="IDRoom" />
-      <PropertyRef Name="ID" />
     </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IDCustomer" Type="Int32" Nullable="false" />
     <Property Name="IDRoom" Type="Int32" Nullable="false" />
     <Property Name="CheckInDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="CheckOutDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_REINTINFOR_CUSTOMER1" FromRole="REINTINFOR" ToRole="CUSTOMER" />
     <NavigationProperty Name="MOTELROOM" Relationship="Self.FK_REINTINFOR_MOTELROOM" FromRole="REINTINFOR" ToRole="MOTELROOM" />
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="ROLE">
     <Key>
@@ -91,7 +91,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
     <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="Deposits" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="About" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -104,6 +104,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ServiceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PARTICULARSERVICEs" Relationship="Self.FK_PARTICULARSERVICE_SERVICE" FromRole="SERVICE" ToRole="PARTICULARSERVICE" />
   </EntityType>
   <EntityType Name="STAFF">
@@ -281,7 +282,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="MotelManagerEntities3" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="MotelManagerEntities4" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="BILLs" EntityType="Self.BILL" />
     <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
     <EntitySet Name="MOTELROOMs" EntityType="Self.MOTELROOM" />
@@ -334,6 +335,10 @@
       <End Role="USER" EntitySet="USERs" />
       <End Role="STAFF" EntitySet="STAFFs" />
     </AssociationSet>
+    <FunctionImport Name="createNewBill">
+      <Parameter Name="idRoom" Mode="In" Type="Int32" />
+      <Parameter Name="idStaff" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="getMaxdate" ReturnType="Collection(Int32)">
       <Parameter Name="idRoom" Mode="In" Type="Int32" />
     </FunctionImport>
@@ -447,12 +452,13 @@
   <ComplexType Name="USP_PageRank_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="RankName" Nullable="true" MaxLength="50" />
-    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="Quantity" Nullable="false" />
     <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" />
     <Property Type="Decimal" Name="Deposits" Nullable="true" Precision="19" />
     <Property Type="String" Name="About" Nullable="true" MaxLength="20" />
   </ComplexType>
   <ComplexType Name="USP_PageRentInfo_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="Int32" Name="IDCustomer" Nullable="false" />
     <Property Type="Int32" Name="IDRoom" Nullable="false" />
     <Property Type="DateTime" Name="CheckInDate" Nullable="false" Precision="23" />
@@ -470,6 +476,7 @@
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="ServiceName" Nullable="true" MaxLength="50" />
     <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" />
+    <Property Type="String" Name="Unit" Nullable="true" MaxLength="50" />
   </ComplexType>
   <ComplexType Name="USP_PageStaff_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />

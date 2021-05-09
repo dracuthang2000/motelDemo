@@ -12,7 +12,7 @@ namespace LoginMotelUser
 {
     public partial class rankFormSetting : Form
     {
-        Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3();
+        Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4();
         public callFunction goiHam;
         private Boolean check;
         protected override void OnClosed(EventArgs e)
@@ -72,24 +72,27 @@ namespace LoginMotelUser
             textPrice.Text = c.Price.ToString();
             textDeposit.Text = c.Deposits.ToString();
             textAbout.Text = c.About;
+            numericQuantity.Value = c.Quantity;
 
         }
 
         public void saveDate()
         {
-
-            Model.ROOMRANK temp = new Model.ROOMRANK() { RankName = textRankName.Text, Price = int.Parse(textPrice.Text), Deposits = int.Parse(textDeposit.Text), About = textAbout.Text };
+            int Quantity = int.Parse(numericQuantity.Value.ToString());
+            Model.ROOMRANK temp = new Model.ROOMRANK() { RankName = textRankName.Text, Price = int.Parse(textPrice.Text), Deposits = int.Parse(textDeposit.Text), About = textAbout.Text,Quantity = Quantity  };
             data.ROOMRANKs.Add(temp);
             data.SaveChanges();
         }
         public void updateData()
         {
+            int Quantity = int.Parse(numericQuantity.Value.ToString());
             Model.ROOMRANK temp = data.ROOMRANKs.Find(int.Parse(labIDShow.Text));
             temp.RankName = textRankName.Text;
             decimal a = decimal.Parse(textPrice.Text);
             temp.Price = a;
             a = decimal.Parse(textDeposit.Text);
             temp.Deposits = a;
+            temp.Quantity = Quantity;
             temp.About = textAbout.Text;
 
             data.SaveChanges();
@@ -211,5 +214,7 @@ namespace LoginMotelUser
             this.labRankName.BackColor = System.Drawing.Color.Transparent;
             this.GhiAbout.BackColor = System.Drawing.Color.Transparent;
         }
+
+
     }
 }

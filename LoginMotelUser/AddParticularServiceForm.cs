@@ -40,7 +40,7 @@ namespace LoginMotelUser
         public String IDlist = "";
         public String Pricelist = "";
         public String serviceName = "";
-        Model.MotelManagerEntities3 db = new Model.MotelManagerEntities3();
+        Model.MotelManagerEntities4 db = new Model.MotelManagerEntities4();
         public void createNewList()
         {
 
@@ -51,6 +51,7 @@ namespace LoginMotelUser
                 ListViewItem list = new ListViewItem(service.ID.ToString());
                 list.SubItems.Add(service.ServiceName);
                 list.SubItems.Add(service.Price.ToString());
+                list.SubItems.Add(service.Unit);
                 listService.Items.Add(list);
             }
         }

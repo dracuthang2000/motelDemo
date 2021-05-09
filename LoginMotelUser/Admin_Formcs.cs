@@ -15,7 +15,7 @@ namespace LoginMotelUser
     /// </summary>
     public partial class Admin_Formcs : Form
     {
-        LoginMotelUser.Model.MotelManagerEntities3 db;
+        LoginMotelUser.Model.MotelManagerEntities4 db;
         public Admin_Formcs()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace LoginMotelUser
         private void insertUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            New_User nU = new New_User();
+            New_User nU = new New_User(checkRole,checkUsername);
             nU.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
@@ -49,7 +49,7 @@ namespace LoginMotelUser
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Update_User udU = new Update_User();
+            Update_User udU = new Update_User(checkRole);
             udU.checkUsername = this.checkUsername;
             udU.ShowDialog();
             this.Visible = true;
@@ -90,7 +90,7 @@ namespace LoginMotelUser
             SetStyle(System.Windows.Forms.ControlStyles.SupportsTransparentBackColor, true);
             this.setColor();
             tvDanhSachPhongSC1.Nodes.Clear();
-            db = new Model.MotelManagerEntities3();
+            db = new Model.MotelManagerEntities4();
             loadListRoom();
             var IDroom = (from m in db.MOTELROOMs
                         select m).ToList();
@@ -99,19 +99,25 @@ namespace LoginMotelUser
             foreach(var id in IDroom)
             {
                 var count = db.REINTINFORs.Count(r => r.IDRoom == id.ID && r.CheckOutDate==null);
-                if(count == id.ROOMRANK.Quantity)
+                var checkState = db.MOTELROOMs.Where(r => r.ID == id.ID).ToList();
+                if (checkState[0].StateRoom.Value != 4)
                 {
-                    var up = db.MOTELROOMs.Single(r => r.ID == id.ID);
-                    up.StateRoom = 3;
-                }else if (count > 0)
-                {
-                    var up = db.MOTELROOMs.Single(r => r.ID == id.ID);
-                    up.StateRoom = 2;
-                }else
-                {
-                    var up = db.MOTELROOMs.Single(r => r.ID == id.ID);
-                    up.StateRoom = 1;
-                    up.Paid = null;
+                    if (count == id.ROOMRANK.Quantity)
+                    {
+                        var up = db.MOTELROOMs.Single(r => r.ID == id.ID);
+                        up.StateRoom = 3;
+                    }
+                    else if (count > 0)
+                    {
+                        var up = db.MOTELROOMs.Single(r => r.ID == id.ID);
+                        up.StateRoom = 2;
+                    }
+                    else
+                    {
+                        var up = db.MOTELROOMs.Single(r => r.ID == id.ID);
+                        up.StateRoom = 1;
+                        up.Paid = null;
+                    }
                 }
             }
             db.SaveChanges();
@@ -139,6 +145,8 @@ namespace LoginMotelUser
                 rageToolStripMenuItem.Visible = false;
                 roomToolStripMenuItem.Visible = false;
                 roomToolStripMenuItem1.Visible = false;
+                staffToolStripMenuItem1.Visible = false;
+                staffToolStripMenuItem.Visible = false;
             }
 
             var query = (from m in db.MOTELROOMs
@@ -254,9 +262,13 @@ namespace LoginMotelUser
                 {
                     check = "Còn Chỗ";
                 }
-                else
+                else if(room[0].StateRoom == 3)
                 {
                     check = "Hết chỗ";
+                }
+                else
+                {
+                    check = "bảo trì";
                 }
                 txtTrangThaiSC1.Text = check;
 
@@ -333,7 +345,7 @@ namespace LoginMotelUser
         private void collectionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            FormCollection Fc = new FormCollection();
+            FormCollection Fc = new FormCollection(checkRole,checkUsername);
             Fc.ShowDialog();
             this.Visible = true;
             frmHome_Load(sender, e);
@@ -342,7 +354,7 @@ namespace LoginMotelUser
         private void pricesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            FormPrices FP = new FormPrices(checkUsername);
+            FormPrices FP = new FormPrices(checkUsername,checkRole);
             FP.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
@@ -351,7 +363,7 @@ namespace LoginMotelUser
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            ShowCustomerForm gf = new ShowCustomerForm(true);
+            ShowCustomerForm gf = new ShowCustomerForm(true,checkRole, checkUsername);
             gf.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender,e);
@@ -360,7 +372,7 @@ namespace LoginMotelUser
         private void customerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            ShowCustomerForm uC = new ShowCustomerForm(false);
+            ShowCustomerForm uC = new ShowCustomerForm(false,checkRole, checkUsername);
             uC.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
@@ -369,7 +381,7 @@ namespace LoginMotelUser
         private void roomToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            showRoomForm sFR = new showRoomForm(true);
+            showRoomForm sFR = new showRoomForm(true,checkRole, checkUsername);
             sFR.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
@@ -378,7 +390,7 @@ namespace LoginMotelUser
         private void roomToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            showRoomForm sFR = new showRoomForm(false);
+            showRoomForm sFR = new showRoomForm(false,checkRole, checkUsername);
             sFR.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
@@ -387,7 +399,7 @@ namespace LoginMotelUser
         private void rankToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            showRankForm rF = new showRankForm(true);
+            showRankForm rF = new showRankForm(true,checkRole, checkUsername);
             rF.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
@@ -396,7 +408,7 @@ namespace LoginMotelUser
         private void rankToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            showRankForm rF = new showRankForm(false);
+            showRankForm rF = new showRankForm(false,checkRole, checkUsername);
             rF.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
@@ -405,7 +417,7 @@ namespace LoginMotelUser
         private void rangeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            showRangeForm rF = new showRangeForm(true);
+            showRangeForm rF = new showRangeForm(true,checkRole, checkUsername);
             rF.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
@@ -414,7 +426,7 @@ namespace LoginMotelUser
         private void rageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            showRangeForm rF = new showRangeForm(false);
+            showRangeForm rF = new showRangeForm(false,checkRole, checkUsername);
             rF.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
@@ -423,7 +435,7 @@ namespace LoginMotelUser
         private void serviceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            serviceForm sF = new serviceForm(true);
+            serviceForm sF = new serviceForm(true,checkRole, checkUsername);
             sF.ShowDialog(); 
             this.Visible = true;
             this.frmHome_Load(sender, e);
@@ -432,7 +444,7 @@ namespace LoginMotelUser
         private void serviceToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            serviceForm sF = new serviceForm(false);
+            serviceForm sF = new serviceForm(false,checkRole, checkUsername);
             sF.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
@@ -441,7 +453,7 @@ namespace LoginMotelUser
         private void staffToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            showStaffForm staff = new showStaffForm(true);
+            showStaffForm staff = new showStaffForm(true,checkRole, checkUsername);
             staff.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
@@ -450,7 +462,7 @@ namespace LoginMotelUser
         private void staffToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            showStaffForm staff = new showStaffForm(false);
+            showStaffForm staff = new showStaffForm(false,checkRole, checkUsername);
             staff.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
@@ -464,7 +476,7 @@ namespace LoginMotelUser
         private void buttonNew_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            NewController Ctrl = new NewController(checkRole, true);
+            NewController Ctrl = new NewController(checkRole, true,checkUsername);
             Ctrl.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender,e);
@@ -473,7 +485,7 @@ namespace LoginMotelUser
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            NewController Ctrl = new NewController(checkRole, false);
+            NewController Ctrl = new NewController(checkRole, false,checkUsername);
             Ctrl.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
@@ -482,7 +494,7 @@ namespace LoginMotelUser
         private void checkInToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            formAddCustomer AC = new formAddCustomer(true,checkUsername);
+            formAddCustomer AC = new formAddCustomer(true,checkUsername,checkRole);
             AC.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
@@ -491,10 +503,24 @@ namespace LoginMotelUser
         private void checkOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            formAddCustomer AC = new formAddCustomer(false, checkUsername);
+            formAddCustomer AC = new formAddCustomer(false, checkUsername,checkRole);
             AC.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
+        }
+
+        private void viewBillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FormViewOldBill ViewBill = new FormViewOldBill(checkRole, checkUsername);
+            ViewBill.ShowDialog();
+            this.Visible = true;
+            this.frmHome_Load(sender, e);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

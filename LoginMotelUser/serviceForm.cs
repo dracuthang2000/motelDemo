@@ -16,24 +16,28 @@ namespace LoginMotelUser
         int dem;
         int tong;
         int tinh;
-        Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3();
+        Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4();
         private Boolean check;
-        public serviceForm(Boolean check)
+        private Boolean checkRole;
+        private String checkUsername;
+        public serviceForm(Boolean check, Boolean checkRole, String checkUsername)
         {
             InitializeComponent();
             this.check = check;
             if (check == true)
             {
-                buttonSave.Text = "ADD";
-                textNewName.Visible = false;
-                label1.Visible = false;
+                buttonSave.Text = "SAVE";
+                buttonSave.Visible = false;
             }
             else
             {
                 buttonSave.Text = "UPDATE";
+                buttonSave.Visible = false;
             }
             loadData(0, soLuong);
             dem = 0;
+            this.checkRole = checkRole;
+            this.checkUsername = checkUsername; 
         }
         public void loadData(int b, int e)
         {
@@ -41,11 +45,13 @@ namespace LoginMotelUser
             listService.Columns.Add("ID Service", 100);
             listService.Columns.Add("Service name", 140);
             listService.Columns.Add("Price", 140);
+            listService.Columns.Add("Unit", 100);
             foreach (var a in list)
             {
                 ListViewItem item = new ListViewItem(a.ID.ToString());
                 item.SubItems.Add(a.ServiceName);
                 item.SubItems.Add(a.Price.ToString());
+                item.SubItems.Add(a.Unit);
                 listService.Items.Add(item);
             }
             var temp2 = (from c in data.USP_CountService() select c).ToList();
@@ -66,63 +72,63 @@ namespace LoginMotelUser
 
         private void listService_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textIDService.Text = listService.FocusedItem.Text;
-            int a = int.Parse(textIDService.Text);
-            Model.SERVICE b = data.SERVICEs.Find(a);
-            textServiceName.Text = b.ServiceName;
-            textPrice.Text = b.Price.ToString();
+            if (listService.SelectedItems.Count > 0)
+            {
+                textIDService.Text = listService.FocusedItem.Text;
+                int a = int.Parse(textIDService.Text);
+                Model.SERVICE b = data.SERVICEs.Find(a);
+                textServiceName.Text = b.ServiceName;
+                textPrice.Text = b.Price.ToString();
+                textUnit.Text = b.Unit;
+            }
         }
         public void saveData()
         {
             decimal a = decimal.Parse(textPrice.Text);
-            Model.SERVICE temp = new Model.SERVICE() { ServiceName = textServiceName.Text, Price = a };
+            Model.SERVICE temp = new Model.SERVICE() { ServiceName = textServiceName.Text, Price = a, Unit = textUnit.Text};
             data.SERVICEs.Add(temp);
             data.SaveChanges();
         }
         public void updateData()
         {
-            Model.SERVICE a = data.SERVICEs.Find(int.Parse(textIDService.Text));
-            if (!textNewName.Text.Trim().Equals(""))
-            {
-                a.ServiceName = textNewName.Text;
-            }           
+            Model.SERVICE a = data.SERVICEs.Find(int.Parse(textIDService.Text));     
             decimal b = decimal.Parse(textPrice.Text);
             a.Price = b;
+            a.Unit=textUnit.Text;
             data.SaveChanges();
         }
 
-        private void buttUpdate_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void butDelete_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void butClear_Click(object sender, EventArgs e)
-        {
-          
-        }
 
         private void textSearch_TextChanged(object sender, EventArgs e)
         {
             listService.Clear();
             labPage.Text = "Trang 1/1";
-            using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
+            using (Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4())
             {
                 String temp = textSearch.Text;
                 List<Model.SERVICE> list = (from a in data.SERVICEs where a.ServiceName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();
 
-                listService.Columns.Add("ID Dịch vụ", 100);
-                listService.Columns.Add("Tên Dịch Vụ", 140);
-                listService.Columns.Add("Đơn Giá", 140);
+                listService.Columns.Add("ID service", 100);
+                listService.Columns.Add("Service name", 140);
+                listService.Columns.Add("Price", 140);
+                listService.Columns.Add("Unit", 100);
+                if(check == true )
+                {
+                    if(list.Count == 0)
+                    {
+                        buttonSave.Visible = true;
+                    }
+                    else
+                    {
+                        buttonSave.Visible = false;
+                    }
+                }
                 foreach (Model.SERVICE a in list)
                 {
                     ListViewItem item = new ListViewItem(a.ID.ToString());
                     item.SubItems.Add(a.ServiceName);
                     item.SubItems.Add(a.Price.ToString());
+                    item.SubItems.Add(a.Unit);
                     listService.Items.Add(item);
                 }
 
@@ -153,7 +159,7 @@ namespace LoginMotelUser
                 listService.Clear();
                 loadData(dem * soLuong, soLuong);
             }
-            labPage.Text = "Trang " + (dem + 1) + "/" + tinh;
+            labPage.Text = "Page " + (dem + 1) + "/" + tinh;
         }
 
         private void butLeft_Click(object sender, EventArgs e)
@@ -179,52 +185,47 @@ namespace LoginMotelUser
                 listService.Clear();
                 loadData(dem * soLuong, soLuong);
             }
-            labPage.Text = "Trang " + (dem + 1) + "/" + tinh;
+            labPage.Text = "Page " + (dem + 1) + "/" + tinh;
         }
 
-        private void textSearch_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Return)
-            {
-                listService.Clear();
-                labPage.Text = "Page 1/1";
-                using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
-                {
-                    String temp = textSearch.Text;
-                    List<Model.SERVICE> list = (from a in data.SERVICEs where a.ServiceName.Contains(temp) || a.ID.ToString().Contains(temp) select a).ToList();
-
-                    listService.Columns.Add("ID Service", 100);
-                    listService.Columns.Add("Service name", 140);
-                    listService.Columns.Add("Price", 140);
-                    foreach (Model.SERVICE a in list)
-                    {
-                        ListViewItem item = new ListViewItem(a.ID.ToString());
-                        item.SubItems.Add(a.ServiceName);
-                        item.SubItems.Add(a.Price.ToString());
-                        listService.Items.Add(item);
-                    }
-
-
-                }
-            }
-        }
 
         private void textServiceName_TextChanged(object sender, EventArgs e)
         {
-            if(check == true)
+            var query = (from service in data.SERVICEs
+                        where service.ServiceName.Equals(textServiceName.Text)
+                        select service).ToList();
+            if (check == true)
             {
+                if(query.Count != 0)
+                {
+                    buttonSave.Visible = false;
+                }
+                else
+                {
+                    buttonSave.Visible = true;
+                }
 
             }
             else
             {
-               textSearch.Text = textServiceName.Text;
-                var query = from service in data.SERVICEs
-                            where service.ServiceName.Equals(textServiceName.Text)
-                            select service;
+                if(listService.SelectedItems.Count <0)
+               textSearch.Text = textServiceName.Text; 
                 foreach(var ser in query)
                 {
                     textIDService.Text = ser.ID.ToString();
                     textPrice.Text = ser.Price.ToString();
+                    textUnit.Text = ser.Unit;
+                }
+                if(query.Count == 0)
+                {
+                    textIDService.Text = "";
+                    textPrice.Text = "";
+                    textUnit.Text = "";
+                    buttonSave.Visible = false;
+                }
+                else
+                {
+                    buttonSave.Visible = true;
                 }
             }
             
@@ -236,10 +237,18 @@ namespace LoginMotelUser
             {
                 if (textServiceName.Text.Trim() == "")
                 {
-                    MessageBox.Show("Hay nhap ten dich vu!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("let's type service name!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                DialogResult result = MessageBox.Show("Ban co chac them dich vu khong?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                var checkServiceName = (from service in data.SERVICEs
+                                        where textServiceName.Text.Equals(service.ServiceName)
+                                        select service).ToList();
+                if (checkServiceName.Count != 0)
+                {
+                    MessageBox.Show("The new service name is exists!");
+                    return;
+                }
+                DialogResult result = MessageBox.Show("Are you sure insert?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 switch (result)
                 {
                     case DialogResult.Cancel: return;
@@ -268,23 +277,27 @@ namespace LoginMotelUser
                 }
                 if (textIDService.Text != "")
                 {
-                    DialogResult result = MessageBox.Show("Ban co chac chinh sua dich vu co ID = " + textIDService.Text + " khong ? (tat ca cac du lieu lien quan deu se thay doi!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                    switch (result)
-                    {
-                        case DialogResult.Cancel: return;
-                        case DialogResult.Yes:
-                            {
-                                updateData(); listService.Clear();
-                                loadData(0, soLuong);
-                                dem = 0;
+                        DialogResult result = MessageBox.Show("Are you sure fix Data The service have ID = " + textIDService.Text + "? ", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                        switch (result)
+                        {
+                            case DialogResult.Cancel: return;
+                            case DialogResult.Yes:
+                                {
+                                    updateData(); listService.Clear();
+                                    loadData(0, soLuong);
+                                    dem = 0;
+                                MessageBox.Show("Complete!");
+                                    break;
+                                }
+                            case DialogResult.No: return;
+
+                            default:
                                 break;
-                            }
-                        case DialogResult.No: return;
 
-                        default:
-                            break;
-
-                    }
+                        }
+                }else
+                {
+                    MessageBox.Show("Type incorrect!");
                 }
             }
 
@@ -294,10 +307,20 @@ namespace LoginMotelUser
         {
             if (textIDService.Text == "")
             {
-                MessageBox.Show("Hay chon id can xoa tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Let's choices id you want to delete!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            DialogResult result = MessageBox.Show("Ban co chac xoa dich vu co ID = " + textIDService.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            int idser = int.Parse(textIDService.Text);
+            var checkService = (from service in data.SERVICEs
+                                join par in data.PARTICULARSERVICEs on service.ID equals par.IDService
+                                where service.ID == idser
+                                select service).ToList();
+            if(checkService.Count > 0)
+            {
+                MessageBox.Show("The service is user another!", "WANRING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DialogResult result = MessageBox.Show("Are you sure delete ID sercvice = " + textIDService.Text + " ?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             switch (result)
             {
                 case DialogResult.Cancel: return;
@@ -324,6 +347,8 @@ namespace LoginMotelUser
             textIDService.Text = "";
             textServiceName.Text = "";
             textPrice.Text = "";
+            textUnit.Text = "";
+            textSearch.Text = "";
         }
 
         public void setColor()
@@ -335,8 +360,141 @@ namespace LoginMotelUser
             this.labID.BackColor = System.Drawing.Color.Transparent;
             this.labServiceName.BackColor = System.Drawing.Color.Transparent;
             this.labID.BackColor = System.Drawing.Color.Transparent;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void userToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            New_User nU = new New_User(checkRole, checkUsername);
+            nU.ShowDialog();
+        }
+
+        private void userToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Update_User udU = new Update_User(checkRole);
+            udU.checkUsername = this.checkUsername;
+            udU.ShowDialog();
+        }
+
+        private void customerToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            ShowCustomerForm gf = new ShowCustomerForm(true, checkRole, checkUsername);
+            gf.ShowDialog();
+        }
+
+        private void customerToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            ShowCustomerForm uC = new ShowCustomerForm(false, checkRole, checkUsername);
+            uC.ShowDialog();
+        }
+
+        private void viewOldBillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FormViewOldBill ViewBill = new FormViewOldBill(checkRole, checkUsername);
+            ViewBill.ShowDialog();
+        }
+
+        private void checOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            formAddCustomer AC = new formAddCustomer(false, checkUsername, checkRole);
+            AC.ShowDialog();
+        }
+
+        private void checkInToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            formAddCustomer AC = new formAddCustomer(true, checkUsername, checkRole);
+            AC.ShowDialog();
+        }
+
+        private void staffToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showStaffForm staff = new showStaffForm(false, checkRole, checkUsername);
+            staff.ShowDialog();
+        }
+
+        private void staffToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showStaffForm staff = new showStaffForm(true, checkRole, checkUsername);
+            staff.ShowDialog();
+        }
+
+        private void serviceToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            serviceForm sF = new serviceForm(false, checkRole, checkUsername);
+            sF.ShowDialog();
+        }
+
+        private void serviceToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            serviceForm sF = new serviceForm(true, checkRole, checkUsername);
+            sF.ShowDialog();
+        }
+
+        private void rangeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRangeForm rF = new showRangeForm(false, checkRole, checkUsername);
+            rF.ShowDialog();
+        }
+
+        private void rangeToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRangeForm rF = new showRangeForm(true, checkRole, checkUsername);
+            rF.ShowDialog();
+        }
+
+        private void rankToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRankForm rF = new showRankForm(false, checkRole, checkUsername);
+            rF.ShowDialog();
+        }
+
+        private void rankToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRankForm rF = new showRankForm(true, checkRole, checkUsername);
+            rF.ShowDialog();
+        }
+
+        private void roomToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRoomForm sFR = new showRoomForm(false, checkRole, checkUsername);
+            sFR.ShowDialog();
+        }
+
+        private void roomToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRoomForm sFR = new showRoomForm(true, checkRole, checkUsername);
+            sFR.ShowDialog();
+        }
+
+        private void paymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FormPrices FP = new FormPrices(checkUsername, checkRole);
+            FP.ShowDialog();
+        }
+
+        private void recieptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FormCollection Fc = new FormCollection(checkRole, checkUsername);
+            Fc.ShowDialog();
         }
     }
 }

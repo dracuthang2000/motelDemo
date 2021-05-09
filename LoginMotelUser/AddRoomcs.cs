@@ -14,7 +14,7 @@ namespace LoginMotelUser
     public partial class AddRoomcs : Form
     {
 
-        Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3();
+        Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4();
         private Boolean check;
         public callFunction goiHam;
         protected override void OnClosed(EventArgs e)
@@ -32,6 +32,7 @@ namespace LoginMotelUser
             this.check = check;
             loadComboBox();
             buttonUp.Enabled = false;
+            tableState.Visible = false;
         }
         public AddRoomcs(String a, Boolean check)
         {
@@ -51,6 +52,7 @@ namespace LoginMotelUser
                 comBoxIDRange.Enabled = false;
                 comBoxIDRank.Enabled = false;
                 buttonUp.Enabled = false;
+                tableState.Visible = false;
             }
         }
         public bool catchData()
@@ -84,6 +86,7 @@ namespace LoginMotelUser
             comBoxIDRange.DataSource = list2;
             comBoxIDRange.DisplayMember = "RangeName";
             comBoxIDRange.ValueMember = "ID";
+
         }
         public void loadData(String a)
         {
@@ -92,15 +95,21 @@ namespace LoginMotelUser
             textRoomName.Text = c.RoomName;
             if (c.StateRoom.Value == 1)
             {
-                labStateShow.Text = "phòng trống";
+                comboState.Text = "phòng trống";
             }
             else if (c.StateRoom.Value == 2)
             {
-                labStateShow.Text = "Còn chỗ";
+                comboState.Text = "Còn chỗ";
+                comboState.Enabled = false;
+            }
+            else if(c.StateRoom.Value == 3)
+            {
+                comboState.Text = "Hết chỗ";
+                comboState.Enabled = false;
             }
             else
             {
-                labStateShow.Text = "Hết chỗ";
+                comboState.Text = "Bảo trì";
             }
             Model.ROOMRANK d = data.ROOMRANKs.Find(c.IDRoomRank);
             comBoxIDRank.Text = d.RankName;
@@ -117,10 +126,21 @@ namespace LoginMotelUser
         }
         public void updateData()
         {
+           
             Model.MOTELROOM temp = data.MOTELROOMs.Find(int.Parse(labIDRoomShow.Text));
+            short state = temp.StateRoom.Value;
+            if (comboState.SelectedIndex == 0)
+            {
+                state = 1;
+            }
+            else
+            {
+                state = 4;
+            }
             temp.RoomName = textRoomName.Text;
             temp.IDRoomRank = int.Parse(comBoxIDRank.SelectedValue.ToString());
             temp.IDRoomRange = int.Parse(comBoxIDRange.SelectedValue.ToString());
+            temp.StateRoom = state;
             data.SaveChanges();
 
         }
@@ -156,7 +176,6 @@ namespace LoginMotelUser
 
 
                     labIDRoomShow.Text = "Loading ....";
-                    labStateShow.Text = "Loading....";
                 }
                 else
                 {
@@ -175,15 +194,19 @@ namespace LoginMotelUser
                         labIDRoomShow.Text = select.ID.ToString();
                         if (select.StateRoom.Value == 1)
                         {
-                            labStateShow.Text = "phòng trống";
+                            comboState.Text = "phòng trống";
                         }
                         else if (select.StateRoom.Value == 2)
                         {
-                            labStateShow.Text = "Còn chỗ";
+                            comboState.Text = "Còn chỗ";
+                        }
+                        else if(select.StateRoom.Value == 3)
+                        {
+                            comboState.Text = "Hết chỗ";
                         }
                         else
                         {
-                            labStateShow.Text = "Hết chỗ";
+                            comboState.Text = "Bảo trì";
                         }
                     }
                 }
@@ -253,7 +276,6 @@ namespace LoginMotelUser
             this.labIDRoomShow.BackColor = System.Drawing.Color.Transparent;
             this.labRoomName.BackColor = System.Drawing.Color.Transparent;
             this.labState.BackColor = System.Drawing.Color.Transparent;
-            this.labStateShow.BackColor = System.Drawing.Color.Transparent;
             //this.panel.BackColor = System.Drawing.Color.Transparent;
         }
     }

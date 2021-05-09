@@ -19,7 +19,7 @@ namespace LoginMotelUser
         }
         private  String saveOldPass="";
         private Boolean check = false;
-        Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3();
+        Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4();
         public void loadListUsers()
         {
             var query = (from users in data.USERs

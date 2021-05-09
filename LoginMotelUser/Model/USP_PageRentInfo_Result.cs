@@ -13,6 +13,7 @@ namespace LoginMotelUser.Model
     
     public partial class USP_PageRentInfo_Result
     {
+        public int ID { get; set; }
         public int IDCustomer { get; set; }
         public int IDRoom { get; set; }
         public System.DateTime CheckInDate { get; set; }

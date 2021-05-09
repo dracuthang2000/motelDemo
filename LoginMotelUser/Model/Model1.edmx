@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MotelManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MotelManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BILL">
           <Key>
             <PropertyRef Name="ID" />
@@ -82,7 +82,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RankName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Quantity" Type="int" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="Price" Type="money" />
           <Property Name="Deposits" Type="money" />
           <Property Name="About" Type="nvarchar" MaxLength="20" />
@@ -94,6 +94,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ServiceName" Type="nvarchar" MaxLength="50" />
           <Property Name="Price" Type="money" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="STAFF">
           <Key>
@@ -266,6 +267,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="createNewBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idRoom" Type="int" Mode="In" />
+          <Parameter Name="idStaff" Type="int" Mode="In" />
+        </Function>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="getMaxdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idRoom" Type="int" Mode="In" />
@@ -395,7 +400,8 @@
             <End Role="USER" EntitySet="USER" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MotelManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -456,17 +462,17 @@
         </EntityType>
         <EntityType Name="REINTINFOR">
           <Key>
+            <PropertyRef Name="ID" />
             <PropertyRef Name="IDCustomer" />
             <PropertyRef Name="IDRoom" />
-            <PropertyRef Name="ID" />
           </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDCustomer" Type="Int32" Nullable="false" />
           <Property Name="IDRoom" Type="Int32" Nullable="false" />
           <Property Name="CheckInDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CheckOutDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_REINTINFOR_CUSTOMER1" FromRole="REINTINFOR" ToRole="CUSTOMER" />
           <NavigationProperty Name="MOTELROOM" Relationship="Self.FK_REINTINFOR_MOTELROOM" FromRole="REINTINFOR" ToRole="MOTELROOM" />
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="ROLE">
           <Key>
@@ -490,7 +496,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Deposits" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="About" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -503,6 +509,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ServiceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PARTICULARSERVICEs" Relationship="Self.FK_PARTICULARSERVICE_SERVICE" FromRole="SERVICE" ToRole="PARTICULARSERVICE" />
         </EntityType>
         <EntityType Name="STAFF">
@@ -680,7 +687,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MotelManagerEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MotelManagerEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BILLs" EntityType="Self.BILL" />
           <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
           <EntitySet Name="MOTELROOMs" EntityType="Self.MOTELROOM" />
@@ -733,8 +740,12 @@
             <End Role="USER" EntitySet="USERs" />
             <End Role="STAFF" EntitySet="STAFFs" />
           </AssociationSet>
+          <FunctionImport Name="createNewBill">
+            <Parameter Name="idRoom" Mode="In" Type="Int32" />
+            <Parameter Name="idStaff" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="getMaxdate" ReturnType="Collection(Int32)">
-          <Parameter Name="idRoom" Mode="In" Type="Int32" />
+            <Parameter Name="idRoom" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -767,7 +778,7 @@
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <FunctionImport Name="updatePaidMotelRoom">
-          <Parameter Name="idRoom" Mode="In" Type="Int32" />
+            <Parameter Name="idRoom" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="USP_CountCustomer" ReturnType="Collection(Int32)" />
           <FunctionImport Name="USP_CountRange" ReturnType="Collection(Int32)" />
@@ -777,7 +788,7 @@
           <FunctionImport Name="USP_CountService" ReturnType="Collection(Int32)" />
           <FunctionImport Name="USP_CountStaff" ReturnType="Collection(Int32)" />
           <FunctionImport Name="USP_GetListBillByID" ReturnType="Collection(MotelManagerModel.USP_GetListBillByID_Result)">
-          <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="USP_PageCustomer" ReturnType="Collection(MotelManagerModel.USP_PageCustomer_Result)">
             <Parameter Name="bd" Mode="In" Type="Int32" />
@@ -846,12 +857,13 @@
         <ComplexType Name="USP_PageRank_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="RankName" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="Int32" Name="Quantity" Nullable="false" />
           <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" />
           <Property Type="Decimal" Name="Deposits" Nullable="true" Precision="19" />
           <Property Type="String" Name="About" Nullable="true" MaxLength="20" />
         </ComplexType>
         <ComplexType Name="USP_PageRentInfo_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="Int32" Name="IDCustomer" Nullable="false" />
           <Property Type="Int32" Name="IDRoom" Nullable="false" />
           <Property Type="DateTime" Name="CheckInDate" Nullable="false" Precision="23" />
@@ -869,6 +881,7 @@
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="ServiceName" Nullable="true" MaxLength="50" />
           <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" />
+          <Property Type="String" Name="Unit" Nullable="true" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="USP_PageStaff_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -885,7 +898,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MotelManagerModelStoreContainer" CdmEntityContainer="MotelManagerEntities3">
+        <EntityContainerMapping StorageEntityContainer="MotelManagerModelStoreContainer" CdmEntityContainer="MotelManagerEntities4">
           <EntitySetMapping Name="BILLs">
             <EntityTypeMapping TypeName="MotelManagerModel.BILL">
               <MappingFragment StoreEntitySet="BILL">
@@ -979,6 +992,7 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1016,6 +1030,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="createNewBill" FunctionName="MotelManagerModel.Store.createNewBill" />
           <FunctionImportMapping FunctionImportName="getMaxdate" FunctionName="MotelManagerModel.Store.getMaxdate" />
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="MotelManagerModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="MotelManagerModel.Store.sp_creatediagram" />
@@ -1100,6 +1115,7 @@
           <FunctionImportMapping FunctionImportName="USP_PageRentInfo" FunctionName="MotelManagerModel.Store.USP_PageRentInfo">
             <ResultMapping>
               <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageRentInfo_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="IDCustomer" ColumnName="IDCustomer" />
                 <ScalarProperty Name="IDRoom" ColumnName="IDRoom" />
                 <ScalarProperty Name="CheckInDate" ColumnName="CheckInDate" />
@@ -1125,6 +1141,7 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

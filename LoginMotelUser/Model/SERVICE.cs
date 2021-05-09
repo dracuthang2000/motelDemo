@@ -23,6 +23,7 @@ namespace LoginMotelUser.Model
         public int ID { get; set; }
         public string ServiceName { get; set; }
         public Nullable<decimal> Price { get; set; }
+        public string Unit { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PARTICULARSERVICE> PARTICULARSERVICEs { get; set; }

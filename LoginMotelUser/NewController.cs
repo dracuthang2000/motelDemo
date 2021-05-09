@@ -14,7 +14,8 @@ namespace LoginMotelUser
     {
         Boolean checkRole;
         Boolean checkControll;
-        public NewController(Boolean checkRole, Boolean checkControll)
+        private String checkUsername;
+        public NewController(Boolean checkRole, Boolean checkControll,String checkUsername)
         {
             InitializeComponent();
             if(checkRole == true)
@@ -34,6 +35,7 @@ namespace LoginMotelUser
                 Rank.Visible = false;
             }
             this.checkControll = checkControll;
+            this.checkUsername = checkUsername;
         }
         private void button_WOC8_Click(object sender, EventArgs e)
         {
@@ -45,12 +47,12 @@ namespace LoginMotelUser
             this.Visible = false;
             if (checkControll == true)
             {
-                New_User Nuser = new New_User();
+                New_User Nuser = new New_User(checkRole,checkUsername);
                 Nuser.ShowDialog();
             }
             else
             {
-                Update_User UpUser = new Update_User();
+                Update_User UpUser = new Update_User(checkRole);
                 UpUser.ShowDialog();
             }
             this.Close();
@@ -59,7 +61,7 @@ namespace LoginMotelUser
         private void buttonCustomer_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            ShowCustomerForm gf = new ShowCustomerForm(checkControll);
+            ShowCustomerForm gf = new ShowCustomerForm(checkControll,checkRole,checkUsername);
             gf.ShowDialog();
             this.Close();
         }
@@ -67,7 +69,7 @@ namespace LoginMotelUser
         private void buttonRoom_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            showRoomForm sFR = new showRoomForm(checkControll);
+            showRoomForm sFR = new showRoomForm(checkControll,checkRole,checkUsername);
             sFR.ShowDialog();
             this.Close();
         }
@@ -80,7 +82,7 @@ namespace LoginMotelUser
         private void buttonRange_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            showRangeForm rF = new showRangeForm(checkControll);
+            showRangeForm rF = new showRangeForm(checkControll,checkRole,checkUsername);
             rF.ShowDialog();
             this.Close();
         }
@@ -88,7 +90,7 @@ namespace LoginMotelUser
         private void buttonRank_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            showRankForm rF = new showRankForm(checkControll);
+            showRankForm rF = new showRankForm(checkControll,checkRole,checkUsername);
             rF.ShowDialog();
             this.Close();
         }
@@ -96,7 +98,7 @@ namespace LoginMotelUser
         private void buttonService_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            serviceForm sF = new serviceForm(checkControll);
+            serviceForm sF = new serviceForm(checkControll,checkRole,checkUsername);
             sF.ShowDialog();
             this.Close();
         }
@@ -104,7 +106,7 @@ namespace LoginMotelUser
         private void buttonStaff_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            showStaffForm staff = new showStaffForm(checkControll);
+            showStaffForm staff = new showStaffForm(checkControll,checkRole,checkUsername);
             staff.ShowDialog();
             this.Close();
         }

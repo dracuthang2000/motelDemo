@@ -33,7 +33,6 @@
             this.buttonUp = new ePOSOne.btnProduct.Button_WOC();
             this.comBoxIDRange = new System.Windows.Forms.ComboBox();
             this.comBoxIDRank = new System.Windows.Forms.ComboBox();
-            this.labStateShow = new System.Windows.Forms.Label();
             this.textRoomName = new System.Windows.Forms.TextBox();
             this.labIDRoomShow = new System.Windows.Forms.Label();
             this.labState = new System.Windows.Forms.Label();
@@ -43,7 +42,20 @@
             this.labIDRoom = new System.Windows.Forms.Label();
             this.labTieuDe = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
+            this.comboState = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableState = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableState.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_WOC1
@@ -93,11 +105,11 @@
             // 
             // comBoxIDRange
             // 
-            this.comBoxIDRange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comBoxIDRange.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comBoxIDRange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comBoxIDRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comBoxIDRange.FormattingEnabled = true;
-            this.comBoxIDRange.Location = new System.Drawing.Point(352, 376);
+            this.comBoxIDRange.Location = new System.Drawing.Point(171, 8);
             this.comBoxIDRange.Name = "comBoxIDRange";
             this.comBoxIDRange.Size = new System.Drawing.Size(179, 28);
             this.comBoxIDRange.TabIndex = 3;
@@ -105,31 +117,20 @@
             // 
             // comBoxIDRank
             // 
-            this.comBoxIDRank.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comBoxIDRank.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comBoxIDRank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comBoxIDRank.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comBoxIDRank.FormattingEnabled = true;
-            this.comBoxIDRank.Location = new System.Drawing.Point(352, 311);
+            this.comBoxIDRank.Location = new System.Drawing.Point(171, 8);
             this.comBoxIDRank.Name = "comBoxIDRank";
             this.comBoxIDRank.Size = new System.Drawing.Size(179, 28);
             this.comBoxIDRank.TabIndex = 2;
             // 
-            // labStateShow
-            // 
-            this.labStateShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labStateShow.AutoSize = true;
-            this.labStateShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labStateShow.Location = new System.Drawing.Point(349, 255);
-            this.labStateShow.Name = "labStateShow";
-            this.labStateShow.Size = new System.Drawing.Size(62, 20);
-            this.labStateShow.TabIndex = 12;
-            this.labStateShow.Text = "loading";
-            // 
             // textRoomName
             // 
-            this.textRoomName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textRoomName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textRoomName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRoomName.Location = new System.Drawing.Point(352, 192);
+            this.textRoomName.Location = new System.Drawing.Point(171, 9);
             this.textRoomName.Name = "textRoomName";
             this.textRoomName.Size = new System.Drawing.Size(179, 27);
             this.textRoomName.TabIndex = 1;
@@ -137,10 +138,10 @@
             // 
             // labIDRoomShow
             // 
-            this.labIDRoomShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labIDRoomShow.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labIDRoomShow.AutoSize = true;
             this.labIDRoomShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labIDRoomShow.Location = new System.Drawing.Point(349, 146);
+            this.labIDRoomShow.Location = new System.Drawing.Point(230, 12);
             this.labIDRoomShow.Name = "labIDRoomShow";
             this.labIDRoomShow.Size = new System.Drawing.Size(62, 20);
             this.labIDRoomShow.TabIndex = 10;
@@ -148,10 +149,10 @@
             // 
             // labState
             // 
-            this.labState.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labState.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labState.AutoSize = true;
             this.labState.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labState.Location = new System.Drawing.Point(140, 255);
+            this.labState.Location = new System.Drawing.Point(25, 12);
             this.labState.Name = "labState";
             this.labState.Size = new System.Drawing.Size(53, 20);
             this.labState.TabIndex = 5;
@@ -159,10 +160,10 @@
             // 
             // labIDRange
             // 
-            this.labIDRange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labIDRange.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labIDRange.AutoSize = true;
             this.labIDRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labIDRange.Location = new System.Drawing.Point(140, 379);
+            this.labIDRange.Location = new System.Drawing.Point(18, 12);
             this.labIDRange.Name = "labIDRange";
             this.labIDRange.Size = new System.Drawing.Size(67, 20);
             this.labIDRange.TabIndex = 4;
@@ -170,10 +171,10 @@
             // 
             // labIDRank
             // 
-            this.labIDRank.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labIDRank.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labIDRank.AutoSize = true;
             this.labIDRank.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labIDRank.Location = new System.Drawing.Point(140, 318);
+            this.labIDRank.Location = new System.Drawing.Point(26, 12);
             this.labIDRank.Name = "labIDRank";
             this.labIDRank.Size = new System.Drawing.Size(52, 20);
             this.labIDRank.TabIndex = 3;
@@ -181,21 +182,21 @@
             // 
             // labRoomName
             // 
-            this.labRoomName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labRoomName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labRoomName.AutoSize = true;
             this.labRoomName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labRoomName.Location = new System.Drawing.Point(140, 197);
+            this.labRoomName.Location = new System.Drawing.Point(22, 2);
             this.labRoomName.Name = "labRoomName";
-            this.labRoomName.Size = new System.Drawing.Size(109, 20);
+            this.labRoomName.Size = new System.Drawing.Size(60, 40);
             this.labRoomName.TabIndex = 2;
             this.labRoomName.Text = "Room name :";
             // 
             // labIDRoom
             // 
-            this.labIDRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labIDRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labIDRoom.AutoSize = true;
             this.labIDRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labIDRoom.Location = new System.Drawing.Point(140, 146);
+            this.labIDRoom.Location = new System.Drawing.Point(12, 12);
             this.labIDRoom.Name = "labIDRoom";
             this.labIDRoom.Size = new System.Drawing.Size(80, 20);
             this.labIDRoom.TabIndex = 1;
@@ -215,21 +216,111 @@
             // panel
             // 
             this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panel.Controls.Add(this.flowLayoutPanel1);
             this.panel.Controls.Add(this.labTieuDe);
-            this.panel.Controls.Add(this.comBoxIDRange);
-            this.panel.Controls.Add(this.labIDRange);
-            this.panel.Controls.Add(this.labRoomName);
-            this.panel.Controls.Add(this.labIDRoomShow);
-            this.panel.Controls.Add(this.comBoxIDRank);
-            this.panel.Controls.Add(this.textRoomName);
-            this.panel.Controls.Add(this.labIDRank);
-            this.panel.Controls.Add(this.labStateShow);
-            this.panel.Controls.Add(this.labState);
-            this.panel.Controls.Add(this.labIDRoom);
             this.panel.Location = new System.Drawing.Point(170, 70);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(662, 455);
             this.panel.TabIndex = 61;
+            // 
+            // comboState
+            // 
+            this.comboState.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboState.FormattingEnabled = true;
+            this.comboState.Items.AddRange(new object[] {
+            "Phòng Trống",
+            "Bảo Trì"});
+            this.comboState.Location = new System.Drawing.Point(172, 10);
+            this.comboState.Name = "comboState";
+            this.comboState.Size = new System.Drawing.Size(178, 24);
+            this.comboState.TabIndex = 11;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
+            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel2);
+            this.flowLayoutPanel1.Controls.Add(this.tableState);
+            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel4);
+            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel5);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(134, 82);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(421, 254);
+            this.flowLayoutPanel1.TabIndex = 12;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.labIDRoom, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.labIDRoomShow, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(418, 45);
+            this.tableLayoutPanel1.TabIndex = 13;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.labRoomName, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.textRoomName, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 54);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(418, 45);
+            this.tableLayoutPanel2.TabIndex = 13;
+            // 
+            // tableState
+            // 
+            this.tableState.ColumnCount = 2;
+            this.tableState.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableState.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableState.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableState.Controls.Add(this.labState, 0, 0);
+            this.tableState.Controls.Add(this.comboState, 1, 0);
+            this.tableState.Location = new System.Drawing.Point(3, 105);
+            this.tableState.Name = "tableState";
+            this.tableState.RowCount = 1;
+            this.tableState.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableState.Size = new System.Drawing.Size(418, 45);
+            this.tableState.TabIndex = 13;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Controls.Add(this.comBoxIDRank, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.labIDRank, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 156);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(418, 45);
+            this.tableLayoutPanel4.TabIndex = 13;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Controls.Add(this.comBoxIDRange, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.labIDRange, 0, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 207);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(418, 45);
+            this.tableLayoutPanel5.TabIndex = 13;
             // 
             // AddRoomcs
             // 
@@ -245,6 +336,17 @@
             this.Text = "ROOM";
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableState.ResumeLayout(false);
+            this.tableState.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -256,7 +358,6 @@
         private System.Windows.Forms.Label labRoomName;
         private System.Windows.Forms.Label labIDRoom;
         private System.Windows.Forms.Label labTieuDe;
-        private System.Windows.Forms.Label labStateShow;
         private System.Windows.Forms.TextBox textRoomName;
         private System.Windows.Forms.Label labIDRoomShow;
         private System.Windows.Forms.ComboBox comBoxIDRange;
@@ -264,5 +365,12 @@
         private ePOSOne.btnProduct.Button_WOC buttonUp;
         private ePOSOne.btnProduct.Button_WOC button_WOC1;
         private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.ComboBox comboState;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableState;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
     }
 }

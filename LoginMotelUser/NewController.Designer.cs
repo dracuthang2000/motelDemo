@@ -69,6 +69,8 @@
             this.Staff.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+
+
             // 
             // billTableAdapter1
             // 

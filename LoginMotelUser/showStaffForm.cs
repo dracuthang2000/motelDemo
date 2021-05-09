@@ -12,12 +12,15 @@ namespace LoginMotelUser
 {
     public partial class showStaffForm : Form
     {
-        public showStaffForm(Boolean checkUpdate)
+        private Boolean checkRole;
+        private String checkUsername;
+        public showStaffForm(Boolean checkUpdate, Boolean checkRole, String checkUsername)
         {
             InitializeComponent();
             this.labTieuDe.BackColor = System.Drawing.Color.Transparent;
             loadData();
             this.checkUpdate = checkUpdate;
+            this.checkUsername = checkUsername;
             if(checkUpdate == true)
             {
                 buttonUp.Text = "ADD";
@@ -26,11 +29,12 @@ namespace LoginMotelUser
             {
                 buttonUp.Text = "UPDATE";
             }
+            this.checkRole = checkRole;
         }
         private Boolean checkUpdate;
         public void loadData()
         {
-            using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
+            using (Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4())
             {
                 listStaff.Columns.Add("ID Card", 100);
                 listStaff.Columns.Add("Full name", 150);
@@ -196,7 +200,7 @@ namespace LoginMotelUser
         {
             if (listStaff.SelectedItems.Count > 0)
             {
-                using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
+                using (Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4())
                 {
                     DialogResult result = MessageBox.Show("Are you sure DELETE ID CARD = " + listStaff.FocusedItem.Text + " ? (ALL data will be delete!)", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)
@@ -259,7 +263,7 @@ namespace LoginMotelUser
         {
             if (listStaff.SelectedItems.Count > 0)
             {
-                using (Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3())
+                using (Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4())
                 {
                     DialogResult result = MessageBox.Show("Are you sure DELETE ID CARD = " + listStaff.FocusedItem.Text + " ? (ALL data will be delete!)", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)
@@ -290,6 +294,141 @@ namespace LoginMotelUser
             {
                 MessageBox.Show("You need to choose ID", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+
+        private void userToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            New_User nU = new New_User(checkRole,checkUsername);
+            nU.ShowDialog();
+        }
+
+        private void userToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Update_User udU = new Update_User(checkRole);
+            udU.checkUsername = this.checkUsername;
+            udU.ShowDialog();
+        }
+
+        private void customerToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            ShowCustomerForm gf = new ShowCustomerForm(true, checkRole, checkUsername);
+            gf.ShowDialog();
+        }
+
+        private void customerToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            ShowCustomerForm uC = new ShowCustomerForm(false, checkRole, checkUsername);
+            uC.ShowDialog();
+        }
+
+        private void viewOldBillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FormViewOldBill ViewBill = new FormViewOldBill(checkRole, checkUsername);
+            ViewBill.ShowDialog();
+        }
+
+        private void checOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            formAddCustomer AC = new formAddCustomer(false, checkUsername, checkRole);
+            AC.ShowDialog();
+        }
+
+        private void checkInToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            formAddCustomer AC = new formAddCustomer(true, checkUsername, checkRole);
+            AC.ShowDialog();
+        }
+
+        private void staffToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showStaffForm staff = new showStaffForm(false, checkRole, checkUsername);
+            staff.ShowDialog();
+        }
+
+        private void staffToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showStaffForm staff = new showStaffForm(true, checkRole, checkUsername);
+            staff.ShowDialog();
+        }
+
+        private void serviceToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            serviceForm sF = new serviceForm(false, checkRole, checkUsername);
+            sF.ShowDialog();
+        }
+
+        private void serviceToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            serviceForm sF = new serviceForm(true, checkRole, checkUsername);
+            sF.ShowDialog();
+        }
+
+        private void rangeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRangeForm rF = new showRangeForm(false, checkRole, checkUsername);
+            rF.ShowDialog();
+        }
+
+        private void rangeToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRangeForm rF = new showRangeForm(true, checkRole, checkUsername);
+            rF.ShowDialog();
+        }
+
+        private void rankToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRankForm rF = new showRankForm(false, checkRole, checkUsername);
+            rF.ShowDialog();
+        }
+
+        private void rankToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRankForm rF = new showRankForm(true, checkRole, checkUsername);
+            rF.ShowDialog();
+        }
+
+        private void roomToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRoomForm sFR = new showRoomForm(false, checkRole, checkUsername);
+            sFR.ShowDialog();
+        }
+
+        private void roomToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRoomForm sFR = new showRoomForm(true, checkRole, checkUsername);
+            sFR.ShowDialog();
+        }
+
+        private void paymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FormPrices FP = new FormPrices(checkUsername, checkRole);
+            FP.ShowDialog();
+        }
+
+        private void recieptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FormCollection Fc = new FormCollection(checkRole, checkUsername);
+            Fc.ShowDialog();
         }
     }
 }

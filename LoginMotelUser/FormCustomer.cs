@@ -13,7 +13,7 @@ namespace LoginMotelUser
 {
     public partial class FormCustomer : Form
     {
-        Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3();
+        Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4();
         public callFunction goiHam;
         protected override void OnClosed(EventArgs e)
         {

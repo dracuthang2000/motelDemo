@@ -19,7 +19,7 @@ namespace LoginMotelUser
             InitializeComponent();
             opener = ParentForm;
         }
-        LoginMotelUser.Model.MotelManagerEntities3 stf = new Model.MotelManagerEntities3();
+        LoginMotelUser.Model.MotelManagerEntities4 stf = new Model.MotelManagerEntities4();
         private void createpassword_Load(object sender, EventArgs e)
         {
             dateTimePicker.CustomFormat = "dd/MM/yyyy";
@@ -153,7 +153,7 @@ namespace LoginMotelUser
             DialogResult d = MessageBox.Show("Are you sure ?", "UPDATE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (d == DialogResult.Yes)
             {
-                Model.MotelManagerEntities3 us = new Model.MotelManagerEntities3();
+                Model.MotelManagerEntities4 us = new Model.MotelManagerEntities4();
                 var user = us.USERs.Single(u => u.UserName.Equals(textUsername.Text));
                 user.Password = textPassword.Text.Trim();
                 us.SaveChanges();

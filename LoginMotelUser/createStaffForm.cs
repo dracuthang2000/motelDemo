@@ -13,7 +13,7 @@ namespace LoginMotelUser
 {
     public partial class createStaffForm : Form
     {
-        Model.MotelManagerEntities3 data = new Model.MotelManagerEntities3();
+        Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4();
         public callFunction goiHam;
         private int IDStaff;
         protected override void OnClosed(EventArgs e)

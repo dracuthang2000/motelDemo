@@ -14,11 +14,13 @@ namespace LoginMotelUser
 {
     public partial class formAddCustomer : Form
     {
-        String userName;
-        public formAddCustomer(Boolean check, String userName)
+        String checkUsername;
+        private Boolean checkRole;
+        private Boolean checkControll;
+        public formAddCustomer(Boolean check, String userName, Boolean checkRole)
         {
             InitializeComponent();
-            if(check == true)
+            if (check == true)
             {
                 buttonADD.Visible = true;
                 buttonCheckOut.Visible = false;
@@ -28,13 +30,15 @@ namespace LoginMotelUser
                 buttonADD.Visible = false;
                 buttonCheckOut.Visible = true;
             }
-            this.userName = userName;
+            this.checkUsername = userName;
+            this.checkRole = checkRole;
+            this.checkControll = check;
             setColor();
         }
-        Model.MotelManagerEntities3 db = new Model.MotelManagerEntities3();
+        Model.MotelManagerEntities4 db = new Model.MotelManagerEntities4();
         private void frmAddCustomer_Load(object sender, EventArgs e)
         {
-            db = new Model.MotelManagerEntities3();
+            db = new Model.MotelManagerEntities4();
             cbbDaySC3.DataSource = db.ROOMRANGEs.ToList();
             cbbDaySC3.DisplayMember = "RangeName";
             cbbDaySC3.SelectedIndex = 0;
@@ -77,17 +81,21 @@ namespace LoginMotelUser
                 foreach (var nroom in nRooms)
                 {
                     String check;
-                    if (nroom.StateRoom == 1)
+                    if (nroom.StateRoom.Value == 1)
                     {
-                        check = "Trống";
+                        check = "phòng trống";
                     }
-                    else if (nroom.StateRoom == 2)
+                    else if (nroom.StateRoom.Value == 2)
                     {
-                        check = "Còn chỗ";
+                        check = "còn chỗ";
+                    }
+                    else if (nroom.StateRoom == 3)
+                    {
+                        check = "hết chỗ";
                     }
                     else
                     {
-                        check = "Hết chỗ";
+                        check = "Bảo trì";
                     }
                     ListViewItem lvi = new ListViewItem(nroom.ID.ToString());
                     lvi.SubItems.Add(nroom.RoomName);
@@ -116,17 +124,21 @@ namespace LoginMotelUser
                 foreach (var nroom in nRooms)
                 {
                     String check;
-                    if (nroom.StateRoom == 1)
+                    if (nroom.StateRoom.Value == 1)
                     {
-                        check = "Trống";
+                        check = "phòng trống";
                     }
-                    else if (nroom.StateRoom == 2)
+                    else if (nroom.StateRoom.Value == 2)
                     {
-                        check = "Còn chỗ";
+                        check = "còn chỗ";
+                    }
+                    else if (nroom.StateRoom == 3)
+                    {
+                        check = "hết chỗ";
                     }
                     else
                     {
-                        check = "Hết chỗ";
+                        check = "Bảo trì";
                     }
                     ListViewItem lvi = new ListViewItem(nroom.ID.ToString());
                     lvi.SubItems.Add(nroom.RoomName);
@@ -155,17 +167,21 @@ namespace LoginMotelUser
                 foreach (var nroom in nRooms)
                 {
                     String check;
-                    if (nroom.StateRoom == 1)
+                    if (nroom.StateRoom.Value == 1)
                     {
-                        check = "Trống";
+                        check = "phòng trống";
                     }
-                    else if (nroom.StateRoom == 2)
+                    else if (nroom.StateRoom.Value == 2)
                     {
-                        check = "Còn chỗ";
+                        check = "còn chỗ";
+                    }
+                    else if (nroom.StateRoom == 3)
+                    {
+                        check = "hết chỗ";
                     }
                     else
                     {
-                        check = "Hết chỗ";
+                        check = "Bảo trì";
                     }
                     ListViewItem lvi = new ListViewItem(nroom.ID.ToString());
                     lvi.SubItems.Add(nroom.RoomName);
@@ -193,17 +209,21 @@ namespace LoginMotelUser
                 foreach (var nroom in nRooms)
                 {
                     String check;
-                    if (nroom.StateRoom == 1)
+                    if (nroom.StateRoom.Value == 1)
                     {
-                        check = "Trống";
+                        check = "phòng trống";
                     }
-                    else if (nroom.StateRoom == 2)
+                    else if (nroom.StateRoom.Value == 2)
                     {
-                        check = "Còn chỗ";
+                        check = "còn chỗ";
+                    }
+                    else if (nroom.StateRoom == 3)
+                    {
+                        check = "hết chỗ";
                     }
                     else
                     {
-                        check = "Hết chỗ";
+                        check = "Bảo trì";
                     }
                     ListViewItem lvi = new ListViewItem(nroom.ID.ToString());
                     lvi.SubItems.Add(nroom.RoomName);
@@ -242,59 +262,78 @@ namespace LoginMotelUser
                 ListViewItem lvi = lvDanhSachPhongSC3.SelectedItems[0];
                 int IDRoom = int.Parse(lvi.Text);
                 lbPhongSC3.Text = lvi.Text;
-                var customers = (from rent in db.REINTINFORs
-                                 join room in db.MOTELROOMs on rent.IDRoom equals room.ID
-                                 join cus in db.CUSTOMERs on rent.IDCustomer equals cus.ID
-                                 where room.ID == IDRoom && rent.CheckOutDate == null
-                                 select new
-                                 {
-                                     cus.ID,
-                                     cus.IDCard,
-                                     cus.CustomerName,
-                                     cus.Sexual,
-                                     cus.Address,
-                                     room.StateRoom
-                                 }).ToList();
-
-                if (customers.Count == 0)
+                var stateRoom = db.MOTELROOMs.Where(room => room.ID == IDRoom).ToList();
+                if (stateRoom[0].StateRoom != 4)
                 {
-                    txtCMNDSC3.Enabled = true;
-                    txtDiaChiSC3.Enabled = true;
-                    txtSDTSC3.Enabled = true;
-                    txtHoTenSC3.Enabled = true;
-                    dtDateSC3.Enabled = true;
-                    cbbGioiTinhSC3.Enabled = true;
+
+                    var customers = (from rent in db.REINTINFORs
+                                     join room in db.MOTELROOMs on rent.IDRoom equals room.ID
+                                     join cus in db.CUSTOMERs on rent.IDCustomer equals cus.ID
+                                     where room.ID == IDRoom && rent.CheckOutDate == null
+                                     select new
+                                     {
+                                         cus.ID,
+                                         cus.IDCard,
+                                         cus.CustomerName,
+                                         cus.Sexual,
+                                         cus.Address,
+                                         room.StateRoom
+                                     }).ToList();
+
+                    if (customers.Count == 0 && checkControll == true)
+                    {
+                        txtCMNDSC3.Enabled = true;
+                        txtDiaChiSC3.Enabled = true;
+                        txtSDTSC3.Enabled = true;
+                        txtHoTenSC3.Enabled = true;
+                        dtDateSC3.Enabled = true;
+                        cbbGioiTinhSC3.Enabled = true;
+                    }
+                    else
+                    {
+                        if (checkControll == true)
+                        {
+                            if (stateRoom[0].StateRoom == 3)
+                            {
+                                txtCMNDSC3.Enabled = false;
+                                txtDiaChiSC3.Enabled = false;
+                                txtSDTSC3.Enabled = false;
+                                txtHoTenSC3.Enabled = false;
+                                dtDateSC3.Enabled = false;
+                                cbbGioiTinhSC3.Enabled = false;
+                                MessageBox.Show("The room is full slot!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                txtCMNDSC3.Enabled = true;
+                                txtDiaChiSC3.Enabled = true;
+                                txtSDTSC3.Enabled = true;
+                                txtHoTenSC3.Enabled = true;
+                                dtDateSC3.Enabled = true;
+                                cbbGioiTinhSC3.Enabled = true;
+                            }
+                        }
+                        foreach (var c in customers)
+                        {
+                            ListViewItem lv = new ListViewItem(c.IDCard);
+                            lv.SubItems.Add(c.CustomerName);
+                            lv.SubItems.Add(c.Sexual);
+                            lv.SubItems.Add(c.Address);
+                            lvDanhSachKhachSC3.Items.Add(lv);
+                        }
+                    }
+
                 }
                 else
                 {
-                    foreach (var c in customers)
-                    {
-                        if (c.StateRoom == 3)
-                        {
-                            txtCMNDSC3.Enabled = false;
-                            txtDiaChiSC3.Enabled = false;
-                            txtSDTSC3.Enabled = false;
-                            txtHoTenSC3.Enabled = false;
-                            dtDateSC3.Enabled = false;
-                            cbbGioiTinhSC3.Enabled = false;
-                        }
-                        else
-                        {
-                            txtCMNDSC3.Enabled = true;
-                            txtDiaChiSC3.Enabled = true;
-                            txtSDTSC3.Enabled = true;
-                            txtHoTenSC3.Enabled = true;
-                            dtDateSC3.Enabled = true;
-                            cbbGioiTinhSC3.Enabled = true;
-                        }
-                        ListViewItem lv = new ListViewItem(c.IDCard);
-                        lv.SubItems.Add(c.CustomerName);
-                        lv.SubItems.Add(c.Sexual);
-                        lv.SubItems.Add(c.Address);
-                        lvDanhSachKhachSC3.Items.Add(lv);
-                    }
+                    MessageBox.Show("The room maintance!", "NOTIFICATION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtCMNDSC3.Enabled = false;
+                    txtDiaChiSC3.Enabled = false;
+                    txtSDTSC3.Enabled = false;
+                    txtHoTenSC3.Enabled = false;
+                    dtDateSC3.Enabled = false;
+                    cbbGioiTinhSC3.Enabled = false;
                 }
-
             }
         }
 
@@ -378,9 +417,9 @@ namespace LoginMotelUser
             {
                 String IDcard = lvDanhSachKhachSC3.SelectedItems[0].Text;
                 var customer = (from c in db.CUSTOMERs
-                               where c.IDCard.Equals(IDcard)
-                               select c).ToList();
-                foreach(var cus in customer)
+                                where c.IDCard.Equals(IDcard)
+                                select c).ToList();
+                foreach (var cus in customer)
                 {
                     txtCMNDSC3.Text = cus.IDCard;
                     txtHoTenSC3.Text = cus.CustomerName;
@@ -502,10 +541,9 @@ namespace LoginMotelUser
                 && (txtSDTSC3.Text.Length == 10 && firstNumber[0].Equals('0')
                 && cbbGioiTinhSC3.SelectedIndex != -1
                 );
-            DialogResult d = MessageBox.Show("DO YOU WANT ADD " + txtCMNDSC3.Text + " ?", "UPDATE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (isOk)
             {
-
+                DialogResult d = MessageBox.Show("DO YOU WANT ADD " + txtCMNDSC3.Text + " ?", "UPDATE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (d == DialogResult.Yes)
                 {
                     var check = (from c in db.CUSTOMERs
@@ -522,30 +560,24 @@ namespace LoginMotelUser
                     bool checkRen = false;
                     if (rentInfor.Count != 0)
                     {
-                        foreach (var ren in rentInfor)
+                        var checkID = db.REINTINFORs.Where(r => r.IDRoom == IDRoom && r.IDCustomer == ch && r.CheckOutDate == null).Select(r => r.CheckInDate).Max();
+                        if (checkID == null)
                         {
-                            if (lbPhongSC3.Text.Equals(ren.IDRoom.ToString()))
-                            {
-                                if (ren.CheckOutDate != null) // có nghĩa đã trả phòng thì ta vẫn tạo hợp đồng mới                                                               // chứ sao có thể Edit hợp đồng đó được
-                                {
-                                    // Database phải thêm CheckInDate cũng là khóa chính
-                                    var newRent = new Model.REINTINFOR();
-                                    newRent.IDCustomer = check[0].ID;
-                                    newRent.IDRoom = int.Parse(lbPhongSC3.Text);
-                                    newRent.CheckInDate = DateTime.Now;
-                                    db.REINTINFORs.Add(newRent);
-                                    db.SaveChanges();
-                                    checkRen = true;
-                                    break;
-                                }
-                                else // chưa trả phòng mà thuê nữa thì không cho
-                                {
-                                    MessageBox.Show("Khách hiện đang ở phòng này, không thể đăng kí thêm!");
-                                    checkRen = true;
-                                    break;
-                                }
-                            }
+                            // Database phải thêm CheckInDate cũng là khóa chính
+                            var newRent = new Model.REINTINFOR();
+                            newRent.IDCustomer = check[0].ID;
+                            newRent.IDRoom = int.Parse(lbPhongSC3.Text);
+                            newRent.CheckInDate = DateTime.Now;
+                            db.REINTINFORs.Add(newRent);
+                            db.SaveChanges();
+                            checkRen = true;
                         }
+                        else // chưa trả phòng mà thuê nữa thì không cho
+                        {
+                            MessageBox.Show("Customer is living here!");
+                            checkRen = true;
+                        }
+
                         if (checkRen == false)
                         {
                             var newRent = new Model.REINTINFOR();
@@ -559,7 +591,7 @@ namespace LoginMotelUser
                     else // thêm
                     {
                         // Thêm customer
-                        db = new Model.MotelManagerEntities3();
+                        db = new Model.MotelManagerEntities4();
                         var check1 = db.CUSTOMERs.Where(u => u.ID.Equals(ch)).ToList();
                         if (check1.Count == 0)
                         {
@@ -606,34 +638,52 @@ namespace LoginMotelUser
                     var Quantity = (from Room in db.MOTELROOMs
                                     where IDRoom == Room.ID
                                     select Room).ToList();
-                        foreach (var c in customer)
+                    if (customer.Count == Quantity[0].ROOMRANK.Quantity)
+                    {
+                        var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
+                        temp.StateRoom = 3;
+                        db.SaveChanges();
+                        frmAddCustomer_Load(sender, e);
+                    }
+                    else
+                    {
+                        var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
+                        temp.StateRoom = 2;
+                        db.SaveChanges();
+                        frmAddCustomer_Load(sender, e);
+                    }
+                    foreach (var c in customer)
+                    {
+                        ListViewItem lv = new ListViewItem(c.IDCard);
+                        lv.SubItems.Add(c.CustomerName);
+                        lv.SubItems.Add(c.Sexual);
+                        lv.SubItems.Add(c.Address);
+                        lvDanhSachKhachSC3.Items.Add(lv);
+                    }
+                    Clear();
+                    if (customer.Count == 1)
+                    {
+                        var IDStaff = (from staff in db.STAFFs
+                                       where staff.UserName == checkUsername
+                                       select staff).ToList();
+                        if (IDStaff.Count == 0)
                         {
-                            ListViewItem lv = new ListViewItem(c.IDCard);
-                            lv.SubItems.Add(c.CustomerName);
-                            lv.SubItems.Add(c.Sexual);
-                            lv.SubItems.Add(c.Address);
-                            lvDanhSachKhachSC3.Items.Add(lv);
-                        }
-                        if (customer.Count == Quantity[0].ROOMRANK.Quantity)
-                        {
-                            var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
-                            temp.StateRoom = 3;
-                            db.SaveChanges();
-                            frmAddCustomer_Load(sender, e);
+                            db.createNewBill(IDRoom, null);
                         }
                         else
                         {
-                            var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
-                            temp.StateRoom = 2;
-                            db.SaveChanges();
-                            frmAddCustomer_Load(sender, e);
+                            foreach (var staff in IDStaff)
+                            {
+                                db.createNewBill(IDRoom, staff.ID);
+                            }
                         }
-                        Clear();
+                    }
+                    MessageBox.Show("COMPLETE!");
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ và chính xác thông tin");
+                MessageBox.Show("Let's type information correct!");
             }
         }
 
@@ -658,20 +708,21 @@ namespace LoginMotelUser
             lvDanhSachKhachSC3.Items.Clear();
             int IDRoom = int.Parse(lbPhongSC3.Text);
             var customer = (from Room in db.MOTELROOMs
-                           join Ren in db.REINTINFORs on Room.ID equals Ren.IDRoom
-                           join Cus in db.CUSTOMERs on Ren.IDCustomer equals Cus.ID
-                           where Room.ID == IDRoom && Ren.CheckOutDate == null
-                           select Cus).ToList();
+                            join Ren in db.REINTINFORs on Room.ID equals Ren.IDRoom
+                            join Cus in db.CUSTOMERs on Ren.IDCustomer equals Cus.ID
+                            where Room.ID == IDRoom && Ren.CheckOutDate == null
+                            select Cus).ToList();
             var Quantity = (from Room in db.MOTELROOMs
-                          where IDRoom == Room.ID
-                          select Room).ToList();
+                            where IDRoom == Room.ID
+                            select Room).ToList();
             if (customer.Count == 0)
             {
                 var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
                 temp.StateRoom = 1;
                 db.SaveChanges();
                 frmAddCustomer_Load(sender, e);
-            }else if(customer.Count == Quantity[0].ROOMRANK.Quantity)
+            }
+            else if (customer.Count == Quantity[0].ROOMRANK.Quantity)
             {
                 var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
                 temp.StateRoom = 3;
@@ -739,16 +790,16 @@ namespace LoginMotelUser
             lvDanhSachKhachSC3.Items.Clear();
             int IDRoom = int.Parse(lbPhongSC3.Text);
             var customer = (from Room in db.MOTELROOMs
-                           join Ren in db.REINTINFORs on Room.ID equals Ren.IDRoom
-                           join Cus in db.CUSTOMERs on Ren.IDCustomer equals Cus.ID
-                           where Room.ID == IDRoom && Ren.CheckOutDate == null
-                           select Cus).ToList();
+                            join Ren in db.REINTINFORs on Room.ID equals Ren.IDRoom
+                            join Cus in db.CUSTOMERs on Ren.IDCustomer equals Cus.ID
+                            where Room.ID == IDRoom && Ren.CheckOutDate == null
+                            select Cus).ToList();
             var Quantity = (from Room in db.MOTELROOMs
                             where IDRoom == Room.ID
                             select Room).ToList();
-            if(customer.Count == 0)
+            if (customer.Count == 0)
             {
-                var temp = db.MOTELROOMs.Single(room=> room.ID == IDRoom);
+                var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
                 temp.StateRoom = 1;
                 db.SaveChanges();
                 frmAddCustomer_Load(sender, e);
@@ -769,6 +820,141 @@ namespace LoginMotelUser
                 lvDanhSachKhachSC3.Items.Add(lv);
             }
             Clear();
+        }
+
+
+        private void userToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            New_User nU = new New_User(checkRole, checkUsername);
+            nU.ShowDialog();
+        }
+
+        private void userToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Update_User udU = new Update_User(checkRole);
+            udU.checkUsername = this.checkUsername;
+            udU.ShowDialog();
+        }
+
+        private void customerToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            ShowCustomerForm gf = new ShowCustomerForm(true, checkRole, checkUsername);
+            gf.ShowDialog();
+        }
+
+        private void customerToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            ShowCustomerForm uC = new ShowCustomerForm(false, checkRole, checkUsername);
+            uC.ShowDialog();
+        }
+
+        private void viewOldBillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FormViewOldBill ViewBill = new FormViewOldBill(checkRole, checkUsername);
+            ViewBill.ShowDialog();
+        }
+
+        private void checOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            formAddCustomer AC = new formAddCustomer(false, checkUsername, checkRole);
+            AC.ShowDialog();
+        }
+
+        private void checkInToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            formAddCustomer AC = new formAddCustomer(true, checkUsername, checkRole);
+            AC.ShowDialog();
+        }
+
+        private void staffToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showStaffForm staff = new showStaffForm(false, checkRole, checkUsername);
+            staff.ShowDialog();
+        }
+
+        private void staffToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showStaffForm staff = new showStaffForm(true, checkRole, checkUsername);
+            staff.ShowDialog();
+        }
+
+        private void serviceToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            serviceForm sF = new serviceForm(false, checkRole, checkUsername);
+            sF.ShowDialog();
+        }
+
+        private void serviceToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            serviceForm sF = new serviceForm(true, checkRole, checkUsername);
+            sF.ShowDialog();
+        }
+
+        private void rangeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRangeForm rF = new showRangeForm(false, checkRole, checkUsername);
+            rF.ShowDialog();
+        }
+
+        private void rangeToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRangeForm rF = new showRangeForm(true, checkRole, checkUsername);
+            rF.ShowDialog();
+        }
+
+        private void rankToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRankForm rF = new showRankForm(false, checkRole, checkUsername);
+            rF.ShowDialog();
+        }
+
+        private void rankToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRankForm rF = new showRankForm(true, checkRole, checkUsername);
+            rF.ShowDialog();
+        }
+
+        private void roomToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRoomForm sFR = new showRoomForm(false, checkRole, checkUsername);
+            sFR.ShowDialog();
+        }
+
+        private void roomToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            showRoomForm sFR = new showRoomForm(true, checkRole, checkUsername);
+            sFR.ShowDialog();
+        }
+
+        private void paymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FormPrices FP = new FormPrices(checkUsername, checkRole);
+            FP.ShowDialog();
+        }
+
+        private void recieptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FormCollection Fc = new FormCollection(checkRole, checkUsername);
+            Fc.ShowDialog();
         }
     }
 }

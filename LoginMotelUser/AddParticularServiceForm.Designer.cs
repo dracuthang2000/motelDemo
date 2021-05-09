@@ -49,6 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonRemove = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
+            this.unit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listService
@@ -59,7 +60,8 @@
             this.listService.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.ServiceName,
-            this.Price});
+            this.Price,
+            this.unit});
             this.listService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listService.FullRowSelect = true;
             this.listService.HideSelection = false;
@@ -262,6 +264,10 @@
             this.button_WOC1.UseVisualStyleBackColor = false;
             this.button_WOC1.Click += new System.EventHandler(this.button_WOC1_Click);
             // 
+            // unit
+            // 
+            this.unit.Text = "Unit";
+            // 
             // AddParticularServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -312,5 +318,6 @@
         private System.Windows.Forms.Label label1;
         private ePOSOne.btnProduct.Button_WOC buttonRemove;
         private ePOSOne.btnProduct.Button_WOC button_WOC1;
+        private System.Windows.Forms.ColumnHeader unit;
     }
 }

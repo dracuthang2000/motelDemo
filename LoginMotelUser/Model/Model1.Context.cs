@@ -15,10 +15,10 @@ namespace LoginMotelUser.Model
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class MotelManagerEntities3 : DbContext
+    public partial class MotelManagerEntities4 : DbContext
     {
-        public MotelManagerEntities3()
-            : base("name=MotelManagerEntities3")
+        public MotelManagerEntities4()
+            : base("name=MotelManagerEntities4")
         {
         }
     
@@ -39,6 +39,19 @@ namespace LoginMotelUser.Model
         public virtual DbSet<STAFF> STAFFs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<USER> USERs { get; set; }
+    
+        public virtual int createNewBill(Nullable<int> idRoom, Nullable<int> idStaff)
+        {
+            var idRoomParameter = idRoom.HasValue ?
+                new ObjectParameter("idRoom", idRoom) :
+                new ObjectParameter("idRoom", typeof(int));
+    
+            var idStaffParameter = idStaff.HasValue ?
+                new ObjectParameter("idStaff", idStaff) :
+                new ObjectParameter("idStaff", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("createNewBill", idRoomParameter, idStaffParameter);
+        }
     
         public virtual ObjectResult<Nullable<int>> getMaxdate(Nullable<int> idRoom)
         {

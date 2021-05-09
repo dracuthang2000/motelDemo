@@ -40,11 +40,15 @@
             this.textPrice = new System.Windows.Forms.TextBox();
             this.textDeposit = new System.Windows.Forms.TextBox();
             this.panRankOpen = new System.Windows.Forms.Panel();
-            this.textAbout = new System.Windows.Forms.TextBox();
-            this.buttonSave = new ePOSOne.btnProduct.Button_WOC();
             this.buttonCancle = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonSave = new ePOSOne.btnProduct.Button_WOC();
+            this.textAbout = new System.Windows.Forms.TextBox();
+            this.QUAN = new System.Windows.Forms.Label();
+            this.numericQuantity = new System.Windows.Forms.NumericUpDown();
             this.panRankOpen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericQuantity)).BeginInit();
             this.SuspendLayout();
+
             // 
             // labTieuDe
             // 
@@ -86,7 +90,7 @@
             // labDeposit
             // 
             this.labDeposit.AutoSize = true;
-            this.labDeposit.Location = new System.Drawing.Point(51, 251);
+            this.labDeposit.Location = new System.Drawing.Point(51, 285);
             this.labDeposit.Name = "labDeposit";
             this.labDeposit.Size = new System.Drawing.Size(67, 17);
             this.labDeposit.TabIndex = 5;
@@ -127,15 +131,16 @@
             // 
             // textDeposit
             // 
-            this.textDeposit.Location = new System.Drawing.Point(187, 251);
+            this.textDeposit.Location = new System.Drawing.Point(187, 285);
             this.textDeposit.Name = "textDeposit";
             this.textDeposit.Size = new System.Drawing.Size(326, 22);
             this.textDeposit.TabIndex = 3;
             // 
             // panRankOpen
             // 
-            this.panRankOpen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panRankOpen.BackgroundImage")));
             this.panRankOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panRankOpen.Controls.Add(this.numericQuantity);
+            this.panRankOpen.Controls.Add(this.QUAN);
             this.panRankOpen.Controls.Add(this.buttonCancle);
             this.panRankOpen.Controls.Add(this.buttonSave);
             this.panRankOpen.Controls.Add(this.textAbout);
@@ -153,35 +158,6 @@
             this.panRankOpen.Name = "panRankOpen";
             this.panRankOpen.Size = new System.Drawing.Size(683, 563);
             this.panRankOpen.TabIndex = 1;
-            // 
-            // textAbout
-            // 
-            this.textAbout.Location = new System.Drawing.Point(187, 326);
-            this.textAbout.Multiline = true;
-            this.textAbout.Name = "textAbout";
-            this.textAbout.Size = new System.Drawing.Size(326, 100);
-            this.textAbout.TabIndex = 4;
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSave.BackgroundImage")));
-            this.buttonSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonSave.BorderColor = System.Drawing.Color.Silver;
-            this.buttonSave.ButtonColor = System.Drawing.Color.MediumTurquoise;
-            this.buttonSave.FlatAppearance.BorderSize = 0;
-            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(0, 523);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.buttonSave.OnHoverButtonColor = System.Drawing.Color.Turquoise;
-            this.buttonSave.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonSave.Size = new System.Drawing.Size(103, 37);
-            this.buttonSave.TabIndex = 13;
-            this.buttonSave.Text = "SAVE";
-            this.buttonSave.TextColor = System.Drawing.Color.White;
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonCancle
             // 
@@ -204,6 +180,51 @@
             this.buttonCancle.UseVisualStyleBackColor = true;
             this.buttonCancle.Click += new System.EventHandler(this.buttonCancle_Click);
             // 
+            // buttonSave
+            // 
+            this.buttonSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSave.BackgroundImage")));
+            this.buttonSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSave.BorderColor = System.Drawing.Color.Silver;
+            this.buttonSave.ButtonColor = System.Drawing.Color.MediumTurquoise;
+            this.buttonSave.FlatAppearance.BorderSize = 0;
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Location = new System.Drawing.Point(0, 523);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonSave.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonSave.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonSave.Size = new System.Drawing.Size(103, 37);
+            this.buttonSave.TabIndex = 13;
+            this.buttonSave.Text = "SAVE";
+            this.buttonSave.TextColor = System.Drawing.Color.White;
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // textAbout
+            // 
+            this.textAbout.Location = new System.Drawing.Point(187, 326);
+            this.textAbout.Multiline = true;
+            this.textAbout.Name = "textAbout";
+            this.textAbout.Size = new System.Drawing.Size(326, 100);
+            this.textAbout.TabIndex = 4;
+            // 
+            // QUAN
+            // 
+            this.QUAN.AutoSize = true;
+            this.QUAN.Location = new System.Drawing.Point(51, 238);
+            this.QUAN.Name = "QUAN";
+            this.QUAN.Size = new System.Drawing.Size(61, 17);
+            this.QUAN.TabIndex = 16;
+            this.QUAN.Text = "Quantity";
+            // 
+            // numericQuantity
+            // 
+            this.numericQuantity.Location = new System.Drawing.Point(187, 238);
+            this.numericQuantity.Name = "numericQuantity";
+            this.numericQuantity.Size = new System.Drawing.Size(120, 22);
+            this.numericQuantity.TabIndex = 17;
+            // 
             // rankFormSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -216,6 +237,7 @@
             this.Text = "rankOpenForm";
             this.panRankOpen.ResumeLayout(false);
             this.panRankOpen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericQuantity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -236,5 +258,7 @@
         private System.Windows.Forms.TextBox textAbout;
         private ePOSOne.btnProduct.Button_WOC buttonSave;
         private ePOSOne.btnProduct.Button_WOC buttonCancle;
+        private System.Windows.Forms.NumericUpDown numericQuantity;
+        private System.Windows.Forms.Label QUAN;
     }
 }

@@ -14,11 +14,11 @@ namespace LoginMotelUser.Model
     
     public partial class REINTINFOR
     {
+        public int ID { get; set; }
         public int IDCustomer { get; set; }
         public int IDRoom { get; set; }
         public System.DateTime CheckInDate { get; set; }
         public Nullable<System.DateTime> CheckOutDate { get; set; }
-        public int ID { get; set; }
     
         public virtual CUSTOMER CUSTOMER { get; set; }
         public virtual MOTELROOM MOTELROOM { get; set; }

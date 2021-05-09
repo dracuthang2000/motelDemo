@@ -15,7 +15,7 @@ namespace LoginMotelUser.Model
     {
         public int ID { get; set; }
         public string RankName { get; set; }
-        public Nullable<int> Quantity { get; set; }
+        public int Quantity { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<decimal> Deposits { get; set; }
         public string About { get; set; }

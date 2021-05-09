@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="MotelManagerModelStoreContainer" CdmEntityContainer="MotelManagerEntities3">
+  <EntityContainerMapping StorageEntityContainer="MotelManagerModelStoreContainer" CdmEntityContainer="MotelManagerEntities4">
     <EntitySetMapping Name="BILLs">
       <EntityTypeMapping TypeName="MotelManagerModel.BILL">
         <MappingFragment StoreEntitySet="BILL">
@@ -94,6 +94,7 @@
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
           <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -131,6 +132,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="createNewBill" FunctionName="MotelManagerModel.Store.createNewBill" />
     <FunctionImportMapping FunctionImportName="getMaxdate" FunctionName="MotelManagerModel.Store.getMaxdate" />
     <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="MotelManagerModel.Store.sp_alterdiagram" />
     <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="MotelManagerModel.Store.sp_creatediagram" />
@@ -215,6 +217,7 @@
     <FunctionImportMapping FunctionImportName="USP_PageRentInfo" FunctionName="MotelManagerModel.Store.USP_PageRentInfo">
       <ResultMapping>
         <ComplexTypeMapping TypeName="MotelManagerModel.USP_PageRentInfo_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="IDCustomer" ColumnName="IDCustomer" />
           <ScalarProperty Name="IDRoom" ColumnName="IDRoom" />
           <ScalarProperty Name="CheckInDate" ColumnName="CheckInDate" />
@@ -240,6 +243,7 @@
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
           <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
