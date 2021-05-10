@@ -821,7 +821,7 @@
             // 
             this.cbbDaySC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC1.FormattingEnabled = true;
-            this.cbbDaySC1.Location = new System.Drawing.Point(192, 16);
+            this.cbbDaySC1.Location = new System.Drawing.Point(192, 12);
             this.cbbDaySC1.Name = "cbbDaySC1";
             this.cbbDaySC1.Size = new System.Drawing.Size(184, 33);
             this.cbbDaySC1.TabIndex = 18;
@@ -834,11 +834,11 @@
             this.label45.BackColor = System.Drawing.Color.Transparent;
             this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label45.ForeColor = System.Drawing.Color.Black;
-            this.label45.Location = new System.Drawing.Point(3, 75);
+            this.label45.Location = new System.Drawing.Point(3, 65);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(183, 20);
+            this.label45.Size = new System.Drawing.Size(183, 40);
             this.label45.TabIndex = 11;
-            this.label45.Text = "Số phòng trống";
+            this.label45.Text = "number of available rooms ";
             // 
             // labelHetCho
             // 
@@ -851,7 +851,7 @@
             this.labelHetCho.Name = "labelHetCho";
             this.labelHetCho.Size = new System.Drawing.Size(184, 20);
             this.labelHetCho.TabIndex = 20;
-            this.labelHetCho.Text = "so";
+            this.labelHetCho.Text = "number";
             // 
             // label46
             // 
@@ -864,7 +864,7 @@
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(183, 20);
             this.label46.TabIndex = 12;
-            this.label46.Text = "Số phòng đã thuê";
+            this.label46.Text = "rental number ";
             // 
             // lbPhongDaThueSC1
             // 
@@ -877,7 +877,7 @@
             this.lbPhongDaThueSC1.Name = "lbPhongDaThueSC1";
             this.lbPhongDaThueSC1.Size = new System.Drawing.Size(184, 20);
             this.lbPhongDaThueSC1.TabIndex = 20;
-            this.lbPhongDaThueSC1.Text = "so";
+            this.lbPhongDaThueSC1.Text = "number";
             // 
             // label3
             // 
@@ -886,11 +886,11 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(3, 190);
+            this.label3.Location = new System.Drawing.Point(3, 180);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(183, 20);
+            this.label3.Size = new System.Drawing.Size(183, 40);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Số phòng hết chỗ";
+            this.label3.Text = "The number of room is full";
             // 
             // lbPhongTrongSC1
             // 
@@ -903,7 +903,7 @@
             this.lbPhongTrongSC1.Name = "lbPhongTrongSC1";
             this.lbPhongTrongSC1.Size = new System.Drawing.Size(184, 20);
             this.lbPhongTrongSC1.TabIndex = 19;
-            this.lbPhongTrongSC1.Text = "so";
+            this.lbPhongTrongSC1.Text = "number";
             // 
             // panel1
             // 

@@ -51,7 +51,7 @@ namespace LoginMotelUser
             Match result = reg.Match(textIDCus.Text);
             if (result.Length == 0 || textIDCus.Text.Length > 9)
             {
-                MessageBox.Show("Nhap dung ID!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please type ID is true!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             //String re = "[0-9]{9}";
@@ -59,7 +59,7 @@ namespace LoginMotelUser
             result = reg.Match(textSDT.Text);
             if (result.Length == 0 || textSDT.Text.Length > 10)
             {
-                MessageBox.Show("Nhap dung so dien thoai!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please type phone number is true!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -275,7 +275,7 @@ namespace LoginMotelUser
             if (catchData() == false) return;
             if (check == true)
             {
-                DialogResult result = MessageBox.Show("Ban co chac them khach co ID =" + textIDCus.Text + " khong?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                DialogResult result = MessageBox.Show("Are you save customer ID =" + textIDCus.Text + " ?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 switch (result)
                 {
                     case DialogResult.Cancel: return;
@@ -296,11 +296,14 @@ namespace LoginMotelUser
                 // List<Model.CUSTOMER> list = (from b in data.CUSTOMERs where b.IDCard == textIDCus.Text select b).ToList();
                 if (cus.Count == 0)
                 {
-                    DialogResult result = MessageBox.Show("Ban co chac chinh sua khach co ID = " + textIDCus.Text + " khong ? (tat ca cac du lieu lien quan deu se thay doi!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    DialogResult result = MessageBox.Show("Are you sure update customer ID = " + textIDCus.Text + "  ?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)
                     {
                         case DialogResult.Cancel: return;
-                        case DialogResult.Yes: { updateData(); this.Close(); break; }
+                        case DialogResult.Yes: { updateData(); this.Close(); break;
+                                MessageBox.Show("COMPLETE!");
+                            
+                            }
                         case DialogResult.No: return;
 
                         default:

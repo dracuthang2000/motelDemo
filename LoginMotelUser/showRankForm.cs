@@ -188,14 +188,13 @@ namespace LoginMotelUser
                 {
                     String temp = listRank.FocusedItem.Text;
 
-
                     rankFormSetting rOF = new rankFormSetting(temp, this.check);
                     rOF.goiHam = loadList;
                     rOF.ShowDialog();
                 }
                 else
                 {
-                    MessageBox.Show("Hay chon khach can xoa tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Let's choice Rank need to update", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -206,7 +205,7 @@ namespace LoginMotelUser
             {
                 using (Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4())
                 {
-                    DialogResult result = MessageBox.Show("Ban co chac xoa khach co ID = " + listRank.FocusedItem.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    DialogResult result = MessageBox.Show("Are you sure delete rank ID = " + listRank.FocusedItem.Text + " ?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)
                     {
                         case DialogResult.Cancel: return;
@@ -219,6 +218,7 @@ namespace LoginMotelUser
                                 listRank.Clear();
                                 loadData(0, soLuong);
                                 dem = 0;
+                                MessageBox.Show("DELETE IS COMPLETE!");
                                 break;
                             }
                         case DialogResult.No: return;
@@ -231,7 +231,7 @@ namespace LoginMotelUser
             }
             else
             {
-                MessageBox.Show("Hay chon khach can xoa tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Let's choices Rank need to delete!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -374,6 +374,11 @@ namespace LoginMotelUser
             this.Visible = false;
             FormCollection Fc = new FormCollection(checkRole, checkUsername);
             Fc.ShowDialog();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

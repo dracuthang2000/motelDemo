@@ -51,13 +51,13 @@ namespace LoginMotelUser
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(textPrice.Text, "[^0-9.]"))
             {
-                MessageBox.Show("Chi nhap so vao don gia!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Type only number on price!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textPrice.Text = "";
                 return false;
             }
             if (System.Text.RegularExpressions.Regex.IsMatch(textDeposit.Text, "[^0-9.]"))
             {
-                MessageBox.Show("Chi nhap so vao don gia!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Type only number on Deposit!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textDeposit.Text = "";
                 return false;
             }
@@ -155,7 +155,7 @@ namespace LoginMotelUser
         {
             if (check == true)
             {
-                DialogResult result = MessageBox.Show("Ban co chac them loai phong khong?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                DialogResult result = MessageBox.Show("Are you sure Save Rank?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 switch (result)
                 {
                     case DialogResult.Cancel: return;
@@ -177,11 +177,13 @@ namespace LoginMotelUser
                 if (query.Count == 0)
                 {
 
-                    DialogResult result = MessageBox.Show("Ban co chac chinh sua loai phong co ID = " + labIDShow.Text + " khong ? (tat ca cac du lieu lien quan deu se thay doi!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    DialogResult result = MessageBox.Show("Are you sure update Rank ID = " + labIDShow.Text + " ?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)
                     {
                         case DialogResult.Cancel: return;
-                        case DialogResult.Yes: { updateData(); this.Close(); break; }
+                        case DialogResult.Yes: { updateData(); this.Close();
+                                MessageBox.Show("COMPLETE!"); break;                               
+                            }
                         case DialogResult.No: return;
 
                         default:

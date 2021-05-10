@@ -325,9 +325,9 @@ namespace LoginMotelUser
                         else if (room.StateRoom == 3) hetcho++;
                         else trong++;
                     }
-                    lbPhongTrongSC1.Text = trong.ToString() + "     phòng";
-                    lbPhongDaThueSC1.Text = daThue.ToString() + "     phòng";
-                    labelHetCho.Text = hetcho.ToString() + "     phòng";
+                    lbPhongTrongSC1.Text = trong.ToString() + "     room";
+                    lbPhongDaThueSC1.Text = daThue.ToString() + "     room";
+                    labelHetCho.Text = hetcho.ToString() + "     room";
                 }
                 catch (Exception)
                 {
@@ -336,9 +336,9 @@ namespace LoginMotelUser
             }
             else
             {
-                lbPhongTrongSC1.Text = "...     phòng";
-                lbPhongDaThueSC1.Text = "...    phòng";
-                labelHetCho.Text = "...    phòng";
+                lbPhongTrongSC1.Text = "...     room";
+                lbPhongDaThueSC1.Text = "...    room";
+                labelHetCho.Text = "...    room";
             }
         }
 

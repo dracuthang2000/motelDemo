@@ -335,13 +335,14 @@ namespace LoginMotelUser
         private void buttonSave_Click(object sender, EventArgs e)
         {
 
-            DialogResult d = MessageBox.Show("Are you saving this?", "QUESTION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+           
             if (txtTongTien.Text.Trim().Equals("")|| txtTongTien.Text.Trim().Equals("0"))
             {
                 MessageBox.Show("TotalBill is null", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
+                DialogResult d = MessageBox.Show("Are you saving this?", "QUESTION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (d == DialogResult.Yes)
                 {
                     int ID = int.Parse(lbIDPhongSC4.Text);
@@ -394,6 +395,7 @@ namespace LoginMotelUser
                     paid.Paid = true;
                     db.SaveChanges();
                     printBill(idBill);
+                    MessageBox.Show("COMPLETE!");
                     clear();
                     frmPrice_Load(sender, e);
                 }
@@ -723,6 +725,11 @@ namespace LoginMotelUser
             this.Visible = false;
             FormCollection Fc = new FormCollection(checkRole, checkUsername);
             Fc.ShowDialog();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

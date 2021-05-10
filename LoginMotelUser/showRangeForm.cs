@@ -294,10 +294,10 @@ namespace LoginMotelUser
         {
             if (textIDRange.Text == "")
             {
-                MessageBox.Show("Hay chon id can xoa tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Let's choices ID need to delete!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            DialogResult result = MessageBox.Show("Ban co chac xoa khu vuc co ID = " + textIDRange.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            DialogResult result = MessageBox.Show("Are you sure delete Range ID = " + textIDRange.Text + " ?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             switch (result)
             {
                 case DialogResult.Cancel: return;
@@ -309,6 +309,7 @@ namespace LoginMotelUser
                         listRange.Clear();
                         loadData(0, soLuong);
                         dem = 0;
+                        MessageBox.Show("DELETE IS COMPLETE!");
                         break;
                     }
                 case DialogResult.No: return;
@@ -476,5 +477,9 @@ namespace LoginMotelUser
             Fc.ShowDialog();
         }
 
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

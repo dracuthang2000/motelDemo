@@ -94,6 +94,7 @@ namespace LoginMotelUser
                     textPassword.Text = "";
                     textUsername.Text = "";
                     roleComboBox.SelectedIndex = 0;
+                    MessageBox.Show("COMPLETE!");
                 }
             }
         }
@@ -246,5 +247,9 @@ namespace LoginMotelUser
             Fc.ShowDialog();
         }
 
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

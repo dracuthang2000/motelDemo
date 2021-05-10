@@ -298,7 +298,7 @@ namespace LoginMotelUser
                 }
                 else
                 {
-                    MessageBox.Show("hay chon phong tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Let's choices Room on list!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -309,7 +309,7 @@ namespace LoginMotelUser
             {
                 using (Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4())
                 {
-                    DialogResult result = MessageBox.Show("Ban co chac xoa phong co ID = " + listRoom.FocusedItem.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    DialogResult result = MessageBox.Show("Are you sure delete room ID = " + listRoom.FocusedItem.Text + " ?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)
                     {
                         case DialogResult.Cancel: return;
@@ -321,6 +321,7 @@ namespace LoginMotelUser
                                 listRoom.Clear();
                                 loadRoom(0, soLuong);
                                 dem = 0;
+                                MessageBox.Show("DELETE IS COMPLETE!");
                                 break;
                             }
                         case DialogResult.No: return;
@@ -333,7 +334,7 @@ namespace LoginMotelUser
             }
             else
             {
-                MessageBox.Show("hay chon phong tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Let's Choices Room on list!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         public void setColor()
@@ -491,6 +492,11 @@ namespace LoginMotelUser
             this.Visible = false;
             FormCollection Fc = new FormCollection(checkRole, checkUsername);
             Fc.ShowDialog();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

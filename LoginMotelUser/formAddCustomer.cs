@@ -956,5 +956,10 @@ namespace LoginMotelUser
             FormCollection Fc = new FormCollection(checkRole, checkUsername);
             Fc.ShowDialog();
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

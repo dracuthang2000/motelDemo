@@ -257,6 +257,7 @@ namespace LoginMotelUser
                             saveData(); listService.Clear();
                             loadData(0, soLuong);
                             dem = 0;
+                            MessageBox.Show("COMPLETE!");
                             break;
                         }
                     case DialogResult.No: return;
@@ -332,6 +333,7 @@ namespace LoginMotelUser
                         listService.Clear();
                         loadData(0, soLuong);
                         dem = 0;
+                        MessageBox.Show("DELETE IS COMPELTE!");
                         break;
                     }
                 case DialogResult.No: return;
@@ -495,6 +497,11 @@ namespace LoginMotelUser
             this.Visible = false;
             FormCollection Fc = new FormCollection(checkRole, checkUsername);
             Fc.ShowDialog();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

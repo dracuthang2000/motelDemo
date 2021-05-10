@@ -217,6 +217,7 @@ namespace LoginMotelUser
                                 data.SaveChanges();
                                 listStaff.Clear();
                                 loadData();
+                                MessageBox.Show("DELETE IS COMPLETE!");
                                 break;
                             }
                         case DialogResult.No: return;
@@ -254,7 +255,7 @@ namespace LoginMotelUser
                 }
                 else
                 {
-                    MessageBox.Show("Hay chon quan ly can sua tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Let's Choices Staff on list!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -265,7 +266,7 @@ namespace LoginMotelUser
             {
                 using (Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4())
                 {
-                    DialogResult result = MessageBox.Show("Are you sure DELETE ID CARD = " + listStaff.FocusedItem.Text + " ? (ALL data will be delete!)", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    DialogResult result = MessageBox.Show("Are you sure DELETE ID CARD = " + listStaff.FocusedItem.Text + " ?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)
                     {
                         case DialogResult.Yes:
@@ -429,6 +430,11 @@ namespace LoginMotelUser
             this.Visible = false;
             FormCollection Fc = new FormCollection(checkRole, checkUsername);
             Fc.ShowDialog();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -164,5 +164,15 @@ namespace LoginMotelUser
             AC.ShowDialog();
             this.Close();
         }
+
+        private void button_WOC7_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button_WOC6_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -382,7 +382,7 @@ namespace LoginMotelUser
             {
                 using (Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4())
                 {
-                    DialogResult result = MessageBox.Show("Ban co chac xoa khach co ID = " + listKhach.FocusedItem.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    DialogResult result = MessageBox.Show("Are you sure delete customer ID = " + listKhach.FocusedItem.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)
                     {
                         case DialogResult.Cancel: return;
@@ -397,6 +397,7 @@ namespace LoginMotelUser
                                 listKhach.Clear();
                                 loadCustomer(0, soLuong);
                                 dem = 0;
+                                MessageBox.Show("DELETE IS COMPLETE!");
                                 break;
                             }
                         case DialogResult.No: return;
@@ -409,7 +410,7 @@ namespace LoginMotelUser
             }
             else
             {
-                MessageBox.Show("Hay chon khach can xoa tu danh sach!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Let's choices customer on lis!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
