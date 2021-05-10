@@ -309,10 +309,18 @@ namespace LoginMotelUser
             {
                 using (Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4())
                 {
-                    DialogResult result = MessageBox.Show("Are you sure delete room ID = " + listRoom.FocusedItem.Text + " ?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    var checkRoom = (from room in data.MOTELROOMs
+                                     join rent in data.REINTINFORs on room.ID equals rent.IDRoom
+                                     where room.ID.ToString().Equals(listRoom.FocusedItem.Text)
+                                     select room).ToList();
+                    if (checkRoom.Count > 0)
+                    {
+                        MessageBox.Show("The room is use on another place, you can't delete it", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    DialogResult result = MessageBox.Show("Are you sure delete room ID = " + listRoom.FocusedItem.Text + " ?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)
                     {
-                        case DialogResult.Cancel: return;
                         case DialogResult.Yes:
                             {
                                 Model.MOTELROOM temp = data.MOTELROOMs.Find(int.Parse(listRoom.FocusedItem.Text));
@@ -370,7 +378,7 @@ namespace LoginMotelUser
         private void userToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Update_User udU = new Update_User(checkRole);
+            Update_User udU = new Update_User(checkRole,checkUsername);
             udU.checkUsername = this.checkUsername;
             udU.ShowDialog();
         }

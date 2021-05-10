@@ -266,6 +266,15 @@ namespace LoginMotelUser
             {
                 using (Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4())
                 {
+                    var checkStaff = (from staff in data.STAFFs
+                                     join bill in data.BILLs on staff.ID equals bill.IDStaff
+                                     where staff.IDCard.ToString().Equals(listStaff.FocusedItem.Text)
+                                     select staff).ToList();
+                    if (checkStaff.Count > 0)
+                    {
+                        MessageBox.Show("The Staff is use on another place, you can't delete it", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     DialogResult result = MessageBox.Show("Are you sure DELETE ID CARD = " + listStaff.FocusedItem.Text + " ?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)
                     {
@@ -308,7 +317,7 @@ namespace LoginMotelUser
         private void userToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Update_User udU = new Update_User(checkRole);
+            Update_User udU = new Update_User(checkRole,checkUsername);
             udU.checkUsername = this.checkUsername;
             udU.ShowDialog();
         }

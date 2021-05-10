@@ -13,11 +13,12 @@ namespace LoginMotelUser
     public partial class Update_User : Form
     {
         private Boolean checkRole;
-        public Update_User(Boolean checkRole)
+        public Update_User(Boolean checkRole,String checkUsername)
         {
             InitializeComponent();
             setColor();
             this.checkRole = checkRole;
+            this.checkUsername = checkUsername;
         }
         private bool checkClick = false;
         LoginMotelUser.Model.MotelManagerEntities4 us = new Model.MotelManagerEntities4();
@@ -167,6 +168,15 @@ namespace LoginMotelUser
             }
             else
             {
+                var checkUser = (from user in us.USERs
+                                  join staff in us.STAFFs on user.UserName equals staff.UserName
+                                  where user.UserName.Equals(textUsername.Text)
+                                  select user).ToList();
+                if (checkUser.Count > 0)
+                {
+                    MessageBox.Show("The User is use on another place, you can't delete it", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 foreach (var user in users)
                 {
                     if (user.UserName.Equals(checkUsername.ToLower()))
@@ -220,7 +230,7 @@ namespace LoginMotelUser
         private void userToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Update_User udU = new Update_User(checkRole);
+            Update_User udU = new Update_User(checkRole,checkUsername);
             udU.checkUsername = this.checkUsername;
             udU.ShowDialog();
         }

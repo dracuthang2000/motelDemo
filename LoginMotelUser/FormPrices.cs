@@ -603,7 +603,7 @@ namespace LoginMotelUser
         private void userToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Update_User udU = new Update_User(checkRole);
+            Update_User udU = new Update_User(checkRole,checkUsername);
             udU.checkUsername = this.checkUsername;
             udU.ShowDialog();
         }

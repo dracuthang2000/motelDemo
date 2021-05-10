@@ -205,6 +205,15 @@ namespace LoginMotelUser
             {
                 using (Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4())
                 {
+                    var checkRank = (from rank in data.ROOMRANKs
+                                      join room in data.MOTELROOMs on rank.ID equals room.IDRoomRank
+                                      where rank.ID.ToString().Equals(listRank.FocusedItem.Text)
+                                      select rank).ToList();
+                    if (checkRank.Count > 0)
+                    {
+                        MessageBox.Show("The rank is use on another place, you can't delete it", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     DialogResult result = MessageBox.Show("Are you sure delete rank ID = " + listRank.FocusedItem.Text + " ?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)
                     {
@@ -252,7 +261,7 @@ namespace LoginMotelUser
         private void userToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Update_User udU = new Update_User(checkRole);
+            Update_User udU = new Update_User(checkRole,checkUsername);
             udU.checkUsername = this.checkUsername;
             udU.ShowDialog();
         }

@@ -66,7 +66,7 @@ namespace LoginMotelUser
             }
             else
             {
-                Update_User UpUser = new Update_User(checkRole);
+                Update_User UpUser = new Update_User(checkRole,checkUsername);
                 UpUser.ShowDialog();
             }
             this.Close();

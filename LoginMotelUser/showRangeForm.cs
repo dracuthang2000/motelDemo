@@ -241,7 +241,7 @@ namespace LoginMotelUser
                     var query = (from range in data.ROOMRANGEs
                                  where range.RangeName.Equals(textNewName.Text)
                                  select range).ToList();
-                    DialogResult result = MessageBox.Show("Are you sure Range Name " + textRangeName.Text + " ?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    DialogResult result = MessageBox.Show("Are you sure update Range Name " + textRangeName.Text + " ?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     if (query.Count == 0)
                     {
                         switch (result)
@@ -297,10 +297,18 @@ namespace LoginMotelUser
                 MessageBox.Show("Let's choices ID need to delete!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            DialogResult result = MessageBox.Show("Are you sure delete Range ID = " + textIDRange.Text + " ?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            var checkRange = (from range in data.ROOMRANGEs
+                              join room in data.MOTELROOMs on range.ID equals room.IDRoomRange
+                              where range.ID.ToString().Equals(textIDRange.Text)
+                              select range).ToList();
+            if (checkRange.Count > 0)
+            {
+                MessageBox.Show("The rank is use on another place, you can't delete it", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DialogResult result = MessageBox.Show("Are you sure delete Range ID = " + textIDRange.Text + " ?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             switch (result)
             {
-                case DialogResult.Cancel: return;
                 case DialogResult.Yes:
                     {
                         Model.ROOMRANGE temp = data.ROOMRANGEs.Find(int.Parse(textIDRange.Text));
@@ -353,7 +361,7 @@ namespace LoginMotelUser
         private void userToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Update_User udU = new Update_User(checkRole);
+            Update_User udU = new Update_User(checkRole,checkUsername);
             udU.checkUsername = this.checkUsername;
             udU.ShowDialog();
         }
