@@ -15,7 +15,7 @@ namespace LoginMotelUser
         Boolean checkRole;
         Boolean checkControll;
         private String checkUsername;
-        public NewController(Boolean checkRole, Boolean checkControll,String checkUsername)
+        public NewController(Boolean checkRole, Boolean checkControll,String checkUsername,Byte checkControl)
         {
             InitializeComponent();
             if(checkRole == true)
@@ -33,6 +33,20 @@ namespace LoginMotelUser
                 Range.Visible = false;
                 Staff.Visible = false;
                 Rank.Visible = false;
+            }
+            if(checkControl == 1)
+            {
+                ControllerBill.Visible = false;
+                ControllRent.Visible = false;
+            }else if(checkControl == 2)
+            {
+                ControllerEN.Visible = false;
+                ControllRent.Visible = false;
+            }
+            else
+            {
+                ControllerBill.Visible = false;
+                ControllerEN.Visible = false;
             }
             this.checkControll = checkControll;
             this.checkUsername = checkUsername;
@@ -108,6 +122,46 @@ namespace LoginMotelUser
             this.Visible = false;
             showStaffForm staff = new showStaffForm(checkControll,checkRole,checkUsername);
             staff.ShowDialog();
+            this.Close();
+        }
+
+        private void button_WOC1_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FormPrices FP = new FormPrices(checkUsername, checkRole);
+            FP.ShowDialog();
+            this.Close();
+        }
+
+        private void button_WOC2_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FormCollection Fc = new FormCollection(checkRole, checkUsername);
+            Fc.ShowDialog();
+            this.Close();
+        }
+
+        private void button_WOC3_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FormViewOldBill ViewBill = new FormViewOldBill(checkRole, checkUsername);
+            ViewBill.ShowDialog();
+            this.Close();
+        }
+
+        private void button_WOC4_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            formAddCustomer AC = new formAddCustomer(true, checkUsername, checkRole);
+            AC.ShowDialog();
+            this.Close();
+        }
+
+        private void button_WOC5_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            formAddCustomer AC = new formAddCustomer(false, checkUsername, checkRole);
+            AC.ShowDialog();
             this.Close();
         }
     }

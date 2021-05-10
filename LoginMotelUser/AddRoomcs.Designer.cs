@@ -42,11 +42,11 @@
             this.labIDRoom = new System.Windows.Forms.Label();
             this.labTieuDe = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
-            this.comboState = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableState = new System.Windows.Forms.TableLayoutPanel();
+            this.comboState = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel.SuspendLayout();
@@ -223,18 +223,6 @@
             this.panel.Size = new System.Drawing.Size(662, 455);
             this.panel.TabIndex = 61;
             // 
-            // comboState
-            // 
-            this.comboState.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboState.FormattingEnabled = true;
-            this.comboState.Items.AddRange(new object[] {
-            "Phòng Trống",
-            "Bảo Trì"});
-            this.comboState.Location = new System.Drawing.Point(172, 10);
-            this.comboState.Name = "comboState";
-            this.comboState.Size = new System.Drawing.Size(178, 24);
-            this.comboState.TabIndex = 11;
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
@@ -292,6 +280,18 @@
             this.tableState.Size = new System.Drawing.Size(418, 45);
             this.tableState.TabIndex = 13;
             // 
+            // comboState
+            // 
+            this.comboState.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboState.FormattingEnabled = true;
+            this.comboState.Items.AddRange(new object[] {
+            "Phòng Trống",
+            "Bảo Trì"});
+            this.comboState.Location = new System.Drawing.Point(172, 10);
+            this.comboState.Name = "comboState";
+            this.comboState.Size = new System.Drawing.Size(178, 24);
+            this.comboState.TabIndex = 11;
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
@@ -333,6 +333,7 @@
             this.Controls.Add(this.buttonUp);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddRoomcs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ROOM";
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();

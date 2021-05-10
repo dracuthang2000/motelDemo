@@ -287,6 +287,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "createStaffForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "STAFF UPDATE";
             this.panStaffOpen.ResumeLayout(false);
             this.panStaffOpen.PerformLayout();

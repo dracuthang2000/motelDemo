@@ -24,6 +24,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(showRangeForm));
             this.panRange = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labSearch = new System.Windows.Forms.Label();
@@ -35,10 +36,11 @@
             this.textRangeName = new System.Windows.Forms.TextBox();
             this.NewName = new System.Windows.Forms.Label();
             this.textNewName = new System.Windows.Forms.TextBox();
-            this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
-            this.buttonClear = new ePOSOne.btnProduct.Button_WOC();
-            this.buttonDelete = new ePOSOne.btnProduct.Button_WOC();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonUp = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonDelete = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonClear = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
             this.labPage = new System.Windows.Forms.Label();
             this.butRight = new System.Windows.Forms.Button();
             this.butLeft = new System.Windows.Forms.Button();
@@ -71,14 +73,12 @@
             this.reinforToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panRange.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panRange
@@ -99,6 +99,18 @@
             this.panRange.Name = "panRange";
             this.panRange.Size = new System.Drawing.Size(1127, 651);
             this.panRange.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
+            this.panel1.Controls.Add(this.tableLayoutPanel2);
+            this.panel1.Location = new System.Drawing.Point(13, 67);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(510, 581);
+            this.panel1.TabIndex = 64;
             // 
             // flowLayoutPanel1
             // 
@@ -221,6 +233,93 @@
             this.textNewName.Size = new System.Drawing.Size(202, 22);
             this.textNewName.TabIndex = 12;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.Controls.Add(this.buttonUp, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonDelete, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonClear, 2, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(87, 366);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(330, 51);
+            this.tableLayoutPanel2.TabIndex = 63;
+            // 
+            // buttonUp
+            // 
+            this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUp.BackColor = System.Drawing.Color.Transparent;
+            this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonUp.BorderColor = System.Drawing.Color.Silver;
+            this.buttonUp.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonUp.FlatAppearance.BorderSize = 0;
+            this.buttonUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUp.Location = new System.Drawing.Point(3, 3);
+            this.buttonUp.Name = "buttonUp";
+            this.buttonUp.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonUp.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonUp.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonUp.Size = new System.Drawing.Size(104, 45);
+            this.buttonUp.TabIndex = 57;
+            this.buttonUp.Text = "ADD";
+            this.buttonUp.TextColor = System.Drawing.Color.Black;
+            this.buttonUp.UseVisualStyleBackColor = false;
+            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDelete.BackColor = System.Drawing.Color.Transparent;
+            this.buttonDelete.BorderColor = System.Drawing.Color.Silver;
+            this.buttonDelete.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonDelete.FlatAppearance.BorderSize = 0;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDelete.Location = new System.Drawing.Point(113, 3);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonDelete.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonDelete.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonDelete.Size = new System.Drawing.Size(104, 45);
+            this.buttonDelete.TabIndex = 58;
+            this.buttonDelete.Text = "DELETE";
+            this.buttonDelete.TextColor = System.Drawing.Color.Black;
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClear.BackColor = System.Drawing.Color.Transparent;
+            this.buttonClear.BorderColor = System.Drawing.Color.Silver;
+            this.buttonClear.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonClear.FlatAppearance.BorderSize = 0;
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClear.Location = new System.Drawing.Point(223, 3);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonClear.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonClear.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonClear.Size = new System.Drawing.Size(104, 45);
+            this.buttonClear.TabIndex = 59;
+            this.buttonClear.Text = "CLEAR";
+            this.buttonClear.TextColor = System.Drawing.Color.Black;
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
             // button_WOC1
             // 
             this.button_WOC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -241,76 +340,6 @@
             this.button_WOC1.TextColor = System.Drawing.Color.Black;
             this.button_WOC1.UseVisualStyleBackColor = false;
             this.button_WOC1.Click += new System.EventHandler(this.button_WOC1_Click);
-            // 
-            // buttonClear
-            // 
-            this.buttonClear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonClear.BackColor = System.Drawing.Color.Transparent;
-            this.buttonClear.BorderColor = System.Drawing.Color.Silver;
-            this.buttonClear.ButtonColor = System.Drawing.Color.MediumAquamarine;
-            this.buttonClear.FlatAppearance.BorderSize = 0;
-            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClear.Location = new System.Drawing.Point(221, 3);
-            this.buttonClear.Name = "buttonClear";
-            this.buttonClear.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.buttonClear.OnHoverButtonColor = System.Drawing.Color.Turquoise;
-            this.buttonClear.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonClear.Size = new System.Drawing.Size(106, 45);
-            this.buttonClear.TabIndex = 59;
-            this.buttonClear.Text = "CLEAR";
-            this.buttonClear.TextColor = System.Drawing.Color.Black;
-            this.buttonClear.UseVisualStyleBackColor = false;
-            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDelete.BackColor = System.Drawing.Color.Transparent;
-            this.buttonDelete.BorderColor = System.Drawing.Color.Silver;
-            this.buttonDelete.ButtonColor = System.Drawing.Color.MediumAquamarine;
-            this.buttonDelete.FlatAppearance.BorderSize = 0;
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.Location = new System.Drawing.Point(112, 3);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.buttonDelete.OnHoverButtonColor = System.Drawing.Color.Turquoise;
-            this.buttonDelete.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonDelete.Size = new System.Drawing.Size(103, 45);
-            this.buttonDelete.TabIndex = 58;
-            this.buttonDelete.Text = "DELETE";
-            this.buttonDelete.TextColor = System.Drawing.Color.Black;
-            this.buttonDelete.UseVisualStyleBackColor = false;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            // 
-            // buttonUp
-            // 
-            this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUp.BackColor = System.Drawing.Color.Transparent;
-            this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonUp.BorderColor = System.Drawing.Color.Silver;
-            this.buttonUp.ButtonColor = System.Drawing.Color.MediumAquamarine;
-            this.buttonUp.FlatAppearance.BorderSize = 0;
-            this.buttonUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUp.Location = new System.Drawing.Point(3, 3);
-            this.buttonUp.Name = "buttonUp";
-            this.buttonUp.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.buttonUp.OnHoverButtonColor = System.Drawing.Color.Turquoise;
-            this.buttonUp.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonUp.Size = new System.Drawing.Size(103, 45);
-            this.buttonUp.TabIndex = 57;
-            this.buttonUp.Text = "ADD";
-            this.buttonUp.TextColor = System.Drawing.Color.Black;
-            this.buttonUp.UseVisualStyleBackColor = false;
-            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
             // 
             // labPage
             // 
@@ -615,35 +644,6 @@
             this.checOutToolStripMenuItem.Text = "Chec out";
             this.checOutToolStripMenuItem.Click += new System.EventHandler(this.checOutToolStripMenuItem_Click);
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Controls.Add(this.buttonUp, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.buttonDelete, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.buttonClear, 2, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(87, 366);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(330, 51);
-            this.tableLayoutPanel2.TabIndex = 63;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.flowLayoutPanel1);
-            this.panel1.Controls.Add(this.tableLayoutPanel2);
-            this.panel1.Location = new System.Drawing.Point(13, 67);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(510, 581);
-            this.panel1.TabIndex = 64;
-            // 
             // showRangeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -655,17 +655,18 @@
             this.Controls.Add(this.panRange);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "showRangeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RANGE";
             this.panRange.ResumeLayout(false);
             this.panRange.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

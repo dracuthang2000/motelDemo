@@ -33,6 +33,7 @@
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ServiceName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.unit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textIndex = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textServiceName = new System.Windows.Forms.TextBox();
@@ -49,7 +50,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonRemove = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
-            this.unit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listService
@@ -89,6 +89,10 @@
             // 
             this.Price.Text = "Price";
             this.Price.Width = 150;
+            // 
+            // unit
+            // 
+            this.unit.Text = "Unit";
             // 
             // textIndex
             // 
@@ -264,10 +268,6 @@
             this.button_WOC1.UseVisualStyleBackColor = false;
             this.button_WOC1.Click += new System.EventHandler(this.button_WOC1_Click);
             // 
-            // unit
-            // 
-            this.unit.Text = "Unit";
-            // 
             // AddParticularServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -290,6 +290,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "AddParticularServiceForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CHOOSE SEVICE";
             this.ResumeLayout(false);
             this.PerformLayout();

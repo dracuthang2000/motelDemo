@@ -129,7 +129,7 @@
             // 
             this.cbbDaySC5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC5.FormattingEnabled = true;
-            this.cbbDaySC5.Location = new System.Drawing.Point(109, 7);
+            this.cbbDaySC5.Location = new System.Drawing.Point(109, 5);
             this.cbbDaySC5.Name = "cbbDaySC5";
             this.cbbDaySC5.Size = new System.Drawing.Size(242, 28);
             this.cbbDaySC5.TabIndex = 18;
@@ -282,7 +282,7 @@
             this.lvChiTietHoaDonSC5.HideSelection = false;
             this.lvChiTietHoaDonSC5.Location = new System.Drawing.Point(3, 52);
             this.lvChiTietHoaDonSC5.Name = "lvChiTietHoaDonSC5";
-            this.lvChiTietHoaDonSC5.Size = new System.Drawing.Size(567, 440);
+            this.lvChiTietHoaDonSC5.Size = new System.Drawing.Size(567, 435);
             this.lvChiTietHoaDonSC5.TabIndex = 55;
             this.lvChiTietHoaDonSC5.UseCompatibleStateImageBehavior = false;
             this.lvChiTietHoaDonSC5.View = System.Windows.Forms.View.Details;
@@ -423,7 +423,7 @@
             this.reinforToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1286, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1286, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -666,6 +666,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormViewOldBill";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "temp";
             this.Load += new System.EventHandler(this.frmCollect_Load);
             this.panel13.ResumeLayout(false);

@@ -40,15 +40,14 @@
             this.textPrice = new System.Windows.Forms.TextBox();
             this.textDeposit = new System.Windows.Forms.TextBox();
             this.panRankOpen = new System.Windows.Forms.Panel();
+            this.numericQuantity = new System.Windows.Forms.NumericUpDown();
+            this.QUAN = new System.Windows.Forms.Label();
             this.buttonCancle = new ePOSOne.btnProduct.Button_WOC();
             this.buttonSave = new ePOSOne.btnProduct.Button_WOC();
             this.textAbout = new System.Windows.Forms.TextBox();
-            this.QUAN = new System.Windows.Forms.Label();
-            this.numericQuantity = new System.Windows.Forms.NumericUpDown();
             this.panRankOpen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericQuantity)).BeginInit();
             this.SuspendLayout();
-
             // 
             // labTieuDe
             // 
@@ -159,6 +158,22 @@
             this.panRankOpen.Size = new System.Drawing.Size(683, 563);
             this.panRankOpen.TabIndex = 1;
             // 
+            // numericQuantity
+            // 
+            this.numericQuantity.Location = new System.Drawing.Point(187, 238);
+            this.numericQuantity.Name = "numericQuantity";
+            this.numericQuantity.Size = new System.Drawing.Size(120, 22);
+            this.numericQuantity.TabIndex = 17;
+            // 
+            // QUAN
+            // 
+            this.QUAN.AutoSize = true;
+            this.QUAN.Location = new System.Drawing.Point(51, 238);
+            this.QUAN.Name = "QUAN";
+            this.QUAN.Size = new System.Drawing.Size(61, 17);
+            this.QUAN.TabIndex = 16;
+            this.QUAN.Text = "Quantity";
+            // 
             // buttonCancle
             // 
             this.buttonCancle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCancle.BackgroundImage")));
@@ -209,22 +224,6 @@
             this.textAbout.Size = new System.Drawing.Size(326, 100);
             this.textAbout.TabIndex = 4;
             // 
-            // QUAN
-            // 
-            this.QUAN.AutoSize = true;
-            this.QUAN.Location = new System.Drawing.Point(51, 238);
-            this.QUAN.Name = "QUAN";
-            this.QUAN.Size = new System.Drawing.Size(61, 17);
-            this.QUAN.TabIndex = 16;
-            this.QUAN.Text = "Quantity";
-            // 
-            // numericQuantity
-            // 
-            this.numericQuantity.Location = new System.Drawing.Point(187, 238);
-            this.numericQuantity.Name = "numericQuantity";
-            this.numericQuantity.Size = new System.Drawing.Size(120, 22);
-            this.numericQuantity.TabIndex = 17;
-            // 
             // rankFormSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -234,6 +233,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "rankFormSetting";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "rankOpenForm";
             this.panRankOpen.ResumeLayout(false);
             this.panRankOpen.PerformLayout();

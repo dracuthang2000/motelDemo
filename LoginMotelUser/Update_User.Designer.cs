@@ -614,6 +614,7 @@
             this.Controls.Add(this.dataUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Update_User";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UPDATE USER";
             this.Load += new System.EventHandler(this.Update_User_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataUser)).EndInit();

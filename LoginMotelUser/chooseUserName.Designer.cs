@@ -168,6 +168,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "chooseUserName";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CHOOSEUSERNAME";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.chooseUserName_FormClosing);
             this.ResumeLayout(false);

@@ -476,7 +476,7 @@ namespace LoginMotelUser
         private void buttonNew_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            NewController Ctrl = new NewController(checkRole, true,checkUsername);
+            NewController Ctrl = new NewController(checkRole, true,checkUsername,1);
             Ctrl.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender,e);
@@ -485,7 +485,7 @@ namespace LoginMotelUser
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            NewController Ctrl = new NewController(checkRole, false,checkUsername);
+            NewController Ctrl = new NewController(checkRole, false,checkUsername,1);
             Ctrl.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
@@ -521,6 +521,24 @@ namespace LoginMotelUser
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonBill_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            NewController Ctrl = new NewController(checkRole, false, checkUsername, 2);
+            Ctrl.ShowDialog();
+            this.Visible = true;
+            this.frmHome_Load(sender, e);
+        }
+
+        private void button_Any_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            NewController Ctrl = new NewController(checkRole, false, checkUsername, 3);
+            Ctrl.ShowDialog();
+            this.Visible = true;
+            this.frmHome_Load(sender, e);
         }
     }
 }

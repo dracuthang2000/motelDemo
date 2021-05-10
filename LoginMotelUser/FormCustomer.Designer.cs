@@ -339,6 +339,7 @@
             this.Controls.Add(this.panGuestOpen);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCustomer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CUSTOMER";
             this.panGuestOpen.ResumeLayout(false);
             this.panGuestOpen.PerformLayout();

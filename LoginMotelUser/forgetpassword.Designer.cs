@@ -312,6 +312,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "forgetpassword";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GET PASSWORD";
             this.Load += new System.EventHandler(this.createpassword_Load);
             this.panel1.ResumeLayout(false);

@@ -104,11 +104,11 @@
             this.lbPhongTrongSC1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.buttonNew = new System.Windows.Forms.Button();
             this.button_Any = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonBill = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -821,7 +821,7 @@
             // 
             this.cbbDaySC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC1.FormattingEnabled = true;
-            this.cbbDaySC1.Location = new System.Drawing.Point(192, 12);
+            this.cbbDaySC1.Location = new System.Drawing.Point(192, 16);
             this.cbbDaySC1.Name = "cbbDaySC1";
             this.cbbDaySC1.Size = new System.Drawing.Size(184, 33);
             this.cbbDaySC1.TabIndex = 18;
@@ -937,6 +937,23 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(261, 620);
             this.tableLayoutPanel1.TabIndex = 25;
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(3, 499);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(255, 118);
+            this.button1.TabIndex = 33;
+            this.button1.Text = "Exit";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // buttonNew
             // 
             this.buttonNew.BackColor = System.Drawing.Color.Transparent;
@@ -969,6 +986,7 @@
             this.button_Any.TabIndex = 4;
             this.button_Any.Text = "RENINFOR";
             this.button_Any.UseVisualStyleBackColor = true;
+            this.button_Any.Click += new System.EventHandler(this.button_Any_Click);
             // 
             // buttonEdit
             // 
@@ -998,23 +1016,7 @@
             this.buttonBill.TabIndex = 1;
             this.buttonBill.Text = "BILLS";
             this.buttonBill.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(3, 499);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(255, 118);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonBill.Click += new System.EventHandler(this.buttonBill_Click);
             // 
             // Admin_Formcs
             // 
@@ -1030,6 +1032,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Admin_Formcs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HOME";
             this.Load += new System.EventHandler(this.frmHome_Load);
             this.menuStrip1.ResumeLayout(false);
