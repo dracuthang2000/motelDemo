@@ -292,6 +292,7 @@
             this.Name = "AddParticularServiceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CHOOSE SEVICE";
+            this.Load += new System.EventHandler(this.AddParticularServiceForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

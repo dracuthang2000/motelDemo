@@ -79,13 +79,13 @@ namespace LoginMotelUser
                 Model.SERVICE b = data.SERVICEs.Find(a);
                 textServiceName.Text = b.ServiceName;
                 textPrice.Text = b.Price.ToString();
-                textUnit.Text = b.Unit;
+                comboBoxUnit.Text = b.Unit;
             }
         }
         public void saveData()
         {
             decimal a = decimal.Parse(textPrice.Text);
-            Model.SERVICE temp = new Model.SERVICE() { ServiceName = textServiceName.Text, Price = a, Unit = textUnit.Text};
+            Model.SERVICE temp = new Model.SERVICE() { ServiceName = textServiceName.Text, Price = a, Unit = comboBoxUnit.Text};
             data.SERVICEs.Add(temp);
             data.SaveChanges();
         }
@@ -94,7 +94,7 @@ namespace LoginMotelUser
             Model.SERVICE a = data.SERVICEs.Find(int.Parse(textIDService.Text));     
             decimal b = decimal.Parse(textPrice.Text);
             a.Price = b;
-            a.Unit=textUnit.Text;
+            a.Unit=comboBoxUnit.Text;
             data.SaveChanges();
         }
 
@@ -214,13 +214,13 @@ namespace LoginMotelUser
                 {
                     textIDService.Text = ser.ID.ToString();
                     textPrice.Text = ser.Price.ToString();
-                    textUnit.Text = ser.Unit;
+                    comboBoxUnit.Text = ser.Unit;
                 }
                 if(query.Count == 0)
                 {
                     textIDService.Text = "";
                     textPrice.Text = "";
-                    textUnit.Text = "";
+                    comboBoxUnit.SelectedIndex = -1;
                     buttonSave.Visible = false;
                 }
                 else
@@ -349,7 +349,7 @@ namespace LoginMotelUser
             textIDService.Text = "";
             textServiceName.Text = "";
             textPrice.Text = "";
-            textUnit.Text = "";
+            comboBoxUnit.SelectedIndex = -1;
             textSearch.Text = "";
         }
 

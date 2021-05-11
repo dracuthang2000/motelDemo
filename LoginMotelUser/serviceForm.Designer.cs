@@ -45,7 +45,6 @@
             this.labID = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.textUnit = new System.Windows.Forms.TextBox();
             this.buttonClear = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
             this.buttonSave = new ePOSOne.btnProduct.Button_WOC();
@@ -76,6 +75,7 @@
             this.reinforToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBoxUnit = new System.Windows.Forms.ComboBox();
             this.panService.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -232,8 +232,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.comboBoxUnit);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textUnit);
             this.panel1.Controls.Add(this.textSearch);
             this.panel1.Controls.Add(this.buttonClear);
             this.panel1.Controls.Add(this.labSearch);
@@ -258,13 +258,6 @@
             this.label2.Size = new System.Drawing.Size(33, 17);
             this.label2.TabIndex = 62;
             this.label2.Text = "Unit";
-            // 
-            // textUnit
-            // 
-            this.textUnit.Location = new System.Drawing.Point(177, 274);
-            this.textUnit.Name = "textUnit";
-            this.textUnit.Size = new System.Drawing.Size(167, 22);
-            this.textUnit.TabIndex = 61;
             // 
             // buttonClear
             // 
@@ -428,7 +421,7 @@
             // 
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.exitToolStripMenuItem.Text = "Home";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -573,6 +566,21 @@
             this.checOutToolStripMenuItem.Text = "Check out";
             this.checOutToolStripMenuItem.Click += new System.EventHandler(this.checOutToolStripMenuItem_Click);
             // 
+            // comboBoxUnit
+            // 
+            this.comboBoxUnit.FormattingEnabled = true;
+            this.comboBoxUnit.Items.AddRange(new object[] {
+            "kilowat/h",
+            "meter^3",
+            "lan",
+            "nguoi",
+            "chiec",
+            "phong"});
+            this.comboBoxUnit.Location = new System.Drawing.Point(177, 277);
+            this.comboBoxUnit.Name = "comboBoxUnit";
+            this.comboBoxUnit.Size = new System.Drawing.Size(167, 24);
+            this.comboBoxUnit.TabIndex = 62;
+            // 
             // serviceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -646,6 +654,6 @@
         private System.Windows.Forms.ToolStripMenuItem serviceToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem staffToolStripMenuItem1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textUnit;
+        private System.Windows.Forms.ComboBox comboBoxUnit;
     }
 }

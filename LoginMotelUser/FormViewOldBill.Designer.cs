@@ -129,7 +129,7 @@
             // 
             this.cbbDaySC5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC5.FormattingEnabled = true;
-            this.cbbDaySC5.Location = new System.Drawing.Point(109, 7);
+            this.cbbDaySC5.Location = new System.Drawing.Point(109, 5);
             this.cbbDaySC5.Name = "cbbDaySC5";
             this.cbbDaySC5.Size = new System.Drawing.Size(242, 28);
             this.cbbDaySC5.TabIndex = 18;
@@ -399,6 +399,7 @@
             this.buttonDelete.Text = "DELETE";
             this.buttonDelete.TextColor = System.Drawing.Color.Black;
             this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Visible = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // label134

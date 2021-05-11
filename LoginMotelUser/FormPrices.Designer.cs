@@ -139,11 +139,11 @@
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(75, 22);
+            this.label19.Location = new System.Drawing.Point(27, 22);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(210, 25);
+            this.label19.Size = new System.Drawing.Size(306, 25);
             this.label19.TabIndex = 3;
-            this.label19.Text = "Thông tin người thuê";
+            this.label19.Text = "INFORMATION CUSTOMERS";
             // 
             // label17
             // 
@@ -171,7 +171,7 @@
             // 
             this.cbbDaySC4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC4.FormattingEnabled = true;
-            this.cbbDaySC4.Location = new System.Drawing.Point(105, 11);
+            this.cbbDaySC4.Location = new System.Drawing.Point(105, 12);
             this.cbbDaySC4.Name = "cbbDaySC4";
             this.cbbDaySC4.Size = new System.Drawing.Size(232, 28);
             this.cbbDaySC4.TabIndex = 18;
@@ -220,7 +220,7 @@
             // 
             this.cbbLoaiPhongSC4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbLoaiPhongSC4.FormattingEnabled = true;
-            this.cbbLoaiPhongSC4.Location = new System.Drawing.Point(105, 61);
+            this.cbbLoaiPhongSC4.Location = new System.Drawing.Point(105, 62);
             this.cbbLoaiPhongSC4.Name = "cbbLoaiPhongSC4";
             this.cbbLoaiPhongSC4.Size = new System.Drawing.Size(232, 28);
             this.cbbLoaiPhongSC4.TabIndex = 36;

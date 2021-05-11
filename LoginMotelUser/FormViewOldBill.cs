@@ -41,7 +41,7 @@ namespace LoginMotelUser
         {
             lvDanhSachHoaDonSC5.Items.Clear();
             var bills = (from b in db.BILLs
-                         where b.TotalMoney != null
+                         where b.TotalMoney != null && b.Paid == true
                          select b).ToList();
             foreach (var bill in bills)
             {
@@ -67,7 +67,7 @@ namespace LoginMotelUser
         {
             lvDanhSachHoaDonSC5.Items.Clear();
             var bills = (from b in db.BILLs
-                         where b.MOTELROOM.RoomName.Contains(txtIDPhongSC5.Text) && b.Paid == false && b.MOTELROOM.ROOMRANGE.RangeName.Contains(cbbDaySC5.Text)
+                         where b.MOTELROOM.RoomName.Contains(txtIDPhongSC5.Text) && b.Paid == true && b.MOTELROOM.ROOMRANGE.RangeName.Contains(cbbDaySC5.Text) &&  b.TotalMoney!=null
                          select b).ToList();
 
             foreach (var bill in bills)
@@ -101,7 +101,7 @@ namespace LoginMotelUser
                             select r;
                 var bills = (from b in db.BILLs
                              join r in Rooms on b.IDRoom equals r.ID
-                             where b.TotalMoney !=null
+                             where b.TotalMoney !=null && b.Paid == true
                              select b).ToList();
                 if (bills.Count > 0)
                 {
@@ -245,7 +245,6 @@ namespace LoginMotelUser
             //Create Header and Data
             String[] Header = { "STT", "Tên Dịch Vụ", "Chỉ Số Đầu", "Chỉ Số Cuối", "Đơn Giá", "Thành Tiền" };
 
-            String[][] data = new String[list1.Count + 1][];
 
             var services = (from p in db.PARTICULARSERVICEs
                             join s in db.SERVICEs on p.IDService equals s.ID
@@ -254,12 +253,12 @@ namespace LoginMotelUser
                             select new
                             {
                                 s.ServiceName,
-                                s.Price,
                                 p.OldIndex,
                                 p.NewIndex,
+                                s.Price,
                                 p.Total,
                             }).ToList();
-
+            String[][] data = new String[services.Count + 1][];
             int j = 0;
             foreach (var temp in services)
             {
@@ -269,7 +268,7 @@ namespace LoginMotelUser
                 j++;
             }
             String[] b = { "Tổng Tiền", "", list1[0].TotalMoney.ToString() };
-            data[list1.Count] = b;
+            data[services.Count] = b;
             //Add Cells
             table.ResetCells(data.Length + 1, Header.Length);
 
@@ -350,8 +349,8 @@ namespace LoginMotelUser
                 }
 
             }
-            table.ApplyHorizontalMerge(list1.Count + 1, 0, 1);
-            table.ApplyHorizontalMerge(list1.Count + 1, 2, 5);
+            table.ApplyHorizontalMerge(services.Count + 1, 0, 1);
+            table.ApplyHorizontalMerge(services.Count + 1, 2, 5);
             Paragraph p5 = doc.Sections[0].AddParagraph();
             p5.Format.Tabs.AddTab(20).Justification = TabJustification.Right;
             p5.Format.Tabs.AddTab(300).Justification = TabJustification.Left;

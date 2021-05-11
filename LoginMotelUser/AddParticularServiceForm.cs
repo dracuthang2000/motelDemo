@@ -13,6 +13,8 @@ namespace LoginMotelUser
     public partial class AddParticularServiceForm : Form
     {
         int IDcheck;
+        String Unit;
+        Boolean checkLogout;
         public AddParticularServiceForm(String idRoom)
         {
             InitializeComponent();
@@ -20,11 +22,10 @@ namespace LoginMotelUser
             createNewList();
             IDcheck = int.Parse(idRoom);
         }
-        private ListView listViewback;
+        private ListView listViewback = new ListView();
         public AddParticularServiceForm(ListView list, String idRoom)
         {
             InitializeComponent();
-            listViewback = new ListView();
             foreach (ListViewItem listv in list.Items)
             {
                 ListViewItem listb = new ListViewItem(listv.SubItems[0].Text);
@@ -49,8 +50,9 @@ namespace LoginMotelUser
             foreach (var service in query)
             {
                 ListViewItem list = new ListViewItem(service.ID.ToString());
+                Double price = Double.Parse(service.Price.ToString().Replace(",", ""));
                 list.SubItems.Add(service.ServiceName);
-                list.SubItems.Add(service.Price.ToString());
+                list.SubItems.Add(price.ToString());
                 list.SubItems.Add(service.Unit);
                 listService.Items.Add(list);
             }
@@ -78,6 +80,7 @@ namespace LoginMotelUser
                     ListViewItem list = new ListViewItem(IDser.ToString());
                     list.SubItems.Add(service.ServiceName);
                     list.SubItems.Add(service.Price.ToString());
+                    list.SubItems.Add(service.Unit);
                     listService.Items.Add(list);
                 }
             }
@@ -125,6 +128,10 @@ namespace LoginMotelUser
         }
         public ListView listServiceChoose()
         {
+            if (checkLogout == false) {
+                
+                return listViewback;
+            }
             ListView listView = new ListView();
             foreach (ListViewItem l in listServicePar.Items)
             {
@@ -144,44 +151,48 @@ namespace LoginMotelUser
                 IDlist = (listService.SelectedItems[0].Text);
                 textServiceName.Text = listService.SelectedItems[0].SubItems[1].Text;
                 Pricelist = listService.SelectedItems[0].SubItems[2].Text;
+                Unit = listService.SelectedItems[0].SubItems[3].Text;
                 loadOldindex(int.Parse(IDlist));
             }
         }
 
         private void buttonADD_Click(object sender, EventArgs e)
         {
-            if (!textIndex.Text.Trim().Equals("") || !textOldIndex.Text.Trim().Equals(""))
+            if (!textIndex.Text.Trim().Equals("") && !textOldIndex.Text.Trim().Equals(""))
             {
-                if (int.Parse(textOldIndex.Text) <= int.Parse(textIndex.Text))
+                if ((int.Parse(textOldIndex.Text) <= int.Parse(textIndex.Text) && Unit.Equals("meter^3")) || (int.Parse(textOldIndex.Text) <= int.Parse(textIndex.Text) && Unit.Equals("kilowat/h")) || !Unit.Equals("kilowat/h") && !Unit.Equals("meter^3"))
                 {
                     if (int.Parse(textOldIndex.Text) == 0)
                     {
                         Decimal price = int.Parse(textIndex.Text) * Decimal.Parse(Pricelist);
+                        Double priceSer = Double.Parse(price.ToString().Replace(",", ""));
                         ListViewItem list = new ListViewItem(IDlist);
                         list.SubItems.Add(textServiceName.Text);
                         list.SubItems.Add(textIndex.Text);
                         list.SubItems.Add(textOldIndex.Text);
-                        list.SubItems.Add(price.ToString());
+                        list.SubItems.Add(priceSer.ToString());
                         listServicePar.Items.Add(list);
                     }
-                    else if (int.Parse(textIndex.Text) < 5)
+                    else if (!Unit.Equals("kilowat/h") && !Unit.Equals("meter^3"))
                     {
                         Decimal price = int.Parse(textIndex.Text) * Decimal.Parse(Pricelist);
+                        Double priceSer = Double.Parse(price.ToString().Replace(",", ""));
                         ListViewItem list = new ListViewItem(IDlist);
                         list.SubItems.Add(textServiceName.Text);
                         list.SubItems.Add(textIndex.Text);
                         list.SubItems.Add(textOldIndex.Text);
-                        list.SubItems.Add(price.ToString());
+                        list.SubItems.Add(priceSer.ToString());
                         listServicePar.Items.Add(list);
                     }
                     else
                     {
                         Decimal price = (int.Parse(textIndex.Text) - int.Parse(textOldIndex.Text)) * Decimal.Parse(Pricelist);
+                        Double priceSer = Double.Parse(price.ToString().Replace(",", ""));
                         ListViewItem list = new ListViewItem(IDlist);
                         list.SubItems.Add(textServiceName.Text);
                         list.SubItems.Add(textIndex.Text);
                         list.SubItems.Add(textOldIndex.Text);
-                        list.SubItems.Add(price.ToString());
+                        list.SubItems.Add(priceSer.ToString());
                         listServicePar.Items.Add(list);
                     }
 
@@ -210,18 +221,12 @@ namespace LoginMotelUser
             if (listServicePar.SelectedItems.Count > 0)
             {
                 IDlist = listServicePar.SelectedItems[0].Text;
-                serviceName = listServicePar.SelectedItems[0].SubItems[1].Text;
-                if (int.Parse(listServicePar.SelectedItems[0].SubItems[3].Text) > 6)
-                {
-                    Pricelist = (Decimal.Parse(listServicePar.SelectedItems[0].SubItems[4].Text) /
-                        (int.Parse(listServicePar.SelectedItems[0].SubItems[2].Text) -
-                        int.Parse(listServicePar.SelectedItems[0].SubItems[3].Text))).ToString();
-                }
-                else
-                {
-                    Pricelist = (Decimal.Parse(listServicePar.SelectedItems[0].SubItems[4].Text) /
-                             (int.Parse(listServicePar.SelectedItems[0].SubItems[2].Text))).ToString();
-                }
+                var price = (from service in db.SERVICEs
+                             where service.ID.ToString() == IDlist
+                             select service).ToList();
+                Pricelist = price[0].Price.ToString();
+                Unit = price[0].Unit;
+                serviceName = price[0].ServiceName;
             }
         }
 
@@ -247,10 +252,11 @@ namespace LoginMotelUser
                         listServicePar.Items.RemoveAt(listServicePar.SelectedIndices[i]);
 
                 }
-
+                Double priceSer = Double.Parse(Pricelist.Replace(",", ""));
                 ListViewItem list = new ListViewItem(IDlist);
                 list.SubItems.Add(serviceName);
-                list.SubItems.Add(Pricelist);
+                list.SubItems.Add(priceSer.ToString());
+                list.SubItems.Add(Unit);
                 listService.Items.Add(list);
 
                 IDlist = "";
@@ -266,6 +272,7 @@ namespace LoginMotelUser
         private void button_WOC1_Click(object sender, EventArgs e)
         {
             listServiceChoose();
+            checkLogout = true;
             this.Close();
         }
 
@@ -275,6 +282,11 @@ namespace LoginMotelUser
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label5.BackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void AddParticularServiceForm_Load(object sender, EventArgs e)
+        {
+            checkLogout = false;
         }
     }
 }

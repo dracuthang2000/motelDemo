@@ -187,7 +187,9 @@ namespace LoginMotelUser
                     db.BILLs.Remove(bill);
                 }
                 db.SaveChanges();
+                loadListViewDanhSachHoaDon();
                 MessageBox.Show("Delete complete!");
+                lvChiTietHoaDonSC5.Items.Clear();
 
             }
         }
