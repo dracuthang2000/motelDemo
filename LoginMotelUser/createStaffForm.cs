@@ -297,7 +297,31 @@ namespace LoginMotelUser
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            if (catchData() == false) return;
+            if (textHoTen.Text.Trim() == "")
+            {
+                MessageBox.Show("Name is incorrect", "ERORR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (textAddress.Text.Trim() == "")
+            {
+                MessageBox.Show("Address is incorrect", "ERORR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (textUserName.Text.Trim() == "")
+            {
+                MessageBox.Show("UserName is incorrect", "ERORR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (comBoxSexual.Text.Trim() == "")
+            {
+                MessageBox.Show("Sexual is incorrect", "ERORR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if((DateTime.Now.Year - datePickerBirth.Value.Year) < 18)
+            {
+                MessageBox.Show("The Date of birth is incorrect( >18 year old)", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             List<Model.STAFF> list = (from b in data.STAFFs where b.ID == IDStaff select b).ToList();
             if (checkUpdate == true)
             {
