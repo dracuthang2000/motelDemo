@@ -30,6 +30,7 @@ namespace LoginMotelUser
                 buttonADD.Visible = false;
                 buttonCheckOut.Visible = true;
             }
+            ButtonDelete.Visible = false;
             this.checkUsername = userName;
             this.checkRole = checkRole;
             this.checkControll = check;
@@ -259,6 +260,7 @@ namespace LoginMotelUser
             if (lvDanhSachPhongSC3.SelectedItems.Count > 0)
             {
                 Clear();
+                ButtonDelete.Visible = false;
                 ListViewItem lvi = lvDanhSachPhongSC3.SelectedItems[0];
                 int IDRoom = int.Parse(lvi.Text);
                 lbPhongSC3.Text = lvi.Text;
@@ -428,6 +430,7 @@ namespace LoginMotelUser
                     dtDateSC3.Value = (DateTime)cus.DateOfBirth;
                     cbbGioiTinhSC3.Text = cus.Sexual;
                 }
+                ButtonDelete.Visible = true;
 
                 //txtCMNDSC3.Enabled = false;
                 txtDiaChiSC3.Enabled = false;
@@ -960,6 +963,65 @@ namespace LoginMotelUser
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult d = MessageBox.Show("ARE YOU SURE DELETE " + txtCMNDSC3.Text + " ?", "DELETE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (d == DialogResult.Yes)
+            {
+                var idCus = from cus in db.CUSTOMERs
+                            where cus.IDCard == txtCMNDSC3.Text
+                            select cus;
+                int IDroom = int.Parse(lbPhongSC3.Text);
+                foreach (var cus in idCus)
+                {
+                    var date = db.REINTINFORs.Where(rein => rein.IDCustomer == cus.ID && rein.IDRoom == IDroom && rein.CheckOutDate == null).Select(rein => rein.CheckInDate).Max().Date;
+                    Model.REINTINFOR temp = db.REINTINFORs.Where(rein => rein.IDCustomer == cus.ID && rein.IDRoom == IDroom && EntityFunctions.TruncateTime(rein.CheckInDate) == date).FirstOrDefault();
+                    //foreach (var rein in temp)
+                    //{
+                    //    db.REINTINFORs.Attach(rein);
+                    //    db.REINTINFORs.Remove(rein);
+                    //}
+                    db.Entry(temp).State = EntityState.Deleted;
+                }
+                db.SaveChanges();
+                clear();
+                MessageBox.Show("COMPLETE", "MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+            lvDanhSachKhachSC3.Items.Clear();
+            int IDRoom = int.Parse(lbPhongSC3.Text);
+            var customer = (from Room in db.MOTELROOMs
+                            join Ren in db.REINTINFORs on Room.ID equals Ren.IDRoom
+                            join Cus in db.CUSTOMERs on Ren.IDCustomer equals Cus.ID
+                            where Room.ID == IDRoom && Ren.CheckOutDate == null
+                            select Cus).ToList();
+            var Quantity = (from Room in db.MOTELROOMs
+                            where IDRoom == Room.ID
+                            select Room).ToList();
+            if (customer.Count == 0)
+            {
+                var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
+                temp.StateRoom = 1;
+                db.SaveChanges();
+                frmAddCustomer_Load(sender, e);
+            }
+            else if (customer.Count == Quantity[0].ROOMRANK.Quantity)
+            {
+                var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
+                temp.StateRoom = 3;
+                db.SaveChanges();
+                frmAddCustomer_Load(sender, e);
+            }
+            foreach (var c in customer)
+            {
+                ListViewItem lv = new ListViewItem(c.IDCard);
+                lv.SubItems.Add(c.CustomerName);
+                lv.SubItems.Add(c.Sexual);
+                lv.SubItems.Add(c.Address);
+                lvDanhSachKhachSC3.Items.Add(lv);
+            }
+            Clear();
         }
     }
 }

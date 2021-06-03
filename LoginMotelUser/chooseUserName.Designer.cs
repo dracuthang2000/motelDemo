@@ -112,7 +112,7 @@
             // 
             // buttonOK
             // 
-            this.buttonOK.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonOK.BackColor = System.Drawing.Color.Transparent;
             this.buttonOK.BorderColor = System.Drawing.Color.Silver;
             this.buttonOK.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.buttonOK.FlatAppearance.BorderSize = 0;
@@ -132,7 +132,7 @@
             // 
             // buttonCancle
             // 
-            this.buttonCancle.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonCancle.BackColor = System.Drawing.Color.Transparent;
             this.buttonCancle.BorderColor = System.Drawing.Color.Silver;
             this.buttonCancle.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.buttonCancle.FlatAppearance.BorderSize = 0;

@@ -61,8 +61,7 @@
             // button_WOC1
             // 
             this.button_WOC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_WOC1.BackColor = System.Drawing.Color.Peru;
-            this.button_WOC1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_WOC1.BackgroundImage")));
+            this.button_WOC1.BackColor = System.Drawing.Color.Transparent;
             this.button_WOC1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button_WOC1.BorderColor = System.Drawing.Color.Silver;
             this.button_WOC1.ButtonColor = System.Drawing.Color.MediumAquamarine;
@@ -84,8 +83,7 @@
             // buttonUp
             // 
             this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonUp.BackColor = System.Drawing.Color.Peru;
-            this.buttonUp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonUp.BackgroundImage")));
+            this.buttonUp.BackColor = System.Drawing.Color.Transparent;
             this.buttonUp.BorderColor = System.Drawing.Color.Silver;
             this.buttonUp.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.buttonUp.FlatAppearance.BorderSize = 0;

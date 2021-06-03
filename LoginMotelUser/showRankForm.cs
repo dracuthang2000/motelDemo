@@ -12,7 +12,7 @@ namespace LoginMotelUser
 {
     public partial class showRankForm : Form
     {
-        int soLuong = 2;
+        int soLuong = 15;
         int dem;
         int tong;
         int tinh;

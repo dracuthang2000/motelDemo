@@ -27,16 +27,24 @@ namespace LoginMotelUser
         {
             InitializeComponent();
             setColor();
+            if (check == true)
+            {
+                buttonUp.Visible = false;
+            }
             this.check = check;
             datePickerCheckIn.Visible = false;
             datePickerCheckOut.Visible = false;
             label1.Visible = true;
             label2.Visible = true;
         }
-        public FormCustomer(String a,Boolean check)
+        public FormCustomer(String a, Boolean check)
         {
             InitializeComponent();
             setColor();
+            if (check == true)
+            {
+                buttonUp.Visible = false;
+            }
             this.check = check;
             this.textIDCus.Text = a;
             label1.Visible = false;
@@ -185,6 +193,7 @@ namespace LoginMotelUser
 
         private void textIDCus_TextChanged(object sender, EventArgs e)
         {
+
             if (check == true)
             {
                 if (textIDCus.Text.Length == 9)
@@ -223,37 +232,48 @@ namespace LoginMotelUser
                         datePickerCheckIn.Enabled = false;
                         buttonUp.Enabled = false;
                     }
-                    if (query.Count == 0)
+                    if(query.Count == 0)
                     {
-                        var cus = (from Cus in data.CUSTOMERs
-                                   where Cus.IDCard.Equals(textIDCus.Text)
-                                   select Cus).ToList();
-                        foreach (var Customer in cus)
+                        var cus = (from customer in data.CUSTOMERs
+                                  where customer.IDCard == textIDCus.Text
+                                  select customer).ToList();
+                        foreach(var value in cus)
                         {
-                            textHoTen.Text = Customer.CustomerName;
-                            textAddress.Text = Customer.Address;
-                            textSDT.Text = Customer.NumberPhone;
-                            datePickerBirth.Value = (DateTime)Customer.DateOfBirth;
-                            comBoxSexual.Text = Customer.Sexual;
-
+                            textAddress.Text = value.Address;
+                            textHoTen.Text = value.CustomerName;
+                            textSDT.Text = value.NumberPhone;
+                            datePickerBirth.Value = value.DateOfBirth.Value.Date;
+                            comBoxSexual.Text = value.Sexual;
 
                             textHoTen.Enabled = false;
                             textAddress.Enabled = false;
                             textSDT.Enabled = false;
                             datePickerBirth.Enabled = false;
                             comBoxSexual.Enabled = false;
-                            buttonUp.Enabled = false;
+                        }
+                        if (cus.Count == 0)
+                        {
+
+                            textHoTen.Enabled = true;
+                            textAddress.Enabled = true;
+                            textSDT.Enabled = true;
+                            datePickerBirth.Enabled = true;
+                            comBoxSexual.Enabled = true;
+                            buttonUp.Enabled = true;
+                            buttonUp.Visible = true;
                         }
                     }
+                   
                 }
                 else if (textIDCus.Text.Length < 9)
                 {
 
-                    textHoTen.Enabled = true;
-                    textAddress.Enabled = true;
-                    textSDT.Enabled = true;
-                    datePickerBirth.Enabled = true;
-                    comBoxSexual.Enabled = true;
+                    textHoTen.Enabled = false;
+                    textAddress.Enabled = false;
+                    textSDT.Enabled = false;
+                    datePickerBirth.Enabled = false;
+                    comBoxSexual.Enabled = false;
+                    buttonUp.Visible = false;
 
                     textHoTen.Text = "";
                     textAddress.Text = "";
@@ -272,6 +292,31 @@ namespace LoginMotelUser
 
         private void buttonADD_Click(object sender, EventArgs e)
         {
+            if(textHoTen.Text.Trim() == "")
+            {
+                MessageBox.Show("The name is incorrect", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if(textSDT.Text.Trim() == "")
+            {
+                MessageBox.Show("The number phone is incorrect", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (textAddress.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("The Address is incorrect", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if((DateTime.Now.Year - datePickerBirth.Value.Year ) < 13)
+            {
+                MessageBox.Show("The Date of birth is incorrect( >12 year old)", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (comBoxSexual.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("The Sexual is incorrect", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (catchData() == false) return;
             if (check == true)
             {
@@ -300,9 +345,11 @@ namespace LoginMotelUser
                     switch (result)
                     {
                         case DialogResult.Cancel: return;
-                        case DialogResult.Yes: { updateData(); this.Close(); break;
+                        case DialogResult.Yes:
+                            {
+                                updateData(); this.Close(); break;
                                 MessageBox.Show("COMPLETE!");
-                            
+
                             }
                         case DialogResult.No: return;
 
@@ -343,6 +390,30 @@ namespace LoginMotelUser
             this.labSDT.BackColor = System.Drawing.Color.Transparent;
             this.labSexual.BackColor = System.Drawing.Color.Transparent;
             this.labTieuDe.BackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void textIDCus_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

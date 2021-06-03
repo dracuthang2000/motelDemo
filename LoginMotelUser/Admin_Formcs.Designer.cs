@@ -821,7 +821,7 @@
             // 
             this.cbbDaySC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC1.FormattingEnabled = true;
-            this.cbbDaySC1.Location = new System.Drawing.Point(192, 12);
+            this.cbbDaySC1.Location = new System.Drawing.Point(192, 16);
             this.cbbDaySC1.Name = "cbbDaySC1";
             this.cbbDaySC1.Size = new System.Drawing.Size(184, 33);
             this.cbbDaySC1.TabIndex = 18;

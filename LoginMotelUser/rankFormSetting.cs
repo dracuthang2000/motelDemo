@@ -29,7 +29,7 @@ namespace LoginMotelUser
                 textPrice.Enabled = false;
                 textDeposit.Enabled = false;
                 textAbout.Enabled = false;
-                buttonSave.Enabled = false;
+                buttonSave.Visible = false;
             }
             this.check = check;
         }
@@ -42,7 +42,7 @@ namespace LoginMotelUser
                 textPrice.Enabled = false;
                 textDeposit.Enabled = false;
                 textAbout.Enabled = false;
-                buttonSave.Enabled = false;
+                buttonSave.Visible = false;
             }
             this.check = check;
             loadData(a);
@@ -98,11 +98,6 @@ namespace LoginMotelUser
             data.SaveChanges();
 
         }
-        private void butUpdate_Click(object sender, EventArgs e)
-        {
-          
-
-        }
         private void butExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -120,7 +115,7 @@ namespace LoginMotelUser
                     textPrice.Enabled = true;
                     textDeposit.Enabled = true;
                     textAbout.Enabled = true;
-                    buttonSave.Enabled = true;
+                    buttonSave.Visible = true;
 
                     textPrice.Text = "";
                     textDeposit.Text = "";
@@ -132,7 +127,7 @@ namespace LoginMotelUser
                     textPrice.Enabled = false;
                     textDeposit.Enabled = false;
                     textAbout.Enabled = false;
-                    buttonSave.Enabled = false;
+                    buttonSave.Visible = false;
                     if (textRankName.Text.Trim().Equals(""))
                     {
                         textPrice.Text = "";
@@ -153,6 +148,17 @@ namespace LoginMotelUser
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+
+            if(textDeposit.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("The Deposit is incorrect", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (textPrice.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("The price is incorrect", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (check == true)
             {
                 DialogResult result = MessageBox.Show("Are you sure Save Rank?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
@@ -217,6 +223,28 @@ namespace LoginMotelUser
             this.GhiAbout.BackColor = System.Drawing.Color.Transparent;
         }
 
+        private void textDeposit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
 
+        private void textPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

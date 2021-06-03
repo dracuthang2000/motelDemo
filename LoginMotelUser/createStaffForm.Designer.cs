@@ -80,19 +80,18 @@
             // 
             // buttonCancle
             // 
-            this.buttonCancle.BackColor = System.Drawing.Color.Peru;
-            this.buttonCancle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCancle.BackgroundImage")));
+            this.buttonCancle.BackColor = System.Drawing.Color.Transparent;
             this.buttonCancle.BorderColor = System.Drawing.Color.Silver;
             this.buttonCancle.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.buttonCancle.FlatAppearance.BorderSize = 0;
             this.buttonCancle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancle.Location = new System.Drawing.Point(805, 629);
+            this.buttonCancle.Location = new System.Drawing.Point(805, 619);
             this.buttonCancle.Name = "buttonCancle";
             this.buttonCancle.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonCancle.OnHoverButtonColor = System.Drawing.Color.Turquoise;
             this.buttonCancle.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonCancle.Size = new System.Drawing.Size(80, 30);
+            this.buttonCancle.Size = new System.Drawing.Size(80, 40);
             this.buttonCancle.TabIndex = 18;
             this.buttonCancle.Text = "CANCLE";
             this.buttonCancle.TextColor = System.Drawing.Color.Black;
@@ -101,19 +100,18 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.BackColor = System.Drawing.Color.Peru;
-            this.buttonSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSave.BackgroundImage")));
+            this.buttonSave.BackColor = System.Drawing.Color.Transparent;
             this.buttonSave.BorderColor = System.Drawing.Color.Silver;
             this.buttonSave.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.buttonSave.FlatAppearance.BorderSize = 0;
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(3, 629);
+            this.buttonSave.Location = new System.Drawing.Point(0, 619);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonSave.OnHoverButtonColor = System.Drawing.Color.Turquoise;
             this.buttonSave.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonSave.Size = new System.Drawing.Size(80, 30);
+            this.buttonSave.Size = new System.Drawing.Size(80, 40);
             this.buttonSave.TabIndex = 17;
             this.buttonSave.Text = "SAVE";
             this.buttonSave.TextColor = System.Drawing.Color.Black;

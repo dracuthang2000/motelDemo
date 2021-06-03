@@ -28,7 +28,7 @@ namespace LoginMotelUser
             dem = 0;
             if(check == true)
             {
-                buttonUp.Enabled = false;
+                buttonUp.Visible = false;
                 textSearch.Visible = false;
                 labSearch.Visible = false;
                 OldName.Visible = false;
@@ -196,12 +196,12 @@ namespace LoginMotelUser
                 textSearch.Text = textRangeName.Text;
                 if (query.Count == 0 && !textRangeName.Text.Trim().Equals(""))
                 {
-                    buttonUp.Enabled = true;
+                    buttonUp.Visible = true;
                     textIDRange.Text = "";
                 }
                 else
                 {
-                    buttonUp.Enabled = false;
+                    buttonUp.Visible = false;
                     if(textRangeName.Text.Trim().Equals(""))
                         textIDRange.Text = "";
                     foreach (var range in query)

@@ -42,9 +42,9 @@
             this.panRankOpen = new System.Windows.Forms.Panel();
             this.numericQuantity = new System.Windows.Forms.NumericUpDown();
             this.QUAN = new System.Windows.Forms.Label();
+            this.textAbout = new System.Windows.Forms.TextBox();
             this.buttonCancle = new ePOSOne.btnProduct.Button_WOC();
             this.buttonSave = new ePOSOne.btnProduct.Button_WOC();
-            this.textAbout = new System.Windows.Forms.TextBox();
             this.panRankOpen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericQuantity)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +53,7 @@
             // 
             this.labTieuDe.AutoSize = true;
             this.labTieuDe.Font = new System.Drawing.Font("Arial Narrow", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTieuDe.Location = new System.Drawing.Point(225, 9);
+            this.labTieuDe.Location = new System.Drawing.Point(191, 14);
             this.labTieuDe.Name = "labTieuDe";
             this.labTieuDe.Size = new System.Drawing.Size(252, 33);
             this.labTieuDe.TabIndex = 0;
@@ -127,6 +127,7 @@
             this.textPrice.Name = "textPrice";
             this.textPrice.Size = new System.Drawing.Size(326, 22);
             this.textPrice.TabIndex = 2;
+            this.textPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPrice_KeyPress);
             // 
             // textDeposit
             // 
@@ -134,14 +135,15 @@
             this.textDeposit.Name = "textDeposit";
             this.textDeposit.Size = new System.Drawing.Size(326, 22);
             this.textDeposit.TabIndex = 3;
+            this.textDeposit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textDeposit_KeyPress);
             // 
             // panRankOpen
             // 
+            this.panRankOpen.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panRankOpen.BackColor = System.Drawing.SystemColors.Control;
             this.panRankOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panRankOpen.Controls.Add(this.numericQuantity);
             this.panRankOpen.Controls.Add(this.QUAN);
-            this.panRankOpen.Controls.Add(this.buttonCancle);
-            this.panRankOpen.Controls.Add(this.buttonSave);
             this.panRankOpen.Controls.Add(this.textAbout);
             this.panRankOpen.Controls.Add(this.textDeposit);
             this.panRankOpen.Controls.Add(this.textPrice);
@@ -153,9 +155,9 @@
             this.panRankOpen.Controls.Add(this.labRankName);
             this.panRankOpen.Controls.Add(this.labIDRank);
             this.panRankOpen.Controls.Add(this.labTieuDe);
-            this.panRankOpen.Location = new System.Drawing.Point(-3, 0);
+            this.panRankOpen.Location = new System.Drawing.Point(212, 21);
             this.panRankOpen.Name = "panRankOpen";
-            this.panRankOpen.Size = new System.Drawing.Size(683, 563);
+            this.panRankOpen.Size = new System.Drawing.Size(627, 508);
             this.panRankOpen.TabIndex = 1;
             // 
             // numericQuantity
@@ -174,48 +176,6 @@
             this.QUAN.TabIndex = 16;
             this.QUAN.Text = "Quantity";
             // 
-            // buttonCancle
-            // 
-            this.buttonCancle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCancle.BackgroundImage")));
-            this.buttonCancle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonCancle.BorderColor = System.Drawing.Color.Silver;
-            this.buttonCancle.ButtonColor = System.Drawing.Color.MediumTurquoise;
-            this.buttonCancle.FlatAppearance.BorderSize = 0;
-            this.buttonCancle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancle.Location = new System.Drawing.Point(577, 523);
-            this.buttonCancle.Name = "buttonCancle";
-            this.buttonCancle.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.buttonCancle.OnHoverButtonColor = System.Drawing.Color.Turquoise;
-            this.buttonCancle.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonCancle.Size = new System.Drawing.Size(103, 37);
-            this.buttonCancle.TabIndex = 14;
-            this.buttonCancle.Text = "CANCLE";
-            this.buttonCancle.TextColor = System.Drawing.Color.White;
-            this.buttonCancle.UseVisualStyleBackColor = true;
-            this.buttonCancle.Click += new System.EventHandler(this.buttonCancle_Click);
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSave.BackgroundImage")));
-            this.buttonSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonSave.BorderColor = System.Drawing.Color.Silver;
-            this.buttonSave.ButtonColor = System.Drawing.Color.MediumTurquoise;
-            this.buttonSave.FlatAppearance.BorderSize = 0;
-            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(0, 523);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.buttonSave.OnHoverButtonColor = System.Drawing.Color.Turquoise;
-            this.buttonSave.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonSave.Size = new System.Drawing.Size(103, 37);
-            this.buttonSave.TabIndex = 13;
-            this.buttonSave.Text = "SAVE";
-            this.buttonSave.TextColor = System.Drawing.Color.White;
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
             // textAbout
             // 
             this.textAbout.Location = new System.Drawing.Point(187, 326);
@@ -224,16 +184,64 @@
             this.textAbout.Size = new System.Drawing.Size(326, 100);
             this.textAbout.TabIndex = 4;
             // 
+            // buttonCancle
+            // 
+            this.buttonCancle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancle.BackColor = System.Drawing.Color.Transparent;
+            this.buttonCancle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCancle.BorderColor = System.Drawing.Color.Silver;
+            this.buttonCancle.ButtonColor = System.Drawing.Color.MediumTurquoise;
+            this.buttonCancle.FlatAppearance.BorderSize = 0;
+            this.buttonCancle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancle.Location = new System.Drawing.Point(944, 546);
+            this.buttonCancle.Name = "buttonCancle";
+            this.buttonCancle.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonCancle.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonCancle.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonCancle.Size = new System.Drawing.Size(100, 40);
+            this.buttonCancle.TabIndex = 14;
+            this.buttonCancle.Text = "CANCLE";
+            this.buttonCancle.TextColor = System.Drawing.Color.White;
+            this.buttonCancle.UseVisualStyleBackColor = false;
+            this.buttonCancle.Click += new System.EventHandler(this.buttonCancle_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonSave.BackColor = System.Drawing.Color.Transparent;
+            this.buttonSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSave.BorderColor = System.Drawing.Color.Silver;
+            this.buttonSave.ButtonColor = System.Drawing.Color.MediumTurquoise;
+            this.buttonSave.FlatAppearance.BorderSize = 0;
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Location = new System.Drawing.Point(1, 546);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonSave.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonSave.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonSave.Size = new System.Drawing.Size(100, 40);
+            this.buttonSave.TabIndex = 13;
+            this.buttonSave.Text = "SAVE";
+            this.buttonSave.TextColor = System.Drawing.Color.White;
+            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // rankFormSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 559);
+            this.AutoSize = true;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1044, 585);
             this.Controls.Add(this.panRankOpen);
+            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.buttonCancle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimizeBox = false;
             this.Name = "rankFormSetting";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "rankOpenForm";
             this.panRankOpen.ResumeLayout(false);
             this.panRankOpen.PerformLayout();

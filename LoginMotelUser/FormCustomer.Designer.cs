@@ -175,9 +175,11 @@
             // textSDT
             // 
             this.textSDT.Location = new System.Drawing.Point(187, 263);
+            this.textSDT.MaxLength = 10;
             this.textSDT.Name = "textSDT";
             this.textSDT.Size = new System.Drawing.Size(326, 22);
             this.textSDT.TabIndex = 4;
+            this.textSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textSDT_KeyPress);
             // 
             // comBoxSexual
             // 
@@ -234,6 +236,7 @@
             this.textIDCus.Size = new System.Drawing.Size(221, 22);
             this.textIDCus.TabIndex = 0;
             this.textIDCus.TextChanged += new System.EventHandler(this.textIDCus_TextChanged);
+            this.textIDCus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textIDCus_KeyPress);
             // 
             // label1
             // 
@@ -256,8 +259,7 @@
             // buttonUp
             // 
             this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonUp.BackColor = System.Drawing.Color.Peru;
-            this.buttonUp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonUp.BackgroundImage")));
+            this.buttonUp.BackColor = System.Drawing.Color.Transparent;
             this.buttonUp.BorderColor = System.Drawing.Color.Silver;
             this.buttonUp.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.buttonUp.FlatAppearance.BorderSize = 0;
@@ -308,8 +310,7 @@
             // button_WOC1
             // 
             this.button_WOC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_WOC1.BackColor = System.Drawing.Color.Peru;
-            this.button_WOC1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_WOC1.BackgroundImage")));
+            this.button_WOC1.BackColor = System.Drawing.Color.Transparent;
             this.button_WOC1.BorderColor = System.Drawing.Color.Silver;
             this.button_WOC1.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.button_WOC1.FlatAppearance.BorderSize = 0;

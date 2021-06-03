@@ -198,11 +198,15 @@ namespace LoginMotelUser
             {
                 if(query.Count != 0)
                 {
+                    textPrice.Text = query[0].Price.ToString();
+                    comboBoxUnit.Text = query[0].Unit;
                     buttonSave.Visible = false;
                 }
                 else
                 {
                     buttonSave.Visible = true;
+                    textPrice.Text = "";
+                    comboBoxUnit.Text = "";
                 }
 
             }
@@ -233,6 +237,16 @@ namespace LoginMotelUser
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            if (textPrice.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("The price is incorrect", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (comboBoxUnit.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("The Unit phone is incorrect", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (check == true)
             {
                 if (textServiceName.Text.Trim() == "")
@@ -248,10 +262,9 @@ namespace LoginMotelUser
                     MessageBox.Show("The new service name is exists!");
                     return;
                 }
-                DialogResult result = MessageBox.Show("Are you sure insert?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                DialogResult result = MessageBox.Show("Are you sure insert?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 switch (result)
                 {
-                    case DialogResult.Cancel: return;
                     case DialogResult.Yes:
                         {
                             saveData(); listService.Clear();

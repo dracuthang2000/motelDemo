@@ -105,7 +105,7 @@
             this.button_WOC1.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.button_WOC1.OnHoverButtonColor = System.Drawing.Color.Turquoise;
             this.button_WOC1.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.button_WOC1.Size = new System.Drawing.Size(103, 37);
+            this.button_WOC1.Size = new System.Drawing.Size(100, 40);
             this.button_WOC1.TabIndex = 13;
             this.button_WOC1.Text = "DELETE";
             this.button_WOC1.TextColor = System.Drawing.Color.White;
@@ -128,7 +128,7 @@
             this.buttonUpdate.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonUpdate.OnHoverButtonColor = System.Drawing.Color.Turquoise;
             this.buttonUpdate.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonUpdate.Size = new System.Drawing.Size(103, 37);
+            this.buttonUpdate.Size = new System.Drawing.Size(100, 40);
             this.buttonUpdate.TabIndex = 12;
             this.buttonUpdate.Text = "...";
             this.buttonUpdate.TextColor = System.Drawing.Color.White;
@@ -314,7 +314,7 @@
             // 
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.exitToolStripMenuItem.Text = "Home";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -413,7 +413,7 @@
             // 
             this.paymentToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("paymentToolStripMenuItem.Image")));
             this.paymentToolStripMenuItem.Name = "paymentToolStripMenuItem";
-            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
             this.paymentToolStripMenuItem.Text = "Payment";
             this.paymentToolStripMenuItem.Click += new System.EventHandler(this.paymentToolStripMenuItem_Click);
             // 
@@ -421,7 +421,7 @@
             // 
             this.recieptToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("recieptToolStripMenuItem.Image")));
             this.recieptToolStripMenuItem.Name = "recieptToolStripMenuItem";
-            this.recieptToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.recieptToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
             this.recieptToolStripMenuItem.Text = "Receipt";
             this.recieptToolStripMenuItem.Click += new System.EventHandler(this.recieptToolStripMenuItem_Click);
             // 
@@ -429,7 +429,7 @@
             // 
             this.viewOldBillToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewOldBillToolStripMenuItem.Image")));
             this.viewOldBillToolStripMenuItem.Name = "viewOldBillToolStripMenuItem";
-            this.viewOldBillToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.viewOldBillToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
             this.viewOldBillToolStripMenuItem.Text = "View Bill";
             this.viewOldBillToolStripMenuItem.Click += new System.EventHandler(this.viewOldBillToolStripMenuItem_Click);
             // 
@@ -447,7 +447,7 @@
             // 
             this.checkInToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("checkInToolStripMenuItem.Image")));
             this.checkInToolStripMenuItem.Name = "checkInToolStripMenuItem";
-            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.checkInToolStripMenuItem.Text = "Check in";
             this.checkInToolStripMenuItem.Click += new System.EventHandler(this.checkInToolStripMenuItem_Click_1);
             // 
@@ -455,7 +455,7 @@
             // 
             this.checOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("checOutToolStripMenuItem.Image")));
             this.checOutToolStripMenuItem.Name = "checOutToolStripMenuItem";
-            this.checOutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.checOutToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.checOutToolStripMenuItem.Text = "Check out";
             this.checOutToolStripMenuItem.Click += new System.EventHandler(this.checOutToolStripMenuItem_Click);
             // 

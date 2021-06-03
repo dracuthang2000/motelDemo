@@ -31,7 +31,7 @@ namespace LoginMotelUser
             setColor();
             this.check = check;
             loadComboBox();
-            buttonUp.Enabled = false;
+            buttonUp.Visible = false;
             tableState.Visible = false;
         }
         public AddRoomcs(String a, Boolean check)
@@ -51,7 +51,7 @@ namespace LoginMotelUser
             {
                 comBoxIDRange.Enabled = false;
                 comBoxIDRank.Enabled = false;
-                buttonUp.Enabled = false;
+                buttonUp.Visible = false;
                 tableState.Visible = false;
             }
         }
@@ -170,9 +170,9 @@ namespace LoginMotelUser
                     comBoxIDRange.Enabled = true;
                     comBoxIDRank.Enabled = true;
                     if (textRoomName.Text.Trim().Equals(""))
-                        buttonUp.Enabled = false;
+                        buttonUp.Visible = false;
                     else
-                        buttonUp.Enabled = true;
+                        buttonUp.Visible = true;
 
 
                     labIDRoomShow.Text = "Loading ....";
@@ -181,7 +181,7 @@ namespace LoginMotelUser
                 {
                     comBoxIDRange.Enabled = false;
                     comBoxIDRank.Enabled = false;
-                    buttonUp.Enabled = false;
+                    buttonUp.Visible = false;
                     var query1 = (from room in data.MOTELROOMs
                                   join rank in data.ROOMRANKs on room.IDRoomRank equals rank.ID
                                   join range in data.ROOMRANGEs on room.IDRoomRange equals range.ID

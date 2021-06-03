@@ -123,7 +123,7 @@
             this.pasteToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuListcus.Name = "contextMenuListcus";
-            this.contextMenuListcus.Size = new System.Drawing.Size(123, 76);
+            this.contextMenuListcus.Size = new System.Drawing.Size(211, 104);
             // 
             // copyToolStripMenuItem
             // 
@@ -131,7 +131,7 @@
             this.nameToolStripMenuItem,
             this.iDCardToolStripMenuItem});
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.copyToolStripMenuItem.Text = "Sort";
             // 
             // nameToolStripMenuItem
@@ -151,14 +151,15 @@
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.pasteToolStripMenuItem.Text = "Paste";
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // label113
             // 
@@ -197,7 +198,7 @@
             // 
             this.cbbDaySC3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbDaySC3.FormattingEnabled = true;
-            this.cbbDaySC3.Location = new System.Drawing.Point(136, 11);
+            this.cbbDaySC3.Location = new System.Drawing.Point(136, 9);
             this.cbbDaySC3.Name = "cbbDaySC3";
             this.cbbDaySC3.Size = new System.Drawing.Size(171, 28);
             this.cbbDaySC3.TabIndex = 18;
@@ -311,7 +312,7 @@
             // 
             this.cbbLoaiPhongSC3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbLoaiPhongSC3.FormattingEnabled = true;
-            this.cbbLoaiPhongSC3.Location = new System.Drawing.Point(138, 58);
+            this.cbbLoaiPhongSC3.Location = new System.Drawing.Point(138, 56);
             this.cbbLoaiPhongSC3.Name = "cbbLoaiPhongSC3";
             this.cbbLoaiPhongSC3.Size = new System.Drawing.Size(168, 28);
             this.cbbLoaiPhongSC3.TabIndex = 36;
@@ -462,7 +463,7 @@
             this.cbbGioiTinhSC3.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cbbGioiTinhSC3.Location = new System.Drawing.Point(195, 254);
+            this.cbbGioiTinhSC3.Location = new System.Drawing.Point(195, 253);
             this.cbbGioiTinhSC3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbGioiTinhSC3.Name = "cbbGioiTinhSC3";
             this.cbbGioiTinhSC3.Size = new System.Drawing.Size(282, 28);
@@ -788,7 +789,7 @@
             // 
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.exitToolStripMenuItem.Text = "Home";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 

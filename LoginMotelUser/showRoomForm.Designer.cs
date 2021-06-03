@@ -158,7 +158,7 @@
             // buttonCancle
             // 
             this.buttonCancle.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonCancle.BackColor = System.Drawing.Color.Peru;
+            this.buttonCancle.BackColor = System.Drawing.Color.Transparent;
             this.buttonCancle.BorderColor = System.Drawing.Color.Silver;
             this.buttonCancle.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.buttonCancle.FlatAppearance.BorderSize = 0;
@@ -169,7 +169,7 @@
             this.buttonCancle.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonCancle.OnHoverButtonColor = System.Drawing.Color.Turquoise;
             this.buttonCancle.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonCancle.Size = new System.Drawing.Size(80, 40);
+            this.buttonCancle.Size = new System.Drawing.Size(100, 40);
             this.buttonCancle.TabIndex = 20;
             this.buttonCancle.Text = "CANCLE";
             this.buttonCancle.TextColor = System.Drawing.Color.Black;
@@ -179,18 +179,18 @@
             // buttonDelete
             // 
             this.buttonDelete.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonDelete.BackColor = System.Drawing.Color.Peru;
+            this.buttonDelete.BackColor = System.Drawing.Color.Transparent;
             this.buttonDelete.BorderColor = System.Drawing.Color.Silver;
             this.buttonDelete.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.buttonDelete.FlatAppearance.BorderSize = 0;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.Location = new System.Drawing.Point(481, 595);
+            this.buttonDelete.Location = new System.Drawing.Point(460, 595);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonDelete.OnHoverButtonColor = System.Drawing.Color.Turquoise;
             this.buttonDelete.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonDelete.Size = new System.Drawing.Size(80, 40);
+            this.buttonDelete.Size = new System.Drawing.Size(100, 40);
             this.buttonDelete.TabIndex = 19;
             this.buttonDelete.Text = "DELETE";
             this.buttonDelete.TextColor = System.Drawing.Color.Black;
@@ -200,7 +200,7 @@
             // buttonUp
             // 
             this.buttonUp.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonUp.BackColor = System.Drawing.Color.Peru;
+            this.buttonUp.BackColor = System.Drawing.Color.Transparent;
             this.buttonUp.BorderColor = System.Drawing.Color.Silver;
             this.buttonUp.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.buttonUp.FlatAppearance.BorderSize = 0;
@@ -211,7 +211,7 @@
             this.buttonUp.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonUp.OnHoverButtonColor = System.Drawing.Color.Turquoise;
             this.buttonUp.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonUp.Size = new System.Drawing.Size(80, 40);
+            this.buttonUp.Size = new System.Drawing.Size(100, 40);
             this.buttonUp.TabIndex = 18;
             this.buttonUp.Text = "...";
             this.buttonUp.TextColor = System.Drawing.Color.Black;
@@ -276,7 +276,7 @@
             this.staffToolStripMenuItem});
             this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.newToolStripMenuItem.Text = "New";
             // 
             // userToolStripMenuItem
@@ -339,7 +339,7 @@
             // 
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.exitToolStripMenuItem.Text = "Home";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 

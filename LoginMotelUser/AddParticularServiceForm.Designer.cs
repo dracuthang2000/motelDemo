@@ -225,8 +225,7 @@
             // buttonRemove
             // 
             this.buttonRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRemove.BackColor = System.Drawing.Color.Peru;
-            this.buttonRemove.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonRemove.BackgroundImage")));
+            this.buttonRemove.BackColor = System.Drawing.Color.Transparent;
             this.buttonRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonRemove.BorderColor = System.Drawing.Color.Silver;
             this.buttonRemove.ButtonColor = System.Drawing.Color.MediumAquamarine;
@@ -248,8 +247,7 @@
             // button_WOC1
             // 
             this.button_WOC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_WOC1.BackColor = System.Drawing.Color.Peru;
-            this.button_WOC1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_WOC1.BackgroundImage")));
+            this.button_WOC1.BackColor = System.Drawing.Color.Transparent;
             this.button_WOC1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button_WOC1.BorderColor = System.Drawing.Color.Silver;
             this.button_WOC1.ButtonColor = System.Drawing.Color.MediumAquamarine;

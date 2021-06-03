@@ -88,8 +88,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.BackColor = System.Drawing.Color.Peru;
-            this.buttonDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonDelete.BackgroundImage")));
+            this.buttonDelete.BackColor = System.Drawing.Color.Transparent;
             this.buttonDelete.BorderColor = System.Drawing.Color.Silver;
             this.buttonDelete.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.buttonDelete.FlatAppearance.BorderSize = 0;
@@ -100,7 +99,7 @@
             this.buttonDelete.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonDelete.OnHoverButtonColor = System.Drawing.Color.Turquoise;
             this.buttonDelete.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonDelete.Size = new System.Drawing.Size(80, 30);
+            this.buttonDelete.Size = new System.Drawing.Size(100, 40);
             this.buttonDelete.TabIndex = 20;
             this.buttonDelete.Text = "DELETE";
             this.buttonDelete.TextColor = System.Drawing.Color.Black;
@@ -109,8 +108,7 @@
             // 
             // buttonUp
             // 
-            this.buttonUp.BackColor = System.Drawing.Color.Peru;
-            this.buttonUp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonUp.BackgroundImage")));
+            this.buttonUp.BackColor = System.Drawing.Color.Transparent;
             this.buttonUp.BorderColor = System.Drawing.Color.Silver;
             this.buttonUp.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.buttonUp.FlatAppearance.BorderSize = 0;
@@ -121,7 +119,7 @@
             this.buttonUp.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonUp.OnHoverButtonColor = System.Drawing.Color.Turquoise;
             this.buttonUp.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonUp.Size = new System.Drawing.Size(80, 30);
+            this.buttonUp.Size = new System.Drawing.Size(100, 40);
             this.buttonUp.TabIndex = 19;
             this.buttonUp.Text = "...";
             this.buttonUp.TextColor = System.Drawing.Color.Black;
@@ -150,6 +148,7 @@
             // labTieuDe
             // 
             this.labTieuDe.AutoSize = true;
+            this.labTieuDe.BackColor = System.Drawing.Color.Transparent;
             this.labTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labTieuDe.Location = new System.Drawing.Point(389, 44);
             this.labTieuDe.Name = "labTieuDe";
@@ -217,7 +216,7 @@
             this.reinforToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(974, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(974, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -228,7 +227,7 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fileToolStripMenuItem.Image")));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(66, 26);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -306,7 +305,7 @@
             // 
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.exitToolStripMenuItem.Text = "Home";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -316,7 +315,7 @@
             this.updateToolStripMenuItem});
             this.editToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripMenuItem.Image")));
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(69, 26);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // updateToolStripMenuItem
@@ -398,7 +397,7 @@
             this.viewOldBillToolStripMenuItem});
             this.billsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("billsToolStripMenuItem.Image")));
             this.billsToolStripMenuItem.Name = "billsToolStripMenuItem";
-            this.billsToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
+            this.billsToolStripMenuItem.Size = new System.Drawing.Size(70, 26);
             this.billsToolStripMenuItem.Text = "Bills";
             // 
             // paymentToolStripMenuItem
@@ -432,7 +431,7 @@
             this.checOutToolStripMenuItem});
             this.reinforToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reinforToolStripMenuItem.Image")));
             this.reinforToolStripMenuItem.Name = "reinforToolStripMenuItem";
-            this.reinforToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
+            this.reinforToolStripMenuItem.Size = new System.Drawing.Size(91, 26);
             this.reinforToolStripMenuItem.Text = "Reinfor";
             // 
             // checkInToolStripMenuItem

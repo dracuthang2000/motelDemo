@@ -44,6 +44,7 @@
             this.labServiceName = new System.Windows.Forms.Label();
             this.labID = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxUnit = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonClear = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
@@ -75,7 +76,6 @@
             this.reinforToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBoxUnit = new System.Windows.Forms.ComboBox();
             this.panService.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -214,9 +214,9 @@
             this.labServiceName.AutoSize = true;
             this.labServiceName.Location = new System.Drawing.Point(3, 146);
             this.labServiceName.Name = "labServiceName";
-            this.labServiceName.Size = new System.Drawing.Size(118, 17);
+            this.labServiceName.Size = new System.Drawing.Size(94, 17);
             this.labServiceName.TabIndex = 3;
-            this.labServiceName.Text = "Old service name";
+            this.labServiceName.Text = "Service name";
             // 
             // labID
             // 
@@ -249,6 +249,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(359, 548);
             this.panel1.TabIndex = 61;
+            // 
+            // comboBoxUnit
+            // 
+            this.comboBoxUnit.FormattingEnabled = true;
+            this.comboBoxUnit.Items.AddRange(new object[] {
+            "kilowat/h",
+            "meter^3",
+            "lan",
+            "nguoi",
+            "chiec",
+            "phong"});
+            this.comboBoxUnit.Location = new System.Drawing.Point(177, 277);
+            this.comboBoxUnit.Name = "comboBoxUnit";
+            this.comboBoxUnit.Size = new System.Drawing.Size(167, 24);
+            this.comboBoxUnit.TabIndex = 62;
             // 
             // label2
             // 
@@ -565,21 +580,6 @@
             this.checOutToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.checOutToolStripMenuItem.Text = "Check out";
             this.checOutToolStripMenuItem.Click += new System.EventHandler(this.checOutToolStripMenuItem_Click);
-            // 
-            // comboBoxUnit
-            // 
-            this.comboBoxUnit.FormattingEnabled = true;
-            this.comboBoxUnit.Items.AddRange(new object[] {
-            "kilowat/h",
-            "meter^3",
-            "lan",
-            "nguoi",
-            "chiec",
-            "phong"});
-            this.comboBoxUnit.Location = new System.Drawing.Point(177, 277);
-            this.comboBoxUnit.Name = "comboBoxUnit";
-            this.comboBoxUnit.Size = new System.Drawing.Size(167, 24);
-            this.comboBoxUnit.TabIndex = 62;
             // 
             // serviceForm
             // 
