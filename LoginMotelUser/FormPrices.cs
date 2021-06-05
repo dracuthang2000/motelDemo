@@ -23,6 +23,19 @@ namespace LoginMotelUser
             setColor();
             this.checkUsername = userName;
             this.checkRole = checkRole;
+            if (checkRole == false)
+            {
+                userToolStripMenuItem.Visible = false;
+                userToolStripMenuItem1.Visible = false;
+                roomToolStripMenuItem.Visible = false;
+                roomToolStripMenuItem1.Visible = false;
+                rankToolStripMenuItem.Visible = false;
+                rankToolStripMenuItem1.Visible = false;
+                rangeToolStripMenuItem.Visible = false;
+                rangeToolStripMenuItem1.Visible = false;
+                staffToolStripMenuItem.Visible = false;
+                staffToolStripMenuItem1.Visible = false;
+            }
         }
 
         Model.MotelManagerEntities4 db;

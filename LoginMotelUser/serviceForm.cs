@@ -34,6 +34,19 @@ namespace LoginMotelUser
                 buttonSave.Text = "UPDATE";
                 buttonSave.Visible = false;
             }
+            if (checkRole == false)
+            {
+                userToolStripMenuItem.Visible = false;
+                userToolStripMenuItem1.Visible = false;
+                roomToolStripMenuItem.Visible = false;
+                roomToolStripMenuItem1.Visible = false;
+                rankToolStripMenuItem.Visible = false;
+                rankToolStripMenuItem1.Visible = false;
+                rangeToolStripMenuItem.Visible = false;
+                rangeToolStripMenuItem1.Visible = false;
+                staffToolStripMenuItem.Visible = false;
+                staffToolStripMenuItem1.Visible = false;
+            }
             loadData(0, soLuong);
             dem = 0;
             this.checkRole = checkRole;
