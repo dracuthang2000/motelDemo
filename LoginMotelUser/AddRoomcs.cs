@@ -217,7 +217,7 @@ namespace LoginMotelUser
         {
             if (check == true)
             {
-                DialogResult result = MessageBox.Show("Ban co chac them phong co ID =" + labIDRoomShow.Text + " khong?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                DialogResult result = MessageBox.Show("Are you sure save Rom name =" + textRoomName.Text + " ?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 switch (result)
                 {
                     case DialogResult.Cancel: return;
@@ -239,7 +239,7 @@ namespace LoginMotelUser
 
                 if (query.Count == 0)
                 {
-                    DialogResult result = MessageBox.Show("Ban co chac chinh sua phong co ID = " + labIDRoomShow.Text + " khong ? (tat ca cac du lieu lien quan deu se thay doi!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    DialogResult result = MessageBox.Show("Are you sure update ID = " + labIDRoomShow.Text + " ?", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)
                     {
                         case DialogResult.Cancel: return;

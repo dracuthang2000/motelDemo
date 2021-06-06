@@ -171,7 +171,7 @@
             // 
             this.cbbDaySC4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC4.FormattingEnabled = true;
-            this.cbbDaySC4.Location = new System.Drawing.Point(105, 12);
+            this.cbbDaySC4.Location = new System.Drawing.Point(105, 11);
             this.cbbDaySC4.Name = "cbbDaySC4";
             this.cbbDaySC4.Size = new System.Drawing.Size(232, 28);
             this.cbbDaySC4.TabIndex = 18;
@@ -220,7 +220,7 @@
             // 
             this.cbbLoaiPhongSC4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbLoaiPhongSC4.FormattingEnabled = true;
-            this.cbbLoaiPhongSC4.Location = new System.Drawing.Point(105, 62);
+            this.cbbLoaiPhongSC4.Location = new System.Drawing.Point(105, 61);
             this.cbbLoaiPhongSC4.Name = "cbbLoaiPhongSC4";
             this.cbbLoaiPhongSC4.Size = new System.Drawing.Size(232, 28);
             this.cbbLoaiPhongSC4.TabIndex = 36;
@@ -693,7 +693,7 @@
             this.reinforToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1382, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1382, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -704,7 +704,7 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fileToolStripMenuItem.Image")));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(66, 26);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -792,7 +792,7 @@
             this.updateToolStripMenuItem});
             this.editToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripMenuItem.Image")));
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(69, 26);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // updateToolStripMenuItem
@@ -874,7 +874,7 @@
             this.viewOldBillToolStripMenuItem});
             this.billsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("billsToolStripMenuItem.Image")));
             this.billsToolStripMenuItem.Name = "billsToolStripMenuItem";
-            this.billsToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
+            this.billsToolStripMenuItem.Size = new System.Drawing.Size(70, 26);
             this.billsToolStripMenuItem.Text = "Bills";
             // 
             // paymentToolStripMenuItem
@@ -908,7 +908,7 @@
             this.checOutToolStripMenuItem});
             this.reinforToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reinforToolStripMenuItem.Image")));
             this.reinforToolStripMenuItem.Name = "reinforToolStripMenuItem";
-            this.reinforToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
+            this.reinforToolStripMenuItem.Size = new System.Drawing.Size(91, 26);
             this.reinforToolStripMenuItem.Text = "Reinfor";
             // 
             // checkInToolStripMenuItem

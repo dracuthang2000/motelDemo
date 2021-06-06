@@ -279,7 +279,7 @@ namespace LoginMotelUser
 
                 var customers = (from rent in db.REINTINFORs
                                  join cus in db.CUSTOMERs on rent.IDCustomer equals cus.ID
-                                 where rent.IDRoom == id
+                                 where rent.IDRoom == id && rent.CheckOutDate == null
                                  select cus).ToList();
                 // Sau đó chạy vòng For add lần lượt customer vào thôi 
                 // Quá dễ 
@@ -539,6 +539,11 @@ namespace LoginMotelUser
             Ctrl.ShowDialog();
             this.Visible = true;
             this.frmHome_Load(sender, e);
+        }
+
+        private void lvDanhSachKhachSC1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

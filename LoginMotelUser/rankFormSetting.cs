@@ -180,6 +180,31 @@ namespace LoginMotelUser
                 var query = (from rank in data.ROOMRANKs
                              where rank.RankName.Equals(textRankName.Text) && rank.ID != ID
                              select rank).ToList();
+
+                var Room = (from room in data.MOTELROOMs
+                            join rank in data.ROOMRANKs on room.IDRoomRank equals rank.ID
+                            where rank.ID == ID
+                            select room).ToList();
+                if (Room.Count != 0)
+                { 
+                    int count = 0;
+                    foreach (var id in Room)
+                    {
+                        var customers = (from rent in data.REINTINFORs
+                                         join cus in data.CUSTOMERs on rent.IDCustomer equals cus.ID
+                                         where rent.IDRoom == id.ID && rent.CheckOutDate == null
+                                         select cus).ToList();
+                        if(count < customers.Count)
+                        {
+                            count = customers.Count;
+                        }
+                    }
+                    if(count > numericQuantity.Value)
+                    {
+                        MessageBox.Show("The Quantity >= " + count, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
                 if (query.Count == 0)
                 {
 

@@ -474,6 +474,7 @@
             this.lvDanhSachKhachSC1.TabIndex = 5;
             this.lvDanhSachKhachSC1.UseCompatibleStateImageBehavior = false;
             this.lvDanhSachKhachSC1.View = System.Windows.Forms.View.Details;
+            this.lvDanhSachKhachSC1.SelectedIndexChanged += new System.EventHandler(this.lvDanhSachKhachSC1_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -821,7 +822,7 @@
             // 
             this.cbbDaySC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC1.FormattingEnabled = true;
-            this.cbbDaySC1.Location = new System.Drawing.Point(192, 16);
+            this.cbbDaySC1.Location = new System.Drawing.Point(192, 12);
             this.cbbDaySC1.Name = "cbbDaySC1";
             this.cbbDaySC1.Size = new System.Drawing.Size(184, 33);
             this.cbbDaySC1.TabIndex = 18;
