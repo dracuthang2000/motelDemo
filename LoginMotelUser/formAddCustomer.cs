@@ -576,8 +576,10 @@ namespace LoginMotelUser
                     bool checkRen = false;
                     if (rentInfor.Count != 0)
                     {
-                        var checkID = db.REINTINFORs.Where(r => r.IDRoom == IDRoom && r.IDCustomer == ch && r.CheckOutDate == null).Select(r => r.CheckInDate).Max();
-                        if (checkID == null)
+                        var checkID = (from renin in db.REINTINFORs
+                                       where renin.IDRoom == IDRoom && renin.IDCustomer == ch && renin.CheckOutDate == null
+                                       select renin.CheckInDate).ToList();
+                        if (checkID.Count == 0)
                         {
                             // Database phải thêm CheckInDate cũng là khóa chính
                             var newRent = new Model.REINTINFOR();
@@ -714,11 +716,12 @@ namespace LoginMotelUser
                 int IDroom = int.Parse(lbPhongSC3.Text);
                 foreach (var cus in idCus)
                 {
-                    var temp = db.REINTINFORs.Single(rein => rein.IDCustomer == cus.ID && rein.IDRoom == IDroom);
+                    var temp = db.REINTINFORs.Single(rein => rein.IDCustomer == cus.ID && rein.IDRoom == IDroom && rein.CheckOutDate == null);
                     temp.CheckOutDate = DateTime.Now;
                 }
                 db.SaveChanges();
                 clear();
+                MessageBox.Show("COMPLETE!");
             }
 
             lvDanhSachKhachSC3.Items.Clear();
@@ -742,6 +745,12 @@ namespace LoginMotelUser
             {
                 var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
                 temp.StateRoom = 3;
+                db.SaveChanges();
+                frmAddCustomer_Load(sender, e);
+            }
+            else{
+                var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
+                temp.StateRoom = 2;
                 db.SaveChanges();
                 frmAddCustomer_Load(sender, e);
             }
@@ -824,6 +833,13 @@ namespace LoginMotelUser
             {
                 var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
                 temp.StateRoom = 3;
+                db.SaveChanges();
+                frmAddCustomer_Load(sender, e);
+            }
+            else
+            {
+                var temp = db.MOTELROOMs.Single(room => room.ID == IDRoom);
+                temp.StateRoom = 2;
                 db.SaveChanges();
                 frmAddCustomer_Load(sender, e);
             }
@@ -1035,6 +1051,11 @@ namespace LoginMotelUser
                 lvDanhSachKhachSC3.Items.Add(lv);
             }
             Clear();
+        }
+
+        private void cbbGioiTinhSC3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
