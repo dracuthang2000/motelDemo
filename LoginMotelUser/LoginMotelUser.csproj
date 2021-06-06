@@ -298,11 +298,11 @@
     <Compile Include="showStaffForm.Designer.cs">
       <DependentUpon>showStaffForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="temp.cs">
+    <Compile Include="ViewReinfor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="temp.Designer.cs">
-      <DependentUpon>temp.cs</DependentUpon>
+    <Compile Include="ViewReinfor.Designer.cs">
+      <DependentUpon>ViewReinfor.cs</DependentUpon>
     </Compile>
     <Compile Include="Update_User.cs">
       <SubType>Form</SubType>
@@ -382,8 +382,8 @@
     <EmbeddedResource Include="showStaffForm.resx">
       <DependentUpon>showStaffForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="temp.resx">
-      <DependentUpon>temp.cs</DependentUpon>
+    <EmbeddedResource Include="ViewReinfor.resx">
+      <DependentUpon>ViewReinfor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Update_User.resx">
       <DependentUpon>Update_User.cs</DependentUpon>

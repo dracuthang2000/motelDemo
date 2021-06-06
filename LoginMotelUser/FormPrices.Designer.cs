@@ -99,6 +99,7 @@
             this.reinforToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewReninformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlPrice.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -171,7 +172,7 @@
             // 
             this.cbbDaySC4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC4.FormattingEnabled = true;
-            this.cbbDaySC4.Location = new System.Drawing.Point(105, 12);
+            this.cbbDaySC4.Location = new System.Drawing.Point(105, 11);
             this.cbbDaySC4.Name = "cbbDaySC4";
             this.cbbDaySC4.Size = new System.Drawing.Size(232, 28);
             this.cbbDaySC4.TabIndex = 18;
@@ -220,7 +221,7 @@
             // 
             this.cbbLoaiPhongSC4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbLoaiPhongSC4.FormattingEnabled = true;
-            this.cbbLoaiPhongSC4.Location = new System.Drawing.Point(105, 62);
+            this.cbbLoaiPhongSC4.Location = new System.Drawing.Point(105, 61);
             this.cbbLoaiPhongSC4.Name = "cbbLoaiPhongSC4";
             this.cbbLoaiPhongSC4.Size = new System.Drawing.Size(232, 28);
             this.cbbLoaiPhongSC4.TabIndex = 36;
@@ -905,7 +906,8 @@
             // 
             this.reinforToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.checkInToolStripMenuItem,
-            this.checOutToolStripMenuItem});
+            this.checOutToolStripMenuItem,
+            this.viewReninformationToolStripMenuItem});
             this.reinforToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reinforToolStripMenuItem.Image")));
             this.reinforToolStripMenuItem.Name = "reinforToolStripMenuItem";
             this.reinforToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
@@ -915,7 +917,7 @@
             // 
             this.checkInToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("checkInToolStripMenuItem.Image")));
             this.checkInToolStripMenuItem.Name = "checkInToolStripMenuItem";
-            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
             this.checkInToolStripMenuItem.Text = "Check in";
             this.checkInToolStripMenuItem.Click += new System.EventHandler(this.checkInToolStripMenuItem_Click_1);
             // 
@@ -923,9 +925,17 @@
             // 
             this.checOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("checOutToolStripMenuItem.Image")));
             this.checOutToolStripMenuItem.Name = "checOutToolStripMenuItem";
-            this.checOutToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.checOutToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
             this.checOutToolStripMenuItem.Text = "Check out";
             this.checOutToolStripMenuItem.Click += new System.EventHandler(this.checOutToolStripMenuItem_Click);
+            // 
+            // viewReninformationToolStripMenuItem
+            // 
+            this.viewReninformationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewReninformationToolStripMenuItem.Image")));
+            this.viewReninformationToolStripMenuItem.Name = "viewReninformationToolStripMenuItem";
+            this.viewReninformationToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
+            this.viewReninformationToolStripMenuItem.Text = "View reninformation";
+            this.viewReninformationToolStripMenuItem.Click += new System.EventHandler(this.viewReninformationToolStripMenuItem_Click);
             // 
             // FormPrices
             // 
@@ -1048,5 +1058,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.ToolStripMenuItem viewReninformationToolStripMenuItem;
     }
 }

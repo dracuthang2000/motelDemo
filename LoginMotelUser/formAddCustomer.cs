@@ -1057,5 +1057,12 @@ namespace LoginMotelUser
         {
 
         }
+
+        private void viewReinformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Viewinformation Fc = new Viewinformation(checkRole, checkUsername);
+            Fc.ShowDialog();
+        }
     }
 }

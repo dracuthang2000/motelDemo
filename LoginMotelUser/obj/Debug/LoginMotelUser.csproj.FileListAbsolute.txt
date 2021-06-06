@@ -37,4 +37,4 @@ C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\Spire.Pdf.dl
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\Spire.License.dll
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\Microsoft.mshtml.dll
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.FormViewOldBill.resources
-C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.temp.resources
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.Viewinformation.resources

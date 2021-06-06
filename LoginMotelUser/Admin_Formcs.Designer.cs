@@ -109,6 +109,7 @@
             this.button_Any = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonBill = new System.Windows.Forms.Button();
+            this.viewReinformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -383,7 +384,8 @@
             // 
             this.reinforToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.checkInToolStripMenuItem,
-            this.checkOutToolStripMenuItem});
+            this.checkOutToolStripMenuItem,
+            this.viewReinformationToolStripMenuItem});
             this.reinforToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reinforToolStripMenuItem.Image")));
             this.reinforToolStripMenuItem.Name = "reinforToolStripMenuItem";
             this.reinforToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
@@ -822,7 +824,7 @@
             // 
             this.cbbDaySC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC1.FormattingEnabled = true;
-            this.cbbDaySC1.Location = new System.Drawing.Point(192, 12);
+            this.cbbDaySC1.Location = new System.Drawing.Point(192, 16);
             this.cbbDaySC1.Name = "cbbDaySC1";
             this.cbbDaySC1.Size = new System.Drawing.Size(184, 33);
             this.cbbDaySC1.TabIndex = 18;
@@ -1019,6 +1021,14 @@
             this.buttonBill.UseVisualStyleBackColor = true;
             this.buttonBill.Click += new System.EventHandler(this.buttonBill_Click);
             // 
+            // viewReinformationToolStripMenuItem
+            // 
+            this.viewReinformationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewReinformationToolStripMenuItem.Image")));
+            this.viewReinformationToolStripMenuItem.Name = "viewReinformationToolStripMenuItem";
+            this.viewReinformationToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.viewReinformationToolStripMenuItem.Text = "View reinformation";
+            this.viewReinformationToolStripMenuItem.Click += new System.EventHandler(this.viewReinformationToolStripMenuItem_Click);
+            // 
             // Admin_Formcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1145,5 +1155,6 @@
         private System.Windows.Forms.ToolStripMenuItem checkOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewBillToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem viewReinformationToolStripMenuItem;
     }
 }
