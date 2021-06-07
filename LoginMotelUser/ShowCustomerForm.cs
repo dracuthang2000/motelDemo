@@ -382,6 +382,14 @@ namespace LoginMotelUser
             {
                 using (Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4())
                 {
+                    var customer = (from renin in data.REINTINFORs
+                               where renin.CUSTOMER.IDCard == listKhach.FocusedItem.Text
+                               select renin).ToList();
+                    if(customer.Count != 0)
+                    {
+                        MessageBox.Show("The customer exists in another!","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        return;
+                    }
                     DialogResult result = MessageBox.Show("Are you sure delete customer ID = " + listKhach.FocusedItem.Text + " khong? (tat ca cac du lieu lien quan deu se bi xoa!)", "WARNING", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     switch (result)
                     {

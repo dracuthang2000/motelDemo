@@ -707,6 +707,10 @@ namespace LoginMotelUser
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            if (txtCMNDSC3.Text.Equals("")){
+                MessageBox.Show("Let'chosse customer!","ERORR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
             DialogResult d = MessageBox.Show("ARE YOU SURE CHECK OUT " + txtCMNDSC3.Text + " ?", "DELETE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (d == DialogResult.Yes)
             {
