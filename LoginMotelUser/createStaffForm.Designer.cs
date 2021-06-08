@@ -84,6 +84,8 @@
             this.buttonCancle.BorderColor = System.Drawing.Color.Silver;
             this.buttonCancle.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.buttonCancle.FlatAppearance.BorderSize = 0;
+            this.buttonCancle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonCancle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonCancle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancle.Location = new System.Drawing.Point(805, 619);
@@ -104,6 +106,8 @@
             this.buttonSave.BorderColor = System.Drawing.Color.Silver;
             this.buttonSave.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.buttonSave.FlatAppearance.BorderSize = 0;
+            this.buttonSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSave.Location = new System.Drawing.Point(0, 619);

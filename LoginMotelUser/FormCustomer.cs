@@ -290,6 +290,17 @@ namespace LoginMotelUser
                     label2.Visible = true;
                 }
             }
+            else
+            {
+                if (textIDCus.Text.Length < 9)
+                {
+                    buttonUp.Visible = false;
+                }
+                else
+                {
+                    buttonUp.Visible = true;
+                }
+            }
         }
 
         private void buttonADD_Click(object sender, EventArgs e)

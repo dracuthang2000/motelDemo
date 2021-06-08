@@ -901,6 +901,8 @@
             this.buttonSave.BorderColor = System.Drawing.Color.Silver;
             this.buttonSave.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.buttonSave.FlatAppearance.BorderSize = 0;
+            this.buttonSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSave.Location = new System.Drawing.Point(110, 58);
@@ -923,6 +925,8 @@
             this.buttonCan.BorderColor = System.Drawing.Color.Silver;
             this.buttonCan.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.buttonCan.FlatAppearance.BorderSize = 0;
+            this.buttonCan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonCan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonCan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCan.Location = new System.Drawing.Point(450, 58);

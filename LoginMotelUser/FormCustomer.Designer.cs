@@ -263,6 +263,8 @@
             this.buttonUp.BorderColor = System.Drawing.Color.Silver;
             this.buttonUp.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.buttonUp.FlatAppearance.BorderSize = 0;
+            this.buttonUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUp.Location = new System.Drawing.Point(-1, 643);
@@ -314,6 +316,8 @@
             this.button_WOC1.BorderColor = System.Drawing.Color.Silver;
             this.button_WOC1.ButtonColor = System.Drawing.Color.MediumAquamarine;
             this.button_WOC1.FlatAppearance.BorderSize = 0;
+            this.button_WOC1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button_WOC1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button_WOC1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_WOC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_WOC1.Location = new System.Drawing.Point(841, 643);
