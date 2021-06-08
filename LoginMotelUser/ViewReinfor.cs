@@ -291,64 +291,125 @@ namespace LoginMotelUser
                     stt++;
                 }
             }
-        }
-
-        //private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        //{
-        //    if (comboBoxSearch.SelectedIndex == 3)
-        //    {
-        //        ListRein.Items.Clear();
-        //        var indentity = (from rein in db.REINTINFORs
-        //                         where EntityFunctions.TruncateTime(rein.CheckOutDate) == (dateTimePicker1.Value.Date)
-        //                         select rein).ToList();
-        //        int stt = 0;
-        //        foreach (var Reinformation in indentity)
-        //        {
-        //            ListViewItem lvi = new ListViewItem(stt.ToString());
-        //            lvi.SubItems.Add(Reinformation.CUSTOMER.IDCard);
-        //            lvi.SubItems.Add(Reinformation.CUSTOMER.CustomerName);
-        //            lvi.SubItems.Add(Reinformation.MOTELROOM.RoomName);
-        //            lvi.SubItems.Add(Reinformation.CheckInDate.ToString());
-        //            lvi.SubItems.Add(Reinformation.CheckOutDate.ToString());
-        //            ListRein.Items.Add(lvi);
-        //            stt++;
-        //        }
-        //    }
-        //    else 
-        //    {
-        //        ListRein.Items.Clear();
-        //        var indentity = (from rein in db.REINTINFORs
-        //                         where EntityFunctions.TruncateTime(rein.CheckInDate) == (dateTimePicker1.Value.Date)
-        //                         select rein).ToList();
-        //        int stt = 0;
-        //        foreach (var Reinformation in indentity)
-        //        {
-        //            ListViewItem lvi = new ListViewItem(stt.ToString());
-        //            lvi.SubItems.Add(Reinformation.CUSTOMER.IDCard);
-        //            lvi.SubItems.Add(Reinformation.CUSTOMER.CustomerName);
-        //            lvi.SubItems.Add(Reinformation.MOTELROOM.RoomName);
-        //            lvi.SubItems.Add(Reinformation.CheckInDate.ToString());
-        //            lvi.SubItems.Add(Reinformation.CheckOutDate.ToString());
-        //            ListRein.Items.Add(lvi);
-        //            stt++;
-        //        }
-        //    }
-        //}
+        }       
 
         private void comboBoxSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
             loadListReninformation();
             if (comboBoxSearch.SelectedIndex == 3 || comboBoxSearch.SelectedIndex == 4)
             {
-               // dateTimePicker1.Visible = true;
+                dateTimemin.Visible = true;
+                dateTimeMax.Visible = true;
+                dateTimemin.Value = DateTime.Now;
+                dateTimeMax.Value = DateTime.Now;
+                labelTo.Visible = true;
                 textSearch.Visible = false;
                 
             }else
             {
-               // dateTimePicker1.Visible = false;
+                dateTimemin.Visible = false;
+                dateTimeMax.Visible = false;
+                labelTo.Visible = false;
                 textSearch.Visible = true;
             }
         }
 
+        private void dateTimeMax_ValueChanged(object sender, EventArgs e)
+        {
+            if(dateTimeMax.Value.Date < dateTimemin.Value.Date)
+            {
+                MessageBox.Show("Date time " + dateTimeMax.Value.Date + " > " + dateTimemin.Value.Date);
+                return;
+            }
+            if (comboBoxSearch.SelectedIndex == 3)
+            {
+                ListRein.Items.Clear();
+                var indentity = (from rein in db.REINTINFORs
+                                 where EntityFunctions.TruncateTime(rein.CheckOutDate) >= (dateTimemin.Value.Date)
+                                 && EntityFunctions.TruncateTime(rein.CheckOutDate) <= (dateTimeMax.Value.Date)
+                                 select rein).ToList();
+                int stt = 0;
+                foreach (var Reinformation in indentity)
+                {
+                    ListViewItem lvi = new ListViewItem(stt.ToString());
+                    lvi.SubItems.Add(Reinformation.CUSTOMER.IDCard);
+                    lvi.SubItems.Add(Reinformation.CUSTOMER.CustomerName);
+                    lvi.SubItems.Add(Reinformation.MOTELROOM.RoomName);
+                    lvi.SubItems.Add(Reinformation.CheckInDate.ToString());
+                    lvi.SubItems.Add(Reinformation.CheckOutDate.ToString());
+                    ListRein.Items.Add(lvi);
+                    stt++;
+                }
+            }
+            else
+            {
+                ListRein.Items.Clear();
+                var indentity = (from rein in db.REINTINFORs
+                                 where EntityFunctions.TruncateTime(rein.CheckInDate) >= (dateTimemin.Value.Date) 
+                                 && EntityFunctions.TruncateTime(rein.CheckInDate) <= (dateTimeMax.Value.Date)
+                                 select rein).ToList();
+                int stt = 0;
+                foreach (var Reinformation in indentity)
+                {
+                    ListViewItem lvi = new ListViewItem(stt.ToString());
+                    lvi.SubItems.Add(Reinformation.CUSTOMER.IDCard);
+                    lvi.SubItems.Add(Reinformation.CUSTOMER.CustomerName);
+                    lvi.SubItems.Add(Reinformation.MOTELROOM.RoomName);
+                    lvi.SubItems.Add(Reinformation.CheckInDate.ToString());
+                    lvi.SubItems.Add(Reinformation.CheckOutDate.ToString());
+                    ListRein.Items.Add(lvi);
+                    stt++;
+                }
+            }
+        }
+
+        private void dateTimemin_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateTimeMax.Value.Date < dateTimemin.Value.Date)
+            {
+                MessageBox.Show("Date time " + dateTimeMax.Value.Date + " > " + dateTimemin.Value.Date);
+                return;
+            }
+            if (comboBoxSearch.SelectedIndex == 3)
+            {
+                ListRein.Items.Clear();
+                var indentity = (from rein in db.REINTINFORs
+                                 where EntityFunctions.TruncateTime(rein.CheckOutDate) >= (dateTimemin.Value.Date)
+                                 && EntityFunctions.TruncateTime(rein.CheckOutDate) <= (dateTimeMax.Value.Date)
+                                 select rein).ToList();
+                int stt = 0;
+                foreach (var Reinformation in indentity)
+                {
+                    ListViewItem lvi = new ListViewItem(stt.ToString());
+                    lvi.SubItems.Add(Reinformation.CUSTOMER.IDCard);
+                    lvi.SubItems.Add(Reinformation.CUSTOMER.CustomerName);
+                    lvi.SubItems.Add(Reinformation.MOTELROOM.RoomName);
+                    lvi.SubItems.Add(Reinformation.CheckInDate.ToString());
+                    lvi.SubItems.Add(Reinformation.CheckOutDate.ToString());
+                    ListRein.Items.Add(lvi);
+                    stt++;
+                }
+            }
+            else
+            {
+                ListRein.Items.Clear();
+                var indentity = (from rein in db.REINTINFORs
+                                 where EntityFunctions.TruncateTime(rein.CheckInDate) >= (dateTimemin.Value.Date)
+                                 && EntityFunctions.TruncateTime(rein.CheckInDate) <= (dateTimeMax.Value.Date)
+                                 select rein).ToList();
+                int stt = 0;
+                foreach (var Reinformation in indentity)
+                {
+                    ListViewItem lvi = new ListViewItem(stt.ToString());
+                    lvi.SubItems.Add(Reinformation.CUSTOMER.IDCard);
+                    lvi.SubItems.Add(Reinformation.CUSTOMER.CustomerName);
+                    lvi.SubItems.Add(Reinformation.MOTELROOM.RoomName);
+                    lvi.SubItems.Add(Reinformation.CheckInDate.ToString());
+                    lvi.SubItems.Add(Reinformation.CheckOutDate.ToString());
+                    ListRein.Items.Add(lvi);
+                    stt++;
+                }
+            }
+        }
     }
 }

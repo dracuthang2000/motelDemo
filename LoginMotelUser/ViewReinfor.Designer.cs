@@ -68,7 +68,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxSearch = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTime = new System.Windows.Forms.DateTimePicker();
+            this.dateTimemin = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeMax = new System.Windows.Forms.DateTimePicker();
+            this.labelTo = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -421,13 +423,37 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "View Reninformation";
             // 
-            // dateTime
+            // dateTimemin
             // 
-            this.dateTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTime.Location = new System.Drawing.Point(94, 79);
-            this.dateTime.Name = "dateTime";
-            this.dateTime.Size = new System.Drawing.Size(200, 22);
-            this.dateTime.TabIndex = 7;
+            this.dateTimemin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimemin.Location = new System.Drawing.Point(94, 107);
+            this.dateTimemin.Name = "dateTimemin";
+            this.dateTimemin.Size = new System.Drawing.Size(116, 22);
+            this.dateTimemin.TabIndex = 7;
+            this.dateTimemin.Visible = false;
+            this.dateTimemin.ValueChanged += new System.EventHandler(this.dateTimemin_ValueChanged);
+            // 
+            // dateTimeMax
+            // 
+            this.dateTimeMax.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeMax.Location = new System.Drawing.Point(280, 107);
+            this.dateTimeMax.Name = "dateTimeMax";
+            this.dateTimeMax.Size = new System.Drawing.Size(126, 22);
+            this.dateTimeMax.TabIndex = 8;
+            this.dateTimeMax.Visible = false;
+            this.dateTimeMax.ValueChanged += new System.EventHandler(this.dateTimeMax_ValueChanged);
+            // 
+            // labelTo
+            // 
+            this.labelTo.AutoSize = true;
+            this.labelTo.BackColor = System.Drawing.Color.Transparent;
+            this.labelTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTo.Location = new System.Drawing.Point(231, 109);
+            this.labelTo.Name = "labelTo";
+            this.labelTo.Size = new System.Drawing.Size(34, 20);
+            this.labelTo.TabIndex = 9;
+            this.labelTo.Text = "TO";
+            this.labelTo.Visible = false;
             // 
             // Viewinformation
             // 
@@ -436,7 +462,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1013, 686);
-            this.Controls.Add(this.dateTime);
+            this.Controls.Add(this.labelTo);
+            this.Controls.Add(this.dateTimeMax);
+            this.Controls.Add(this.dateTimemin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxSearch);
             this.Controls.Add(this.label1);
@@ -494,6 +522,8 @@
         private System.Windows.Forms.TextBox textSearch;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem viewReinformationToolStripMenuItem;
-        private System.Windows.Forms.DateTimePicker dateTime;
+        private System.Windows.Forms.DateTimePicker dateTimemin;
+        private System.Windows.Forms.DateTimePicker dateTimeMax;
+        private System.Windows.Forms.Label labelTo;
     }
 }
