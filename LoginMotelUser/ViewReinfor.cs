@@ -293,61 +293,62 @@ namespace LoginMotelUser
             }
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-            if (comboBoxSearch.SelectedIndex == 3)
-            {
-                ListRein.Items.Clear();
-                var indentity = (from rein in db.REINTINFORs
-                                 where EntityFunctions.TruncateTime(rein.CheckOutDate) == (dateTimePicker1.Value.Date)
-                                 select rein).ToList();
-                int stt = 0;
-                foreach (var Reinformation in indentity)
-                {
-                    ListViewItem lvi = new ListViewItem(stt.ToString());
-                    lvi.SubItems.Add(Reinformation.CUSTOMER.IDCard);
-                    lvi.SubItems.Add(Reinformation.CUSTOMER.CustomerName);
-                    lvi.SubItems.Add(Reinformation.MOTELROOM.RoomName);
-                    lvi.SubItems.Add(Reinformation.CheckInDate.ToString());
-                    lvi.SubItems.Add(Reinformation.CheckOutDate.ToString());
-                    ListRein.Items.Add(lvi);
-                    stt++;
-                }
-            }
-            else 
-            {
-                ListRein.Items.Clear();
-                var indentity = (from rein in db.REINTINFORs
-                                 where EntityFunctions.TruncateTime(rein.CheckInDate) == (dateTimePicker1.Value.Date)
-                                 select rein).ToList();
-                int stt = 0;
-                foreach (var Reinformation in indentity)
-                {
-                    ListViewItem lvi = new ListViewItem(stt.ToString());
-                    lvi.SubItems.Add(Reinformation.CUSTOMER.IDCard);
-                    lvi.SubItems.Add(Reinformation.CUSTOMER.CustomerName);
-                    lvi.SubItems.Add(Reinformation.MOTELROOM.RoomName);
-                    lvi.SubItems.Add(Reinformation.CheckInDate.ToString());
-                    lvi.SubItems.Add(Reinformation.CheckOutDate.ToString());
-                    ListRein.Items.Add(lvi);
-                    stt++;
-                }
-            }
-        }
+        //private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        //{
+        //    if (comboBoxSearch.SelectedIndex == 3)
+        //    {
+        //        ListRein.Items.Clear();
+        //        var indentity = (from rein in db.REINTINFORs
+        //                         where EntityFunctions.TruncateTime(rein.CheckOutDate) == (dateTimePicker1.Value.Date)
+        //                         select rein).ToList();
+        //        int stt = 0;
+        //        foreach (var Reinformation in indentity)
+        //        {
+        //            ListViewItem lvi = new ListViewItem(stt.ToString());
+        //            lvi.SubItems.Add(Reinformation.CUSTOMER.IDCard);
+        //            lvi.SubItems.Add(Reinformation.CUSTOMER.CustomerName);
+        //            lvi.SubItems.Add(Reinformation.MOTELROOM.RoomName);
+        //            lvi.SubItems.Add(Reinformation.CheckInDate.ToString());
+        //            lvi.SubItems.Add(Reinformation.CheckOutDate.ToString());
+        //            ListRein.Items.Add(lvi);
+        //            stt++;
+        //        }
+        //    }
+        //    else 
+        //    {
+        //        ListRein.Items.Clear();
+        //        var indentity = (from rein in db.REINTINFORs
+        //                         where EntityFunctions.TruncateTime(rein.CheckInDate) == (dateTimePicker1.Value.Date)
+        //                         select rein).ToList();
+        //        int stt = 0;
+        //        foreach (var Reinformation in indentity)
+        //        {
+        //            ListViewItem lvi = new ListViewItem(stt.ToString());
+        //            lvi.SubItems.Add(Reinformation.CUSTOMER.IDCard);
+        //            lvi.SubItems.Add(Reinformation.CUSTOMER.CustomerName);
+        //            lvi.SubItems.Add(Reinformation.MOTELROOM.RoomName);
+        //            lvi.SubItems.Add(Reinformation.CheckInDate.ToString());
+        //            lvi.SubItems.Add(Reinformation.CheckOutDate.ToString());
+        //            ListRein.Items.Add(lvi);
+        //            stt++;
+        //        }
+        //    }
+        //}
 
         private void comboBoxSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
             loadListReninformation();
             if (comboBoxSearch.SelectedIndex == 3 || comboBoxSearch.SelectedIndex == 4)
             {
-                dateTimePicker1.Visible = true;
+               // dateTimePicker1.Visible = true;
                 textSearch.Visible = false;
                 
             }else
             {
-                dateTimePicker1.Visible = false;
+               // dateTimePicker1.Visible = false;
                 textSearch.Visible = true;
             }
         }
+
     }
 }
