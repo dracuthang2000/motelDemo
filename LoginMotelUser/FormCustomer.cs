@@ -23,6 +23,7 @@ namespace LoginMotelUser
         }
         Boolean check;
         private int IDcus;
+        string phone;
         public FormCustomer(Boolean check)
         {
             InitializeComponent();
@@ -149,6 +150,7 @@ namespace LoginMotelUser
             textHoTen.Text = c.CustomerName.ToString();
             textAddress.Text = c.Address.ToString();
             textSDT.Text = c.NumberPhone.ToString();
+            phone = c.NumberPhone.ToString();
             comBoxSexual.Text = c.Sexual.ToString();
             datePickerBirth.Value = c.DateOfBirth.GetValueOrDefault();
             List<Model.REINTINFOR> list = (from b in data.REINTINFORs where b.IDCustomer == ID select b).ToList();
@@ -295,7 +297,8 @@ namespace LoginMotelUser
             var checkPhone = (from cus in data.CUSTOMERs
                               where cus.NumberPhone == textSDT.Text
                               select cus).ToList();
-            if (checkPhone.Count != 0)
+            
+            if (checkPhone.Count != 0 && phone != textSDT.Text)
             {
                 MessageBox.Show("The numberphone is exists", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

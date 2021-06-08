@@ -30,7 +30,7 @@ namespace LoginMotelUser
             this.checkUpdate = checkUpdate;
             this.checkEdit(checkUpdate);
         }
-
+        String phone;
         public void checkEdit(Boolean check)
         {
             if (check == true)
@@ -178,6 +178,7 @@ namespace LoginMotelUser
                 textHoTen.Text = staff.StaffName;
                 textAddress.Text = staff.Address;
                 textSDT.Text = staff.NumberPhone.ToString();
+                phone = staff.NumberPhone.ToString();
                 textUserName.Text = staff.UserName.ToString();
                 comBoxSexual.Text = staff.Sexual.ToString();
                 datePickerBirth.Value = staff.DateOfBirth.GetValueOrDefault();
@@ -300,7 +301,7 @@ namespace LoginMotelUser
             var checkPhone = (from cus in data.CUSTOMERs
                               where cus.NumberPhone == textSDT.Text
                               select cus).ToList();
-            if (checkPhone.Count != 0)
+            if (checkPhone.Count != 0 && phone != textSDT.Text)
             {
                 MessageBox.Show("The numberphone is exists", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
