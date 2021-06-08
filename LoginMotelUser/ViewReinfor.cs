@@ -318,7 +318,8 @@ namespace LoginMotelUser
         {
             if(dateTimeMax.Value.Date < dateTimemin.Value.Date)
             {
-                MessageBox.Show("Date time " + dateTimeMax.Value.Date + " > " + dateTimemin.Value.Date);
+                MessageBox.Show("Date time " + dateTimemin.Value.Date + " > " + dateTimeMax.Value.Date + " is false", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning); dateTimemin.Value = DateTime.Parse("6/8/2020");
+                dateTimeMax.Value = DateTime.Now;
                 return;
             }
             if (comboBoxSearch.SelectedIndex == 3)
@@ -367,7 +368,9 @@ namespace LoginMotelUser
         {
             if (dateTimeMax.Value.Date < dateTimemin.Value.Date)
             {
-                MessageBox.Show("Date time " + dateTimeMax.Value.Date + " > " + dateTimemin.Value.Date);
+                MessageBox.Show("Date time " + dateTimemin.Value.Date + " > " + dateTimeMax.Value.Date +" is false","WARNING",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                dateTimemin.Value = DateTime.Parse("6/8/2020");
+                dateTimeMax.Value = DateTime.Now;
                 return;
             }
             if (comboBoxSearch.SelectedIndex == 3)
