@@ -61,9 +61,10 @@ namespace LoginMotelUser
             listService.Columns.Add("Unit", 100);
             foreach (var a in list)
             {
+                Double priceSer = Double.Parse(a.Price.ToString().Replace(",", ""));
                 ListViewItem item = new ListViewItem(a.ID.ToString());
                 item.SubItems.Add(a.ServiceName);
-                item.SubItems.Add(a.Price.ToString());
+                item.SubItems.Add(priceSer.ToString());
                 item.SubItems.Add(a.Unit);
                 listService.Items.Add(item);
             }
@@ -90,8 +91,9 @@ namespace LoginMotelUser
                 textIDService.Text = listService.FocusedItem.Text;
                 int a = int.Parse(textIDService.Text);
                 Model.SERVICE b = data.SERVICEs.Find(a);
+                Double priceSer = Double.Parse(b.Price.ToString().Replace(",", ""));
                 textServiceName.Text = b.ServiceName;
-                textPrice.Text = b.Price.ToString();
+                textPrice.Text = priceSer.ToString();
                 comboBoxUnit.Text = b.Unit;
             }
         }
@@ -138,9 +140,10 @@ namespace LoginMotelUser
                 }
                 foreach (Model.SERVICE a in list)
                 {
+                    Double priceSer = Double.Parse(a.Price.ToString().Replace(",", ""));
                     ListViewItem item = new ListViewItem(a.ID.ToString());
                     item.SubItems.Add(a.ServiceName);
-                    item.SubItems.Add(a.Price.ToString());
+                    item.SubItems.Add(priceSer.ToString());
                     item.SubItems.Add(a.Unit);
                     listService.Items.Add(item);
                 }
@@ -229,8 +232,9 @@ namespace LoginMotelUser
                textSearch.Text = textServiceName.Text; 
                 foreach(var ser in query)
                 {
+                    Double priceSer = Double.Parse(ser.Price.ToString().Replace(",", ""));
                     textIDService.Text = ser.ID.ToString();
-                    textPrice.Text = ser.Price.ToString();
+                    textPrice.Text = priceSer.ToString();
                     comboBoxUnit.Text = ser.Unit;
                 }
                 if(query.Count == 0)

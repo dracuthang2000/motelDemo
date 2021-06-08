@@ -275,12 +275,15 @@ namespace LoginMotelUser
             int j = 0;
             foreach (var temp in services)
             {
-                String[] a = { (j + 1).ToString(), temp.ServiceName, temp.OldIndex.ToString(), temp.NewIndex.ToString(), temp.Price.ToString(), temp.Total.ToString() };
+                Double priceSer = Double.Parse(temp.Price.ToString().Replace(",", ""));
+                Double total = Double.Parse(temp.Total.ToString().Replace(",", ""));
+                String[] a = { (j + 1).ToString(), temp.ServiceName, temp.OldIndex.ToString(), temp.NewIndex.ToString(), priceSer.ToString(), total.ToString() };
 
                 data[j] = a;
                 j++;
             }
-            String[] b = { "Tổng Tiền", "", list1[0].TotalMoney.ToString() };
+            Double totalMoney = Double.Parse(list1[0].TotalMoney.ToString().Replace(",", ""));
+            String[] b = { "Tổng Tiền", "", totalMoney.ToString() };
             data[services.Count] = b;
             //Add Cells
             table.ResetCells(data.Length + 1, Header.Length);

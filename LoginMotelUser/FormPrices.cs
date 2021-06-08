@@ -302,7 +302,7 @@ namespace LoginMotelUser
             double dateTotal = -(dateMax - DateTime.Now.Date).TotalDays;
             String Price = lbTienPhong.Text.Replace(",", "");
             Double total = (Double.Parse(Price) * dateTotal) / 30;
-            String RoomPrice = total.ToString();
+            String RoomPrice = Math.Round(total).ToString();
             decimal TotalSer = 0;
             foreach (ListViewItem list in listService.Items)
             {
@@ -512,7 +512,8 @@ namespace LoginMotelUser
             int j = 0;
             foreach (var temp in services)
             {
-                String[] a = { (j + 1).ToString(), temp.ServiceName, temp.OldIndex.ToString(), temp.NewIndex.ToString(), temp.Price.ToString(), temp.Total.ToString() };
+                Double priceSer = Double.Parse(temp.Price.ToString().Replace(",", ""));
+                String[] a = { (j + 1).ToString(), temp.ServiceName, temp.OldIndex.ToString(), temp.NewIndex.ToString(), priceSer.ToString(), temp.Total.ToString() };
 
                 data[j] = a;
                 j++;
