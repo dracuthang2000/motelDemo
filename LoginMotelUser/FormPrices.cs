@@ -60,6 +60,7 @@ namespace LoginMotelUser
         {
             lvDanhSachPhongSC4.Items.Clear();
             var rooms = from rent in db.REINTINFORs
+                        where rent.CheckOutDate == null
                         group rent by rent.IDRoom into g
                         select new
                         {
@@ -299,7 +300,7 @@ namespace LoginMotelUser
                           where idBill == Date.ID
                           select Date).ToList();
             DateTime dateMax = getDate[0].Date.Value.Date;
-            double dateTotal = -(dateMax - DateTime.Now.Date).TotalDays;
+            double dateTotal = -(dateMax - DateTime.Now.Date).TotalDays -1;
             String Price = lbTienPhong.Text.Replace(",", "");
             Double total = (Double.Parse(Price) * dateTotal) / 30;
             String RoomPrice = Math.Round(total).ToString();
@@ -513,12 +514,14 @@ namespace LoginMotelUser
             foreach (var temp in services)
             {
                 Double priceSer = Double.Parse(temp.Price.ToString().Replace(",", ""));
-                String[] a = { (j + 1).ToString(), temp.ServiceName, temp.OldIndex.ToString(), temp.NewIndex.ToString(), priceSer.ToString(), temp.Total.ToString() };
+                Double total = Double.Parse(temp.Total.ToString().Replace(",", ""));
+                String[] a = { (j + 1).ToString(), temp.ServiceName, temp.OldIndex.ToString(), temp.NewIndex.ToString(), priceSer.ToString(), total.ToString() };
 
                 data[j] = a;
                 j++;
             }
-            String[] b = { "Tổng tiền", "", list1[0].TotalMoney.ToString() };
+            Double totalMoney = Double.Parse(list1[0].TotalMoney.ToString().Replace(",", ""));
+            String[] b = { "Tổng Tiền", "", totalMoney.ToString() };
             data[services.Count] = b;
             //Add Cells
             table.ResetCells(data.Length + 1, Header.Length);
