@@ -55,8 +55,10 @@ namespace LoginMotelUser
                     ListViewItem item = new ListViewItem(c.ID.ToString());
                     item.SubItems.Add(c.RankName);
                     item.SubItems.Add(c.Quantity.ToString());
-                    item.SubItems.Add(c.Price.ToString());
-                    item.SubItems.Add(c.Deposits.ToString());
+                    Double priceSer = Double.Parse(c.Price.ToString().Replace(",", ""));
+                    item.SubItems.Add(priceSer.ToString());
+                    Double Deposits = Double.Parse(c.Deposits.ToString().Replace(",", ""));
+                    item.SubItems.Add(Deposits.ToString());
                     item.SubItems.Add(c.About);
 
                     listRank.Items.Add(item);
@@ -113,8 +115,10 @@ namespace LoginMotelUser
                     ListViewItem item = new ListViewItem(c.ID.ToString());
                     item.SubItems.Add(c.RankName);
                     item.SubItems.Add(c.Quantity.ToString());
-                    item.SubItems.Add(c.Price.ToString());
-                    item.SubItems.Add(c.Deposits.ToString());
+                    Double priceSer = Double.Parse(c.Price.ToString().Replace(",", ""));
+                    item.SubItems.Add(priceSer.ToString());
+                    Double Deposits = Double.Parse(c.Deposits.ToString().Replace(",", ""));
+                    item.SubItems.Add(Deposits.ToString());
                     item.SubItems.Add(c.About);
 
                     listRank.Items.Add(item);

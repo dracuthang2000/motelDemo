@@ -69,8 +69,10 @@ namespace LoginMotelUser
 
             Model.ROOMRANK c = data.ROOMRANKs.Find(int.Parse(a));
             textRankName.Text = c.RankName;
-            textPrice.Text = c.Price.ToString();
-            textDeposit.Text = c.Deposits.ToString();
+            Double priceSer = Double.Parse(c.Price.ToString().Replace(",", ""));
+            textPrice.Text = priceSer.ToString();
+            Double Deposits = Double.Parse(c.Deposits.ToString().Replace(",", ""));
+            textDeposit.Text = Deposits.ToString();
             textAbout.Text = c.About;
             numericQuantity.Value = c.Quantity;
 

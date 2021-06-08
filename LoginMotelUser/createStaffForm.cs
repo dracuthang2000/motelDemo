@@ -41,7 +41,7 @@ namespace LoginMotelUser
                 textAddress.Enabled = false;
                 datePickerBirth.Enabled = false;
                 comBoxSexual.Enabled = false;
-                buttonSave.Enabled = false;
+                buttonSave.Visible = false;
 
             }
             else
@@ -52,7 +52,7 @@ namespace LoginMotelUser
                 textAddress.Enabled = true;
                 datePickerBirth.Enabled = true;
                 comBoxSexual.Enabled = true;
-                buttonSave.Enabled = true;
+                buttonSave.Visible = true;
             }
         }
 
@@ -294,14 +294,33 @@ namespace LoginMotelUser
                     }
                 }
             }
+            else
+            {
+                if (textIDStaff.Text.Length < 9)
+                {
+                    buttonSave.Visible = false;
+                }
+                else
+                {
+                    buttonSave.Visible = true;
+                }
+            }
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            var checkPhone = (from cus in data.CUSTOMERs
-                              where cus.NumberPhone == textSDT.Text
-                              select cus).ToList();
-            if (checkPhone.Count != 0 && phone != textSDT.Text)
+            var checkPhone = (from staff in data.STAFFs
+                              where staff.NumberPhone == textSDT.Text && IDStaff != staff.ID
+                              select staff).ToList();
+            var checkIdCard = (from staff in data.STAFFs
+                              where staff.IDCard == textIDStaff.Text && IDStaff != staff.ID
+                              select staff).ToList();
+            if (checkIdCard.Count != 0)
+            {
+                MessageBox.Show("The ID card is exists", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (checkPhone.Count != 0 )
             {
                 MessageBox.Show("The numberphone is exists", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
