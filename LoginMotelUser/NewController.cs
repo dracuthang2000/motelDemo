@@ -174,5 +174,12 @@ namespace LoginMotelUser
         {
             this.Close();
         }
+
+        private void button_WOC8_Click_1(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Viewinformation Fc = new Viewinformation(checkRole, checkUsername);
+            Fc.ShowDialog();
+        }
     }
 }

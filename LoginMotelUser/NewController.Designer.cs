@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewController));
             this.billTableAdapter1 = new LoginMotelUser.MotelManagerDataSetTableAdapters.BILLTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -41,8 +40,6 @@
             this.buttonUser = new ePOSOne.btnProduct.Button_WOC();
             this.Customer = new System.Windows.Forms.TableLayoutPanel();
             this.buttonCustomer = new ePOSOne.btnProduct.Button_WOC();
-            this.Reinformation = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonReinfor = new ePOSOne.btnProduct.Button_WOC();
             this.ROOM = new System.Windows.Forms.TableLayoutPanel();
             this.buttonRoom = new ePOSOne.btnProduct.Button_WOC();
             this.Range = new System.Windows.Forms.TableLayoutPanel();
@@ -67,19 +64,20 @@
             this.label11 = new System.Windows.Forms.Label();
             this.button_WOC2 = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC3 = new ePOSOne.btnProduct.Button_WOC();
+            this.label15 = new System.Windows.Forms.Label();
+            this.button_WOC6 = new ePOSOne.btnProduct.Button_WOC();
             this.ControllRent = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.button_WOC7 = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC4 = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC5 = new ePOSOne.btnProduct.Button_WOC();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.button_WOC6 = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC7 = new ePOSOne.btnProduct.Button_WOC();
             this.label16 = new System.Windows.Forms.Label();
+            this.button_WOC8 = new ePOSOne.btnProduct.Button_WOC();
+            this.label2 = new System.Windows.Forms.Label();
             this.User.SuspendLayout();
             this.Customer.SuspendLayout();
-            this.Reinformation.SuspendLayout();
             this.ROOM.SuspendLayout();
             this.Range.SuspendLayout();
             this.Rank.SuspendLayout();
@@ -111,20 +109,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "       ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 47);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "       ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -267,42 +251,6 @@
             this.buttonCustomer.UseVisualStyleBackColor = true;
             this.buttonCustomer.Click += new System.EventHandler(this.buttonCustomer_Click);
             // 
-            // Reinformation
-            // 
-            this.Reinformation.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Reinformation.ColumnCount = 2;
-            this.Reinformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
-            this.Reinformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.42857F));
-            this.Reinformation.Controls.Add(this.buttonReinfor, 1, 0);
-            this.Reinformation.Controls.Add(this.label2, 0, 0);
-            this.Reinformation.Location = new System.Drawing.Point(3, 168);
-            this.Reinformation.Name = "Reinformation";
-            this.Reinformation.RowCount = 1;
-            this.Reinformation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.Reinformation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.Reinformation.Size = new System.Drawing.Size(366, 47);
-            this.Reinformation.TabIndex = 7;
-            // 
-            // buttonReinfor
-            // 
-            this.buttonReinfor.BorderColor = System.Drawing.Color.Silver;
-            this.buttonReinfor.ButtonColor = System.Drawing.Color.Red;
-            this.buttonReinfor.FlatAppearance.BorderSize = 0;
-            this.buttonReinfor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonReinfor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonReinfor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonReinfor.Location = new System.Drawing.Point(107, 3);
-            this.buttonReinfor.Name = "buttonReinfor";
-            this.buttonReinfor.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.buttonReinfor.OnHoverButtonColor = System.Drawing.Color.Yellow;
-            this.buttonReinfor.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonReinfor.Size = new System.Drawing.Size(256, 41);
-            this.buttonReinfor.TabIndex = 1;
-            this.buttonReinfor.Text = "REINFORMATION";
-            this.buttonReinfor.TextColor = System.Drawing.Color.White;
-            this.buttonReinfor.UseVisualStyleBackColor = true;
-            this.buttonReinfor.Click += new System.EventHandler(this.buttonReinfor_Click);
-            // 
             // ROOM
             // 
             this.ROOM.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -346,7 +294,7 @@
             this.Range.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.42857F));
             this.Range.Controls.Add(this.buttonRange, 1, 0);
             this.Range.Controls.Add(this.label6, 0, 0);
-            this.Range.Location = new System.Drawing.Point(3, 221);
+            this.Range.Location = new System.Drawing.Point(3, 168);
             this.Range.Name = "Range";
             this.Range.RowCount = 1;
             this.Range.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -383,7 +331,7 @@
             this.Rank.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.42857F));
             this.Rank.Controls.Add(this.buttonRank, 1, 0);
             this.Rank.Controls.Add(this.label4, 0, 0);
-            this.Rank.Location = new System.Drawing.Point(3, 274);
+            this.Rank.Location = new System.Drawing.Point(3, 221);
             this.Rank.Name = "Rank";
             this.Rank.RowCount = 1;
             this.Rank.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -419,7 +367,7 @@
             this.Service.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.42857F));
             this.Service.Controls.Add(this.buttonService, 1, 0);
             this.Service.Controls.Add(this.label7, 0, 0);
-            this.Service.Location = new System.Drawing.Point(3, 327);
+            this.Service.Location = new System.Drawing.Point(3, 274);
             this.Service.Name = "Service";
             this.Service.RowCount = 1;
             this.Service.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -453,7 +401,6 @@
             this.ControllerEditNew.Controls.Add(this.User);
             this.ControllerEditNew.Controls.Add(this.Customer);
             this.ControllerEditNew.Controls.Add(this.ROOM);
-            this.ControllerEditNew.Controls.Add(this.Reinformation);
             this.ControllerEditNew.Controls.Add(this.Range);
             this.ControllerEditNew.Controls.Add(this.Rank);
             this.ControllerEditNew.Controls.Add(this.Service);
@@ -461,7 +408,7 @@
             this.ControllerEditNew.Controls.Add(this.tableLayoutPanel1);
             this.ControllerEditNew.Location = new System.Drawing.Point(136, 10);
             this.ControllerEditNew.Name = "ControllerEditNew";
-            this.ControllerEditNew.Size = new System.Drawing.Size(369, 479);
+            this.ControllerEditNew.Size = new System.Drawing.Size(369, 438);
             this.ControllerEditNew.TabIndex = 8;
             // 
             // Staff
@@ -472,7 +419,7 @@
             this.Staff.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.42857F));
             this.Staff.Controls.Add(this.buttonStaff, 1, 0);
             this.Staff.Controls.Add(this.label8, 0, 0);
-            this.Staff.Location = new System.Drawing.Point(3, 380);
+            this.Staff.Location = new System.Drawing.Point(3, 327);
             this.Staff.Name = "Staff";
             this.Staff.RowCount = 1;
             this.Staff.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -522,7 +469,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.42857F));
             this.tableLayoutPanel1.Controls.Add(this.buttonReturn, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 433);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 380);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -715,103 +662,6 @@
             this.button_WOC3.UseVisualStyleBackColor = true;
             this.button_WOC3.Click += new System.EventHandler(this.button_WOC3_Click);
             // 
-            // ControllRent
-            // 
-            this.ControllRent.BackColor = System.Drawing.Color.Transparent;
-            this.ControllRent.Controls.Add(this.tableLayoutPanel3);
-            this.ControllRent.Location = new System.Drawing.Point(1, 1);
-            this.ControllRent.Name = "ControllRent";
-            this.ControllRent.Size = new System.Drawing.Size(653, 516);
-            this.ControllRent.TabIndex = 11;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel3.Controls.Add(this.button_WOC7, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.button_WOC4, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button_WOC5, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label13, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label14, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label16, 0, 2);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(126, 120);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(408, 214);
-            this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // button_WOC4
-            // 
-            this.button_WOC4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_WOC4.BorderColor = System.Drawing.Color.Transparent;
-            this.button_WOC4.ButtonColor = System.Drawing.Color.Red;
-            this.button_WOC4.FlatAppearance.BorderSize = 0;
-            this.button_WOC4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC4.Location = new System.Drawing.Point(84, 3);
-            this.button_WOC4.Name = "button_WOC4";
-            this.button_WOC4.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.button_WOC4.OnHoverButtonColor = System.Drawing.Color.Yellow;
-            this.button_WOC4.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.button_WOC4.Size = new System.Drawing.Size(321, 65);
-            this.button_WOC4.TabIndex = 0;
-            this.button_WOC4.Text = "CHECK IN";
-            this.button_WOC4.TextColor = System.Drawing.Color.White;
-            this.button_WOC4.UseVisualStyleBackColor = true;
-            this.button_WOC4.Click += new System.EventHandler(this.button_WOC4_Click);
-            // 
-            // button_WOC5
-            // 
-            this.button_WOC5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_WOC5.BorderColor = System.Drawing.Color.Transparent;
-            this.button_WOC5.ButtonColor = System.Drawing.Color.Red;
-            this.button_WOC5.FlatAppearance.BorderSize = 0;
-            this.button_WOC5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC5.Location = new System.Drawing.Point(84, 74);
-            this.button_WOC5.Name = "button_WOC5";
-            this.button_WOC5.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.button_WOC5.OnHoverButtonColor = System.Drawing.Color.Yellow;
-            this.button_WOC5.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.button_WOC5.Size = new System.Drawing.Size(321, 65);
-            this.button_WOC5.TabIndex = 1;
-            this.button_WOC5.Text = "CHECK OUT";
-            this.button_WOC5.TextColor = System.Drawing.Color.White;
-            this.button_WOC5.UseVisualStyleBackColor = true;
-            this.button_WOC5.Click += new System.EventHandler(this.button_WOC5_Click);
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.Image = ((System.Drawing.Image)(resources.GetObject("label13.Image")));
-            this.label13.Location = new System.Drawing.Point(3, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(75, 71);
-            this.label13.TabIndex = 2;
-            // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label14.AutoSize = true;
-            this.label14.Image = ((System.Drawing.Image)(resources.GetObject("label14.Image")));
-            this.label14.Location = new System.Drawing.Point(3, 71);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(75, 71);
-            this.label14.TabIndex = 3;
-            // 
             // label15
             // 
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -848,6 +698,38 @@
             this.button_WOC6.UseVisualStyleBackColor = true;
             this.button_WOC6.Click += new System.EventHandler(this.button_WOC6_Click);
             // 
+            // ControllRent
+            // 
+            this.ControllRent.BackColor = System.Drawing.Color.Transparent;
+            this.ControllRent.Controls.Add(this.tableLayoutPanel3);
+            this.ControllRent.Location = new System.Drawing.Point(1, 1);
+            this.ControllRent.Name = "ControllRent";
+            this.ControllRent.Size = new System.Drawing.Size(653, 516);
+            this.ControllRent.TabIndex = 11;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel3.Controls.Add(this.button_WOC7, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.button_WOC4, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.button_WOC5, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label13, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label14, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label2, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.button_WOC8, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.label16, 0, 2);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(126, 120);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 4;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(408, 280);
+            this.tableLayoutPanel3.TabIndex = 0;
+            // 
             // button_WOC7
             // 
             this.button_WOC7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -860,17 +742,85 @@
             this.button_WOC7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button_WOC7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_WOC7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC7.Location = new System.Drawing.Point(84, 145);
+            this.button_WOC7.Location = new System.Drawing.Point(84, 213);
             this.button_WOC7.Name = "button_WOC7";
             this.button_WOC7.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.button_WOC7.OnHoverButtonColor = System.Drawing.Color.Yellow;
             this.button_WOC7.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.button_WOC7.Size = new System.Drawing.Size(321, 66);
+            this.button_WOC7.Size = new System.Drawing.Size(321, 64);
             this.button_WOC7.TabIndex = 10;
             this.button_WOC7.Text = "RETURN";
             this.button_WOC7.TextColor = System.Drawing.Color.White;
             this.button_WOC7.UseVisualStyleBackColor = true;
             this.button_WOC7.Click += new System.EventHandler(this.button_WOC7_Click);
+            // 
+            // button_WOC4
+            // 
+            this.button_WOC4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_WOC4.BorderColor = System.Drawing.Color.Transparent;
+            this.button_WOC4.ButtonColor = System.Drawing.Color.Red;
+            this.button_WOC4.FlatAppearance.BorderSize = 0;
+            this.button_WOC4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC4.Location = new System.Drawing.Point(84, 3);
+            this.button_WOC4.Name = "button_WOC4";
+            this.button_WOC4.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.button_WOC4.OnHoverButtonColor = System.Drawing.Color.Yellow;
+            this.button_WOC4.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.button_WOC4.Size = new System.Drawing.Size(321, 64);
+            this.button_WOC4.TabIndex = 0;
+            this.button_WOC4.Text = "CHECK IN";
+            this.button_WOC4.TextColor = System.Drawing.Color.White;
+            this.button_WOC4.UseVisualStyleBackColor = true;
+            this.button_WOC4.Click += new System.EventHandler(this.button_WOC4_Click);
+            // 
+            // button_WOC5
+            // 
+            this.button_WOC5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_WOC5.BorderColor = System.Drawing.Color.Transparent;
+            this.button_WOC5.ButtonColor = System.Drawing.Color.Red;
+            this.button_WOC5.FlatAppearance.BorderSize = 0;
+            this.button_WOC5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC5.Location = new System.Drawing.Point(84, 73);
+            this.button_WOC5.Name = "button_WOC5";
+            this.button_WOC5.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.button_WOC5.OnHoverButtonColor = System.Drawing.Color.Yellow;
+            this.button_WOC5.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.button_WOC5.Size = new System.Drawing.Size(321, 64);
+            this.button_WOC5.TabIndex = 1;
+            this.button_WOC5.Text = "CHECK OUT";
+            this.button_WOC5.TextColor = System.Drawing.Color.White;
+            this.button_WOC5.UseVisualStyleBackColor = true;
+            this.button_WOC5.Click += new System.EventHandler(this.button_WOC5_Click);
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Image = ((System.Drawing.Image)(resources.GetObject("label13.Image")));
+            this.label13.Location = new System.Drawing.Point(3, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(75, 70);
+            this.label13.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Image = ((System.Drawing.Image)(resources.GetObject("label14.Image")));
+            this.label14.Location = new System.Drawing.Point(3, 70);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(75, 70);
+            this.label14.TabIndex = 3;
             // 
             // label16
             // 
@@ -879,10 +829,43 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
             this.label16.Image = ((System.Drawing.Image)(resources.GetObject("label16.Image")));
-            this.label16.Location = new System.Drawing.Point(3, 142);
+            this.label16.Location = new System.Drawing.Point(3, 140);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(75, 72);
+            this.label16.Size = new System.Drawing.Size(75, 70);
             this.label16.TabIndex = 3;
+            // 
+            // button_WOC8
+            // 
+            this.button_WOC8.BorderColor = System.Drawing.Color.Transparent;
+            this.button_WOC8.ButtonColor = System.Drawing.Color.Red;
+            this.button_WOC8.FlatAppearance.BorderSize = 0;
+            this.button_WOC8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button_WOC8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button_WOC8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC8.Location = new System.Drawing.Point(84, 143);
+            this.button_WOC8.Name = "button_WOC8";
+            this.button_WOC8.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.button_WOC8.OnHoverButtonColor = System.Drawing.Color.Yellow;
+            this.button_WOC8.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.button_WOC8.Size = new System.Drawing.Size(321, 64);
+            this.button_WOC8.TabIndex = 11;
+            this.button_WOC8.Text = "VIEW RENINFORMATION";
+            this.button_WOC8.TextColor = System.Drawing.Color.White;
+            this.button_WOC8.UseVisualStyleBackColor = true;
+            this.button_WOC8.Click += new System.EventHandler(this.button_WOC8_Click_1);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
+            this.label2.Location = new System.Drawing.Point(3, 210);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 70);
+            this.label2.TabIndex = 12;
             // 
             // NewController
             // 
@@ -890,7 +873,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(647, 515);
+            this.ClientSize = new System.Drawing.Size(656, 485);
             this.Controls.Add(this.ControllerEN);
             this.Controls.Add(this.ControllerBill);
             this.Controls.Add(this.ControllRent);
@@ -902,8 +885,6 @@
             this.User.PerformLayout();
             this.Customer.ResumeLayout(false);
             this.Customer.PerformLayout();
-            this.Reinformation.ResumeLayout(false);
-            this.Reinformation.PerformLayout();
             this.ROOM.ResumeLayout(false);
             this.ROOM.PerformLayout();
             this.Range.ResumeLayout(false);
@@ -932,12 +913,10 @@
         private MotelManagerDataSetTableAdapters.BILLTableAdapter billTableAdapter1;
         private System.Windows.Forms.Label label1;
         private ePOSOne.btnProduct.Button_WOC buttonUser;
-        private ePOSOne.btnProduct.Button_WOC buttonReinfor;
         private ePOSOne.btnProduct.Button_WOC buttonCustomer;
         private ePOSOne.btnProduct.Button_WOC buttonRoom;
         private ePOSOne.btnProduct.Button_WOC buttonRank;
         private ePOSOne.btnProduct.Button_WOC buttonRange;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
@@ -946,7 +925,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TableLayoutPanel User;
         private System.Windows.Forms.TableLayoutPanel Customer;
-        private System.Windows.Forms.TableLayoutPanel Reinformation;
         private System.Windows.Forms.TableLayoutPanel ROOM;
         private System.Windows.Forms.TableLayoutPanel Range;
         private System.Windows.Forms.TableLayoutPanel Rank;
@@ -977,5 +955,7 @@
         private ePOSOne.btnProduct.Button_WOC button_WOC6;
         private ePOSOne.btnProduct.Button_WOC button_WOC7;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label2;
+        private ePOSOne.btnProduct.Button_WOC button_WOC8;
     }
 }
