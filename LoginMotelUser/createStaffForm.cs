@@ -297,6 +297,14 @@ namespace LoginMotelUser
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            var checkPhone = (from cus in data.CUSTOMERs
+                              where cus.NumberPhone == textSDT.Text
+                              select cus).ToList();
+            if (checkPhone.Count != 0)
+            {
+                MessageBox.Show("The numberphone is exists", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (textHoTen.Text.Trim() == "")
             {
                 MessageBox.Show("Name is incorrect", "ERORR", MessageBoxButtons.OK, MessageBoxIcon.Error);

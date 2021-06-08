@@ -557,6 +557,14 @@ namespace LoginMotelUser
                 && (txtSDTSC3.Text.Length == 10 && firstNumber[0].Equals('0')
                 && cbbGioiTinhSC3.SelectedIndex != -1
                 );
+            var checkPhone = (from cus in db.CUSTOMERs
+                              where cus.NumberPhone == txtSDTSC3.Text
+                              select cus).ToList();
+            if(checkPhone.Count != 0)
+            {
+                MessageBox.Show("The numberphone is exists", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (isOk)
             {
                 DialogResult d = MessageBox.Show("DO YOU WANT ADD " + txtCMNDSC3.Text + " ?", "UPDATE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

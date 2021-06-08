@@ -292,7 +292,15 @@ namespace LoginMotelUser
 
         private void buttonADD_Click(object sender, EventArgs e)
         {
-            if(textHoTen.Text.Trim() == "")
+            var checkPhone = (from cus in data.CUSTOMERs
+                              where cus.NumberPhone == textSDT.Text
+                              select cus).ToList();
+            if (checkPhone.Count != 0)
+            {
+                MessageBox.Show("The numberphone is exists", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (textHoTen.Text.Trim() == "")
             {
                 MessageBox.Show("The name is incorrect", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
