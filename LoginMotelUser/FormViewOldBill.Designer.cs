@@ -130,7 +130,7 @@
             // 
             this.cbbDaySC5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC5.FormattingEnabled = true;
-            this.cbbDaySC5.Location = new System.Drawing.Point(109, 7);
+            this.cbbDaySC5.Location = new System.Drawing.Point(109, 5);
             this.cbbDaySC5.Name = "cbbDaySC5";
             this.cbbDaySC5.Size = new System.Drawing.Size(242, 28);
             this.cbbDaySC5.TabIndex = 18;
@@ -216,6 +216,7 @@
             this.lvDanhSachHoaDonSC5.TabIndex = 33;
             this.lvDanhSachHoaDonSC5.UseCompatibleStateImageBehavior = false;
             this.lvDanhSachHoaDonSC5.View = System.Windows.Forms.View.Details;
+            this.lvDanhSachHoaDonSC5.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvDanhSachHoaDonSC5_ColumnClick);
             this.lvDanhSachHoaDonSC5.SelectedIndexChanged += new System.EventHandler(this.lvDanhSachHoaDonSC5_SelectedIndexChanged);
             // 
             // columnHeader15
