@@ -300,7 +300,7 @@ namespace LoginMotelUser
             {
                 dateTimemin.Visible = true;
                 dateTimeMax.Visible = true;
-                dateTimemin.Value = DateTime.Now;
+                dateTimemin.Value = DateTime.Parse("6/8/2020");
                 dateTimeMax.Value = DateTime.Now;
                 labelTo.Visible = true;
                 textSearch.Visible = false;

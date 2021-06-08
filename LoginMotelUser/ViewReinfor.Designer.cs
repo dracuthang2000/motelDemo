@@ -427,6 +427,7 @@
             // 
             this.dateTimemin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimemin.Location = new System.Drawing.Point(94, 107);
+            this.dateTimemin.MinDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
             this.dateTimemin.Name = "dateTimemin";
             this.dateTimemin.Size = new System.Drawing.Size(116, 22);
             this.dateTimemin.TabIndex = 7;
