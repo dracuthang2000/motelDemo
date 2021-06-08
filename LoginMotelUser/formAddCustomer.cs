@@ -7,6 +7,7 @@ using System.Data.Entity.Core.Objects;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -50,6 +51,92 @@ namespace LoginMotelUser
             setColor();
         }
         Model.MotelManagerEntities4 db = new Model.MotelManagerEntities4();
+
+        public bool catchData()
+        {
+            txtCMNDSC3.Text = txtCMNDSC3.Text.Trim();
+            txtSDTSC3.Text = txtSDTSC3.Text.Trim();
+            Regex reg = new Regex(@"[0-9]{9}");
+            Match result = reg.Match(txtCMNDSC3.Text);
+            if (result.Length == 0 || txtCMNDSC3.Text.Length > 9)
+            {
+                MessageBox.Show("Please type ID is true!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            //String re = "[0-9]{9}";
+            reg = new Regex(@"0[0-9]{9}");
+            result = reg.Match(txtSDTSC3.Text);
+            if (result.Length == 0 || txtSDTSC3.Text.Length > 10)
+            {
+                MessageBox.Show("Please type phone number is true!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            //format ho ten
+            String temp = txtHoTenSC3.Text;
+            temp = temp.Trim();
+            temp = System.Text.RegularExpressions.Regex.Replace(temp, @"\s+", " "); ;
+            String[] change = temp.Split(' ');
+            temp = "";
+            for (int i = 0; i < change.Length; i++)
+            {
+                String a = change[i].Substring(0, 1);
+                String b = change[i].Substring(1);
+
+                a = a.ToUpper();
+
+                b = b.ToLower();
+                temp = temp + a + b + " ";
+            }
+            temp = temp.Trim();
+            txtHoTenSC3.Text = temp;
+
+            //format address
+            temp = txtDiaChiSC3.Text;
+            temp = temp.Trim();
+            temp = System.Text.RegularExpressions.Regex.Replace(temp, @"\s+", " ");
+            change = temp.Split(',');
+            temp = "";
+            for (int i = 0; i < change.Length; i++)
+            {
+                if (change[i] != " ")
+                {
+                    change[i].Trim();
+                    if (change[i].Substring(change[i].Length - 1).ToString() == " ")
+                    {
+                        change[i] = change[i].Substring(0, change[i].Length - 1);
+                    }
+                    if (change[i].Substring(0, 1).ToString() == " ")
+                    {
+                        change[i] = change[i].Substring(1);
+                    }
+                    temp = temp + change[i] + ", ";
+                }
+
+
+            }
+            temp = temp.Substring(0, temp.Length - 2);
+
+
+            change = temp.Split(' ');
+            temp = "";
+            for (int i = 0; i < change.Length; i++)
+            {
+                String a = change[i].Substring(0, 1);
+                String b = change[i].Substring(1);
+
+                a = a.ToUpper();
+
+                b = b.ToLower();
+                temp = temp + a + b + " ";
+            }
+            temp = temp.Trim();
+            txtDiaChiSC3.Text = temp;
+
+            return true;
+        }
+
+
         private void frmAddCustomer_Load(object sender, EventArgs e)
         {
             db = new Model.MotelManagerEntities4();
@@ -557,14 +644,7 @@ namespace LoginMotelUser
                 && (txtSDTSC3.Text.Length == 10 && firstNumber[0].Equals('0')
                 && cbbGioiTinhSC3.SelectedIndex != -1
                 );
-            var checkPhone = (from cus in db.CUSTOMERs
-                              where cus.NumberPhone == txtSDTSC3.Text
-                              select cus).ToList();
-            if(checkPhone.Count != 0)
-            {
-                MessageBox.Show("The numberphone is exists", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            
             if (isOk)
             {
                 DialogResult d = MessageBox.Show("DO YOU WANT ADD " + txtCMNDSC3.Text + " ?", "UPDATE MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -617,6 +697,21 @@ namespace LoginMotelUser
                     else // thêm
                     {
                         // Thêm customer
+                        var checkPhone = (from cus in db.CUSTOMERs
+                                          where cus.NumberPhone == txtSDTSC3.Text
+                                          select cus).ToList();
+                        if (checkPhone.Count != 0)
+                        {
+                            MessageBox.Show("The numberphone is exists", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        if ((DateTime.Now.Year - dtDateSC3.Value.Year) < 13)
+                        {
+                            MessageBox.Show("The Date of birth is incorrect( >12 year old)", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        if (catchData() == false) return;
+                       
                         db = new Model.MotelManagerEntities4();
                         var check1 = db.CUSTOMERs.Where(u => u.ID.Equals(ch)).ToList();
                         if (check1.Count == 0)
@@ -709,7 +804,7 @@ namespace LoginMotelUser
             }
             else
             {
-                MessageBox.Show("Let's type information correct!");
+                MessageBox.Show("Let's type information correct!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

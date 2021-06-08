@@ -315,6 +315,7 @@ namespace LoginMotelUser
             var checkIdCard = (from staff in data.STAFFs
                               where staff.IDCard == textIDStaff.Text && IDStaff != staff.ID
                               select staff).ToList();
+            if (catchData() == false) return;
             if (checkIdCard.Count != 0)
             {
                 MessageBox.Show("The ID card is exists", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
