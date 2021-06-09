@@ -195,6 +195,12 @@ namespace LoginMotelUser
                 var idBill = (from bill in db.BILLs
                               where bill.ID == id
                               select bill).ToList();
+                
+                int idRoom = idBill[0].IDRoom.Value;
+                var updatePaidRoom = (from room in db.MOTELROOMs
+                                     where room.ID == idRoom
+                                     select room).ToList();
+                updatePaidRoom[0].Paid = false;
                 foreach (var bill in idBill)
                 {
                     db.BILLs.Remove(bill);

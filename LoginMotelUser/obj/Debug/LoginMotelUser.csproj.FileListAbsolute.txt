@@ -3,6 +3,10 @@ C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\LoginMotelUs
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\LoginMotelUser.pdb
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\EntityFramework.dll
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\Spire.Doc.dll
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\Spire.Pdf.dll
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\Spire.License.dll
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\Microsoft.mshtml.dll
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\EntityFramework.xml
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.csprojAssemblyReference.cache

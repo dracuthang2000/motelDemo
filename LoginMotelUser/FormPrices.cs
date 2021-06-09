@@ -245,7 +245,7 @@ namespace LoginMotelUser
 
                 var customers = (from rent in db.REINTINFORs
                                  join cus in db.CUSTOMERs on rent.IDCustomer equals cus.ID
-                                 where rent.IDRoom == IDRoom
+                                 where rent.IDRoom == IDRoom && rent.CheckOutDate == null
                                  select new
                                  {
                                      cus.IDCard,
@@ -300,7 +300,7 @@ namespace LoginMotelUser
                           where idBill == Date.ID
                           select Date).ToList();
             DateTime dateMax = getDate[0].Date.Value.Date;
-            double dateTotal = -(dateMax - DateTime.Now.Date).TotalDays -1;
+            double dateTotal = -(dateMax - DateTime.Now.Date).TotalDays ;
             String Price = lbTienPhong.Text.Replace(",", "");
             Double total = (Double.Parse(Price) * dateTotal) / 30;
             String RoomPrice = Math.Round(total).ToString();
@@ -495,7 +495,7 @@ namespace LoginMotelUser
 
             Table table = doc.Sections[0].AddTable(true);
             //Create Header and Data
-            String[] Header = { "STT", "Tên Dịch Vụ", "Chỉ Số Đầu", "Chỉ Số Cuối", "Đơn Giá", "Thành Tiền" };
+            String[] Header = { "STT", "Tên Dịch Vụ", "Chỉ Số Đầu", "Chỉ Số Cuối", "Đơn vị" ,"Đơn Giá", "Thành Tiền" };
 
             var services = (from p in db.PARTICULARSERVICEs
                             join s in db.SERVICEs on p.IDService equals s.ID
@@ -506,6 +506,7 @@ namespace LoginMotelUser
                                 s.ServiceName,
                                 p.OldIndex,
                                 p.NewIndex,
+                                s.Unit,
                                 s.Price,
                                 p.Total,
                             }).ToList();
@@ -515,7 +516,7 @@ namespace LoginMotelUser
             {
                 Double priceSer = Double.Parse(temp.Price.ToString().Replace(",", ""));
                 Double total = Double.Parse(temp.Total.ToString().Replace(",", ""));
-                String[] a = { (j + 1).ToString(), temp.ServiceName, temp.OldIndex.ToString(), temp.NewIndex.ToString(), priceSer.ToString(), total.ToString() };
+                String[] a = { (j + 1).ToString(), temp.ServiceName, temp.OldIndex.ToString(), temp.NewIndex.ToString(), temp.Unit.ToString() ,priceSer.ToString(), total.ToString() };
 
                 data[j] = a;
                 j++;

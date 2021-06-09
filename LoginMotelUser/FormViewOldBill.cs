@@ -256,7 +256,7 @@ namespace LoginMotelUser
 
             Table table = doc.Sections[0].AddTable(true);
             //Create Header and Data
-            String[] Header = { "STT", "Tên Dịch Vụ", "Chỉ Số Đầu", "Chỉ Số Cuối", "Đơn Giá", "Thành Tiền" };
+            String[] Header = { "STT", "Tên Dịch Vụ", "Chỉ Số Đầu", "Chỉ Số Cuối","Đơn vị" ,"Đơn Giá", "Thành Tiền" };
 
 
             var services = (from p in db.PARTICULARSERVICEs
@@ -268,6 +268,7 @@ namespace LoginMotelUser
                                 s.ServiceName,
                                 p.OldIndex,
                                 p.NewIndex,
+                                s.Unit,
                                 s.Price,
                                 p.Total,
                             }).ToList();
@@ -277,7 +278,7 @@ namespace LoginMotelUser
             {
                 Double priceSer = Double.Parse(temp.Price.ToString().Replace(",", ""));
                 Double total = Double.Parse(temp.Total.ToString().Replace(",", ""));
-                String[] a = { (j + 1).ToString(), temp.ServiceName, temp.OldIndex.ToString(), temp.NewIndex.ToString(), priceSer.ToString(), total.ToString() };
+                String[] a = { (j + 1).ToString(), temp.ServiceName, temp.OldIndex.ToString(), temp.NewIndex.ToString(),temp.Unit.ToString(), priceSer.ToString(), total.ToString() };
 
                 data[j] = a;
                 j++;

@@ -64,7 +64,7 @@ namespace LoginMotelUser
         private void buttonIn_Click(object sender, EventArgs e)
         {
             var users = (from u in us.USERs
-                         where u.UserName == textUsername.Text
+                         where u.UserName == textUsername.Text.Trim()
                          select u).ToList();
             if (users.Count != 0)
             {
@@ -83,10 +83,11 @@ namespace LoginMotelUser
                 DialogResult d = MessageBox.Show("Are you sure ?", "INSERT MESSAGE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (d == DialogResult.Yes)
                 {
+                    String userName1= textUsername.Text.Replace(" ",string.Empty);
                     us.USERs.Add(new Model.USER
                     {
-                        UserName = textUsername.Text.Trim().ToLower(),
-                        Password = textPassword.Text.Trim(),
+                        UserName = userName1.ToLower(),
+                        Password = textPassword.Text.Replace(" ", string.Empty),
                         IDRole = Int32.Parse(roleComboBox.GetItemText(roleComboBox.SelectedValue).Trim())
                     });
                     us.SaveChanges();

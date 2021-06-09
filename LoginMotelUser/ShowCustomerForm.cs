@@ -30,7 +30,7 @@ namespace LoginMotelUser
             else
                 buttonUp.Text = "UPDATE";
             dem = 0;
-            this.checkRole = checkRole;
+            this.checkRole = CheckRole;
             if(CheckRole == false)
             {
                 userToolStripMenuItem.Visible = false;
