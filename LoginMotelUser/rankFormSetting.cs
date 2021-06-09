@@ -167,7 +167,7 @@ namespace LoginMotelUser
                 switch (result)
                 {
                     case DialogResult.Cancel: return;
-                    case DialogResult.Yes: { saveDate(); this.Close(); break; }
+                    case DialogResult.Yes: { saveDate(); MessageBox.Show("COMPLETE!"); ; this.Close(); break; }
                     case DialogResult.No: return;
 
                     default:

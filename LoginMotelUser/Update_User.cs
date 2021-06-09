@@ -145,8 +145,8 @@ namespace LoginMotelUser
                 {
                     var uN = textUsername.Text;
                     var user = us.USERs.Single(u => u.UserName.Equals(uN));
-                    user.UserName = textUsername.Text.Trim();
-                    user.Password = textPassword.Text.Trim();
+                    user.UserName = textUsername.Text.Replace(" ", string.Empty);
+                    user.Password = textPassword.Text.Replace(" ", string.Empty);
                     user.IDRole = Int32.Parse(comboBoxRole.GetItemText(comboBoxRole.SelectedValue));
                     us.SaveChanges();
                     textPassword.Text = "";
