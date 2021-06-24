@@ -83,6 +83,7 @@
             this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewReninformatuonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel13.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -98,6 +99,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel13.BackColor = System.Drawing.Color.Transparent;
             this.panel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel13.Controls.Add(this.label1);
             this.panel13.Controls.Add(this.tableLayoutPanel4);
             this.panel13.Controls.Add(this.tableLayoutPanel3);
             this.panel13.Controls.Add(this.tableLayoutPanel1);
@@ -129,7 +131,7 @@
             // 
             this.cbbDaySC5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC5.FormattingEnabled = true;
-            this.cbbDaySC5.Location = new System.Drawing.Point(122, 8);
+            this.cbbDaySC5.Location = new System.Drawing.Point(122, 7);
             this.cbbDaySC5.Name = "cbbDaySC5";
             this.cbbDaySC5.Size = new System.Drawing.Size(274, 28);
             this.cbbDaySC5.TabIndex = 18;
@@ -671,6 +673,18 @@
             this.viewReninformatuonToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
             this.viewReninformatuonToolStripMenuItem.Text = "View reninformation";
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(551, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 29);
+            this.label1.TabIndex = 68;
+            this.label1.Text = "RECEITPS";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // FormCollection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -687,6 +701,7 @@
             this.Text = "RECEIPTS";
             this.Load += new System.EventHandler(this.frmCollect_Load);
             this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -759,5 +774,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.ToolStripMenuItem viewReninformatuonToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
     }
 }

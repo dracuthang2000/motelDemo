@@ -18,6 +18,7 @@ namespace LoginMotelUser
         String checkUsername;
         private Boolean checkRole;
         private Boolean checkControll;
+        private String phone;
         public formAddCustomer(Boolean check, String userName, Boolean checkRole)
         {
             InitializeComponent();
@@ -527,6 +528,7 @@ namespace LoginMotelUser
                     txtHoTenSC3.Text = cus.CustomerName;
                     txtDiaChiSC3.Text = cus.Address;
                     txtSDTSC3.Text = cus.NumberPhone;
+                    phone = cus.NumberPhone;
                     dtDateSC3.Value = (DateTime)cus.DateOfBirth;
                     cbbGioiTinhSC3.Text = cus.Sexual;
                 }
@@ -698,7 +700,7 @@ namespace LoginMotelUser
                     {
                         // Thêm customer
                         var checkPhone = (from cus in db.CUSTOMERs
-                                          where cus.NumberPhone == txtSDTSC3.Text
+                                          where cus.IDCard != txtCMNDSC3.Text && cus.NumberPhone==txtSDTSC3.Text
                                           select cus).ToList();
                         if (checkPhone.Count != 0)
                         {

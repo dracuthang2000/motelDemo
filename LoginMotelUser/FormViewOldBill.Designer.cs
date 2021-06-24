@@ -84,6 +84,7 @@
             this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewReninformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel13.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -99,6 +100,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel13.BackColor = System.Drawing.Color.Transparent;
             this.panel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel13.Controls.Add(this.label1);
             this.panel13.Controls.Add(this.tableLayoutPanel4);
             this.panel13.Controls.Add(this.tableLayoutPanel3);
             this.panel13.Controls.Add(this.tableLayoutPanel2);
@@ -130,7 +132,7 @@
             // 
             this.cbbDaySC5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC5.FormattingEnabled = true;
-            this.cbbDaySC5.Location = new System.Drawing.Point(109, 7);
+            this.cbbDaySC5.Location = new System.Drawing.Point(109, 5);
             this.cbbDaySC5.Name = "cbbDaySC5";
             this.cbbDaySC5.Size = new System.Drawing.Size(242, 28);
             this.cbbDaySC5.TabIndex = 18;
@@ -669,6 +671,18 @@
             this.viewReninformationToolStripMenuItem.Text = "View reninformation";
             this.viewReninformationToolStripMenuItem.Click += new System.EventHandler(this.viewReninformationToolStripMenuItem_Click);
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(598, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(194, 29);
+            this.label1.TabIndex = 66;
+            this.label1.Text = "VIEW OLD BILL";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // FormViewOldBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -684,6 +698,7 @@
             this.Text = "temp";
             this.Load += new System.EventHandler(this.frmCollect_Load);
             this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -756,5 +771,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ToolStripMenuItem viewReninformationToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -62,6 +62,7 @@
             this.reinforToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewReinformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.label37 = new System.Windows.Forms.Label();
@@ -109,7 +110,6 @@
             this.button_Any = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonBill = new System.Windows.Forms.Button();
-            this.viewReinformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -395,7 +395,7 @@
             // 
             this.checkInToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("checkInToolStripMenuItem.Image")));
             this.checkInToolStripMenuItem.Name = "checkInToolStripMenuItem";
-            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.checkInToolStripMenuItem.Text = "Check in";
             this.checkInToolStripMenuItem.Click += new System.EventHandler(this.checkInToolStripMenuItem_Click);
             // 
@@ -403,9 +403,17 @@
             // 
             this.checkOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("checkOutToolStripMenuItem.Image")));
             this.checkOutToolStripMenuItem.Name = "checkOutToolStripMenuItem";
-            this.checkOutToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.checkOutToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.checkOutToolStripMenuItem.Text = "Check out";
             this.checkOutToolStripMenuItem.Click += new System.EventHandler(this.checkOutToolStripMenuItem_Click);
+            // 
+            // viewReinformationToolStripMenuItem
+            // 
+            this.viewReinformationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewReinformationToolStripMenuItem.Image")));
+            this.viewReinformationToolStripMenuItem.Name = "viewReinformationToolStripMenuItem";
+            this.viewReinformationToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
+            this.viewReinformationToolStripMenuItem.Text = "View reinformation";
+            this.viewReinformationToolStripMenuItem.Click += new System.EventHandler(this.viewReinformationToolStripMenuItem_Click);
             // 
             // panel2
             // 
@@ -476,6 +484,7 @@
             this.lvDanhSachKhachSC1.TabIndex = 5;
             this.lvDanhSachKhachSC1.UseCompatibleStateImageBehavior = false;
             this.lvDanhSachKhachSC1.View = System.Windows.Forms.View.Details;
+            this.lvDanhSachKhachSC1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvDanhSachKhachSC1_ColumnClick);
             this.lvDanhSachKhachSC1.SelectedIndexChanged += new System.EventHandler(this.lvDanhSachKhachSC1_SelectedIndexChanged);
             // 
             // columnHeader1
@@ -824,7 +833,7 @@
             // 
             this.cbbDaySC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC1.FormattingEnabled = true;
-            this.cbbDaySC1.Location = new System.Drawing.Point(192, 16);
+            this.cbbDaySC1.Location = new System.Drawing.Point(192, 12);
             this.cbbDaySC1.Name = "cbbDaySC1";
             this.cbbDaySC1.Size = new System.Drawing.Size(184, 33);
             this.cbbDaySC1.TabIndex = 18;
@@ -1020,14 +1029,6 @@
             this.buttonBill.Text = "BILLS";
             this.buttonBill.UseVisualStyleBackColor = true;
             this.buttonBill.Click += new System.EventHandler(this.buttonBill_Click);
-            // 
-            // viewReinformationToolStripMenuItem
-            // 
-            this.viewReinformationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewReinformationToolStripMenuItem.Image")));
-            this.viewReinformationToolStripMenuItem.Name = "viewReinformationToolStripMenuItem";
-            this.viewReinformationToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.viewReinformationToolStripMenuItem.Text = "View reinformation";
-            this.viewReinformationToolStripMenuItem.Click += new System.EventHandler(this.viewReinformationToolStripMenuItem_Click);
             // 
             // Admin_Formcs
             // 

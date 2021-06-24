@@ -452,5 +452,35 @@ namespace LoginMotelUser
             Viewinformation Fc = new Viewinformation(checkRole, checkUsername);
             Fc.ShowDialog();
         }
+
+        private void textSeacrch_TextChanged(object sender, EventArgs e)
+        {
+
+            listStaff.Clear();
+            using (Model.MotelManagerEntities4 data = new Model.MotelManagerEntities4())
+            {
+                String temp = textSearch.Text;
+                var list = (from a in data.STAFFs where a.StaffName.Contains(temp) || a.IDCard.ToString().Contains(temp) || a.NumberPhone.Contains(temp) select a).ToList();
+                listStaff.Columns.Add("ID Card", 100);
+                listStaff.Columns.Add("Full name", 150);
+                listStaff.Columns.Add("Birthday", 100);
+                listStaff.Columns.Add("Address", 200);
+                listStaff.Columns.Add("Number Phone", 100);
+                listStaff.Columns.Add("Username", 100);
+                listStaff.Columns.Add("Sexual", 70);
+                foreach (var c in list)
+                {
+                    ListViewItem item = new ListViewItem(c.IDCard.ToString());
+                    item.SubItems.Add(c.StaffName);
+                    String[] temp1 = c.DateOfBirth.ToString().Split(' ');
+                    item.SubItems.Add(temp1[0]);
+                    item.SubItems.Add(c.Address);
+                    item.SubItems.Add(c.NumberPhone.ToString());
+                    item.SubItems.Add(c.UserName.ToString());
+                    item.SubItems.Add(c.Sexual.ToString());
+                    listStaff.Items.Add(item);
+                }
+            }
+        }
     }
 }

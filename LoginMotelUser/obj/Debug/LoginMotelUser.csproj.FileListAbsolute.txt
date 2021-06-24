@@ -9,7 +9,6 @@ C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\Spire.Licens
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\Microsoft.mshtml.dll
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\EntityFramework.xml
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.csprojAssemblyReference.cache
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.AddParticularServiceForm.resources
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.AddRoomcs.resources
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.Admin_Formcs.resources
@@ -39,3 +38,4 @@ C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUs
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.csproj.CopyComplete
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.exe
 C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.pdb
+C:\Users\nguye\source\repos\LoginMotelUser\LoginMotelUser\obj\Debug\LoginMotelUser.csprojAssemblyReference.cache

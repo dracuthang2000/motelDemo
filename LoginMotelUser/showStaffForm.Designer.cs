@@ -69,6 +69,8 @@
             this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewReninformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textSearch = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panKhach.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -76,15 +78,20 @@
             // 
             // panKhach
             // 
+            this.panKhach.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panKhach.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panKhach.BackgroundImage")));
             this.panKhach.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panKhach.Controls.Add(this.label1);
+            this.panKhach.Controls.Add(this.textSearch);
             this.panKhach.Controls.Add(this.buttonDelete);
             this.panKhach.Controls.Add(this.buttonUp);
             this.panKhach.Controls.Add(this.listStaff);
             this.panKhach.Controls.Add(this.labTieuDe);
             this.panKhach.Location = new System.Drawing.Point(-2, -2);
             this.panKhach.Name = "panKhach";
-            this.panKhach.Size = new System.Drawing.Size(977, 635);
+            this.panKhach.Size = new System.Drawing.Size(1378, 656);
             this.panKhach.TabIndex = 1;
             // 
             // buttonDelete
@@ -95,7 +102,7 @@
             this.buttonDelete.FlatAppearance.BorderSize = 0;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.Location = new System.Drawing.Point(680, 537);
+            this.buttonDelete.Location = new System.Drawing.Point(885, 594);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonDelete.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -115,7 +122,7 @@
             this.buttonUp.FlatAppearance.BorderSize = 0;
             this.buttonUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUp.Location = new System.Drawing.Point(201, 537);
+            this.buttonUp.Location = new System.Drawing.Point(327, 594);
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonUp.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -136,9 +143,9 @@
             this.listStaff.GridLines = true;
             this.listStaff.HideSelection = false;
             this.listStaff.LabelEdit = true;
-            this.listStaff.Location = new System.Drawing.Point(7, 79);
+            this.listStaff.Location = new System.Drawing.Point(7, 111);
             this.listStaff.Name = "listStaff";
-            this.listStaff.Size = new System.Drawing.Size(957, 441);
+            this.listStaff.Size = new System.Drawing.Size(1368, 477);
             this.listStaff.TabIndex = 1;
             this.listStaff.UseCompatibleStateImageBehavior = false;
             this.listStaff.View = System.Windows.Forms.View.Details;
@@ -151,7 +158,7 @@
             this.labTieuDe.AutoSize = true;
             this.labTieuDe.BackColor = System.Drawing.Color.Transparent;
             this.labTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTieuDe.Location = new System.Drawing.Point(389, 44);
+            this.labTieuDe.Location = new System.Drawing.Point(584, 44);
             this.labTieuDe.Name = "labTieuDe";
             this.labTieuDe.Size = new System.Drawing.Size(180, 32);
             this.labTieuDe.TabIndex = 0;
@@ -217,7 +224,7 @@
             this.reinforToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(974, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1376, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -460,11 +467,30 @@
             this.viewReninformationToolStripMenuItem.Text = "View reninformation";
             this.viewReninformationToolStripMenuItem.Click += new System.EventHandler(this.viewReninformationToolStripMenuItem_Click);
             // 
+            // textSearch
+            // 
+            this.textSearch.Location = new System.Drawing.Point(117, 83);
+            this.textSearch.Name = "textSearch";
+            this.textSearch.Size = new System.Drawing.Size(273, 22);
+            this.textSearch.TabIndex = 21;
+            this.textSearch.TextChanged += new System.EventHandler(this.textSeacrch_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(14, 86);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 20);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "SEARCH: ";
+            // 
             // showStaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 598);
+            this.ClientSize = new System.Drawing.Size(1376, 657);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panKhach);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -524,5 +550,7 @@
         private System.Windows.Forms.ToolStripMenuItem serviceToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem staffToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem viewReninformationToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textSearch;
     }
 }

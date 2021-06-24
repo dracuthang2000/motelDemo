@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(serviceForm));
-            this.panService = new System.Windows.Forms.Panel();
-            this.labPage = new System.Windows.Forms.Label();
-            this.butRight = new System.Windows.Forms.Button();
-            this.butLeft = new System.Windows.Forms.Button();
             this.listService = new System.Windows.Forms.ListView();
             this.labTieuDe = new System.Windows.Forms.Label();
             this.textSearch = new System.Windows.Forms.TextBox();
@@ -77,61 +73,12 @@
             this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewReninformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panService.SuspendLayout();
+            this.butLeft = new System.Windows.Forms.Button();
+            this.butRight = new System.Windows.Forms.Button();
+            this.labPage = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panService
-            // 
-            this.panService.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panService.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panService.BackgroundImage")));
-            this.panService.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panService.Controls.Add(this.labPage);
-            this.panService.Controls.Add(this.butRight);
-            this.panService.Controls.Add(this.butLeft);
-            this.panService.Controls.Add(this.listService);
-            this.panService.Controls.Add(this.labTieuDe);
-            this.panService.Location = new System.Drawing.Point(487, 72);
-            this.panService.Name = "panService";
-            this.panService.Size = new System.Drawing.Size(429, 548);
-            this.panService.TabIndex = 1;
-            // 
-            // labPage
-            // 
-            this.labPage.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.labPage.AutoSize = true;
-            this.labPage.Location = new System.Drawing.Point(175, 518);
-            this.labPage.Name = "labPage";
-            this.labPage.Size = new System.Drawing.Size(65, 17);
-            this.labPage.TabIndex = 12;
-            this.labPage.Text = "Page 0/0";
-            // 
-            // butRight
-            // 
-            this.butRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.butRight.AutoSize = true;
-            this.butRight.Location = new System.Drawing.Point(323, 513);
-            this.butRight.Name = "butRight";
-            this.butRight.Size = new System.Drawing.Size(75, 27);
-            this.butRight.TabIndex = 2;
-            this.butRight.Text = "Right";
-            this.butRight.UseVisualStyleBackColor = true;
-            this.butRight.Click += new System.EventHandler(this.butRight_Click);
-            // 
-            // butLeft
-            // 
-            this.butLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.butLeft.AutoSize = true;
-            this.butLeft.Location = new System.Drawing.Point(26, 513);
-            this.butLeft.Name = "butLeft";
-            this.butLeft.Size = new System.Drawing.Size(75, 27);
-            this.butLeft.TabIndex = 1;
-            this.butLeft.Text = "Left";
-            this.butLeft.UseVisualStyleBackColor = true;
-            this.butLeft.Click += new System.EventHandler(this.butLeft_Click);
             // 
             // listService
             // 
@@ -141,9 +88,9 @@
             this.listService.FullRowSelect = true;
             this.listService.GridLines = true;
             this.listService.HideSelection = false;
-            this.listService.Location = new System.Drawing.Point(26, 67);
+            this.listService.Location = new System.Drawing.Point(438, 72);
             this.listService.Name = "listService";
-            this.listService.Size = new System.Drawing.Size(372, 440);
+            this.listService.Size = new System.Drawing.Size(911, 502);
             this.listService.TabIndex = 0;
             this.listService.UseCompatibleStateImageBehavior = false;
             this.listService.View = System.Windows.Forms.View.Details;
@@ -155,7 +102,7 @@
             this.labTieuDe.AutoSize = true;
             this.labTieuDe.BackColor = System.Drawing.Color.Transparent;
             this.labTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTieuDe.Location = new System.Drawing.Point(31, 22);
+            this.labTieuDe.Location = new System.Drawing.Point(522, 28);
             this.labTieuDe.Name = "labTieuDe";
             this.labTieuDe.Size = new System.Drawing.Size(358, 32);
             this.labTieuDe.TabIndex = 0;
@@ -248,7 +195,7 @@
             this.panel1.Controls.Add(this.labServiceName);
             this.panel1.Location = new System.Drawing.Point(12, 72);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(359, 548);
+            this.panel1.Size = new System.Drawing.Size(359, 585);
             this.panel1.TabIndex = 61;
             // 
             // comboBoxUnit
@@ -284,7 +231,7 @@
             this.buttonClear.FlatAppearance.BorderSize = 0;
             this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClear.Location = new System.Drawing.Point(247, 489);
+            this.buttonClear.Location = new System.Drawing.Point(247, 526);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonClear.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -305,7 +252,7 @@
             this.button_WOC1.FlatAppearance.BorderSize = 0;
             this.button_WOC1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_WOC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC1.Location = new System.Drawing.Point(127, 489);
+            this.button_WOC1.Location = new System.Drawing.Point(127, 526);
             this.button_WOC1.Name = "button_WOC1";
             this.button_WOC1.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.button_WOC1.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -326,7 +273,7 @@
             this.buttonSave.FlatAppearance.BorderSize = 0;
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(6, 489);
+            this.buttonSave.Location = new System.Drawing.Point(6, 526);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonSave.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -348,7 +295,7 @@
             this.reinforToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(917, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1376, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -591,21 +538,57 @@
             this.viewReninformationToolStripMenuItem.Text = "View reninformation";
             this.viewReninformationToolStripMenuItem.Click += new System.EventHandler(this.viewReninformationToolStripMenuItem_Click);
             // 
+            // butLeft
+            // 
+            this.butLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.butLeft.AutoSize = true;
+            this.butLeft.Location = new System.Drawing.Point(438, 577);
+            this.butLeft.Name = "butLeft";
+            this.butLeft.Size = new System.Drawing.Size(75, 27);
+            this.butLeft.TabIndex = 1;
+            this.butLeft.Text = "Left";
+            this.butLeft.UseVisualStyleBackColor = true;
+            this.butLeft.Click += new System.EventHandler(this.butLeft_Click);
+            // 
+            // butRight
+            // 
+            this.butRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.butRight.AutoSize = true;
+            this.butRight.Location = new System.Drawing.Point(1274, 577);
+            this.butRight.Name = "butRight";
+            this.butRight.Size = new System.Drawing.Size(75, 27);
+            this.butRight.TabIndex = 2;
+            this.butRight.Text = "Right";
+            this.butRight.UseVisualStyleBackColor = true;
+            this.butRight.Click += new System.EventHandler(this.butRight_Click);
+            // 
+            // labPage
+            // 
+            this.labPage.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.labPage.AutoSize = true;
+            this.labPage.Location = new System.Drawing.Point(864, 577);
+            this.labPage.Name = "labPage";
+            this.labPage.Size = new System.Drawing.Size(65, 17);
+            this.labPage.TabIndex = 12;
+            this.labPage.Text = "Page 0/0";
+            // 
             // serviceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(917, 620);
+            this.ClientSize = new System.Drawing.Size(1376, 657);
+            this.Controls.Add(this.butRight);
+            this.Controls.Add(this.labPage);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panService);
+            this.Controls.Add(this.butLeft);
+            this.Controls.Add(this.labTieuDe);
+            this.Controls.Add(this.listService);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "serviceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Service";
-            this.panService.ResumeLayout(false);
-            this.panService.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -616,8 +599,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panService;
         private System.Windows.Forms.TextBox textPrice;
         private System.Windows.Forms.Label labPrice;
         private System.Windows.Forms.TextBox textServiceName;
@@ -628,9 +609,6 @@
         private System.Windows.Forms.Label labTieuDe;
         private System.Windows.Forms.Label labSearch;
         private System.Windows.Forms.TextBox textSearch;
-        private System.Windows.Forms.Button butLeft;
-        private System.Windows.Forms.Button butRight;
-        private System.Windows.Forms.Label labPage;
         private ePOSOne.btnProduct.Button_WOC buttonClear;
         private ePOSOne.btnProduct.Button_WOC button_WOC1;
         private ePOSOne.btnProduct.Button_WOC buttonSave;
@@ -666,5 +644,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxUnit;
         private System.Windows.Forms.ToolStripMenuItem viewReninformationToolStripMenuItem;
+        private System.Windows.Forms.Button butLeft;
+        private System.Windows.Forms.Button butRight;
+        private System.Windows.Forms.Label labPage;
     }
 }

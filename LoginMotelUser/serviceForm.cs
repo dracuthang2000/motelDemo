@@ -106,8 +106,17 @@ namespace LoginMotelUser
         }
         public void updateData()
         {
+            var checkServiceName = (from ser in data.SERVICEs
+                                    where ser.ID.ToString() != textIDService.Text && ser.ServiceName == textServiceName.Text
+                                    select ser).ToList();
+            if(checkServiceName.Count != 0)
+            {
+                MessageBox.Show("The new service name is exists!","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
             Model.SERVICE a = data.SERVICEs.Find(int.Parse(textIDService.Text));     
             decimal b = decimal.Parse(textPrice.Text);
+            a.ServiceName = textServiceName.Text;
             a.Price = b;
             a.Unit=comboBoxUnit.Text;
             data.SaveChanges();
@@ -276,7 +285,7 @@ namespace LoginMotelUser
                                         select service).ToList();
                 if (checkServiceName.Count != 0)
                 {
-                    MessageBox.Show("The new service name is exists!");
+                    MessageBox.Show("The new service name is exists!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 DialogResult result = MessageBox.Show("Are you sure insert?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);

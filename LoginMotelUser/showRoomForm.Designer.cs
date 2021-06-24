@@ -79,7 +79,7 @@
             // 
             this.labPage.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labPage.AutoSize = true;
-            this.labPage.Location = new System.Drawing.Point(478, 528);
+            this.labPage.Location = new System.Drawing.Point(659, 524);
             this.labPage.Name = "labPage";
             this.labPage.Size = new System.Drawing.Size(65, 17);
             this.labPage.TabIndex = 11;
@@ -89,7 +89,7 @@
             // 
             this.butLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.butLeft.AutoSize = true;
-            this.butLeft.Location = new System.Drawing.Point(3, 531);
+            this.butLeft.Location = new System.Drawing.Point(3, 527);
             this.butLeft.Name = "butLeft";
             this.butLeft.Size = new System.Drawing.Size(75, 27);
             this.butLeft.TabIndex = 2;
@@ -101,7 +101,7 @@
             // 
             this.butRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.butRight.AutoSize = true;
-            this.butRight.Location = new System.Drawing.Point(936, 528);
+            this.butRight.Location = new System.Drawing.Point(1298, 524);
             this.butRight.Name = "butRight";
             this.butRight.Size = new System.Drawing.Size(75, 27);
             this.butRight.TabIndex = 3;
@@ -139,10 +139,11 @@
             this.listRoom.LabelEdit = true;
             this.listRoom.Location = new System.Drawing.Point(3, 100);
             this.listRoom.Name = "listRoom";
-            this.listRoom.Size = new System.Drawing.Size(1008, 425);
+            this.listRoom.Size = new System.Drawing.Size(1370, 421);
             this.listRoom.TabIndex = 1;
             this.listRoom.UseCompatibleStateImageBehavior = false;
             this.listRoom.View = System.Windows.Forms.View.Details;
+            this.listRoom.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listRoom_ColumnClick);
             this.listRoom.DoubleClick += new System.EventHandler(this.listRoom_DoubleClick);
             // 
             // labTieuDe
@@ -150,7 +151,7 @@
             this.labTieuDe.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labTieuDe.AutoSize = true;
             this.labTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTieuDe.Location = new System.Drawing.Point(389, 27);
+            this.labTieuDe.Location = new System.Drawing.Point(570, 27);
             this.labTieuDe.Name = "labTieuDe";
             this.labTieuDe.Size = new System.Drawing.Size(287, 32);
             this.labTieuDe.TabIndex = 0;
@@ -165,7 +166,7 @@
             this.buttonCancle.FlatAppearance.BorderSize = 0;
             this.buttonCancle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancle.Location = new System.Drawing.Point(700, 595);
+            this.buttonCancle.Location = new System.Drawing.Point(881, 591);
             this.buttonCancle.Name = "buttonCancle";
             this.buttonCancle.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonCancle.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -186,7 +187,7 @@
             this.buttonDelete.FlatAppearance.BorderSize = 0;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.Location = new System.Drawing.Point(460, 595);
+            this.buttonDelete.Location = new System.Drawing.Point(641, 591);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonDelete.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -207,7 +208,7 @@
             this.buttonUp.FlatAppearance.BorderSize = 0;
             this.buttonUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUp.Location = new System.Drawing.Point(194, 595);
+            this.buttonUp.Location = new System.Drawing.Point(375, 591);
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonUp.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -238,7 +239,7 @@
             this.panel2.Controls.Add(this.butLeft);
             this.panel2.Location = new System.Drawing.Point(1, 1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1014, 661);
+            this.panel2.Size = new System.Drawing.Size(1376, 657);
             this.panel2.TabIndex = 22;
             // 
             // menuStrip1
@@ -251,7 +252,7 @@
             this.reinforToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1014, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1376, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -501,7 +502,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1014, 661);
+            this.ClientSize = new System.Drawing.Size(1376, 657);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

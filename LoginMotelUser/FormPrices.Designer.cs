@@ -41,8 +41,11 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtGioiTinhSC4 = new System.Windows.Forms.TextBox();
             this.pnlPrice = new System.Windows.Forms.Panel();
+            this.label142 = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonSave = new ePOSOne.btnProduct.Button_WOC();
+            this.buttonCan = new ePOSOne.btnProduct.Button_WOC();
             this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -98,8 +101,6 @@
             this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewReninformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonSave = new ePOSOne.btnProduct.Button_WOC();
-            this.buttonCan = new ePOSOne.btnProduct.Button_WOC();
             this.pnlPrice.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -172,7 +173,7 @@
             // 
             this.cbbDaySC4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDaySC4.FormattingEnabled = true;
-            this.cbbDaySC4.Location = new System.Drawing.Point(105, 11);
+            this.cbbDaySC4.Location = new System.Drawing.Point(105, 12);
             this.cbbDaySC4.Name = "cbbDaySC4";
             this.cbbDaySC4.Size = new System.Drawing.Size(232, 28);
             this.cbbDaySC4.TabIndex = 18;
@@ -221,7 +222,7 @@
             // 
             this.cbbLoaiPhongSC4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbLoaiPhongSC4.FormattingEnabled = true;
-            this.cbbLoaiPhongSC4.Location = new System.Drawing.Point(105, 61);
+            this.cbbLoaiPhongSC4.Location = new System.Drawing.Point(105, 62);
             this.cbbLoaiPhongSC4.Name = "cbbLoaiPhongSC4";
             this.cbbLoaiPhongSC4.Size = new System.Drawing.Size(232, 28);
             this.cbbLoaiPhongSC4.TabIndex = 36;
@@ -303,6 +304,7 @@
             // 
             this.pnlPrice.BackColor = System.Drawing.Color.Transparent;
             this.pnlPrice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlPrice.Controls.Add(this.label142);
             this.pnlPrice.Controls.Add(this.tableLayoutPanel8);
             this.pnlPrice.Controls.Add(this.tableLayoutPanel7);
             this.pnlPrice.Controls.Add(this.flowLayoutPanel1);
@@ -315,6 +317,18 @@
             this.pnlPrice.Name = "pnlPrice";
             this.pnlPrice.Size = new System.Drawing.Size(1382, 795);
             this.pnlPrice.TabIndex = 52;
+            // 
+            // label142
+            // 
+            this.label142.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label142.AutoSize = true;
+            this.label142.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label142.Location = new System.Drawing.Point(587, 28);
+            this.label142.Name = "label142";
+            this.label142.Size = new System.Drawing.Size(137, 29);
+            this.label142.TabIndex = 95;
+            this.label142.Text = "PAYMENT";
+            this.label142.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tableLayoutPanel8
             // 
@@ -349,6 +363,54 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(674, 111);
             this.tableLayoutPanel7.TabIndex = 93;
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSave.BackColor = System.Drawing.Color.Transparent;
+            this.buttonSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSave.BorderColor = System.Drawing.Color.Silver;
+            this.buttonSave.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonSave.FlatAppearance.BorderSize = 0;
+            this.buttonSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Location = new System.Drawing.Point(110, 58);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonSave.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonSave.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonSave.Size = new System.Drawing.Size(116, 50);
+            this.buttonSave.TabIndex = 84;
+            this.buttonSave.Text = "SUBMIT";
+            this.buttonSave.TextColor = System.Drawing.Color.Black;
+            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonCan
+            // 
+            this.buttonCan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonCan.BackColor = System.Drawing.Color.Transparent;
+            this.buttonCan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCan.BorderColor = System.Drawing.Color.Silver;
+            this.buttonCan.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonCan.FlatAppearance.BorderSize = 0;
+            this.buttonCan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonCan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonCan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCan.Location = new System.Drawing.Point(450, 58);
+            this.buttonCan.Name = "buttonCan";
+            this.buttonCan.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.buttonCan.OnHoverButtonColor = System.Drawing.Color.Turquoise;
+            this.buttonCan.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.buttonCan.Size = new System.Drawing.Size(110, 50);
+            this.buttonCan.TabIndex = 85;
+            this.buttonCan.Text = "CANCLE";
+            this.buttonCan.TextColor = System.Drawing.Color.Black;
+            this.buttonCan.UseVisualStyleBackColor = false;
+            this.buttonCan.Click += new System.EventHandler(this.buttonCan_Click);
             // 
             // label3
             // 
@@ -650,7 +712,7 @@
             this.reinforToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1382, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1382, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -661,7 +723,7 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fileToolStripMenuItem.Image")));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(66, 26);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -749,7 +811,7 @@
             this.updateToolStripMenuItem});
             this.editToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripMenuItem.Image")));
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(69, 26);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // updateToolStripMenuItem
@@ -831,7 +893,7 @@
             this.viewOldBillToolStripMenuItem});
             this.billsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("billsToolStripMenuItem.Image")));
             this.billsToolStripMenuItem.Name = "billsToolStripMenuItem";
-            this.billsToolStripMenuItem.Size = new System.Drawing.Size(70, 26);
+            this.billsToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
             this.billsToolStripMenuItem.Text = "Bills";
             // 
             // paymentToolStripMenuItem
@@ -866,7 +928,7 @@
             this.viewReninformationToolStripMenuItem});
             this.reinforToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reinforToolStripMenuItem.Image")));
             this.reinforToolStripMenuItem.Name = "reinforToolStripMenuItem";
-            this.reinforToolStripMenuItem.Size = new System.Drawing.Size(91, 26);
+            this.reinforToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
             this.reinforToolStripMenuItem.Text = "Reinfor";
             // 
             // checkInToolStripMenuItem
@@ -892,54 +954,6 @@
             this.viewReninformationToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
             this.viewReninformationToolStripMenuItem.Text = "View reninformation";
             this.viewReninformationToolStripMenuItem.Click += new System.EventHandler(this.viewReninformationToolStripMenuItem_Click);
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonSave.BackColor = System.Drawing.Color.Transparent;
-            this.buttonSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonSave.BorderColor = System.Drawing.Color.Silver;
-            this.buttonSave.ButtonColor = System.Drawing.Color.MediumAquamarine;
-            this.buttonSave.FlatAppearance.BorderSize = 0;
-            this.buttonSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(110, 58);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.buttonSave.OnHoverButtonColor = System.Drawing.Color.Turquoise;
-            this.buttonSave.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonSave.Size = new System.Drawing.Size(116, 50);
-            this.buttonSave.TabIndex = 84;
-            this.buttonSave.Text = "SUBMIT";
-            this.buttonSave.TextColor = System.Drawing.Color.Black;
-            this.buttonSave.UseVisualStyleBackColor = false;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
-            // buttonCan
-            // 
-            this.buttonCan.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonCan.BackColor = System.Drawing.Color.Transparent;
-            this.buttonCan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonCan.BorderColor = System.Drawing.Color.Silver;
-            this.buttonCan.ButtonColor = System.Drawing.Color.MediumAquamarine;
-            this.buttonCan.FlatAppearance.BorderSize = 0;
-            this.buttonCan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonCan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonCan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCan.Location = new System.Drawing.Point(450, 58);
-            this.buttonCan.Name = "buttonCan";
-            this.buttonCan.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.buttonCan.OnHoverButtonColor = System.Drawing.Color.Turquoise;
-            this.buttonCan.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.buttonCan.Size = new System.Drawing.Size(110, 50);
-            this.buttonCan.TabIndex = 85;
-            this.buttonCan.Text = "CANCLE";
-            this.buttonCan.TextColor = System.Drawing.Color.Black;
-            this.buttonCan.UseVisualStyleBackColor = false;
-            this.buttonCan.Click += new System.EventHandler(this.buttonCan_Click);
             // 
             // FormPrices
             // 
@@ -1063,5 +1077,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ToolStripMenuItem viewReninformationToolStripMenuItem;
+        private System.Windows.Forms.Label label142;
     }
 }

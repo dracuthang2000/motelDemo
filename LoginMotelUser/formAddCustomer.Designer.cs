@@ -105,6 +105,7 @@
             this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewReinformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label142 = new System.Windows.Forms.Label();
             this.contextMenuListcus.SuspendLayout();
             this.panel11.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -199,7 +200,7 @@
             // 
             this.cbbDaySC3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbDaySC3.FormattingEnabled = true;
-            this.cbbDaySC3.Location = new System.Drawing.Point(136, 11);
+            this.cbbDaySC3.Location = new System.Drawing.Point(136, 9);
             this.cbbDaySC3.Name = "cbbDaySC3";
             this.cbbDaySC3.Size = new System.Drawing.Size(171, 28);
             this.cbbDaySC3.TabIndex = 18;
@@ -313,7 +314,7 @@
             // 
             this.cbbLoaiPhongSC3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbLoaiPhongSC3.FormattingEnabled = true;
-            this.cbbLoaiPhongSC3.Location = new System.Drawing.Point(138, 58);
+            this.cbbLoaiPhongSC3.Location = new System.Drawing.Point(138, 56);
             this.cbbLoaiPhongSC3.Name = "cbbLoaiPhongSC3";
             this.cbbLoaiPhongSC3.Size = new System.Drawing.Size(168, 28);
             this.cbbLoaiPhongSC3.TabIndex = 36;
@@ -464,7 +465,7 @@
             this.cbbGioiTinhSC3.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cbbGioiTinhSC3.Location = new System.Drawing.Point(195, 254);
+            this.cbbGioiTinhSC3.Location = new System.Drawing.Point(195, 253);
             this.cbbGioiTinhSC3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbGioiTinhSC3.Name = "cbbGioiTinhSC3";
             this.cbbGioiTinhSC3.Size = new System.Drawing.Size(282, 28);
@@ -486,6 +487,7 @@
             // 
             this.panel11.BackColor = System.Drawing.Color.Transparent;
             this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel11.Controls.Add(this.label142);
             this.panel11.Controls.Add(this.flowLayoutPanel1);
             this.panel11.Controls.Add(this.tableLayoutPanel5);
             this.panel11.Controls.Add(this.tableLayoutPanel4);
@@ -925,7 +927,7 @@
             // 
             this.checkInToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("checkInToolStripMenuItem.Image")));
             this.checkInToolStripMenuItem.Name = "checkInToolStripMenuItem";
-            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
             this.checkInToolStripMenuItem.Text = "Check in";
             this.checkInToolStripMenuItem.Click += new System.EventHandler(this.checkInToolStripMenuItem_Click_1);
             // 
@@ -933,7 +935,7 @@
             // 
             this.checOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("checOutToolStripMenuItem.Image")));
             this.checOutToolStripMenuItem.Name = "checOutToolStripMenuItem";
-            this.checOutToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.checOutToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
             this.checOutToolStripMenuItem.Text = "Check out";
             this.checOutToolStripMenuItem.Click += new System.EventHandler(this.checOutToolStripMenuItem_Click);
             // 
@@ -944,6 +946,18 @@
             this.viewReinformationToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
             this.viewReinformationToolStripMenuItem.Text = "View reninformation";
             this.viewReinformationToolStripMenuItem.Click += new System.EventHandler(this.viewReinformationToolStripMenuItem_Click);
+            // 
+            // label142
+            // 
+            this.label142.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label142.AutoSize = true;
+            this.label142.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label142.Location = new System.Drawing.Point(570, 45);
+            this.label142.Name = "label142";
+            this.label142.Size = new System.Drawing.Size(247, 29);
+            this.label142.TabIndex = 67;
+            this.label142.Text = "RENINFORMATION";
+            this.label142.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // formAddCustomer
             // 
@@ -961,6 +975,7 @@
             this.Load += new System.EventHandler(this.frmAddCustomer_Load);
             this.contextMenuListcus.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
@@ -1058,6 +1073,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.ToolStripMenuItem viewReinformationToolStripMenuItem;
+        private System.Windows.Forms.Label label142;
     }
         #region Windows Form Designer generated code
 

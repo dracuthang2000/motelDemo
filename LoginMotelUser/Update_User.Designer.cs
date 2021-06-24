@@ -110,7 +110,7 @@
             this.dataUser.Name = "dataUser";
             this.dataUser.RowHeadersWidth = 51;
             this.dataUser.RowTemplate.Height = 24;
-            this.dataUser.Size = new System.Drawing.Size(664, 410);
+            this.dataUser.Size = new System.Drawing.Size(1013, 558);
             this.dataUser.StandardTab = true;
             this.dataUser.TabIndex = 0;
             this.dataUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -283,7 +283,7 @@
             this.buttonUp.FlatAppearance.BorderSize = 0;
             this.buttonUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUp.Location = new System.Drawing.Point(4, 377);
+            this.buttonUp.Location = new System.Drawing.Point(4, 525);
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonUp.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -304,7 +304,7 @@
             this.buttonDelete.FlatAppearance.BorderSize = 0;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.Location = new System.Drawing.Point(115, 377);
+            this.buttonDelete.Location = new System.Drawing.Point(115, 525);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonDelete.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -325,7 +325,7 @@
             this.buttonCan.FlatAppearance.BorderSize = 0;
             this.buttonCan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCan.Location = new System.Drawing.Point(233, 377);
+            this.buttonCan.Location = new System.Drawing.Point(233, 525);
             this.buttonCan.Name = "buttonCan";
             this.buttonCan.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonCan.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -353,7 +353,7 @@
             this.panel.Controls.Add(this.label3);
             this.panel.Location = new System.Drawing.Point(11, 94);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(344, 410);
+            this.panel.Size = new System.Drawing.Size(344, 558);
             this.panel.TabIndex = 23;
             // 
             // menuStrip1
@@ -366,7 +366,7 @@
             this.reinforToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1027, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1376, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -616,7 +616,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1027, 509);
+            this.ClientSize = new System.Drawing.Size(1376, 657);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.panel1);

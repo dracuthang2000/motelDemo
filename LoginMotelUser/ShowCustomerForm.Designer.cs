@@ -127,7 +127,7 @@
             this.labTieuDe.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labTieuDe.AutoSize = true;
             this.labTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTieuDe.Location = new System.Drawing.Point(349, 35);
+            this.labTieuDe.Location = new System.Drawing.Point(550, 35);
             this.labTieuDe.Name = "labTieuDe";
             this.labTieuDe.Size = new System.Drawing.Size(254, 32);
             this.labTieuDe.TabIndex = 0;
@@ -146,7 +146,7 @@
             this.listKhach.LabelEdit = true;
             this.listKhach.Location = new System.Drawing.Point(10, 113);
             this.listKhach.Name = "listKhach";
-            this.listKhach.Size = new System.Drawing.Size(950, 412);
+            this.listKhach.Size = new System.Drawing.Size(1353, 410);
             this.listKhach.TabIndex = 1;
             this.listKhach.UseCompatibleStateImageBehavior = false;
             this.listKhach.View = System.Windows.Forms.View.Details;
@@ -177,7 +177,7 @@
             // 
             this.butRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.butRight.AutoSize = true;
-            this.butRight.Location = new System.Drawing.Point(884, 527);
+            this.butRight.Location = new System.Drawing.Point(1287, 525);
             this.butRight.Name = "butRight";
             this.butRight.Size = new System.Drawing.Size(75, 27);
             this.butRight.TabIndex = 3;
@@ -189,7 +189,7 @@
             // 
             this.butLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.butLeft.AutoSize = true;
-            this.butLeft.Location = new System.Drawing.Point(10, 531);
+            this.butLeft.Location = new System.Drawing.Point(10, 529);
             this.butLeft.Name = "butLeft";
             this.butLeft.Size = new System.Drawing.Size(75, 27);
             this.butLeft.TabIndex = 2;
@@ -201,7 +201,7 @@
             // 
             this.labPage.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labPage.AutoSize = true;
-            this.labPage.Location = new System.Drawing.Point(438, 541);
+            this.labPage.Location = new System.Drawing.Point(639, 539);
             this.labPage.Name = "labPage";
             this.labPage.Size = new System.Drawing.Size(65, 17);
             this.labPage.TabIndex = 9;
@@ -227,7 +227,7 @@
             this.panKhach.Controls.Add(this.labTieuDe);
             this.panKhach.Location = new System.Drawing.Point(2, 2);
             this.panKhach.Name = "panKhach";
-            this.panKhach.Size = new System.Drawing.Size(970, 656);
+            this.panKhach.Size = new System.Drawing.Size(1373, 654);
             this.panKhach.TabIndex = 0;
             // 
             // buttonCancle
@@ -239,7 +239,7 @@
             this.buttonCancle.FlatAppearance.BorderSize = 0;
             this.buttonCancle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancle.Location = new System.Drawing.Point(686, 577);
+            this.buttonCancle.Location = new System.Drawing.Point(887, 575);
             this.buttonCancle.Name = "buttonCancle";
             this.buttonCancle.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonCancle.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -260,7 +260,7 @@
             this.buttonDelete.FlatAppearance.BorderSize = 0;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.Location = new System.Drawing.Point(420, 577);
+            this.buttonDelete.Location = new System.Drawing.Point(621, 575);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonDelete.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -281,7 +281,7 @@
             this.buttonUp.FlatAppearance.BorderSize = 0;
             this.buttonUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUp.Location = new System.Drawing.Point(181, 577);
+            this.buttonUp.Location = new System.Drawing.Point(382, 575);
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonUp.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -303,7 +303,7 @@
             this.reinforToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(973, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1376, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -552,7 +552,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(973, 659);
+            this.ClientSize = new System.Drawing.Size(1376, 657);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panKhach);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

@@ -98,7 +98,7 @@
             this.panRange.Controls.Add(this.labTieuDe);
             this.panRange.Location = new System.Drawing.Point(-1, 1);
             this.panRange.Name = "panRange";
-            this.panRange.Size = new System.Drawing.Size(1127, 651);
+            this.panRange.Size = new System.Drawing.Size(1377, 657);
             this.panRange.TabIndex = 0;
             // 
             // panel1
@@ -110,7 +110,7 @@
             this.panel1.Controls.Add(this.tableLayoutPanel2);
             this.panel1.Location = new System.Drawing.Point(13, 67);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(510, 581);
+            this.panel1.Size = new System.Drawing.Size(510, 587);
             this.panel1.TabIndex = 64;
             // 
             // flowLayoutPanel1
@@ -244,7 +244,7 @@
             this.tableLayoutPanel2.Controls.Add(this.buttonUp, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonDelete, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonClear, 2, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(87, 366);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(87, 369);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -330,7 +330,7 @@
             this.button_WOC1.FlatAppearance.BorderSize = 0;
             this.button_WOC1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_WOC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC1.Location = new System.Drawing.Point(1017, 593);
+            this.button_WOC1.Location = new System.Drawing.Point(1267, 599);
             this.button_WOC1.Name = "button_WOC1";
             this.button_WOC1.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.button_WOC1.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -346,7 +346,7 @@
             // 
             this.labPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labPage.AutoSize = true;
-            this.labPage.Location = new System.Drawing.Point(824, 543);
+            this.labPage.Location = new System.Drawing.Point(1023, 544);
             this.labPage.Name = "labPage";
             this.labPage.Size = new System.Drawing.Size(65, 17);
             this.labPage.TabIndex = 11;
@@ -356,7 +356,7 @@
             // 
             this.butRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.butRight.AutoSize = true;
-            this.butRight.Location = new System.Drawing.Point(702, 538);
+            this.butRight.Location = new System.Drawing.Point(777, 544);
             this.butRight.Name = "butRight";
             this.butRight.Size = new System.Drawing.Size(75, 27);
             this.butRight.TabIndex = 2;
@@ -368,7 +368,7 @@
             // 
             this.butLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.butLeft.AutoSize = true;
-            this.butLeft.Location = new System.Drawing.Point(951, 538);
+            this.butLeft.Location = new System.Drawing.Point(1238, 544);
             this.butLeft.Name = "butLeft";
             this.butLeft.Size = new System.Drawing.Size(75, 27);
             this.butLeft.TabIndex = 1;
@@ -383,9 +383,9 @@
             this.listRange.FullRowSelect = true;
             this.listRange.GridLines = true;
             this.listRange.HideSelection = false;
-            this.listRange.Location = new System.Drawing.Point(702, 67);
+            this.listRange.Location = new System.Drawing.Point(777, 67);
             this.listRange.Name = "listRange";
-            this.listRange.Size = new System.Drawing.Size(324, 465);
+            this.listRange.Size = new System.Drawing.Size(536, 471);
             this.listRange.TabIndex = 0;
             this.listRange.UseCompatibleStateImageBehavior = false;
             this.listRange.View = System.Windows.Forms.View.Details;
@@ -397,7 +397,7 @@
             this.labTieuDe.AutoSize = true;
             this.labTieuDe.BackColor = System.Drawing.Color.Transparent;
             this.labTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTieuDe.Location = new System.Drawing.Point(422, 32);
+            this.labTieuDe.Location = new System.Drawing.Point(547, 32);
             this.labTieuDe.Name = "labTieuDe";
             this.labTieuDe.Size = new System.Drawing.Size(333, 32);
             this.labTieuDe.TabIndex = 0;
@@ -413,7 +413,7 @@
             this.reinforToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1126, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1376, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -636,7 +636,7 @@
             // 
             this.checkInToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("checkInToolStripMenuItem.Image")));
             this.checkInToolStripMenuItem.Name = "checkInToolStripMenuItem";
-            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.checkInToolStripMenuItem.Text = "Check in";
             this.checkInToolStripMenuItem.Click += new System.EventHandler(this.checkInToolStripMenuItem_Click_1);
             // 
@@ -644,7 +644,7 @@
             // 
             this.checOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("checOutToolStripMenuItem.Image")));
             this.checOutToolStripMenuItem.Name = "checOutToolStripMenuItem";
-            this.checOutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.checOutToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.checOutToolStripMenuItem.Text = "Chec out";
             this.checOutToolStripMenuItem.Click += new System.EventHandler(this.checOutToolStripMenuItem_Click);
             // 
@@ -652,7 +652,7 @@
             // 
             this.viewReinformationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewReinformationToolStripMenuItem.Image")));
             this.viewReinformationToolStripMenuItem.Name = "viewReinformationToolStripMenuItem";
-            this.viewReinformationToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.viewReinformationToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.viewReinformationToolStripMenuItem.Text = "View reinformation";
             // 
             // showRangeForm
@@ -661,7 +661,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1126, 651);
+            this.ClientSize = new System.Drawing.Size(1376, 657);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panRange);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

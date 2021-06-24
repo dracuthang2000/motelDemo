@@ -64,63 +64,63 @@
             this.labTieuDe.Font = new System.Drawing.Font("Arial Narrow", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labTieuDe.Location = new System.Drawing.Point(302, 18);
             this.labTieuDe.Name = "labTieuDe";
-            this.labTieuDe.Size = new System.Drawing.Size(293, 33);
+            this.labTieuDe.Size = new System.Drawing.Size(316, 33);
             this.labTieuDe.TabIndex = 0;
-            this.labTieuDe.Text = "THÔNG TIN KHÁCH TRỌ";
+            this.labTieuDe.Text = "CUSTOMER INFORMATION";
             // 
             // labIDCus
             // 
             this.labIDCus.AutoSize = true;
             this.labIDCus.Location = new System.Drawing.Point(51, 82);
             this.labIDCus.Name = "labIDCus";
-            this.labIDCus.Size = new System.Drawing.Size(73, 17);
+            this.labIDCus.Size = new System.Drawing.Size(93, 17);
             this.labIDCus.TabIndex = 1;
-            this.labIDCus.Text = "ID Khách :";
+            this.labIDCus.Text = "ID Customer :";
             // 
             // labHoTen
             // 
             this.labHoTen.AutoSize = true;
             this.labHoTen.Location = new System.Drawing.Point(51, 141);
             this.labHoTen.Name = "labHoTen";
-            this.labHoTen.Size = new System.Drawing.Size(63, 17);
+            this.labHoTen.Size = new System.Drawing.Size(77, 17);
             this.labHoTen.TabIndex = 2;
-            this.labHoTen.Text = "Họ Tên :";
+            this.labHoTen.Text = "Full name :";
             // 
             // labNgaySinh
             // 
             this.labNgaySinh.AutoSize = true;
             this.labNgaySinh.Location = new System.Drawing.Point(538, 141);
             this.labNgaySinh.Name = "labNgaySinh";
-            this.labNgaySinh.Size = new System.Drawing.Size(81, 17);
+            this.labNgaySinh.Size = new System.Drawing.Size(94, 17);
             this.labNgaySinh.TabIndex = 3;
-            this.labNgaySinh.Text = "Ngày Sinh :";
+            this.labNgaySinh.Text = "Date of birth :";
             // 
             // labDiaChi
             // 
             this.labDiaChi.AutoSize = true;
             this.labDiaChi.Location = new System.Drawing.Point(51, 208);
             this.labDiaChi.Name = "labDiaChi";
-            this.labDiaChi.Size = new System.Drawing.Size(61, 17);
+            this.labDiaChi.Size = new System.Drawing.Size(68, 17);
             this.labDiaChi.TabIndex = 4;
-            this.labDiaChi.Text = "Địa Chỉ :";
+            this.labDiaChi.Text = "Address :";
             // 
             // labSDT
             // 
             this.labSDT.AutoSize = true;
             this.labSDT.Location = new System.Drawing.Point(51, 266);
             this.labSDT.Name = "labSDT";
-            this.labSDT.Size = new System.Drawing.Size(106, 17);
+            this.labSDT.Size = new System.Drawing.Size(110, 17);
             this.labSDT.TabIndex = 5;
-            this.labSDT.Text = "Số Điện Thoại :";
+            this.labSDT.Text = "Number phone :";
             // 
             // labSexual
             // 
             this.labSexual.AutoSize = true;
             this.labSexual.Location = new System.Drawing.Point(538, 266);
             this.labSexual.Name = "labSexual";
-            this.labSexual.Size = new System.Drawing.Size(73, 17);
+            this.labSexual.Size = new System.Drawing.Size(58, 17);
             this.labSexual.TabIndex = 6;
-            this.labSexual.Text = "Giới Tính :";
+            this.labSexual.Text = "Sexual :";
             // 
             // labIDRoom
             // 

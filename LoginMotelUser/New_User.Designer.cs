@@ -182,7 +182,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(572, 406);
+            this.dataGridView1.Size = new System.Drawing.Size(922, 568);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
@@ -238,7 +238,7 @@
             this.buttonIn.FlatAppearance.BorderSize = 0;
             this.buttonIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonIn.Location = new System.Drawing.Point(3, 376);
+            this.buttonIn.Location = new System.Drawing.Point(3, 538);
             this.buttonIn.Name = "buttonIn";
             this.buttonIn.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.buttonIn.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -259,7 +259,7 @@
             this.button_WOC1.FlatAppearance.BorderSize = 0;
             this.button_WOC1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_WOC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC1.Location = new System.Drawing.Point(321, 373);
+            this.button_WOC1.Location = new System.Drawing.Point(321, 535);
             this.button_WOC1.Name = "button_WOC1";
             this.button_WOC1.OnHoverBorderColor = System.Drawing.Color.Gray;
             this.button_WOC1.OnHoverButtonColor = System.Drawing.Color.Turquoise;
@@ -286,7 +286,7 @@
             this.panel.Controls.Add(this.label1);
             this.panel.Location = new System.Drawing.Point(9, 87);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(404, 406);
+            this.panel.Size = new System.Drawing.Size(404, 568);
             this.panel.TabIndex = 23;
             // 
             // menuStrip1
@@ -299,7 +299,7 @@
             this.reinforToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1026, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1376, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -522,7 +522,7 @@
             // 
             this.checkInToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("checkInToolStripMenuItem.Image")));
             this.checkInToolStripMenuItem.Name = "checkInToolStripMenuItem";
-            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.checkInToolStripMenuItem.Text = "Check in";
             this.checkInToolStripMenuItem.Click += new System.EventHandler(this.checkInToolStripMenuItem_Click_1);
             // 
@@ -530,7 +530,7 @@
             // 
             this.checOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("checOutToolStripMenuItem.Image")));
             this.checOutToolStripMenuItem.Name = "checOutToolStripMenuItem";
-            this.checOutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.checOutToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.checOutToolStripMenuItem.Text = "Check out";
             this.checOutToolStripMenuItem.Click += new System.EventHandler(this.checOutToolStripMenuItem_Click);
             // 
@@ -538,7 +538,7 @@
             // 
             this.viewReinformationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewReinformationToolStripMenuItem.Image")));
             this.viewReinformationToolStripMenuItem.Name = "viewReinformationToolStripMenuItem";
-            this.viewReinformationToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.viewReinformationToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.viewReinformationToolStripMenuItem.Text = "View reinformation";
             this.viewReinformationToolStripMenuItem.Click += new System.EventHandler(this.viewReinformationToolStripMenuItem_Click);
             // 
@@ -549,7 +549,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1026, 495);
+            this.ClientSize = new System.Drawing.Size(1376, 657);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.dataGridView1);
